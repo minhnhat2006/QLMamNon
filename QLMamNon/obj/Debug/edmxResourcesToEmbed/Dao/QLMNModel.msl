@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="qlmamnonModelStoreContainer" CdmEntityContainer="qlmamnonEntities">
+    <EntitySetMapping Name="bangthutiens">
+      <EntityTypeMapping TypeName="qlmamnonModel.bangthutien">
+        <MappingFragment StoreEntitySet="bangthutien">
+          <ScalarProperty Name="BangThuTienId" ColumnName="BangThuTienId" />
+          <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />
+          <ScalarProperty Name="LopId" ColumnName="LopId" />
+          <ScalarProperty Name="SXThangTruoc" ColumnName="SXThangTruoc" />
+          <ScalarProperty Name="SoTienSXThangTruoc" ColumnName="SoTienSXThangTruoc" />
+          <ScalarProperty Name="AnSangThangTruoc" ColumnName="AnSangThangTruoc" />
+          <ScalarProperty Name="SoTienAnSangThangTruoc" ColumnName="SoTienAnSangThangTruoc" />
+          <ScalarProperty Name="SoTienAnSangThangNay" ColumnName="SoTienAnSangThangNay" />
+          <ScalarProperty Name="SoTienAnToiThangTruoc" ColumnName="SoTienAnToiThangTruoc" />
+          <ScalarProperty Name="AnToiThangTruoc" ColumnName="AnToiThangTruoc" />
+          <ScalarProperty Name="SoTienAnToiThangNay" ColumnName="SoTienAnToiThangNay" />
+          <ScalarProperty Name="SoTienDoDung" ColumnName="SoTienDoDung" />
+          <ScalarProperty Name="SoTienNangKhieu" ColumnName="SoTienNangKhieu" />
+          <ScalarProperty Name="SoTienTruyThu" ColumnName="SoTienTruyThu" />
+          <ScalarProperty Name="SoTienDieuHoa" ColumnName="SoTienDieuHoa" />
+          <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bangthutien_khoanthu">
+      <EntityTypeMapping TypeName="qlmamnonModel.bangthutien_khoanthu">
+        <MappingFragment StoreEntitySet="bangthutien_khoanthu">
+          <ScalarProperty Name="BTTKTId" ColumnName="BTTKTId" />
+          <ScalarProperty Name="KhoanThuId" ColumnName="KhoanThuId" />
+          <ScalarProperty Name="BangThuTienId" ColumnName="BangThuTienId" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bangthutiengenhistories">
+      <EntityTypeMapping TypeName="qlmamnonModel.bangthutiengenhistory">
+        <MappingFragment StoreEntitySet="bangthutiengenhistory">
+          <ScalarProperty Name="BTTGenHistoryId" ColumnName="BTTGenHistoryId" />
+          <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+          <ScalarProperty Name="LopId" ColumnName="LopId" />
+          <ScalarProperty Name="SoTienAnSang" ColumnName="SoTienAnSang" />
+          <ScalarProperty Name="SoTienAnToi" ColumnName="SoTienAnToi" />
+          <ScalarProperty Name="SoTienAnChinh" ColumnName="SoTienAnChinh" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bangtinhphis">
+      <EntityTypeMapping TypeName="qlmamnonModel.bangtinhphi">
+        <MappingFragment StoreEntitySet="bangtinhphi">
+          <ScalarProperty Name="BangTinhPhiId" ColumnName="BangTinhPhiId" />
+          <ScalarProperty Name="SoNgayNghiMin" ColumnName="SoNgayNghiMin" />
+          <ScalarProperty Name="SoNgayNghiMax" ColumnName="SoNgayNghiMax" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="KhoanThuId" ColumnName="KhoanThuId" />
+          <ScalarProperty Name="KhoiId" ColumnName="KhoiId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="baocaothangs">
+      <EntityTypeMapping TypeName="qlmamnonModel.baocaothang">
+        <MappingFragment StoreEntitySet="baocaothang">
+          <ScalarProperty Name="BaoCaoThangId" ColumnName="BaoCaoThangId" />
+          <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+          <ScalarProperty Name="HocTapId" ColumnName="HocTapId" />
+          <ScalarProperty Name="SoNgayNghi" ColumnName="SoNgayNghi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="baocaothanggenhistories">
+      <EntityTypeMapping TypeName="qlmamnonModel.baocaothanggenhistory">
+        <MappingFragment StoreEntitySet="baocaothanggenhistory">
+          <ScalarProperty Name="BCTGenHistoryId" ColumnName="BCTGenHistoryId" />
+          <ScalarProperty Name="LopId" ColumnName="LopId" />
+          <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hocsinhs">
+      <EntityTypeMapping TypeName="qlmamnonModel.hocsinh">
+        <MappingFragment StoreEntitySet="hocsinh">
+          <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />
+          <ScalarProperty Name="HoDem" ColumnName="HoDem" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="NgayVaoLop" ColumnName="NgayVaoLop" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="DienCuTru" ColumnName="DienCuTru" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="HoTenCha" ColumnName="HoTenCha" />
+          <ScalarProperty Name="HoTenMe" ColumnName="HoTenMe" />
+          <ScalarProperty Name="DienThoaiMe" ColumnName="DienThoaiMe" />
+          <ScalarProperty Name="TinhThanhPhoId" ColumnName="TinhThanhPhoId" />
+          <ScalarProperty Name="QuanHuyenId" ColumnName="QuanHuyenId" />
+          <ScalarProperty Name="PhuongXaId" ColumnName="PhuongXaId" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="ThoiHoc" ColumnName="ThoiHoc" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hocsinh_lop">
+      <EntityTypeMapping TypeName="qlmamnonModel.hocsinh_lop">
+        <MappingFragment StoreEntitySet="hocsinh_lop">
+          <ScalarProperty Name="HocSinhLopId" ColumnName="HocSinhLopId" />
+          <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />
+          <ScalarProperty Name="LopId" ColumnName="LopId" />
+          <ScalarProperty Name="DateJoin" ColumnName="DateJoin" />
+          <ScalarProperty Name="DateLeft" ColumnName="DateLeft" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hoctaps">
+      <EntityTypeMapping TypeName="qlmamnonModel.hoctap">
+        <MappingFragment StoreEntitySet="hoctap">
+          <ScalarProperty Name="HocTapId" ColumnName="HocTapId" />
+          <ScalarProperty Name="HocSinhLopId" ColumnName="HocSinhLopId" />
+          <ScalarProperty Name="Hoc2Buoi" ColumnName="Hoc2Buoi" />
+          <ScalarProperty Name="ChuyenCan" ColumnName="ChuyenCan" />
+          <ScalarProperty Name="AnTaiTruong" ColumnName="AnTaiTruong" />
+          <ScalarProperty Name="HocLienTuc" ColumnName="HocLienTuc" />
+          <ScalarProperty Name="TheoDoiCanNang" ColumnName="TheoDoiCanNang" />
+          <ScalarProperty Name="SDDCanNang" ColumnName="SDDCanNang" />
+          <ScalarProperty Name="TheoDoiChieuCao" ColumnName="TheoDoiChieuCao" />
+          <ScalarProperty Name="SDDChieuCao" ColumnName="SDDChieuCao" />
+          <ScalarProperty Name="HoanThanhCTGDMN" ColumnName="HoanThanhCTGDMN" />
+          <ScalarProperty Name="DanhGia" ColumnName="DanhGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="khoanthus">
+      <EntityTypeMapping TypeName="qlmamnonModel.khoanthu">
+        <MappingFragment StoreEntitySet="khoanthu">
+          <ScalarProperty Name="KhoanThuId" ColumnName="KhoanThuId" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="IsBatBuoc" ColumnName="IsBatBuoc" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="khoanthuhangnams">
+      <EntityTypeMapping TypeName="qlmamnonModel.khoanthuhangnam">
+        <MappingFragment StoreEntitySet="khoanthuhangnam">
+          <ScalarProperty Name="KhoanThuHangNamId" ColumnName="KhoanThuHangNamId" />
+          <ScalarProperty Name="KhoanThuId" ColumnName="KhoanThuId" />
+          <ScalarProperty Name="KhoiId" ColumnName="KhoiId" />
+          <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+          <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+          <ScalarProperty Name="IsBatBuoc" ColumnName="IsBatBuoc" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="khois">
+      <EntityTypeMapping TypeName="qlmamnonModel.khoi">
+        <MappingFragment StoreEntitySet="khoi">
+          <ScalarProperty Name="KhoiId" ColumnName="KhoiId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="khoi_truong">
+      <EntityTypeMapping TypeName="qlmamnonModel.khoi_truong">
+        <MappingFragment StoreEntitySet="khoi_truong">
+          <ScalarProperty Name="KhoiTruongId" ColumnName="KhoiTruongId" />
+          <ScalarProperty Name="KhoiId" ColumnName="KhoiId" />
+          <ScalarProperty Name="TruongId" ColumnName="TruongId" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lops">
+      <EntityTypeMapping TypeName="qlmamnonModel.lop">
+        <MappingFragment StoreEntitySet="lop">
+          <ScalarProperty Name="LopId" ColumnName="LopId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lop_khoi">
+      <EntityTypeMapping TypeName="qlmamnonModel.lop_khoi">
+        <MappingFragment StoreEntitySet="lop_khoi">
+          <ScalarProperty Name="LopKhoiId" ColumnName="LopKhoiId" />
+          <ScalarProperty Name="LopId" ColumnName="LopId" />
+          <ScalarProperty Name="KhoiId" ColumnName="KhoiId" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="phanloaichis">
+      <EntityTypeMapping TypeName="qlmamnonModel.phanloaichi">
+        <MappingFragment StoreEntitySet="phanloaichi">
+          <ScalarProperty Name="PhanLoaiChiId" ColumnName="PhanLoaiChiId" />
+          <ScalarProperty Name="MaPhanLoai" ColumnName="MaPhanLoai" />
+          <ScalarProperty Name="DienGiai" ColumnName="DienGiai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="phanloaithus">
+      <EntityTypeMapping TypeName="qlmamnonModel.phanloaithu">
+        <MappingFragment StoreEntitySet="phanloaithu">
+          <ScalarProperty Name="PhanLoaiThuId" ColumnName="PhanLoaiThuId" />
+          <ScalarProperty Name="DienGiai" ColumnName="DienGiai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="phieuchis">
+      <EntityTypeMapping TypeName="qlmamnonModel.phieuchi">
+        <MappingFragment StoreEntitySet="phieuchi">
+          <ScalarProperty Name="PhieuChiId" ColumnName="PhieuChiId" />
+          <ScalarProperty Name="MaPhieu" ColumnName="MaPhieu" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="PhanLoaiChiId" ColumnName="PhanLoaiChiId" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="phieuthus">
+      <EntityTypeMapping TypeName="qlmamnonModel.phieuthu">
+        <MappingFragment StoreEntitySet="phieuthu">
+          <ScalarProperty Name="PhieuThuId" ColumnName="PhieuThuId" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="MaPhieu" ColumnName="MaPhieu" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="PhanLoaiThuId" ColumnName="PhanLoaiThuId" />
+          <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="phuongxas">
+      <EntityTypeMapping TypeName="qlmamnonModel.phuongxa">
+        <MappingFragment StoreEntitySet="phuongxa">
+          <ScalarProperty Name="PhuongXaId" ColumnName="PhuongXaId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="QuanHuyenId" ColumnName="QuanHuyenId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="privileges">
+      <EntityTypeMapping TypeName="qlmamnonModel.privilege">
+        <MappingFragment StoreEntitySet="privilege">
+          <ScalarProperty Name="PrivilegeId" ColumnName="PrivilegeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quanhuyens">
+      <EntityTypeMapping TypeName="qlmamnonModel.quanhuyen">
+        <MappingFragment StoreEntitySet="quanhuyen">
+          <ScalarProperty Name="QuanHuyenId" ColumnName="QuanHuyenId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ThanhPhoId" ColumnName="ThanhPhoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schoolsettings">
+      <EntityTypeMapping TypeName="qlmamnonModel.schoolsetting">
+        <MappingFragment StoreEntitySet="schoolsetting">
+          <ScalarProperty Name="SchoolSettingId" ColumnName="SchoolSettingId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="smstemplates">
+      <EntityTypeMapping TypeName="qlmamnonModel.smstemplate">
+        <MappingFragment StoreEntitySet="smstemplate">
+          <ScalarProperty Name="SmsTemplateId" ColumnName="SmsTemplateId" />
+          <ScalarProperty Name="Template" ColumnName="Template" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taisans">
+      <EntityTypeMapping TypeName="qlmamnonModel.taisan">
+        <MappingFragment StoreEntitySet="taisan">
+          <ScalarProperty Name="TaiSanId" ColumnName="TaiSanId" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoChungTu" ColumnName="SoChungTu" />
+          <ScalarProperty Name="NgayChungTu" ColumnName="NgayChungTu" />
+          <ScalarProperty Name="PhieuChiId" ColumnName="PhieuChiId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taisan_lop">
+      <EntityTypeMapping TypeName="qlmamnonModel.taisan_lop">
+        <MappingFragment StoreEntitySet="taisan_lop">
+          <ScalarProperty Name="TaiSanLopId" ColumnName="TaiSanLopId" />
+          <ScalarProperty Name="TaiSanId" ColumnName="TaiSanId" />
+          <ScalarProperty Name="LopId" ColumnName="LopId" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="NgayBanGiao" ColumnName="NgayBanGiao" />
+          <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="thanhphoes">
+      <EntityTypeMapping TypeName="qlmamnonModel.thanhpho">
+        <MappingFragment StoreEntitySet="thanhpho">
+          <ScalarProperty Name="ThanhPhoId" ColumnName="ThanhPhoId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="truongs">
+      <EntityTypeMapping TypeName="qlmamnonModel.truong">
+        <MappingFragment StoreEntitySet="truong">
+          <ScalarProperty Name="TruongId" ColumnName="TruongId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="qlmamnonModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_privilege">
+      <EntityTypeMapping TypeName="qlmamnonModel.user_privilege">
+        <MappingFragment StoreEntitySet="user_privilege">
+          <ScalarProperty Name="UserPrivilegeId" ColumnName="UserPrivilegeId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PrivilegeId" ColumnName="PrivilegeId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viewbangiaotaisans">
+      <EntityTypeMapping TypeName="qlmamnonModel.viewbangiaotaisan">
+        <MappingFragment StoreEntitySet="viewbangiaotaisan">
+          <ScalarProperty Name="TaiSanId" ColumnName="TaiSanId" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoChungTu" ColumnName="SoChungTu" />
+          <ScalarProperty Name="NgayChungTu" ColumnName="NgayChungTu" />
+          <ScalarProperty Name="PhieuChiId" ColumnName="PhieuChiId" />
+          <ScalarProperty Name="LopId" ColumnName="LopId" />
+          <ScalarProperty Name="NgayBanGiao" ColumnName="NgayBanGiao" />
+          <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="TaiSanLopId" ColumnName="TaiSanLopId" />
+          <ScalarProperty Name="SoLuongBanGiao" ColumnName="SoLuongBanGiao" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viewbangthutiens">
+      <EntityTypeMapping TypeName="qlmamnonModel.viewbangthutien">
+        <MappingFragment StoreEntitySet="viewbangthutien">
+          <ScalarProperty Name="BangThuTienId" ColumnName="BangThuTienId" />
+          <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />
+          <ScalarProperty Name="LopId" ColumnName="LopId" />
+          <ScalarProperty Name="SXThangTruoc" ColumnName="SXThangTruoc" />
+          <ScalarProperty Name="SoTienSXThangTruoc" ColumnName="SoTienSXThangTruoc" />
+          <ScalarProperty Name="AnSangThangTruoc" ColumnName="AnSangThangTruoc" />
+          <ScalarProperty Name="SoTienAnSangThangTruoc" ColumnName="SoTienAnSangThangTruoc" />
+          <ScalarProperty Name="SoTienAnSangThangNay" ColumnName="SoTienAnSangThangNay" />
+          <ScalarProperty Name="AnToiThangTruoc" ColumnName="AnToiThangTruoc" />
+          <ScalarProperty Name="SoTienAnToiThangTruoc" ColumnName="SoTienAnToiThangTruoc" />
+          <ScalarProperty Name="SoTienAnToiThangNay" ColumnName="SoTienAnToiThangNay" />
+          <ScalarProperty Name="SoTienNangKhieu" ColumnName="SoTienNangKhieu" />
+          <ScalarProperty Name="SoTienTruyThu" ColumnName="SoTienTruyThu" />
+          <ScalarProperty Name="SoTienDoDung" ColumnName="SoTienDoDung" />
+          <ScalarProperty Name="SoTienDieuHoa" ColumnName="SoTienDieuHoa" />
+          <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="Lop" ColumnName="Lop" />
+          <ScalarProperty Name="SoBienLai" ColumnName="SoBienLai" />
+          <ScalarProperty Name="TongThu" ColumnName="TongThu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viewhoctaps">
+      <EntityTypeMapping TypeName="qlmamnonModel.viewhoctap">
+        <MappingFragment StoreEntitySet="viewhoctap">
+          <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />
+          <ScalarProperty Name="HoDem" ColumnName="HoDem" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="NgayVaoLop" ColumnName="NgayVaoLop" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="DienCuTru" ColumnName="DienCuTru" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="HoTenCha" ColumnName="HoTenCha" />
+          <ScalarProperty Name="HoTenMe" ColumnName="HoTenMe" />
+          <ScalarProperty Name="TinhThanhPhoId" ColumnName="TinhThanhPhoId" />
+          <ScalarProperty Name="QuanHuyenId" ColumnName="QuanHuyenId" />
+          <ScalarProperty Name="PhuongXaId" ColumnName="PhuongXaId" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="ThoiHoc" ColumnName="ThoiHoc" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="SoNgayNghiThang" ColumnName="SoNgayNghiThang" />
+          <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+          <ScalarProperty Name="HocTapId" ColumnName="HocTapId" />
+          <ScalarProperty Name="LopId" ColumnName="LopId" />
+          <ScalarProperty Name="LopName" ColumnName="LopName" />
+          <ScalarProperty Name="HocSinhLopId" ColumnName="HocSinhLopId" />
+          <ScalarProperty Name="DateJoin" ColumnName="DateJoin" />
+          <ScalarProperty Name="DateLeft" ColumnName="DateLeft" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viewtaisans">
+      <EntityTypeMapping TypeName="qlmamnonModel.viewtaisan">
+        <MappingFragment StoreEntitySet="viewtaisan">
+          <ScalarProperty Name="TaiSanId" ColumnName="TaiSanId" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoChungTu" ColumnName="SoChungTu" />
+          <ScalarProperty Name="NgayChungTu" ColumnName="NgayChungTu" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+          <ScalarProperty Name="PhieuChiId" ColumnName="PhieuChiId" />
+          <ScalarProperty Name="PhanLoaiChiId" ColumnName="PhanLoaiChiId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viewtaisanforbangiaotaisans">
+      <EntityTypeMapping TypeName="qlmamnonModel.viewtaisanforbangiaotaisan">
+        <MappingFragment StoreEntitySet="viewtaisanforbangiaotaisan">
+          <ScalarProperty Name="TaiSanId" ColumnName="TaiSanId" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoChungTu" ColumnName="SoChungTu" />
+          <ScalarProperty Name="NgayChungTu" ColumnName="NgayChungTu" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+          <ScalarProperty Name="PhieuChiId" ColumnName="PhieuChiId" />
+          <ScalarProperty Name="PhanLoaiChiId" ColumnName="PhanLoaiChiId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="deleteBangThuTienByHocSinhIdsAndDate" FunctionName="qlmamnonModel.Store.deleteBangThuTienByHocSinhIdsAndDate" />
+    <FunctionImportMapping FunctionImportName="deleteBangThuTienById" FunctionName="qlmamnonModel.Store.deleteBangThuTienById" />
+    <FunctionImportMapping FunctionImportName="deleteBangThuTienKhoanThuByBangThuTienId" FunctionName="qlmamnonModel.Store.deleteBangThuTienKhoanThuByBangThuTienId" />
+    <FunctionImportMapping FunctionImportName="deleteHocSinhLopByHocSinhIds" FunctionName="qlmamnonModel.Store.deleteHocSinhLopByHocSinhIds" />
+    <FunctionImportMapping FunctionImportName="deleteKhoiTruongByKhoiId" FunctionName="qlmamnonModel.Store.deleteKhoiTruongByKhoiId" />
+    <FunctionImportMapping FunctionImportName="deleteLopKhoiByLopId" FunctionName="qlmamnonModel.Store.deleteLopKhoiByLopId" />
+    <FunctionImportMapping FunctionImportName="deleteUserPrivileges" FunctionName="qlmamnonModel.Store.deleteUserPrivileges" />
+    <FunctionImportMapping FunctionImportName="deleteViewBanGiaoTaiSan" FunctionName="qlmamnonModel.Store.deleteViewBanGiaoTaiSan" />
+    <FunctionImportMapping FunctionImportName="deleteViewTaiSan" FunctionName="qlmamnonModel.Store.deleteViewTaiSan" />
+    <FunctionImportMapping FunctionImportName="getBangThuTienById" FunctionName="qlmamnonModel.Store.getBangThuTienById" />
+    <FunctionImportMapping FunctionImportName="getBangThuTienGenHistoryByLopAndNgay" FunctionName="qlmamnonModel.Store.getBangThuTienGenHistoryByLopAndNgay" />
+    <FunctionImportMapping FunctionImportName="getBangThuTienKhoanThuByBangThuTienIds" FunctionName="qlmamnonModel.Store.getBangThuTienKhoanThuByBangThuTienIds" />
+    <FunctionImportMapping FunctionImportName="getHocSinhByLopAndNgay" FunctionName="qlmamnonModel.Store.getHocSinhByLopAndNgay" />
+    <FunctionImportMapping FunctionImportName="getHocSinhByParams" FunctionName="qlmamnonModel.Store.getHocSinhByParams" />
+    <FunctionImportMapping FunctionImportName="getHocSinhForThongTinHocSinh" FunctionName="qlmamnonModel.Store.getHocSinhForThongTinHocSinh" />
+    <FunctionImportMapping FunctionImportName="getHocSinhLopByHocSinhIdsAndNgay" FunctionName="qlmamnonModel.Store.getHocSinhLopByHocSinhIdsAndNgay" />
+    <FunctionImportMapping FunctionImportName="getHocSinhNotAssignedToLop" FunctionName="qlmamnonModel.Store.getHocSinhNotAssignedToLop" />
+    <FunctionImportMapping FunctionImportName="getKhoanThuByIds" FunctionName="qlmamnonModel.Store.getKhoanThuByIds" />
+    <FunctionImportMapping FunctionImportName="getKhoanThuHangNamByParams" FunctionName="qlmamnonModel.Store.getKhoanThuHangNamByParams" />
+    <FunctionImportMapping FunctionImportName="getKhoiTruongByKhoiId" FunctionName="qlmamnonModel.Store.getKhoiTruongByKhoiId" />
+    <FunctionImportMapping FunctionImportName="getLopKhoiByLopId" FunctionName="qlmamnonModel.Store.getLopKhoiByLopId" />
+    <FunctionImportMapping FunctionImportName="getPhieuChiByDateRange" FunctionName="qlmamnonModel.Store.getPhieuChiByDateRange" />
+    <FunctionImportMapping FunctionImportName="getPhieuChiByDateRangeWithGroupPhanLoaiChi" FunctionName="qlmamnonModel.Store.getPhieuChiByDateRangeWithGroupPhanLoaiChi" />
+    <FunctionImportMapping FunctionImportName="getPhieuChiById" FunctionName="qlmamnonModel.Store.getPhieuChiById" />
+    <FunctionImportMapping FunctionImportName="getPhieuChiListForReportBCHDTC" FunctionName="qlmamnonModel.Store.getPhieuChiListForReportBCHDTC" />
+    <FunctionImportMapping FunctionImportName="getPhieuThuByDateRangeWithGroupPhanLoaiThu" FunctionName="qlmamnonModel.Store.getPhieuThuByDateRangeWithGroupPhanLoaiThu" />
+    <FunctionImportMapping FunctionImportName="getPhieuThuByHocSinhIdAndNgayTinh" FunctionName="qlmamnonModel.Store.getPhieuThuByHocSinhIdAndNgayTinh" />
+    <FunctionImportMapping FunctionImportName="getPhieuThuForSoQuyTienMat" FunctionName="qlmamnonModel.Store.getPhieuThuForSoQuyTienMat" />
+    <FunctionImportMapping FunctionImportName="getPhieuThuOfMonthByHocSinhIdsAndNgay" FunctionName="qlmamnonModel.Store.getPhieuThuOfMonthByHocSinhIdsAndNgay" />
+    <FunctionImportMapping FunctionImportName="getSoNgayNghiThangByNgayAndHocSinhIds" FunctionName="qlmamnonModel.Store.getSoNgayNghiThangByNgayAndHocSinhIds">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="qlmamnonModel.getSoNgayNghiThangByNgayAndHocSinhIds_Result" />
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getUser" FunctionName="qlmamnonModel.Store.getUser" />
+    <FunctionImportMapping FunctionImportName="getUserPriviledgeByUserId" FunctionName="qlmamnonModel.Store.getUserPriviledgeByUserId" />
+    <FunctionImportMapping FunctionImportName="getViewBanGiaoTaiSanByLopId" FunctionName="qlmamnonModel.Store.getViewBanGiaoTaiSanByLopId" />
+    <FunctionImportMapping FunctionImportName="getViewBanGiaoTaiSanByYear" FunctionName="qlmamnonModel.Store.getViewBanGiaoTaiSanByYear" />
+    <FunctionImportMapping FunctionImportName="getViewBangThuTienByNgayTinhAndHocSinhId" FunctionName="qlmamnonModel.Store.getViewBangThuTienByNgayTinhAndHocSinhId" />
+    <FunctionImportMapping FunctionImportName="getViewBangThuTienByNgayTinhAndLop" FunctionName="qlmamnonModel.Store.getViewBangThuTienByNgayTinhAndLop" />
+    <FunctionImportMapping FunctionImportName="getViewHocTapByLopAndNgay" FunctionName="qlmamnonModel.Store.getViewHocTapByLopAndNgay" />
+    <FunctionImportMapping FunctionImportName="getViewTaiSanForBanGiaoTaiSan" FunctionName="qlmamnonModel.Store.getViewTaiSanForBanGiaoTaiSan" />
+    <FunctionImportMapping FunctionImportName="insertHocSinhToLop" FunctionName="qlmamnonModel.Store.insertHocSinhToLop" />
+    <FunctionImportMapping FunctionImportName="insertUserPrivilegeIfNotExists" FunctionName="qlmamnonModel.Store.insertUserPrivilegeIfNotExists" />
+    <FunctionImportMapping FunctionImportName="insertViewBanGiaoTaiSai" FunctionName="qlmamnonModel.Store.insertViewBanGiaoTaiSai" />
+    <FunctionImportMapping FunctionImportName="insertViewTaiSan" FunctionName="qlmamnonModel.Store.insertViewTaiSan" />
+    <FunctionImportMapping FunctionImportName="selectViewBanGiaoTaiSan" FunctionName="qlmamnonModel.Store.selectViewBanGiaoTaiSan" />
+    <FunctionImportMapping FunctionImportName="updateSoTienTruyThuByHocSinhAndNgayUpdated" FunctionName="qlmamnonModel.Store.updateSoTienTruyThuByHocSinhAndNgayUpdated" />
+    <FunctionImportMapping FunctionImportName="updateViewBanGiaoTaiSan" FunctionName="qlmamnonModel.Store.updateViewBanGiaoTaiSan" />
+    <FunctionImportMapping FunctionImportName="updateViewHocTap" FunctionName="qlmamnonModel.Store.updateViewHocTap" />
+    <FunctionImportMapping FunctionImportName="updateViewTaiSan" FunctionName="qlmamnonModel.Store.updateViewTaiSan" />
+    <FunctionImportMapping FunctionImportName="countBangThuTienGenHistoryByLopAndNgayTinh" FunctionName="qlmamnonModel.Store.countBangThuTienGenHistoryByLopAndNgayTinh" />
+    <FunctionImportMapping FunctionImportName="getPhieuThuForReportBCHDTC" FunctionName="qlmamnonModel.Store.getPhieuThuForReportBCHDTC" />
+    <FunctionImportMapping FunctionImportName="getSumSoTienThuByDateRange" FunctionName="qlmamnonModel.Store.getSumSoTienThuByDateRange" />
+    <FunctionImportMapping FunctionImportName="getSumSoTienChiByDateRange" FunctionName="qlmamnonModel.Store.getSumSoTienChiByDateRange" />
+  </EntityContainerMapping>
+</Mapping>

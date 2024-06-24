@@ -1,0 +1,19 @@
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Mediator\bin\Debug\ACG.Core.WinForm.Mediator.dll
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Mediator\bin\Debug\ACG.Core.WinForm.Mediator.pdb
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Mediator\obj\Debug\ACG.Core.WinForm.Mediator.dll
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Mediator\obj\Debug\ACG.Core.WinForm.Mediator.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Mediator\bin\Debug\ACG.Core.WinForm.Mediator.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Mediator\bin\Debug\ACG.Core.WinForm.Mediator.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Mediator\obj\Debug\ACG.Core.WinForm.Mediator.csproj.CoreCompileInputs.cache
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Mediator\obj\Debug\ACG.Core.WinForm.Mediator.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Mediator\obj\Debug\ACG.Core.WinForm.Mediator.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Mediator\bin\Debug\ACG.Core.WinForm.Mediator.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Mediator\bin\Debug\ACG.Core.WinForm.Mediator.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Mediator\obj\Debug\ACG.Core.WinForm.Mediator.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Mediator\obj\Debug\ACG.Core.WinForm.Mediator.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Mediator\obj\Debug\ACG.Core.WinForm.Mediator.csprojAssemblyReference.cache
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Mediator\bin\Debug\ACG.Core.WinForm.Mediator.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Mediator\bin\Debug\ACG.Core.WinForm.Mediator.pdb
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Mediator\obj\Debug\ACG.Core.WinForm.Mediator.csproj.CoreCompileInputs.cache
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Mediator\obj\Debug\ACG.Core.WinForm.Mediator.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Mediator\obj\Debug\ACG.Core.WinForm.Mediator.pdb

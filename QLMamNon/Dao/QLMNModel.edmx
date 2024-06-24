@@ -1,0 +1,2185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="qlmamnonModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bangthutien">
+          <Key>
+            <PropertyRef Name="BangThuTienId" />
+          </Key>
+          <Property Name="BangThuTienId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HocSinhId" Type="int" Nullable="false" />
+          <Property Name="LopId" Type="int" Nullable="false" />
+          <Property Name="SXThangTruoc" Type="int" />
+          <Property Name="SoTienSXThangTruoc" Type="bigint" />
+          <Property Name="AnSangThangTruoc" Type="int" />
+          <Property Name="SoTienAnSangThangTruoc" Type="bigint" />
+          <Property Name="SoTienAnSangThangNay" Type="bigint" Nullable="false" />
+          <Property Name="SoTienAnToiThangTruoc" Type="bigint" />
+          <Property Name="AnToiThangTruoc" Type="int" Nullable="false" />
+          <Property Name="SoTienAnToiThangNay" Type="bigint" Nullable="false" />
+          <Property Name="SoTienDoDung" Type="bigint" />
+          <Property Name="SoTienNangKhieu" Type="bigint" />
+          <Property Name="SoTienTruyThu" Type="bigint" />
+          <Property Name="SoTienDieuHoa" Type="bigint" />
+          <Property Name="NgayTinh" Type="date" Nullable="false" />
+          <Property Name="STT" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bool" Nullable="false" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GhiChu" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bangthutien_khoanthu">
+          <Key>
+            <PropertyRef Name="BTTKTId" />
+          </Key>
+          <Property Name="BTTKTId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KhoanThuId" Type="int" Nullable="false" />
+          <Property Name="BangThuTienId" Type="int" Nullable="false" />
+          <Property Name="SoTien" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bangthutiengenhistory">
+          <Key>
+            <PropertyRef Name="BTTGenHistoryId" />
+          </Key>
+          <Property Name="BTTGenHistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayTinh" Type="date" Nullable="false" />
+          <Property Name="LopId" Type="int" />
+          <Property Name="SoTienAnSang" Type="double" Nullable="false" />
+          <Property Name="SoTienAnToi" Type="double" Nullable="false" />
+          <Property Name="SoTienAnChinh" Type="double" Nullable="false" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bangtinhphi">
+          <Key>
+            <PropertyRef Name="BangTinhPhiId" />
+          </Key>
+          <Property Name="BangTinhPhiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SoNgayNghiMin" Type="int" Nullable="false" />
+          <Property Name="SoNgayNghiMax" Type="int" Nullable="false" />
+          <Property Name="SoTien" Type="bigint" Nullable="false" />
+          <Property Name="KhoanThuId" Type="int" Nullable="false" />
+          <Property Name="KhoiId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="baocaothang">
+          <Key>
+            <PropertyRef Name="BaoCaoThangId" />
+          </Key>
+          <Property Name="BaoCaoThangId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayTinh" Type="date" Nullable="false" />
+          <Property Name="HocTapId" Type="int" Nullable="false" />
+          <Property Name="SoNgayNghi" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="baocaothanggenhistory">
+          <Key>
+            <PropertyRef Name="BCTGenHistoryId" />
+          </Key>
+          <Property Name="BCTGenHistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LopId" Type="int" Nullable="false" />
+          <Property Name="NgayTinh" Type="date" Nullable="false" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="hocsinh">
+          <Key>
+            <PropertyRef Name="HocSinhId" />
+          </Key>
+          <Property Name="HocSinhId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoDem" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ten" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GioiTinh" Type="tinyint" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="NgayVaoLop" Type="date" />
+          <Property Name="DanToc" Type="varchar" MaxLength="50" />
+          <Property Name="DienCuTru" Type="varchar" MaxLength="50" />
+          <Property Name="DienThoai" Type="varchar" MaxLength="50" />
+          <Property Name="HoTenCha" Type="varchar" MaxLength="255" />
+          <Property Name="HoTenMe" Type="varchar" MaxLength="255" />
+          <Property Name="DienThoaiMe" Type="varchar" MaxLength="50" />
+          <Property Name="TinhThanhPhoId" Type="int" />
+          <Property Name="QuanHuyenId" Type="int" />
+          <Property Name="PhuongXaId" Type="int" />
+          <Property Name="DiaChi" Type="varchar" MaxLength="255" />
+          <Property Name="ThoiHoc" Type="bool" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="hocsinh_lop">
+          <Key>
+            <PropertyRef Name="HocSinhLopId" />
+          </Key>
+          <Property Name="HocSinhLopId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HocSinhId" Type="int" Nullable="false" />
+          <Property Name="LopId" Type="int" Nullable="false" />
+          <Property Name="DateJoin" Type="date" Nullable="false" />
+          <Property Name="DateLeft" Type="date" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateDeleted" Type="date" />
+        </EntityType>
+        <EntityType Name="hoctap">
+          <Key>
+            <PropertyRef Name="HocTapId" />
+          </Key>
+          <Property Name="HocTapId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HocSinhLopId" Type="int" Nullable="false" />
+          <Property Name="Hoc2Buoi" Type="bool" />
+          <Property Name="ChuyenCan" Type="varchar" MaxLength="255" />
+          <Property Name="AnTaiTruong" Type="bool" />
+          <Property Name="HocLienTuc" Type="varchar" MaxLength="255" />
+          <Property Name="TheoDoiCanNang" Type="varchar" MaxLength="1000" />
+          <Property Name="SDDCanNang" Type="varchar" MaxLength="1000" />
+          <Property Name="TheoDoiChieuCao" Type="varchar" MaxLength="1000" />
+          <Property Name="SDDChieuCao" Type="varchar" MaxLength="1000" />
+          <Property Name="HoanThanhCTGDMN" Type="bool" />
+          <Property Name="DanhGia" Type="text" />
+        </EntityType>
+        <EntityType Name="khoanthu">
+          <Key>
+            <PropertyRef Name="KhoanThuId" />
+          </Key>
+          <Property Name="KhoanThuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="SoTien" Type="bigint" />
+          <Property Name="IsBatBuoc" Type="bool" Nullable="false" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateDeleted" Type="date" />
+        </EntityType>
+        <EntityType Name="khoanthuhangnam">
+          <Key>
+            <PropertyRef Name="KhoanThuHangNamId" />
+          </Key>
+          <Property Name="KhoanThuHangNamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KhoanThuId" Type="int" Nullable="false" />
+          <Property Name="KhoiId" Type="int" Nullable="false" />
+          <Property Name="NgayTinh" Type="date" />
+          <Property Name="NgayKetThuc" Type="date" />
+          <Property Name="IsBatBuoc" Type="bool" Nullable="false" />
+          <Property Name="SoTien" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="khoi">
+          <Key>
+            <PropertyRef Name="KhoiId" />
+          </Key>
+          <Property Name="KhoiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="khoi_truong">
+          <Key>
+            <PropertyRef Name="KhoiTruongId" />
+          </Key>
+          <Property Name="KhoiTruongId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KhoiId" Type="int" Nullable="false" />
+          <Property Name="TruongId" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateDeleted" Type="date" />
+        </EntityType>
+        <EntityType Name="lop">
+          <Key>
+            <PropertyRef Name="LopId" />
+          </Key>
+          <Property Name="LopId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateDeleted" Type="date" />
+        </EntityType>
+        <EntityType Name="lop_khoi">
+          <Key>
+            <PropertyRef Name="LopKhoiId" />
+          </Key>
+          <Property Name="LopKhoiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LopId" Type="int" Nullable="false" />
+          <Property Name="KhoiId" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateDeleted" Type="date" />
+        </EntityType>
+        <EntityType Name="phanloaichi">
+          <Key>
+            <PropertyRef Name="PhanLoaiChiId" />
+          </Key>
+          <Property Name="PhanLoaiChiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaPhanLoai" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DienGiai" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="phanloaithu">
+          <Key>
+            <PropertyRef Name="PhanLoaiThuId" />
+          </Key>
+          <Property Name="PhanLoaiThuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DienGiai" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="phieuchi">
+          <Key>
+            <PropertyRef Name="PhieuChiId" />
+          </Key>
+          <Property Name="PhieuChiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaPhieu" Type="varchar" MaxLength="50" />
+          <Property Name="Ngay" Type="date" Nullable="false" />
+          <Property Name="SoTien" Type="bigint" Nullable="false" />
+          <Property Name="GhiChu" Type="text" />
+          <Property Name="PhanLoaiChiId" Type="int" Nullable="false" />
+          <Property Name="NoiDung" Type="text" />
+          <Property Name="SoLuong" Type="double" />
+          <Property Name="DonGia" Type="double" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="phieuthu">
+          <Key>
+            <PropertyRef Name="PhieuThuId" />
+          </Key>
+          <Property Name="PhieuThuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ngay" Type="date" Nullable="false" />
+          <Property Name="SoTien" Type="bigint" Nullable="false" />
+          <Property Name="MaPhieu" Type="varchar" MaxLength="255" />
+          <Property Name="GhiChu" Type="text" />
+          <Property Name="PhanLoaiThuId" Type="int" />
+          <Property Name="HocSinhId" Type="int" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="phuongxa">
+          <Key>
+            <PropertyRef Name="PhuongXaId" />
+          </Key>
+          <Property Name="PhuongXaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="QuanHuyenId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="privilege">
+          <Key>
+            <PropertyRef Name="PrivilegeId" />
+          </Key>
+          <Property Name="PrivilegeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="quanhuyen">
+          <Key>
+            <PropertyRef Name="QuanHuyenId" />
+          </Key>
+          <Property Name="QuanHuyenId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ThanhPhoId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="schoolsetting">
+          <Key>
+            <PropertyRef Name="SchoolSettingId" />
+          </Key>
+          <Property Name="SchoolSettingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Value" Type="text" Nullable="false" />
+          <Property Name="DateCreated" Type="date" Nullable="false" />
+          <Property Name="DateDeleted" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="smstemplate">
+          <Key>
+            <PropertyRef Name="SmsTemplateId" />
+          </Key>
+          <Property Name="SmsTemplateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Template" Type="varchar" MaxLength="1000" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" />
+        </EntityType>
+        <EntityType Name="taisan">
+          <Key>
+            <PropertyRef Name="TaiSanId" />
+          </Key>
+          <Property Name="TaiSanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="text" Nullable="false" />
+          <Property Name="DonViTinh" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SoLuong" Type="double" Nullable="false" />
+          <Property Name="DonGia" Type="bigint" Nullable="false" />
+          <Property Name="SoChungTu" Type="text" Nullable="false" />
+          <Property Name="NgayChungTu" Type="date" Nullable="false" />
+          <Property Name="PhieuChiId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="taisan_lop">
+          <Key>
+            <PropertyRef Name="TaiSanLopId" />
+          </Key>
+          <Property Name="TaiSanLopId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaiSanId" Type="int" Nullable="false" />
+          <Property Name="LopId" Type="int" Nullable="false" />
+          <Property Name="SoLuong" Type="double" />
+          <Property Name="NgayBanGiao" Type="date" />
+          <Property Name="NgayHetHan" Type="date" />
+          <Property Name="GhiChu" Type="text" />
+        </EntityType>
+        <EntityType Name="thanhpho">
+          <Key>
+            <PropertyRef Name="ThanhPhoId" />
+          </Key>
+          <Property Name="ThanhPhoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="truong">
+          <Key>
+            <PropertyRef Name="TruongId" />
+          </Key>
+          <Property Name="TruongId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_privilege">
+          <Key>
+            <PropertyRef Name="UserPrivilegeId" />
+          </Key>
+          <Property Name="UserPrivilegeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="PrivilegeId" Type="int" Nullable="false" />
+          <Property Name="Value" Type="bool" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.qlmamnon.viewbangiaotaisan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viewbangiaotaisan">
+          <Key>
+            <PropertyRef Name="TaiSanId" />
+            
+            
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="TaiSanId" Type="int" Nullable="false" />
+          <Property Name="Ten" Type="text" Nullable="false" />
+          <Property Name="DonViTinh" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SoLuong" Type="double" Nullable="false" />
+          <Property Name="DonGia" Type="bigint" Nullable="false" />
+          <Property Name="SoChungTu" Type="text" Nullable="false" />
+          <Property Name="NgayChungTu" Type="date" Nullable="false" />
+          <Property Name="PhieuChiId" Type="int" Nullable="false" />
+          <Property Name="LopId" Type="int" />
+          <Property Name="NgayBanGiao" Type="date" />
+          <Property Name="NgayHetHan" Type="date" />
+          <Property Name="GhiChu" Type="text" />
+          <Property Name="TaiSanLopId" Type="int" />
+          <Property Name="SoLuongBanGiao" Type="double" />
+          <Property Name="NgayNhap" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.qlmamnon.viewbangthutien' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viewbangthutien">
+          <Key>
+            <PropertyRef Name="BangThuTienId" />
+            
+            
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="BangThuTienId" Type="int" Nullable="false" />
+          <Property Name="HocSinhId" Type="int" Nullable="false" />
+          <Property Name="LopId" Type="int" Nullable="false" />
+          <Property Name="SXThangTruoc" Type="int" />
+          <Property Name="SoTienSXThangTruoc" Type="bigint" />
+          <Property Name="AnSangThangTruoc" Type="int" />
+          <Property Name="SoTienAnSangThangTruoc" Type="bigint" />
+          <Property Name="SoTienAnSangThangNay" Type="bigint" Nullable="false" />
+          <Property Name="AnToiThangTruoc" Type="int" Nullable="false" />
+          <Property Name="SoTienAnToiThangTruoc" Type="bigint" />
+          <Property Name="SoTienAnToiThangNay" Type="bigint" Nullable="false" />
+          <Property Name="SoTienNangKhieu" Type="bigint" />
+          <Property Name="SoTienTruyThu" Type="bigint" />
+          <Property Name="SoTienDoDung" Type="bigint" />
+          <Property Name="SoTienDieuHoa" Type="bigint" />
+          <Property Name="NgayTinh" Type="date" Nullable="false" />
+          <Property Name="STT" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bool" Nullable="false" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="GhiChu" Type="text" Nullable="false" />
+          <Property Name="Lop" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="SoBienLai" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="TongThu" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.qlmamnon.viewhoctap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viewhoctap">
+          <Key>
+            <PropertyRef Name="HocSinhId" />
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="HocSinhId" Type="int" Nullable="false" />
+          <Property Name="HoDem" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ten" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GioiTinh" Type="tinyint" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="NgayVaoLop" Type="date" />
+          <Property Name="DanToc" Type="varchar" MaxLength="50" />
+          <Property Name="DienCuTru" Type="varchar" MaxLength="50" />
+          <Property Name="DienThoai" Type="varchar" MaxLength="50" />
+          <Property Name="HoTenCha" Type="varchar" MaxLength="255" />
+          <Property Name="HoTenMe" Type="varchar" MaxLength="255" />
+          <Property Name="TinhThanhPhoId" Type="int" />
+          <Property Name="QuanHuyenId" Type="int" />
+          <Property Name="PhuongXaId" Type="int" />
+          <Property Name="DiaChi" Type="varchar" MaxLength="255" />
+          <Property Name="ThoiHoc" Type="bool" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Precision="0" />
+          <Property Name="SoNgayNghiThang" Type="int" />
+          <Property Name="NgayTinh" Type="date" />
+          <Property Name="HocTapId" Type="int" />
+          <Property Name="LopId" Type="int" Nullable="false" />
+          <Property Name="LopName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="HocSinhLopId" Type="int" />
+          <Property Name="DateJoin" Type="date" />
+          <Property Name="DateLeft" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.qlmamnon.viewtaisan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viewtaisan">
+          <Key>
+            <PropertyRef Name="TaiSanId" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="TaiSanId" Type="int" Nullable="false" />
+          <Property Name="Ten" Type="text" Nullable="false" />
+          <Property Name="NgayNhap" Type="date" Nullable="false" />
+          <Property Name="DonViTinh" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SoLuong" Type="double" Nullable="false" />
+          <Property Name="DonGia" Type="bigint" Nullable="false" />
+          <Property Name="SoChungTu" Type="text" Nullable="false" />
+          <Property Name="NgayChungTu" Type="date" Nullable="false" />
+          <Property Name="ThanhTien" Type="bigint" Nullable="false" />
+          <Property Name="PhieuChiId" Type="int" Nullable="false" />
+          <Property Name="PhanLoaiChiId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.qlmamnon.viewtaisanforbangiaotaisan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viewtaisanforbangiaotaisan">
+          <Key>
+            <PropertyRef Name="TaiSanId" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="TaiSanId" Type="int" Nullable="false" />
+          <Property Name="Ten" Type="mediumtext" Nullable="false" />
+          <Property Name="NgayNhap" Type="date" Nullable="false" />
+          <Property Name="DonViTinh" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SoLuong" Type="double" />
+          <Property Name="DonGia" Type="bigint" Nullable="false" />
+          <Property Name="SoChungTu" Type="mediumtext" Nullable="false" />
+          <Property Name="NgayChungTu" Type="date" Nullable="false" />
+          <Property Name="ThanhTien" Type="bigint" Nullable="false" />
+          <Property Name="PhieuChiId" Type="int" Nullable="false" />
+          <Property Name="PhanLoaiChiId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Function Name="countBangThuTienGenHistoryByLopAndNgayTinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="lop" Type="int" Mode="In" />
+          <Parameter Name="ngay" Type="date" Mode="In" />
+        </Function>
+        <Function Name="deleteBangThuTienByHocSinhIdsAndDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_hocsinhids" Type="text" Mode="In" />
+          <Parameter Name="p_date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="deleteBangThuTienById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_bangthutienid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteBangThuTienKhoanThuByBangThuTienId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_bangthutienid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteHocSinhLopByHocSinhIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="hocsinhids" Type="text" Mode="In" />
+          <Parameter Name="deleteddate" Type="date" Mode="In" />
+        </Function>
+        <Function Name="deleteKhoiTruongByKhoiId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="khoi" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteLopKhoiByLopId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="lop" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteUserPrivileges" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_notinprivilegeids" Type="text" Mode="In" />
+          <Parameter Name="p_userid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteViewBanGiaoTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="taisanlopid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteViewTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="taisanid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getBangThuTienById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_bangthutienid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getBangThuTienGenHistoryByLopAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_lopid" Type="int" Mode="In" />
+          <Parameter Name="p_ngay" Type="date" Mode="In" />
+        </Function>
+        <Function Name="getBangThuTienKhoanThuByBangThuTienIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="bangthutienids" Type="text" Mode="In" />
+        </Function>
+        <Function Name="getHocSinhByLopAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="lop" Type="int" Mode="In" />
+          <Parameter Name="ngay" Type="date" Mode="In" />
+        </Function>
+        <Function Name="getHocSinhByParams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="ngay" Type="date" Mode="In" />
+          <Parameter Name="khoihoc" Type="int" Mode="In" />
+          <Parameter Name="lophoc" Type="int" Mode="In" />
+          <Parameter Name="ngayvaolop" Type="date" Mode="In" />
+        </Function>
+        <Function Name="getHocSinhForThongTinHocSinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_quan" Type="int" Mode="In" />
+          <Parameter Name="p_phuong" Type="int" Mode="In" />
+          <Parameter Name="p_ngaysinh" Type="date" Mode="In" />
+          <Parameter Name="p_thangsinh" Type="int" Mode="In" />
+          <Parameter Name="p_lop" Type="int" Mode="In" />
+          <Parameter Name="p_thoihoc" Type="bit" Mode="In" />
+          <Parameter Name="p_namsinh" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getHocSinhLopByHocSinhIdsAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="hocsinhids" Type="text" Mode="In" />
+          <Parameter Name="ngay" Type="date" Mode="In" />
+        </Function>
+        <Function Name="getHocSinhNotAssignedToLop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon" />
+        <Function Name="getKhoanThuByIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="khoanthuids" Type="text" Mode="In" />
+        </Function>
+        <Function Name="getKhoanThuHangNamByParams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="khoanthuids" Type="text" Mode="In" />
+          <Parameter Name="khoi" Type="int" Mode="In" />
+          <Parameter Name="ngay" Type="date" Mode="In" />
+        </Function>
+        <Function Name="getKhoiTruongByKhoiId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="khoi" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getLopKhoiByLopId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="lop" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getPhieuChiByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_fromDate" Type="date" Mode="In" />
+          <Parameter Name="p_toDate" Type="date" Mode="In" />
+          <Parameter Name="p_phanloaichiids" Type="text" Mode="In" />
+        </Function>
+        <Function Name="getPhieuChiByDateRangeWithGroupPhanLoaiChi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_fromDate" Type="date" Mode="In" />
+          <Parameter Name="p_toDate" Type="date" Mode="In" />
+          <Parameter Name="p_phanloaichiids" Type="text" Mode="In" />
+        </Function>
+        <Function Name="getPhieuChiById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="phieuchiid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getPhieuChiListForReportBCHDTC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="tungay" Type="date" Mode="In" />
+          <Parameter Name="denngay" Type="date" Mode="In" />
+          <Parameter Name="phanloaichiids" Type="text" Mode="In" />
+        </Function>
+        <Function Name="getPhieuThuByDateRangeWithGroupPhanLoaiThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_fromDate" Type="date" Mode="In" />
+          <Parameter Name="p_toDate" Type="date" Mode="In" />
+          <Parameter Name="p_phanloaithuids" Type="text" Mode="In" />
+        </Function>
+        <Function Name="getPhieuThuByHocSinhIdAndNgayTinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="hocsinhid" Type="int" Mode="In" />
+          <Parameter Name="ngaytinh" Type="date" Mode="In" />
+        </Function>
+        <Function Name="getPhieuThuForReportBCHDTC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="tungay" Type="date" Mode="In" />
+          <Parameter Name="denngay" Type="date" Mode="In" />
+        </Function>
+        <Function Name="getPhieuThuForSoQuyTienMat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_fromDate" Type="date" Mode="In" />
+          <Parameter Name="p_toDate" Type="date" Mode="In" />
+          <Parameter Name="p_phanloaithuids" Type="text" Mode="In" />
+        </Function>
+        <Function Name="getPhieuThuOfMonthByHocSinhIdsAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_hocsinhids" Type="text" Mode="In" />
+          <Parameter Name="p_ngay" Type="date" Mode="In" />
+        </Function>
+        <Function Name="getSoNgayNghiThangByNgayAndHocSinhIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="hocsinhids" Type="text" Mode="In" />
+          <Parameter Name="ngay" Type="date" Mode="In" />
+        </Function>
+        <Function Name="getSoTienTruyThuByHocSinhId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="hocsinhid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getSumSoTienChiByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_fromDate" Type="date" Mode="In" />
+          <Parameter Name="p_toDate" Type="date" Mode="In" />
+          <Parameter Name="p_phanloaichiids" Type="text" Mode="In" />
+        </Function>
+        <Function Name="getSumSoTienThuByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_fromDate" Type="date" Mode="In" />
+          <Parameter Name="p_toDate" Type="date" Mode="In" />
+          <Parameter Name="p_phanloaithuids" Type="text" Mode="In" />
+        </Function>
+        <Function Name="getUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_username" Type="text" Mode="In" />
+          <Parameter Name="p_password" Type="text" Mode="In" />
+        </Function>
+        <Function Name="getUserPriviledgeByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_userid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getViewBanGiaoTaiSanByLopId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="lopid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getViewBanGiaoTaiSanByYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getViewBangThuTienByNgayTinhAndHocSinhId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_ngay" Type="date" Mode="In" />
+          <Parameter Name="p_hocsinhid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getViewBangThuTienByNgayTinhAndLop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="ngay" Type="date" Mode="In" />
+          <Parameter Name="lop" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getViewHocTapByLopAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="lop" Type="int" Mode="In" />
+          <Parameter Name="ngay" Type="date" Mode="In" />
+        </Function>
+        <Function Name="getViewTaiSanForBanGiaoTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon" />
+        <Function Name="insertHocSinhToLop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="hocsinh" Type="int" Mode="In" />
+          <Parameter Name="lop" Type="int" Mode="In" />
+          <Parameter Name="ngayvaolop" Type="date" Mode="In" />
+        </Function>
+        <Function Name="insertUserPrivilegeIfNotExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="p_userid" Type="int" Mode="In" />
+          <Parameter Name="p_privilegeid" Type="int" Mode="In" />
+          <Parameter Name="p_value" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertViewBanGiaoTaiSai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="taisanid" Type="int" Mode="In" />
+          <Parameter Name="lopid" Type="int" Mode="In" />
+          <Parameter Name="ngaybangiao" Type="date" Mode="In" />
+          <Parameter Name="ngayhethan" Type="date" Mode="In" />
+          <Parameter Name="ghichu" Type="text" Mode="In" />
+          <Parameter Name="soluongbangiao" Type="double" Mode="In" />
+        </Function>
+        <Function Name="insertViewTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="ten" Type="text" Mode="In" />
+          <Parameter Name="ngaynhap" Type="date" Mode="In" />
+          <Parameter Name="donvitinh" Type="text" Mode="In" />
+          <Parameter Name="soluong" Type="int" Mode="In" />
+          <Parameter Name="dongia" Type="bigint" Mode="In" />
+          <Parameter Name="thanhtien" Type="bigint" Mode="In" />
+          <Parameter Name="sochungtu" Type="text" Mode="In" />
+          <Parameter Name="ngaychungtu" Type="date" Mode="In" />
+          <Parameter Name="phanloaichi" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectViewBanGiaoTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon" />
+        <Function Name="updateSoTienTruyThuByHocSinhAndNgayUpdated" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="hocsinhid" Type="int" Mode="In" />
+          <Parameter Name="ngayupdated" Type="date" Mode="In" />
+          <Parameter Name="sotientruythuadded" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="updateViewBanGiaoTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="taisanlopid" Type="int" Mode="In" />
+          <Parameter Name="lopid" Type="int" Mode="In" />
+          <Parameter Name="ngaybangiao" Type="date" Mode="In" />
+          <Parameter Name="ngayhethan" Type="date" Mode="In" />
+          <Parameter Name="ghichu" Type="text" Mode="In" />
+          <Parameter Name="soluongbangiao" Type="double" Mode="In" />
+        </Function>
+        <Function Name="updateViewHocTap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="hoctapid" Type="int" Mode="In" />
+          <Parameter Name="hocsinhlopid" Type="int" Mode="In" />
+          <Parameter Name="songaynghithang" Type="int" Mode="In" />
+          <Parameter Name="ngay" Type="date" Mode="In" />
+        </Function>
+        <Function Name="updateViewTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+          <Parameter Name="ten" Type="text" Mode="In" />
+          <Parameter Name="ngaynhap" Type="date" Mode="In" />
+          <Parameter Name="donvitinh" Type="text" Mode="In" />
+          <Parameter Name="soluong" Type="int" Mode="In" />
+          <Parameter Name="dongia" Type="bigint" Mode="In" />
+          <Parameter Name="thanhtien" Type="bigint" Mode="In" />
+          <Parameter Name="sochungtu" Type="text" Mode="In" />
+          <Parameter Name="ngaychungtu" Type="date" Mode="In" />
+          <Parameter Name="phanloaichi" Type="int" Mode="In" />
+          <Parameter Name="taisanid" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="qlmamnonModelStoreContainer">
+          <EntitySet Name="bangthutien" EntityType="Self.bangthutien" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="bangthutien_khoanthu" EntityType="Self.bangthutien_khoanthu" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="bangthutiengenhistory" EntityType="Self.bangthutiengenhistory" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="bangtinhphi" EntityType="Self.bangtinhphi" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="baocaothang" EntityType="Self.baocaothang" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="baocaothanggenhistory" EntityType="Self.baocaothanggenhistory" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="hocsinh" EntityType="Self.hocsinh" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="hocsinh_lop" EntityType="Self.hocsinh_lop" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="hoctap" EntityType="Self.hoctap" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="khoanthu" EntityType="Self.khoanthu" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="khoanthuhangnam" EntityType="Self.khoanthuhangnam" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="khoi" EntityType="Self.khoi" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="khoi_truong" EntityType="Self.khoi_truong" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="lop" EntityType="Self.lop" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="lop_khoi" EntityType="Self.lop_khoi" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="phanloaichi" EntityType="Self.phanloaichi" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="phanloaithu" EntityType="Self.phanloaithu" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="phieuchi" EntityType="Self.phieuchi" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="phieuthu" EntityType="Self.phieuthu" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="phuongxa" EntityType="Self.phuongxa" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="privilege" EntityType="Self.privilege" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="quanhuyen" EntityType="Self.quanhuyen" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="schoolsetting" EntityType="Self.schoolsetting" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="smstemplate" EntityType="Self.smstemplate" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="taisan" EntityType="Self.taisan" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="taisan_lop" EntityType="Self.taisan_lop" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="thanhpho" EntityType="Self.thanhpho" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="truong" EntityType="Self.truong" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="user_privilege" EntityType="Self.user_privilege" Schema="qlmamnon" store:Type="Tables" />
+          <EntitySet Name="viewbangiaotaisan" EntityType="Self.viewbangiaotaisan" store:Type="Views" store:Schema="qlmamnon">
+            <DefiningQuery>SELECT
+`viewbangiaotaisan`.`TaiSanId`, 
+`viewbangiaotaisan`.`Ten`, 
+`viewbangiaotaisan`.`DonViTinh`, 
+`viewbangiaotaisan`.`SoLuong`, 
+`viewbangiaotaisan`.`DonGia`, 
+`viewbangiaotaisan`.`SoChungTu`, 
+`viewbangiaotaisan`.`NgayChungTu`, 
+`viewbangiaotaisan`.`PhieuChiId`, 
+`viewbangiaotaisan`.`LopId`, 
+`viewbangiaotaisan`.`NgayBanGiao`, 
+`viewbangiaotaisan`.`NgayHetHan`, 
+`viewbangiaotaisan`.`GhiChu`, 
+`viewbangiaotaisan`.`TaiSanLopId`, 
+`viewbangiaotaisan`.`SoLuongBanGiao`, 
+`viewbangiaotaisan`.`NgayNhap`
+FROM `viewbangiaotaisan` AS `viewbangiaotaisan`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewbangthutien" EntityType="Self.viewbangthutien" store:Type="Views" store:Schema="qlmamnon">
+            <DefiningQuery>SELECT
+`viewbangthutien`.`BangThuTienId`, 
+`viewbangthutien`.`HocSinhId`, 
+`viewbangthutien`.`LopId`, 
+`viewbangthutien`.`SXThangTruoc`, 
+`viewbangthutien`.`SoTienSXThangTruoc`, 
+`viewbangthutien`.`AnSangThangTruoc`, 
+`viewbangthutien`.`SoTienAnSangThangTruoc`, 
+`viewbangthutien`.`SoTienAnSangThangNay`, 
+`viewbangthutien`.`AnToiThangTruoc`, 
+`viewbangthutien`.`SoTienAnToiThangTruoc`, 
+`viewbangthutien`.`SoTienAnToiThangNay`, 
+`viewbangthutien`.`SoTienNangKhieu`, 
+`viewbangthutien`.`SoTienTruyThu`, 
+`viewbangthutien`.`SoTienDoDung`, 
+`viewbangthutien`.`SoTienDieuHoa`, 
+`viewbangthutien`.`NgayTinh`, 
+`viewbangthutien`.`STT`, 
+`viewbangthutien`.`IsDeleted`, 
+`viewbangthutien`.`DateCreated`, 
+`viewbangthutien`.`GhiChu`, 
+`viewbangthutien`.`Lop`, 
+`viewbangthutien`.`SoBienLai`, 
+`viewbangthutien`.`TongThu`, 
+`viewbangthutien`.`TienAn`
+FROM `viewbangthutien` AS `viewbangthutien`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewhoctap" EntityType="Self.viewhoctap" store:Type="Views" store:Schema="qlmamnon">
+            <DefiningQuery>SELECT
+`viewhoctap`.`HocSinhId`, 
+`viewhoctap`.`HoDem`, 
+`viewhoctap`.`Ten`, 
+`viewhoctap`.`GioiTinh`, 
+`viewhoctap`.`NgaySinh`, 
+`viewhoctap`.`NgayVaoLop`, 
+`viewhoctap`.`DanToc`, 
+`viewhoctap`.`DienCuTru`, 
+`viewhoctap`.`DienThoai`, 
+`viewhoctap`.`HoTenCha`, 
+`viewhoctap`.`HoTenMe`, 
+`viewhoctap`.`TinhThanhPhoId`, 
+`viewhoctap`.`QuanHuyenId`, 
+`viewhoctap`.`PhuongXaId`, 
+`viewhoctap`.`DiaChi`, 
+`viewhoctap`.`ThoiHoc`, 
+`viewhoctap`.`CreatedDate`, 
+`viewhoctap`.`SoNgayNghiThang`, 
+`viewhoctap`.`NgayTinh`, 
+`viewhoctap`.`HocTapId`, 
+`viewhoctap`.`LopId`, 
+`viewhoctap`.`LopName`, 
+`viewhoctap`.`HocSinhLopId`, 
+`viewhoctap`.`DateJoin`, 
+`viewhoctap`.`DateLeft`
+FROM `viewhoctap` AS `viewhoctap`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewtaisan" EntityType="Self.viewtaisan" store:Type="Views" store:Schema="qlmamnon">
+            <DefiningQuery>SELECT
+`viewtaisan`.`TaiSanId`, 
+`viewtaisan`.`Ten`, 
+`viewtaisan`.`NgayNhap`, 
+`viewtaisan`.`DonViTinh`, 
+`viewtaisan`.`SoLuong`, 
+`viewtaisan`.`DonGia`, 
+`viewtaisan`.`SoChungTu`, 
+`viewtaisan`.`NgayChungTu`, 
+`viewtaisan`.`ThanhTien`, 
+`viewtaisan`.`PhieuChiId`, 
+`viewtaisan`.`PhanLoaiChiId`
+FROM `viewtaisan` AS `viewtaisan`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewtaisanforbangiaotaisan" EntityType="Self.viewtaisanforbangiaotaisan" store:Type="Views" store:Schema="qlmamnon">
+            <DefiningQuery>SELECT
+`viewtaisanforbangiaotaisan`.`TaiSanId`, 
+`viewtaisanforbangiaotaisan`.`Ten`, 
+`viewtaisanforbangiaotaisan`.`NgayNhap`, 
+`viewtaisanforbangiaotaisan`.`DonViTinh`, 
+`viewtaisanforbangiaotaisan`.`SoLuong`, 
+`viewtaisanforbangiaotaisan`.`DonGia`, 
+`viewtaisanforbangiaotaisan`.`SoChungTu`, 
+`viewtaisanforbangiaotaisan`.`NgayChungTu`, 
+`viewtaisanforbangiaotaisan`.`ThanhTien`, 
+`viewtaisanforbangiaotaisan`.`PhieuChiId`, 
+`viewtaisanforbangiaotaisan`.`PhanLoaiChiId`
+FROM `viewtaisanforbangiaotaisan` AS `viewtaisanforbangiaotaisan`</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="qlmamnonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bangthutien">
+          <Key>
+            <PropertyRef Name="BangThuTienId" />
+          </Key>
+          <Property Name="BangThuTienId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HocSinhId" Type="Int32" Nullable="false" />
+          <Property Name="LopId" Type="Int32" Nullable="false" />
+          <Property Name="SXThangTruoc" Type="Int32" />
+          <Property Name="SoTienSXThangTruoc" Type="Int64" />
+          <Property Name="AnSangThangTruoc" Type="Int32" />
+          <Property Name="SoTienAnSangThangTruoc" Type="Int64" />
+          <Property Name="SoTienAnSangThangNay" Type="Int64" Nullable="false" />
+          <Property Name="SoTienAnToiThangTruoc" Type="Int64" />
+          <Property Name="AnToiThangTruoc" Type="Int32" Nullable="false" />
+          <Property Name="SoTienAnToiThangNay" Type="Int64" Nullable="false" />
+          <Property Name="SoTienDoDung" Type="Int64" />
+          <Property Name="SoTienNangKhieu" Type="Int64" />
+          <Property Name="SoTienTruyThu" Type="Int64" />
+          <Property Name="SoTienDieuHoa" Type="Int64" />
+          <Property Name="NgayTinh" Type="DateTime" Nullable="false" />
+          <Property Name="STT" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GhiChu" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bangthutien_khoanthu">
+          <Key>
+            <PropertyRef Name="BTTKTId" />
+          </Key>
+          <Property Name="BTTKTId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KhoanThuId" Type="Int32" Nullable="false" />
+          <Property Name="BangThuTienId" Type="Int32" Nullable="false" />
+          <Property Name="SoTien" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bangthutiengenhistory">
+          <Key>
+            <PropertyRef Name="BTTGenHistoryId" />
+          </Key>
+          <Property Name="BTTGenHistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayTinh" Type="DateTime" Nullable="false" />
+          <Property Name="LopId" Type="Int32" />
+          <Property Name="SoTienAnSang" Type="Double" Nullable="false" />
+          <Property Name="SoTienAnToi" Type="Double" Nullable="false" />
+          <Property Name="SoTienAnChinh" Type="Double" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="bangtinhphi">
+          <Key>
+            <PropertyRef Name="BangTinhPhiId" />
+          </Key>
+          <Property Name="BangTinhPhiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoNgayNghiMin" Type="Int32" Nullable="false" />
+          <Property Name="SoNgayNghiMax" Type="Int32" Nullable="false" />
+          <Property Name="SoTien" Type="Int64" Nullable="false" />
+          <Property Name="KhoanThuId" Type="Int32" Nullable="false" />
+          <Property Name="KhoiId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="baocaothang">
+          <Key>
+            <PropertyRef Name="BaoCaoThangId" />
+          </Key>
+          <Property Name="BaoCaoThangId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayTinh" Type="DateTime" Nullable="false" />
+          <Property Name="HocTapId" Type="Int32" Nullable="false" />
+          <Property Name="SoNgayNghi" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="baocaothanggenhistory">
+          <Key>
+            <PropertyRef Name="BCTGenHistoryId" />
+          </Key>
+          <Property Name="BCTGenHistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LopId" Type="Int32" Nullable="false" />
+          <Property Name="NgayTinh" Type="DateTime" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="hocsinh">
+          <Key>
+            <PropertyRef Name="HocSinhId" />
+          </Key>
+          <Property Name="HocSinhId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoDem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GioiTinh" Type="SByte" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" />
+          <Property Name="NgayVaoLop" Type="DateTime" />
+          <Property Name="DanToc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DienCuTru" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HoTenCha" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="HoTenMe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DienThoaiMe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TinhThanhPhoId" Type="Int32" />
+          <Property Name="QuanHuyenId" Type="Int32" />
+          <Property Name="PhuongXaId" Type="Int32" />
+          <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ThoiHoc" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="hocsinh_lop">
+          <Key>
+            <PropertyRef Name="HocSinhLopId" />
+          </Key>
+          <Property Name="HocSinhLopId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HocSinhId" Type="Int32" Nullable="false" />
+          <Property Name="LopId" Type="Int32" Nullable="false" />
+          <Property Name="DateJoin" Type="DateTime" Nullable="false" />
+          <Property Name="DateLeft" Type="DateTime" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateDeleted" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="hoctap">
+          <Key>
+            <PropertyRef Name="HocTapId" />
+          </Key>
+          <Property Name="HocTapId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HocSinhLopId" Type="Int32" Nullable="false" />
+          <Property Name="Hoc2Buoi" Type="Boolean" />
+          <Property Name="ChuyenCan" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AnTaiTruong" Type="Boolean" />
+          <Property Name="HocLienTuc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TheoDoiCanNang" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="SDDCanNang" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="TheoDoiChieuCao" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="SDDChieuCao" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="HoanThanhCTGDMN" Type="Boolean" />
+          <Property Name="DanhGia" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="khoanthu">
+          <Key>
+            <PropertyRef Name="KhoanThuId" />
+          </Key>
+          <Property Name="KhoanThuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoTien" Type="Int64" />
+          <Property Name="IsBatBuoc" Type="Boolean" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateDeleted" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="khoanthuhangnam">
+          <Key>
+            <PropertyRef Name="KhoanThuHangNamId" />
+          </Key>
+          <Property Name="KhoanThuHangNamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KhoanThuId" Type="Int32" Nullable="false" />
+          <Property Name="KhoiId" Type="Int32" Nullable="false" />
+          <Property Name="NgayTinh" Type="DateTime" />
+          <Property Name="NgayKetThuc" Type="DateTime" />
+          <Property Name="IsBatBuoc" Type="Boolean" Nullable="false" />
+          <Property Name="SoTien" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="khoi">
+          <Key>
+            <PropertyRef Name="KhoiId" />
+          </Key>
+          <Property Name="KhoiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="khoi_truong">
+          <Key>
+            <PropertyRef Name="KhoiTruongId" />
+          </Key>
+          <Property Name="KhoiTruongId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KhoiId" Type="Int32" Nullable="false" />
+          <Property Name="TruongId" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateDeleted" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="lop">
+          <Key>
+            <PropertyRef Name="LopId" />
+          </Key>
+          <Property Name="LopId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateDeleted" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="lop_khoi">
+          <Key>
+            <PropertyRef Name="LopKhoiId" />
+          </Key>
+          <Property Name="LopKhoiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LopId" Type="Int32" Nullable="false" />
+          <Property Name="KhoiId" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateDeleted" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="phanloaichi">
+          <Key>
+            <PropertyRef Name="PhanLoaiChiId" />
+          </Key>
+          <Property Name="PhanLoaiChiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaPhanLoai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DienGiai" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="phanloaithu">
+          <Key>
+            <PropertyRef Name="PhanLoaiThuId" />
+          </Key>
+          <Property Name="PhanLoaiThuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DienGiai" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="phieuchi">
+          <Key>
+            <PropertyRef Name="PhieuChiId" />
+          </Key>
+          <Property Name="PhieuChiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaPhieu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ngay" Type="DateTime" Nullable="false" />
+          <Property Name="SoTien" Type="Int64" Nullable="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="PhanLoaiChiId" Type="Int32" Nullable="false" />
+          <Property Name="NoiDung" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="SoLuong" Type="Double" />
+          <Property Name="DonGia" Type="Double" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="phieuthu">
+          <Key>
+            <PropertyRef Name="PhieuThuId" />
+          </Key>
+          <Property Name="PhieuThuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ngay" Type="DateTime" Nullable="false" />
+          <Property Name="SoTien" Type="Int64" Nullable="false" />
+          <Property Name="MaPhieu" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="PhanLoaiThuId" Type="Int32" />
+          <Property Name="HocSinhId" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="phuongxa">
+          <Key>
+            <PropertyRef Name="PhuongXaId" />
+          </Key>
+          <Property Name="PhuongXaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="QuanHuyenId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="privilege">
+          <Key>
+            <PropertyRef Name="PrivilegeId" />
+          </Key>
+          <Property Name="PrivilegeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="quanhuyen">
+          <Key>
+            <PropertyRef Name="QuanHuyenId" />
+          </Key>
+          <Property Name="QuanHuyenId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ThanhPhoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="schoolsetting">
+          <Key>
+            <PropertyRef Name="SchoolSettingId" />
+          </Key>
+          <Property Name="SchoolSettingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+          <Property Name="DateDeleted" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="smstemplate">
+          <Key>
+            <PropertyRef Name="SmsTemplateId" />
+          </Key>
+          <Property Name="SmsTemplateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Template" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="taisan">
+          <Key>
+            <PropertyRef Name="TaiSanId" />
+          </Key>
+          <Property Name="TaiSanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DonViTinh" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoLuong" Type="Double" Nullable="false" />
+          <Property Name="DonGia" Type="Int64" Nullable="false" />
+          <Property Name="SoChungTu" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NgayChungTu" Type="DateTime" Nullable="false" />
+          <Property Name="PhieuChiId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="taisan_lop">
+          <Key>
+            <PropertyRef Name="TaiSanLopId" />
+          </Key>
+          <Property Name="TaiSanLopId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaiSanId" Type="Int32" Nullable="false" />
+          <Property Name="LopId" Type="Int32" Nullable="false" />
+          <Property Name="SoLuong" Type="Double" />
+          <Property Name="NgayBanGiao" Type="DateTime" />
+          <Property Name="NgayHetHan" Type="DateTime" />
+          <Property Name="GhiChu" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="thanhpho">
+          <Key>
+            <PropertyRef Name="ThanhPhoId" />
+          </Key>
+          <Property Name="ThanhPhoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="truong">
+          <Key>
+            <PropertyRef Name="TruongId" />
+          </Key>
+          <Property Name="TruongId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="user_privilege">
+          <Key>
+            <PropertyRef Name="UserPrivilegeId" />
+          </Key>
+          <Property Name="UserPrivilegeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="PrivilegeId" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="viewbangiaotaisan">
+          <Key>
+            <PropertyRef Name="TaiSanId" />
+          </Key>
+          <Property Name="TaiSanId" Type="Int32" Nullable="false" />
+          <Property Name="Ten" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DonViTinh" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoLuong" Type="Double" Nullable="false" />
+          <Property Name="DonGia" Type="Int64" Nullable="false" />
+          <Property Name="SoChungTu" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NgayChungTu" Type="DateTime" Nullable="false" />
+          <Property Name="PhieuChiId" Type="Int32" Nullable="false" />
+          <Property Name="LopId" Type="Int32" />
+          <Property Name="NgayBanGiao" Type="DateTime" />
+          <Property Name="NgayHetHan" Type="DateTime" />
+          <Property Name="GhiChu" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="TaiSanLopId" Type="Int32" />
+          <Property Name="SoLuongBanGiao" Type="Double" />
+          <Property Name="NgayNhap" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="viewbangthutien">
+          <Key>
+            <PropertyRef Name="BangThuTienId" />
+          </Key>
+          <Property Name="BangThuTienId" Type="Int32" Nullable="false" />
+          <Property Name="HocSinhId" Type="Int32" Nullable="false" />
+          <Property Name="LopId" Type="Int32" Nullable="false" />
+          <Property Name="SXThangTruoc" Type="Int32" />
+          <Property Name="SoTienSXThangTruoc" Type="Int64" />
+          <Property Name="AnSangThangTruoc" Type="Int32" />
+          <Property Name="SoTienAnSangThangTruoc" Type="Int64" />
+          <Property Name="SoTienAnSangThangNay" Type="Int64" Nullable="false" />
+          <Property Name="AnToiThangTruoc" Type="Int32" Nullable="false" />
+          <Property Name="SoTienAnToiThangTruoc" Type="Int64" />
+          <Property Name="SoTienAnToiThangNay" Type="Int64" Nullable="false" />
+          <Property Name="SoTienNangKhieu" Type="Int64" />
+          <Property Name="SoTienTruyThu" Type="Int64" />
+          <Property Name="SoTienDoDung" Type="Int64" />
+          <Property Name="SoTienDieuHoa" Type="Int64" />
+          <Property Name="NgayTinh" Type="DateTime" Nullable="false" />
+          <Property Name="STT" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lop" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoBienLai" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TongThu" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="viewhoctap">
+          <Key>
+            <PropertyRef Name="HocSinhId" />
+          </Key>
+          <Property Name="HocSinhId" Type="Int32" Nullable="false" />
+          <Property Name="HoDem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GioiTinh" Type="SByte" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" />
+          <Property Name="NgayVaoLop" Type="DateTime" />
+          <Property Name="DanToc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DienCuTru" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HoTenCha" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="HoTenMe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TinhThanhPhoId" Type="Int32" />
+          <Property Name="QuanHuyenId" Type="Int32" />
+          <Property Name="PhuongXaId" Type="Int32" />
+          <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ThoiHoc" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="SoNgayNghiThang" Type="Int32" />
+          <Property Name="NgayTinh" Type="DateTime" />
+          <Property Name="HocTapId" Type="Int32" />
+          <Property Name="LopId" Type="Int32" Nullable="false" />
+          <Property Name="LopName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HocSinhLopId" Type="Int32" />
+          <Property Name="DateJoin" Type="DateTime" />
+          <Property Name="DateLeft" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="viewtaisan">
+          <Key>
+            <PropertyRef Name="TaiSanId" />
+          </Key>
+          <Property Name="TaiSanId" Type="Int32" Nullable="false" />
+          <Property Name="Ten" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NgayNhap" Type="DateTime" Nullable="false" />
+          <Property Name="DonViTinh" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoLuong" Type="Double" Nullable="false" />
+          <Property Name="DonGia" Type="Int64" Nullable="false" />
+          <Property Name="SoChungTu" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NgayChungTu" Type="DateTime" Nullable="false" />
+          <Property Name="ThanhTien" Type="Int64" Nullable="false" />
+          <Property Name="PhieuChiId" Type="Int32" Nullable="false" />
+          <Property Name="PhanLoaiChiId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="viewtaisanforbangiaotaisan">
+          <Key>
+            <PropertyRef Name="TaiSanId" />
+          </Key>
+          <Property Name="TaiSanId" Type="Int32" Nullable="false" />
+          <Property Name="Ten" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NgayNhap" Type="DateTime" Nullable="false" />
+          <Property Name="DonViTinh" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoLuong" Type="Double" />
+          <Property Name="DonGia" Type="Int64" Nullable="false" />
+          <Property Name="SoChungTu" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NgayChungTu" Type="DateTime" Nullable="false" />
+          <Property Name="ThanhTien" Type="Int64" Nullable="false" />
+          <Property Name="PhieuChiId" Type="Int32" Nullable="false" />
+          <Property Name="PhanLoaiChiId" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="qlmamnonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bangthutiens" EntityType="Self.bangthutien" />
+          <EntitySet Name="bangthutien_khoanthu" EntityType="Self.bangthutien_khoanthu" />
+          <EntitySet Name="bangthutiengenhistories" EntityType="Self.bangthutiengenhistory" />
+          <EntitySet Name="bangtinhphis" EntityType="Self.bangtinhphi" />
+          <EntitySet Name="baocaothangs" EntityType="Self.baocaothang" />
+          <EntitySet Name="baocaothanggenhistories" EntityType="Self.baocaothanggenhistory" />
+          <EntitySet Name="hocsinhs" EntityType="Self.hocsinh" />
+          <EntitySet Name="hocsinh_lop" EntityType="Self.hocsinh_lop" />
+          <EntitySet Name="hoctaps" EntityType="Self.hoctap" />
+          <EntitySet Name="khoanthus" EntityType="Self.khoanthu" />
+          <EntitySet Name="khoanthuhangnams" EntityType="Self.khoanthuhangnam" />
+          <EntitySet Name="khois" EntityType="Self.khoi" />
+          <EntitySet Name="khoi_truong" EntityType="Self.khoi_truong" />
+          <EntitySet Name="lops" EntityType="Self.lop" />
+          <EntitySet Name="lop_khoi" EntityType="Self.lop_khoi" />
+          <EntitySet Name="phanloaichis" EntityType="Self.phanloaichi" />
+          <EntitySet Name="phanloaithus" EntityType="Self.phanloaithu" />
+          <EntitySet Name="phieuchis" EntityType="Self.phieuchi" />
+          <EntitySet Name="phieuthus" EntityType="Self.phieuthu" />
+          <EntitySet Name="phuongxas" EntityType="Self.phuongxa" />
+          <EntitySet Name="privileges" EntityType="Self.privilege" />
+          <EntitySet Name="quanhuyens" EntityType="Self.quanhuyen" />
+          <EntitySet Name="schoolsettings" EntityType="Self.schoolsetting" />
+          <EntitySet Name="smstemplates" EntityType="Self.smstemplate" />
+          <EntitySet Name="taisans" EntityType="Self.taisan" />
+          <EntitySet Name="taisan_lop" EntityType="Self.taisan_lop" />
+          <EntitySet Name="thanhphoes" EntityType="Self.thanhpho" />
+          <EntitySet Name="truongs" EntityType="Self.truong" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="user_privilege" EntityType="Self.user_privilege" />
+          <EntitySet Name="viewbangiaotaisans" EntityType="Self.viewbangiaotaisan" />
+          <EntitySet Name="viewbangthutiens" EntityType="Self.viewbangthutien" />
+          <EntitySet Name="viewhoctaps" EntityType="Self.viewhoctap" />
+          <EntitySet Name="viewtaisans" EntityType="Self.viewtaisan" />
+          <EntitySet Name="viewtaisanforbangiaotaisans" EntityType="Self.viewtaisanforbangiaotaisan" />
+          <FunctionImport Name="deleteBangThuTienByHocSinhIdsAndDate">
+            <Parameter Name="p_hocsinhids" Mode="In" Type="String" />
+            <Parameter Name="p_date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="deleteBangThuTienById">
+          <Parameter Name="p_bangthutienid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteBangThuTienKhoanThuByBangThuTienId">
+          <Parameter Name="p_bangthutienid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteHocSinhLopByHocSinhIds">
+            <Parameter Name="hocsinhids" Mode="In" Type="String" />
+            <Parameter Name="deleteddate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="deleteKhoiTruongByKhoiId">
+          <Parameter Name="khoi" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteLopKhoiByLopId">
+          <Parameter Name="lop" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteUserPrivileges">
+            <Parameter Name="p_notinprivilegeids" Mode="In" Type="String" />
+            <Parameter Name="p_userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteViewBanGiaoTaiSan">
+          <Parameter Name="taisanlopid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteViewTaiSan">
+          <Parameter Name="taisanid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getBangThuTienById" EntitySet="bangthutiens" ReturnType="Collection(qlmamnonModel.bangthutien)">
+          <Parameter Name="p_bangthutienid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getBangThuTienGenHistoryByLopAndNgay" EntitySet="bangthutiengenhistories" ReturnType="Collection(qlmamnonModel.bangthutiengenhistory)">
+            <Parameter Name="p_lopid" Mode="In" Type="Int32" />
+            <Parameter Name="p_ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="getBangThuTienKhoanThuByBangThuTienIds" EntitySet="bangthutien_khoanthu" ReturnType="Collection(qlmamnonModel.bangthutien_khoanthu)">
+          <Parameter Name="bangthutienids" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getHocSinhByLopAndNgay" EntitySet="hocsinhs" ReturnType="Collection(qlmamnonModel.hocsinh)">
+            <Parameter Name="lop" Mode="In" Type="Int32" />
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="getHocSinhByParams" EntitySet="hocsinhs" ReturnType="Collection(qlmamnonModel.hocsinh)">
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+            <Parameter Name="khoihoc" Mode="In" Type="Int32" />
+            <Parameter Name="lophoc" Mode="In" Type="Int32" />
+            <Parameter Name="ngayvaolop" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="getHocSinhForThongTinHocSinh" EntitySet="hocsinhs" ReturnType="Collection(qlmamnonModel.hocsinh)">
+            <Parameter Name="p_quan" Mode="In" Type="Int32" />
+            <Parameter Name="p_phuong" Mode="In" Type="Int32" />
+            <Parameter Name="p_ngaysinh" Mode="In" Type="DateTime" />
+            <Parameter Name="p_thangsinh" Mode="In" Type="Int32" />
+            <Parameter Name="p_lop" Mode="In" Type="Int32" />
+            <Parameter Name="p_thoihoc" Mode="In" Type="Boolean" />
+            <Parameter Name="p_namsinh" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getHocSinhLopByHocSinhIdsAndNgay" EntitySet="hocsinh_lop" ReturnType="Collection(qlmamnonModel.hocsinh_lop)">
+            <Parameter Name="hocsinhids" Mode="In" Type="String" />
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="getHocSinhNotAssignedToLop" EntitySet="hocsinhs" ReturnType="Collection(qlmamnonModel.hocsinh)" />
+          <FunctionImport Name="getKhoanThuByIds" EntitySet="khoanthus" ReturnType="Collection(qlmamnonModel.khoanthu)">
+          <Parameter Name="khoanthuids" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getKhoanThuHangNamByParams" EntitySet="khoanthuhangnams" ReturnType="Collection(qlmamnonModel.khoanthuhangnam)">
+            <Parameter Name="khoanthuids" Mode="In" Type="String" />
+            <Parameter Name="khoi" Mode="In" Type="Int32" />
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="getKhoiTruongByKhoiId" EntitySet="khoi_truong" ReturnType="Collection(qlmamnonModel.khoi_truong)">
+          <Parameter Name="khoi" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getLopKhoiByLopId" EntitySet="lop_khoi" ReturnType="Collection(qlmamnonModel.lop_khoi)">
+          <Parameter Name="lop" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getPhieuChiByDateRange" EntitySet="phieuchis" ReturnType="Collection(qlmamnonModel.phieuchi)">
+            <Parameter Name="p_fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="p_toDate" Mode="In" Type="DateTime" />
+            <Parameter Name="p_phanloaichiids" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getPhieuChiByDateRangeWithGroupPhanLoaiChi" EntitySet="phieuchis" ReturnType="Collection(qlmamnonModel.phieuchi)">
+            <Parameter Name="p_fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="p_toDate" Mode="In" Type="DateTime" />
+            <Parameter Name="p_phanloaichiids" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getPhieuChiById" EntitySet="phieuchis" ReturnType="Collection(qlmamnonModel.phieuchi)">
+          <Parameter Name="phieuchiid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getPhieuChiListForReportBCHDTC" EntitySet="phieuchis" ReturnType="Collection(qlmamnonModel.phieuchi)">
+            <Parameter Name="tungay" Mode="In" Type="DateTime" />
+            <Parameter Name="denngay" Mode="In" Type="DateTime" />
+            <Parameter Name="phanloaichiids" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getPhieuThuByDateRangeWithGroupPhanLoaiThu" EntitySet="phieuthus" ReturnType="Collection(qlmamnonModel.phieuthu)">
+            <Parameter Name="p_fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="p_toDate" Mode="In" Type="DateTime" />
+            <Parameter Name="p_phanloaithuids" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getPhieuThuByHocSinhIdAndNgayTinh" EntitySet="phieuthus" ReturnType="Collection(qlmamnonModel.phieuthu)">
+            <Parameter Name="hocsinhid" Mode="In" Type="Int32" />
+            <Parameter Name="ngaytinh" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="getPhieuThuForSoQuyTienMat" EntitySet="phieuthus" ReturnType="Collection(qlmamnonModel.phieuthu)">
+            <Parameter Name="p_fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="p_toDate" Mode="In" Type="DateTime" />
+            <Parameter Name="p_phanloaithuids" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getPhieuThuOfMonthByHocSinhIdsAndNgay" EntitySet="phieuthus" ReturnType="Collection(qlmamnonModel.phieuthu)">
+            <Parameter Name="p_hocsinhids" Mode="In" Type="String" />
+            <Parameter Name="p_ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="getSoNgayNghiThangByNgayAndHocSinhIds" ReturnType="Collection(qlmamnonModel.getSoNgayNghiThangByNgayAndHocSinhIds_Result)">
+            <Parameter Name="hocsinhids" Mode="In" Type="String" />
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="getUser" EntitySet="users" ReturnType="Collection(qlmamnonModel.user)">
+            <Parameter Name="p_username" Mode="In" Type="String" />
+            <Parameter Name="p_password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getUserPriviledgeByUserId" EntitySet="user_privilege" ReturnType="Collection(qlmamnonModel.user_privilege)">
+          <Parameter Name="p_userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getViewBanGiaoTaiSanByLopId" EntitySet="viewbangiaotaisans" ReturnType="Collection(qlmamnonModel.viewbangiaotaisan)">
+          <Parameter Name="lopid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getViewBanGiaoTaiSanByYear" EntitySet="viewbangiaotaisans" ReturnType="Collection(qlmamnonModel.viewbangiaotaisan)">
+          <Parameter Name="year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getViewBangThuTienByNgayTinhAndHocSinhId" EntitySet="viewbangthutiens" ReturnType="Collection(qlmamnonModel.viewbangthutien)">
+            <Parameter Name="p_ngay" Mode="In" Type="DateTime" />
+            <Parameter Name="p_hocsinhid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getViewBangThuTienByNgayTinhAndLop" EntitySet="viewbangthutiens" ReturnType="Collection(qlmamnonModel.viewbangthutien)">
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+            <Parameter Name="lop" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getViewHocTapByLopAndNgay" EntitySet="viewhoctaps" ReturnType="Collection(qlmamnonModel.viewhoctap)">
+            <Parameter Name="lop" Mode="In" Type="Int32" />
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="getViewTaiSanForBanGiaoTaiSan" EntitySet="viewtaisans" ReturnType="Collection(qlmamnonModel.viewtaisan)" />
+          <FunctionImport Name="insertHocSinhToLop">
+            <Parameter Name="hocsinh" Mode="In" Type="Int32" />
+            <Parameter Name="lop" Mode="In" Type="Int32" />
+            <Parameter Name="ngayvaolop" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="insertUserPrivilegeIfNotExists">
+            <Parameter Name="p_userid" Mode="In" Type="Int32" />
+            <Parameter Name="p_privilegeid" Mode="In" Type="Int32" />
+            <Parameter Name="p_value" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertViewBanGiaoTaiSai">
+            <Parameter Name="taisanid" Mode="In" Type="Int32" />
+            <Parameter Name="lopid" Mode="In" Type="Int32" />
+            <Parameter Name="ngaybangiao" Mode="In" Type="DateTime" />
+            <Parameter Name="ngayhethan" Mode="In" Type="DateTime" />
+            <Parameter Name="ghichu" Mode="In" Type="String" />
+            <Parameter Name="soluongbangiao" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="insertViewTaiSan">
+            <Parameter Name="ten" Mode="In" Type="String" />
+            <Parameter Name="ngaynhap" Mode="In" Type="DateTime" />
+            <Parameter Name="donvitinh" Mode="In" Type="String" />
+            <Parameter Name="soluong" Mode="In" Type="Int32" />
+            <Parameter Name="dongia" Mode="In" Type="Int64" />
+            <Parameter Name="thanhtien" Mode="In" Type="Int64" />
+            <Parameter Name="sochungtu" Mode="In" Type="String" />
+            <Parameter Name="ngaychungtu" Mode="In" Type="DateTime" />
+            <Parameter Name="phanloaichi" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectViewBanGiaoTaiSan" EntitySet="viewbangiaotaisans" ReturnType="Collection(qlmamnonModel.viewbangiaotaisan)" />
+          <FunctionImport Name="updateSoTienTruyThuByHocSinhAndNgayUpdated">
+            <Parameter Name="hocsinhid" Mode="In" Type="Int32" />
+            <Parameter Name="ngayupdated" Mode="In" Type="DateTime" />
+            <Parameter Name="sotientruythuadded" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="updateViewBanGiaoTaiSan">
+            <Parameter Name="taisanlopid" Mode="In" Type="Int32" />
+            <Parameter Name="lopid" Mode="In" Type="Int32" />
+            <Parameter Name="ngaybangiao" Mode="In" Type="DateTime" />
+            <Parameter Name="ngayhethan" Mode="In" Type="DateTime" />
+            <Parameter Name="ghichu" Mode="In" Type="String" />
+            <Parameter Name="soluongbangiao" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="updateViewHocTap">
+            <Parameter Name="hoctapid" Mode="In" Type="Int32" />
+            <Parameter Name="hocsinhlopid" Mode="In" Type="Int32" />
+            <Parameter Name="songaynghithang" Mode="In" Type="Int32" />
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="updateViewTaiSan">
+            <Parameter Name="ten" Mode="In" Type="String" />
+            <Parameter Name="ngaynhap" Mode="In" Type="DateTime" />
+            <Parameter Name="donvitinh" Mode="In" Type="String" />
+            <Parameter Name="soluong" Mode="In" Type="Int32" />
+            <Parameter Name="dongia" Mode="In" Type="Int64" />
+            <Parameter Name="thanhtien" Mode="In" Type="Int64" />
+            <Parameter Name="sochungtu" Mode="In" Type="String" />
+            <Parameter Name="ngaychungtu" Mode="In" Type="DateTime" />
+            <Parameter Name="phanloaichi" Mode="In" Type="Int32" />
+            <Parameter Name="taisanid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="countBangThuTienGenHistoryByLopAndNgayTinh" ReturnType="Collection(Int64)">
+            <Parameter Name="lop" Mode="In" Type="Int32" />
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="getPhieuThuForReportBCHDTC" ReturnType="Collection(Int64)">
+            <Parameter Name="tungay" Mode="In" Type="DateTime" />
+            <Parameter Name="denngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="getSumSoTienThuByDateRange" ReturnType="Collection(Int64)">
+            <Parameter Name="p_fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="p_toDate" Mode="In" Type="DateTime" />
+            <Parameter Name="p_phanloaithuids" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getSumSoTienChiByDateRange" ReturnType="Collection(Int64)">
+            <Parameter Name="p_fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="p_toDate" Mode="In" Type="DateTime" />
+            <Parameter Name="p_phanloaichiids" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="getBangThuTienById_Result" />
+        <ComplexType Name="getBangThuTienGenHistoryByLopAndNgay_Result" />
+        <ComplexType Name="getBangThuTienKhoanThuByBangThuTienIds_Result" />
+        <ComplexType Name="getHocSinhByLopAndNgay_Result" />
+        <ComplexType Name="getHocSinhByParams_Result" />
+        <ComplexType Name="getHocSinhForThongTinHocSinh_Result" />
+        <ComplexType Name="getHocSinhLopByHocSinhIdsAndNgay_Result" />
+        <ComplexType Name="getHocSinhNotAssignedToLop_Result" />
+        <ComplexType Name="getKhoanThuByIds_Result" />
+        <ComplexType Name="getKhoanThuHangNamByParams_Result" />
+        <ComplexType Name="getKhoiTruongByKhoiId_Result" />
+        <ComplexType Name="getLopKhoiByLopId_Result" />
+        <ComplexType Name="getPhieuChiByDateRange_Result" />
+        <ComplexType Name="getPhieuChiByDateRangeWithGroupPhanLoaiChi_Result" />
+        <ComplexType Name="getPhieuChiById_Result" />
+        <ComplexType Name="getPhieuChiListForReportBCHDTC_Result" />
+        <ComplexType Name="getPhieuThuByDateRangeWithGroupPhanLoaiThu_Result" />
+        <ComplexType Name="getPhieuThuByHocSinhIdAndNgayTinh_Result" />
+        <ComplexType Name="getPhieuThuForSoQuyTienMat_Result" />
+        <ComplexType Name="getPhieuThuOfMonthByHocSinhIdsAndNgay_Result" />
+        <ComplexType Name="getSoNgayNghiThangByNgayAndHocSinhIds_Result" />
+        <ComplexType Name="getUser_Result" />
+        <ComplexType Name="getUserPriviledgeByUserId_Result" />
+        <ComplexType Name="getViewBanGiaoTaiSanByLopId_Result" />
+        <ComplexType Name="getViewBanGiaoTaiSanByYear_Result" />
+        <ComplexType Name="getViewBangThuTienByNgayTinhAndHocSinhId_Result" />
+        <ComplexType Name="getViewBangThuTienByNgayTinhAndLop_Result" />
+        <ComplexType Name="getViewHocTapByLopAndNgay_Result" />
+        <ComplexType Name="getViewTaiSanForBanGiaoTaiSan_Result" />
+        <ComplexType Name="selectViewBanGiaoTaiSan_Result" />
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="qlmamnonModelStoreContainer" CdmEntityContainer="qlmamnonEntities">
+          <EntitySetMapping Name="bangthutiens">
+            <EntityTypeMapping TypeName="qlmamnonModel.bangthutien">
+              <MappingFragment StoreEntitySet="bangthutien">
+                <ScalarProperty Name="BangThuTienId" ColumnName="BangThuTienId" />
+                <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />
+                <ScalarProperty Name="LopId" ColumnName="LopId" />
+                <ScalarProperty Name="SXThangTruoc" ColumnName="SXThangTruoc" />
+                <ScalarProperty Name="SoTienSXThangTruoc" ColumnName="SoTienSXThangTruoc" />
+                <ScalarProperty Name="AnSangThangTruoc" ColumnName="AnSangThangTruoc" />
+                <ScalarProperty Name="SoTienAnSangThangTruoc" ColumnName="SoTienAnSangThangTruoc" />
+                <ScalarProperty Name="SoTienAnSangThangNay" ColumnName="SoTienAnSangThangNay" />
+                <ScalarProperty Name="SoTienAnToiThangTruoc" ColumnName="SoTienAnToiThangTruoc" />
+                <ScalarProperty Name="AnToiThangTruoc" ColumnName="AnToiThangTruoc" />
+                <ScalarProperty Name="SoTienAnToiThangNay" ColumnName="SoTienAnToiThangNay" />
+                <ScalarProperty Name="SoTienDoDung" ColumnName="SoTienDoDung" />
+                <ScalarProperty Name="SoTienNangKhieu" ColumnName="SoTienNangKhieu" />
+                <ScalarProperty Name="SoTienTruyThu" ColumnName="SoTienTruyThu" />
+                <ScalarProperty Name="SoTienDieuHoa" ColumnName="SoTienDieuHoa" />
+                <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bangthutien_khoanthu">
+            <EntityTypeMapping TypeName="qlmamnonModel.bangthutien_khoanthu">
+              <MappingFragment StoreEntitySet="bangthutien_khoanthu">
+                <ScalarProperty Name="BTTKTId" ColumnName="BTTKTId" />
+                <ScalarProperty Name="KhoanThuId" ColumnName="KhoanThuId" />
+                <ScalarProperty Name="BangThuTienId" ColumnName="BangThuTienId" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bangthutiengenhistories">
+            <EntityTypeMapping TypeName="qlmamnonModel.bangthutiengenhistory">
+              <MappingFragment StoreEntitySet="bangthutiengenhistory">
+                <ScalarProperty Name="BTTGenHistoryId" ColumnName="BTTGenHistoryId" />
+                <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+                <ScalarProperty Name="LopId" ColumnName="LopId" />
+                <ScalarProperty Name="SoTienAnSang" ColumnName="SoTienAnSang" />
+                <ScalarProperty Name="SoTienAnToi" ColumnName="SoTienAnToi" />
+                <ScalarProperty Name="SoTienAnChinh" ColumnName="SoTienAnChinh" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bangtinhphis">
+            <EntityTypeMapping TypeName="qlmamnonModel.bangtinhphi">
+              <MappingFragment StoreEntitySet="bangtinhphi">
+                <ScalarProperty Name="BangTinhPhiId" ColumnName="BangTinhPhiId" />
+                <ScalarProperty Name="SoNgayNghiMin" ColumnName="SoNgayNghiMin" />
+                <ScalarProperty Name="SoNgayNghiMax" ColumnName="SoNgayNghiMax" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="KhoanThuId" ColumnName="KhoanThuId" />
+                <ScalarProperty Name="KhoiId" ColumnName="KhoiId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="baocaothangs">
+            <EntityTypeMapping TypeName="qlmamnonModel.baocaothang">
+              <MappingFragment StoreEntitySet="baocaothang">
+                <ScalarProperty Name="BaoCaoThangId" ColumnName="BaoCaoThangId" />
+                <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+                <ScalarProperty Name="HocTapId" ColumnName="HocTapId" />
+                <ScalarProperty Name="SoNgayNghi" ColumnName="SoNgayNghi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="baocaothanggenhistories">
+            <EntityTypeMapping TypeName="qlmamnonModel.baocaothanggenhistory">
+              <MappingFragment StoreEntitySet="baocaothanggenhistory">
+                <ScalarProperty Name="BCTGenHistoryId" ColumnName="BCTGenHistoryId" />
+                <ScalarProperty Name="LopId" ColumnName="LopId" />
+                <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hocsinhs">
+            <EntityTypeMapping TypeName="qlmamnonModel.hocsinh">
+              <MappingFragment StoreEntitySet="hocsinh">
+                <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />
+                <ScalarProperty Name="HoDem" ColumnName="HoDem" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="NgayVaoLop" ColumnName="NgayVaoLop" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+                <ScalarProperty Name="DienCuTru" ColumnName="DienCuTru" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="HoTenCha" ColumnName="HoTenCha" />
+                <ScalarProperty Name="HoTenMe" ColumnName="HoTenMe" />
+                <ScalarProperty Name="DienThoaiMe" ColumnName="DienThoaiMe" />
+                <ScalarProperty Name="TinhThanhPhoId" ColumnName="TinhThanhPhoId" />
+                <ScalarProperty Name="QuanHuyenId" ColumnName="QuanHuyenId" />
+                <ScalarProperty Name="PhuongXaId" ColumnName="PhuongXaId" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="ThoiHoc" ColumnName="ThoiHoc" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hocsinh_lop">
+            <EntityTypeMapping TypeName="qlmamnonModel.hocsinh_lop">
+              <MappingFragment StoreEntitySet="hocsinh_lop">
+                <ScalarProperty Name="HocSinhLopId" ColumnName="HocSinhLopId" />
+                <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />
+                <ScalarProperty Name="LopId" ColumnName="LopId" />
+                <ScalarProperty Name="DateJoin" ColumnName="DateJoin" />
+                <ScalarProperty Name="DateLeft" ColumnName="DateLeft" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hoctaps">
+            <EntityTypeMapping TypeName="qlmamnonModel.hoctap">
+              <MappingFragment StoreEntitySet="hoctap">
+                <ScalarProperty Name="HocTapId" ColumnName="HocTapId" />
+                <ScalarProperty Name="HocSinhLopId" ColumnName="HocSinhLopId" />
+                <ScalarProperty Name="Hoc2Buoi" ColumnName="Hoc2Buoi" />
+                <ScalarProperty Name="ChuyenCan" ColumnName="ChuyenCan" />
+                <ScalarProperty Name="AnTaiTruong" ColumnName="AnTaiTruong" />
+                <ScalarProperty Name="HocLienTuc" ColumnName="HocLienTuc" />
+                <ScalarProperty Name="TheoDoiCanNang" ColumnName="TheoDoiCanNang" />
+                <ScalarProperty Name="SDDCanNang" ColumnName="SDDCanNang" />
+                <ScalarProperty Name="TheoDoiChieuCao" ColumnName="TheoDoiChieuCao" />
+                <ScalarProperty Name="SDDChieuCao" ColumnName="SDDChieuCao" />
+                <ScalarProperty Name="HoanThanhCTGDMN" ColumnName="HoanThanhCTGDMN" />
+                <ScalarProperty Name="DanhGia" ColumnName="DanhGia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="khoanthus">
+            <EntityTypeMapping TypeName="qlmamnonModel.khoanthu">
+              <MappingFragment StoreEntitySet="khoanthu">
+                <ScalarProperty Name="KhoanThuId" ColumnName="KhoanThuId" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="IsBatBuoc" ColumnName="IsBatBuoc" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="khoanthuhangnams">
+            <EntityTypeMapping TypeName="qlmamnonModel.khoanthuhangnam">
+              <MappingFragment StoreEntitySet="khoanthuhangnam">
+                <ScalarProperty Name="KhoanThuHangNamId" ColumnName="KhoanThuHangNamId" />
+                <ScalarProperty Name="KhoanThuId" ColumnName="KhoanThuId" />
+                <ScalarProperty Name="KhoiId" ColumnName="KhoiId" />
+                <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="IsBatBuoc" ColumnName="IsBatBuoc" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="khois">
+            <EntityTypeMapping TypeName="qlmamnonModel.khoi">
+              <MappingFragment StoreEntitySet="khoi">
+                <ScalarProperty Name="KhoiId" ColumnName="KhoiId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="khoi_truong">
+            <EntityTypeMapping TypeName="qlmamnonModel.khoi_truong">
+              <MappingFragment StoreEntitySet="khoi_truong">
+                <ScalarProperty Name="KhoiTruongId" ColumnName="KhoiTruongId" />
+                <ScalarProperty Name="KhoiId" ColumnName="KhoiId" />
+                <ScalarProperty Name="TruongId" ColumnName="TruongId" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lops">
+            <EntityTypeMapping TypeName="qlmamnonModel.lop">
+              <MappingFragment StoreEntitySet="lop">
+                <ScalarProperty Name="LopId" ColumnName="LopId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lop_khoi">
+            <EntityTypeMapping TypeName="qlmamnonModel.lop_khoi">
+              <MappingFragment StoreEntitySet="lop_khoi">
+                <ScalarProperty Name="LopKhoiId" ColumnName="LopKhoiId" />
+                <ScalarProperty Name="LopId" ColumnName="LopId" />
+                <ScalarProperty Name="KhoiId" ColumnName="KhoiId" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phanloaichis">
+            <EntityTypeMapping TypeName="qlmamnonModel.phanloaichi">
+              <MappingFragment StoreEntitySet="phanloaichi">
+                <ScalarProperty Name="PhanLoaiChiId" ColumnName="PhanLoaiChiId" />
+                <ScalarProperty Name="MaPhanLoai" ColumnName="MaPhanLoai" />
+                <ScalarProperty Name="DienGiai" ColumnName="DienGiai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phanloaithus">
+            <EntityTypeMapping TypeName="qlmamnonModel.phanloaithu">
+              <MappingFragment StoreEntitySet="phanloaithu">
+                <ScalarProperty Name="PhanLoaiThuId" ColumnName="PhanLoaiThuId" />
+                <ScalarProperty Name="DienGiai" ColumnName="DienGiai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phieuchis">
+            <EntityTypeMapping TypeName="qlmamnonModel.phieuchi">
+              <MappingFragment StoreEntitySet="phieuchi">
+                <ScalarProperty Name="PhieuChiId" ColumnName="PhieuChiId" />
+                <ScalarProperty Name="MaPhieu" ColumnName="MaPhieu" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="PhanLoaiChiId" ColumnName="PhanLoaiChiId" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phieuthus">
+            <EntityTypeMapping TypeName="qlmamnonModel.phieuthu">
+              <MappingFragment StoreEntitySet="phieuthu">
+                <ScalarProperty Name="PhieuThuId" ColumnName="PhieuThuId" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="MaPhieu" ColumnName="MaPhieu" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="PhanLoaiThuId" ColumnName="PhanLoaiThuId" />
+                <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phuongxas">
+            <EntityTypeMapping TypeName="qlmamnonModel.phuongxa">
+              <MappingFragment StoreEntitySet="phuongxa">
+                <ScalarProperty Name="PhuongXaId" ColumnName="PhuongXaId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="QuanHuyenId" ColumnName="QuanHuyenId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="privileges">
+            <EntityTypeMapping TypeName="qlmamnonModel.privilege">
+              <MappingFragment StoreEntitySet="privilege">
+                <ScalarProperty Name="PrivilegeId" ColumnName="PrivilegeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quanhuyens">
+            <EntityTypeMapping TypeName="qlmamnonModel.quanhuyen">
+              <MappingFragment StoreEntitySet="quanhuyen">
+                <ScalarProperty Name="QuanHuyenId" ColumnName="QuanHuyenId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ThanhPhoId" ColumnName="ThanhPhoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schoolsettings">
+            <EntityTypeMapping TypeName="qlmamnonModel.schoolsetting">
+              <MappingFragment StoreEntitySet="schoolsetting">
+                <ScalarProperty Name="SchoolSettingId" ColumnName="SchoolSettingId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="smstemplates">
+            <EntityTypeMapping TypeName="qlmamnonModel.smstemplate">
+              <MappingFragment StoreEntitySet="smstemplate">
+                <ScalarProperty Name="SmsTemplateId" ColumnName="SmsTemplateId" />
+                <ScalarProperty Name="Template" ColumnName="Template" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="taisans">
+            <EntityTypeMapping TypeName="qlmamnonModel.taisan">
+              <MappingFragment StoreEntitySet="taisan">
+                <ScalarProperty Name="TaiSanId" ColumnName="TaiSanId" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="SoChungTu" ColumnName="SoChungTu" />
+                <ScalarProperty Name="NgayChungTu" ColumnName="NgayChungTu" />
+                <ScalarProperty Name="PhieuChiId" ColumnName="PhieuChiId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="taisan_lop">
+            <EntityTypeMapping TypeName="qlmamnonModel.taisan_lop">
+              <MappingFragment StoreEntitySet="taisan_lop">
+                <ScalarProperty Name="TaiSanLopId" ColumnName="TaiSanLopId" />
+                <ScalarProperty Name="TaiSanId" ColumnName="TaiSanId" />
+                <ScalarProperty Name="LopId" ColumnName="LopId" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="NgayBanGiao" ColumnName="NgayBanGiao" />
+                <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thanhphoes">
+            <EntityTypeMapping TypeName="qlmamnonModel.thanhpho">
+              <MappingFragment StoreEntitySet="thanhpho">
+                <ScalarProperty Name="ThanhPhoId" ColumnName="ThanhPhoId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="truongs">
+            <EntityTypeMapping TypeName="qlmamnonModel.truong">
+              <MappingFragment StoreEntitySet="truong">
+                <ScalarProperty Name="TruongId" ColumnName="TruongId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="qlmamnonModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_privilege">
+            <EntityTypeMapping TypeName="qlmamnonModel.user_privilege">
+              <MappingFragment StoreEntitySet="user_privilege">
+                <ScalarProperty Name="UserPrivilegeId" ColumnName="UserPrivilegeId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PrivilegeId" ColumnName="PrivilegeId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewbangiaotaisans">
+            <EntityTypeMapping TypeName="qlmamnonModel.viewbangiaotaisan">
+              <MappingFragment StoreEntitySet="viewbangiaotaisan">
+                <ScalarProperty Name="TaiSanId" ColumnName="TaiSanId" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="SoChungTu" ColumnName="SoChungTu" />
+                <ScalarProperty Name="NgayChungTu" ColumnName="NgayChungTu" />
+                <ScalarProperty Name="PhieuChiId" ColumnName="PhieuChiId" />
+                <ScalarProperty Name="LopId" ColumnName="LopId" />
+                <ScalarProperty Name="NgayBanGiao" ColumnName="NgayBanGiao" />
+                <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="TaiSanLopId" ColumnName="TaiSanLopId" />
+                <ScalarProperty Name="SoLuongBanGiao" ColumnName="SoLuongBanGiao" />
+                <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewbangthutiens">
+            <EntityTypeMapping TypeName="qlmamnonModel.viewbangthutien">
+              <MappingFragment StoreEntitySet="viewbangthutien">
+                <ScalarProperty Name="BangThuTienId" ColumnName="BangThuTienId" />
+                <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />
+                <ScalarProperty Name="LopId" ColumnName="LopId" />
+                <ScalarProperty Name="SXThangTruoc" ColumnName="SXThangTruoc" />
+                <ScalarProperty Name="SoTienSXThangTruoc" ColumnName="SoTienSXThangTruoc" />
+                <ScalarProperty Name="AnSangThangTruoc" ColumnName="AnSangThangTruoc" />
+                <ScalarProperty Name="SoTienAnSangThangTruoc" ColumnName="SoTienAnSangThangTruoc" />
+                <ScalarProperty Name="SoTienAnSangThangNay" ColumnName="SoTienAnSangThangNay" />
+                <ScalarProperty Name="AnToiThangTruoc" ColumnName="AnToiThangTruoc" />
+                <ScalarProperty Name="SoTienAnToiThangTruoc" ColumnName="SoTienAnToiThangTruoc" />
+                <ScalarProperty Name="SoTienAnToiThangNay" ColumnName="SoTienAnToiThangNay" />
+                <ScalarProperty Name="SoTienNangKhieu" ColumnName="SoTienNangKhieu" />
+                <ScalarProperty Name="SoTienTruyThu" ColumnName="SoTienTruyThu" />
+                <ScalarProperty Name="SoTienDoDung" ColumnName="SoTienDoDung" />
+                <ScalarProperty Name="SoTienDieuHoa" ColumnName="SoTienDieuHoa" />
+                <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="Lop" ColumnName="Lop" />
+                <ScalarProperty Name="SoBienLai" ColumnName="SoBienLai" />
+                <ScalarProperty Name="TongThu" ColumnName="TongThu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewhoctaps">
+            <EntityTypeMapping TypeName="qlmamnonModel.viewhoctap">
+              <MappingFragment StoreEntitySet="viewhoctap">
+                <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />
+                <ScalarProperty Name="HoDem" ColumnName="HoDem" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="NgayVaoLop" ColumnName="NgayVaoLop" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+                <ScalarProperty Name="DienCuTru" ColumnName="DienCuTru" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="HoTenCha" ColumnName="HoTenCha" />
+                <ScalarProperty Name="HoTenMe" ColumnName="HoTenMe" />
+                <ScalarProperty Name="TinhThanhPhoId" ColumnName="TinhThanhPhoId" />
+                <ScalarProperty Name="QuanHuyenId" ColumnName="QuanHuyenId" />
+                <ScalarProperty Name="PhuongXaId" ColumnName="PhuongXaId" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="ThoiHoc" ColumnName="ThoiHoc" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="SoNgayNghiThang" ColumnName="SoNgayNghiThang" />
+                <ScalarProperty Name="NgayTinh" ColumnName="NgayTinh" />
+                <ScalarProperty Name="HocTapId" ColumnName="HocTapId" />
+                <ScalarProperty Name="LopId" ColumnName="LopId" />
+                <ScalarProperty Name="LopName" ColumnName="LopName" />
+                <ScalarProperty Name="HocSinhLopId" ColumnName="HocSinhLopId" />
+                <ScalarProperty Name="DateJoin" ColumnName="DateJoin" />
+                <ScalarProperty Name="DateLeft" ColumnName="DateLeft" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewtaisans">
+            <EntityTypeMapping TypeName="qlmamnonModel.viewtaisan">
+              <MappingFragment StoreEntitySet="viewtaisan">
+                <ScalarProperty Name="TaiSanId" ColumnName="TaiSanId" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+                <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="SoChungTu" ColumnName="SoChungTu" />
+                <ScalarProperty Name="NgayChungTu" ColumnName="NgayChungTu" />
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="PhieuChiId" ColumnName="PhieuChiId" />
+                <ScalarProperty Name="PhanLoaiChiId" ColumnName="PhanLoaiChiId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewtaisanforbangiaotaisans">
+            <EntityTypeMapping TypeName="qlmamnonModel.viewtaisanforbangiaotaisan">
+              <MappingFragment StoreEntitySet="viewtaisanforbangiaotaisan">
+                <ScalarProperty Name="TaiSanId" ColumnName="TaiSanId" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+                <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="SoChungTu" ColumnName="SoChungTu" />
+                <ScalarProperty Name="NgayChungTu" ColumnName="NgayChungTu" />
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="PhieuChiId" ColumnName="PhieuChiId" />
+                <ScalarProperty Name="PhanLoaiChiId" ColumnName="PhanLoaiChiId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="deleteBangThuTienByHocSinhIdsAndDate" FunctionName="qlmamnonModel.Store.deleteBangThuTienByHocSinhIdsAndDate" />
+          <FunctionImportMapping FunctionImportName="deleteBangThuTienById" FunctionName="qlmamnonModel.Store.deleteBangThuTienById" />
+          <FunctionImportMapping FunctionImportName="deleteBangThuTienKhoanThuByBangThuTienId" FunctionName="qlmamnonModel.Store.deleteBangThuTienKhoanThuByBangThuTienId" />
+          <FunctionImportMapping FunctionImportName="deleteHocSinhLopByHocSinhIds" FunctionName="qlmamnonModel.Store.deleteHocSinhLopByHocSinhIds" />
+          <FunctionImportMapping FunctionImportName="deleteKhoiTruongByKhoiId" FunctionName="qlmamnonModel.Store.deleteKhoiTruongByKhoiId" />
+          <FunctionImportMapping FunctionImportName="deleteLopKhoiByLopId" FunctionName="qlmamnonModel.Store.deleteLopKhoiByLopId" />
+          <FunctionImportMapping FunctionImportName="deleteUserPrivileges" FunctionName="qlmamnonModel.Store.deleteUserPrivileges" />
+          <FunctionImportMapping FunctionImportName="deleteViewBanGiaoTaiSan" FunctionName="qlmamnonModel.Store.deleteViewBanGiaoTaiSan" />
+          <FunctionImportMapping FunctionImportName="deleteViewTaiSan" FunctionName="qlmamnonModel.Store.deleteViewTaiSan" />
+          <FunctionImportMapping FunctionImportName="getBangThuTienById" FunctionName="qlmamnonModel.Store.getBangThuTienById">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getBangThuTienGenHistoryByLopAndNgay" FunctionName="qlmamnonModel.Store.getBangThuTienGenHistoryByLopAndNgay">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getBangThuTienKhoanThuByBangThuTienIds" FunctionName="qlmamnonModel.Store.getBangThuTienKhoanThuByBangThuTienIds">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getHocSinhByLopAndNgay" FunctionName="qlmamnonModel.Store.getHocSinhByLopAndNgay">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getHocSinhByParams" FunctionName="qlmamnonModel.Store.getHocSinhByParams">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getHocSinhForThongTinHocSinh" FunctionName="qlmamnonModel.Store.getHocSinhForThongTinHocSinh">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getHocSinhLopByHocSinhIdsAndNgay" FunctionName="qlmamnonModel.Store.getHocSinhLopByHocSinhIdsAndNgay">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getHocSinhNotAssignedToLop" FunctionName="qlmamnonModel.Store.getHocSinhNotAssignedToLop">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getKhoanThuByIds" FunctionName="qlmamnonModel.Store.getKhoanThuByIds">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getKhoanThuHangNamByParams" FunctionName="qlmamnonModel.Store.getKhoanThuHangNamByParams">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getKhoiTruongByKhoiId" FunctionName="qlmamnonModel.Store.getKhoiTruongByKhoiId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getLopKhoiByLopId" FunctionName="qlmamnonModel.Store.getLopKhoiByLopId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getPhieuChiByDateRange" FunctionName="qlmamnonModel.Store.getPhieuChiByDateRange">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getPhieuChiByDateRangeWithGroupPhanLoaiChi" FunctionName="qlmamnonModel.Store.getPhieuChiByDateRangeWithGroupPhanLoaiChi">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getPhieuChiById" FunctionName="qlmamnonModel.Store.getPhieuChiById">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getPhieuChiListForReportBCHDTC" FunctionName="qlmamnonModel.Store.getPhieuChiListForReportBCHDTC">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getPhieuThuByDateRangeWithGroupPhanLoaiThu" FunctionName="qlmamnonModel.Store.getPhieuThuByDateRangeWithGroupPhanLoaiThu">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getPhieuThuByHocSinhIdAndNgayTinh" FunctionName="qlmamnonModel.Store.getPhieuThuByHocSinhIdAndNgayTinh">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getPhieuThuForSoQuyTienMat" FunctionName="qlmamnonModel.Store.getPhieuThuForSoQuyTienMat">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getPhieuThuOfMonthByHocSinhIdsAndNgay" FunctionName="qlmamnonModel.Store.getPhieuThuOfMonthByHocSinhIdsAndNgay">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getSoNgayNghiThangByNgayAndHocSinhIds" FunctionName="qlmamnonModel.Store.getSoNgayNghiThangByNgayAndHocSinhIds">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="qlmamnonModel.getSoNgayNghiThangByNgayAndHocSinhIds_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getUser" FunctionName="qlmamnonModel.Store.getUser">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getUserPriviledgeByUserId" FunctionName="qlmamnonModel.Store.getUserPriviledgeByUserId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getViewBanGiaoTaiSanByLopId" FunctionName="qlmamnonModel.Store.getViewBanGiaoTaiSanByLopId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getViewBanGiaoTaiSanByYear" FunctionName="qlmamnonModel.Store.getViewBanGiaoTaiSanByYear">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getViewBangThuTienByNgayTinhAndHocSinhId" FunctionName="qlmamnonModel.Store.getViewBangThuTienByNgayTinhAndHocSinhId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getViewBangThuTienByNgayTinhAndLop" FunctionName="qlmamnonModel.Store.getViewBangThuTienByNgayTinhAndLop">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getViewHocTapByLopAndNgay" FunctionName="qlmamnonModel.Store.getViewHocTapByLopAndNgay">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getViewTaiSanForBanGiaoTaiSan" FunctionName="qlmamnonModel.Store.getViewTaiSanForBanGiaoTaiSan">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="insertHocSinhToLop" FunctionName="qlmamnonModel.Store.insertHocSinhToLop" />
+          <FunctionImportMapping FunctionImportName="insertUserPrivilegeIfNotExists" FunctionName="qlmamnonModel.Store.insertUserPrivilegeIfNotExists" />
+          <FunctionImportMapping FunctionImportName="insertViewBanGiaoTaiSai" FunctionName="qlmamnonModel.Store.insertViewBanGiaoTaiSai" />
+          <FunctionImportMapping FunctionImportName="insertViewTaiSan" FunctionName="qlmamnonModel.Store.insertViewTaiSan" />
+          <FunctionImportMapping FunctionImportName="selectViewBanGiaoTaiSan" FunctionName="qlmamnonModel.Store.selectViewBanGiaoTaiSan">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="updateSoTienTruyThuByHocSinhAndNgayUpdated" FunctionName="qlmamnonModel.Store.updateSoTienTruyThuByHocSinhAndNgayUpdated" />
+          <FunctionImportMapping FunctionImportName="updateViewBanGiaoTaiSan" FunctionName="qlmamnonModel.Store.updateViewBanGiaoTaiSan" />
+          <FunctionImportMapping FunctionImportName="updateViewHocTap" FunctionName="qlmamnonModel.Store.updateViewHocTap" />
+          <FunctionImportMapping FunctionImportName="updateViewTaiSan" FunctionName="qlmamnonModel.Store.updateViewTaiSan" />
+          <FunctionImportMapping FunctionImportName="countBangThuTienGenHistoryByLopAndNgayTinh" FunctionName="qlmamnonModel.Store.countBangThuTienGenHistoryByLopAndNgayTinh" />
+          <FunctionImportMapping FunctionImportName="getPhieuThuForReportBCHDTC" FunctionName="qlmamnonModel.Store.getPhieuThuForReportBCHDTC" />
+          <FunctionImportMapping FunctionImportName="getSumSoTienThuByDateRange" FunctionName="qlmamnonModel.Store.getSumSoTienThuByDateRange" />
+          <FunctionImportMapping FunctionImportName="getSumSoTienChiByDateRange" FunctionName="qlmamnonModel.Store.getSumSoTienChiByDateRange" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

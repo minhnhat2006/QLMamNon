@@ -1,0 +1,89 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="QLMamNon.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AppLannchDate" Type="System.DateTime" Scope="Application">
+      <Value Profile="(Default)">2023-04-13</Value>
+    </Setting>
+    <Setting Name="DefaultMaPhanLoaiChi" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Thực phẩm, Phụ phí</Value>
+    </Setting>
+    <Setting Name="SMSWSSendMessageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://rest.esms.vn/MainService.svc/json/SendMultipleMessage_V4_get?Phone={0}&amp;Content={1}&amp;ApiKey=9BB708A18DC3EE2D63879D0D2E55CC&amp;SecretKey=27AD94C5BC577605E8D26BCDBF086F&amp;SmsType=4&amp;IsUnicode=0</Value>
+    </Setting>
+    <Setting Name="TienAnSang" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">6000</Value>
+    </Setting>
+    <Setting Name="TienAnToi" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">6000</Value>
+    </Setting>
+    <Setting Name="TienAnChinh" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">20000</Value>
+    </Setting>
+    <Setting Name="StartYearForDropDown" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2015</Value>
+    </Setting>
+    <Setting Name="SoTienTonDauKy" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="NamSinhStart" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2005</Value>
+    </Setting>
+    <Setting Name="SpeedSMSType" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="SpeedSMSRootUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://api.speedsms.vn/index.php</Value>
+    </Setting>
+    <Setting Name="SpeedSMSAccessToken" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">vVkic2h4PsnEnTRDArJiPxkAoGx7Fsvl</Value>
+    </Setting>
+    <Setting Name="SpeedSMSSender" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MNHongMinh</Value>
+    </Setting>
+    <Setting Name="PhanLoaiThuByHocSinh" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ShowGiayBaoNopTienDieuHoa" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ShowGiayBaoNopTienNote" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="POSPrinterName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LastMaPhieuThu" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">12345</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PDUSendMessageTemplate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">001100{0}81{1}0008aa{2}{3}</Value>
+    </Setting>
+    <Setting Name="IsMNHongMinh" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="qlmamnonConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;server=127.0.0.1;user id=root;password=root;persistsecurityinfo=True;database=qlmamnon;characterset=utf8;allowzerodatetime=True;convertzerodatetime=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">server=127.0.0.1;user id=root;password=root;persistsecurityinfo=True;database=qlmamnon;characterset=utf8;allowzerodatetime=True;convertzerodatetime=True</Value>
+    </Setting>
+    <Setting Name="MNHongMinh" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TRƯỜNG MN HỒNG MINH</Value>
+    </Setting>
+    <Setting Name="Domity" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TRUNG TÂM ANH NGỮ DOMYTY</Value>
+    </Setting>
+    <Setting Name="MNHongMinhAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Số 40-42 Nguyễn Trung Trực, Sơn Trà, Đà Nẵng</Value>
+    </Setting>
+    <Setting Name="DomityAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Số 105A Nguyễn Trung Trực, Sơn Trà, Đà Nẵng</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/11/trunk/Src/SMSPDU
+END
+Exceptions.cs
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/10/trunk/Src/SMSPDU/Exceptions.cs
+END
+SMSStatusReport.cs
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/2/trunk/Src/SMSPDU/SMSStatusReport.cs
+END
+SMS.cs
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/11/trunk/Src/SMSPDU/SMS.cs
+END
+SMSPDULib.snk
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/4/trunk/Src/SMSPDU/SMSPDULib.snk
+END
+SMSBase.cs
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/11/trunk/Src/SMSPDU/SMSBase.cs
+END
+SMSPDULib.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/7/trunk/Src/SMSPDU/SMSPDULib.csproj
+END
+GSM0338Charset.cs
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/10/trunk/Src/SMSPDU/GSM0338Charset.cs
+END

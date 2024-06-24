@@ -1,0 +1,4 @@
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Debug\ACG.Core.WinForm.ActivityTracking.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Debug\ACG.Core.WinForm.ActivityTracking.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Debug\ACG.Core.WinForm.ActivityTracking.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Debug\ACG.Core.WinForm.ActivityTracking.pdb

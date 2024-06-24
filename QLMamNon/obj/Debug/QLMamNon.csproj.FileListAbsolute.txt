@@ -1,0 +1,930 @@
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\client_secret.json
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\QLMamNon.exe.config
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\QLMamNon.exe
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\QLMamNon.pdb
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.ActivityObserver.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Data.Static.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Logging.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Mediator.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Util.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\BouncyCastle.Crypto.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.CodeParser.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Data.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.DataAccess.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.DataAccess.v14.2.UI.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Images.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Office.v14.2.Core.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.PivotGrid.v14.2.Core.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Printing.v14.2.Core.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.RichEdit.v14.2.Core.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Sparkline.v14.2.Core.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Utils.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Utils.v14.2.UI.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Xpo.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraBars.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.Extensions.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.Wizard.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraEditors.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraGauges.v14.2.Core.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraGrid.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraLayout.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraNavBar.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraPivotGrid.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraPrinting.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraReports.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraReports.v14.2.Extensions.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraRichEdit.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraTreeList.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraVerticalGrid.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraWizard.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Auth.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Auth.PlatformServices.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Core.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Drive.v3.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.PlatformServices.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\log4net.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\MySql.Data.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\MySqlBackup.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Renci.SshNet.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.Extensions.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.Primitives.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Zlib.Portable.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Charts.v14.2.Core.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.ActivityObserver.pdb
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Data.Static.pdb
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Logging.pdb
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Mediator.pdb
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Util.pdb
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Data.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.DataAccess.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.DataAccess.v14.2.UI.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Office.v14.2.Core.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.PivotGrid.v14.2.Core.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Printing.v14.2.Core.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.RichEdit.v14.2.Core.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Sparkline.v14.2.Core.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Utils.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Utils.v14.2.UI.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Xpo.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraBars.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.Wizard.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraEditors.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraGauges.v14.2.Core.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraGrid.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraLayout.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraNavBar.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraPivotGrid.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraPrinting.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraReports.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraReports.v14.2.Extensions.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraRichEdit.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraTreeList.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraVerticalGrid.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraWizard.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.pdb
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Auth.pdb
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Auth.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Core.pdb
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Core.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Drive.v3.pdb
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Drive.v3.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\log4net.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.ReportViewer.WinForms.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Renci.SshNet.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.Extensions.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.Primitives.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Zlib.Portable.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Data.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Data.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Data.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Data.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.DataAccess.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.DataAccess.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.DataAccess.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.DataAccess.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.DataAccess.v14.2.UI.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.DataAccess.v14.2.UI.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.DataAccess.v14.2.UI.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.DataAccess.v14.2.UI.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Office.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Office.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Office.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Office.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.PivotGrid.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.PivotGrid.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.PivotGrid.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.PivotGrid.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Printing.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Printing.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Printing.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Printing.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.RichEdit.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.RichEdit.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.RichEdit.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.RichEdit.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Sparkline.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Sparkline.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Sparkline.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Sparkline.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Utils.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Utils.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Utils.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Utils.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Utils.v14.2.UI.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Utils.v14.2.UI.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Utils.v14.2.UI.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Utils.v14.2.UI.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Xpo.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Xpo.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Xpo.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Xpo.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraBars.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraBars.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraBars.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraBars.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraCharts.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraCharts.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraCharts.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraCharts.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraEditors.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraEditors.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraEditors.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraEditors.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraGauges.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraGauges.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraGauges.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraGauges.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraGrid.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraGrid.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraGrid.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraGrid.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraLayout.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraLayout.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraLayout.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraLayout.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraNavBar.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraNavBar.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraNavBar.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraNavBar.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraPivotGrid.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraPivotGrid.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraPivotGrid.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraPivotGrid.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraPrinting.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraPrinting.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraPrinting.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraPrinting.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraReports.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraReports.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraReports.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraReports.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraReports.v14.2.Extensions.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraReports.v14.2.Extensions.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraReports.v14.2.Extensions.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraReports.v14.2.Extensions.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraRichEdit.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraRichEdit.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraRichEdit.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraRichEdit.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraTreeList.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraTreeList.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraTreeList.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraTreeList.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraVerticalGrid.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraVerticalGrid.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraVerticalGrid.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraVerticalGrid.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraWizard.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraWizard.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraWizard.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraWizard.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.csprojAssemblyReference.cache
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.Authenticate.FrmLogin.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmBangTinhPhi.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmKhoanThuHangNam.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmKhoanThu.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmPhanLoaiChi.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmKhoiHoc.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmLopHoc.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmPhanLoaiThu.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmPhuongXa.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmQuanHuyen.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmTinhThanhPho.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmTruongHoc.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.FrmMain.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.HocSinh.FrmThongTinHocTap.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.HocSinh.FrmThongTinHocSinh.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.HocSinh.FrmXepLop.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.Authenticate.FrmBackupDb.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.SystemSetting.FrmPreference.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.SystemSetting.FrmUser.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmSoTheoDoiTaiSan.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmTaiSan.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.HocSinh.FrmPhanBoTaiSan.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBangKeCacLoaiChi.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBangKeThuTrongNgay.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBaoCaoTinhHinhThuChi.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBangKeThuHocPhi.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmSoQuyTienMat.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmSelectHocSinhsToGenerate.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBaoCaoChiTietHoatDongTaiChinh.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBaoCaoHoatDongTaiChinh.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmTaoPhieuChi.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmTaoPhieuThu.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmSoThuTien.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.TinNhan.FrmTinNhanPhuHuynh.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.PrintRibbonControllerResources.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Properties.Resources.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormPhanLoaiThu.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormBangTinhPhi.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormUser.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormXepLop.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormBanGiaoTaiSan.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormTaiSan.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormKhoanThuHangNam.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormKhoanThu.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormPhanLoaiChi.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormTinhThanhPho.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormLopHoc.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormKhoiHoc.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormTruongHoc.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormThongTinHocSinh.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.csproj.GenerateResource.cache
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.exe.licenses
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.csproj.CoreCompileInputs.cache
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.csproj.CopyComplete
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.exe
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.Authenticate.FrmLogin.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmBangTinhPhi.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmKhoanThu.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmKhoanThuHangNam.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmKhoiHoc.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmLopHoc.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmPhanLoaiChi.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmPhanLoaiThu.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmPhuongXa.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmQuanHuyen.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmTinhThanhPho.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmTruongHoc.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.FrmMain.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.HocSinh.FrmThongTinHocSinh.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.HocSinh.FrmThongTinHocTap.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.HocSinh.FrmXepLop.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.Authenticate.FrmBackupDb.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.SystemSetting.FrmPreference.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.SystemSetting.FrmUser.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.HocSinh.FrmPhanBoTaiSan.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmSoTheoDoiTaiSan.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmTaiSan.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBangKeCacLoaiChi.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBangKeThuHocPhi.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBangKeThuTrongNgay.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBaoCaoChiTietHoatDongTaiChinh.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBaoCaoHoatDongTaiChinh.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBaoCaoTinhHinhThuChi.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmPhieuChi.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmPhieuThu.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmSelectHocSinhsToGenerate.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmSoQuyTienMat.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmSoThuTien.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmTaoPhieuChi.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmTaoPhieuThu.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.TinNhan.FrmTinNhanPhuHuynh.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.PrintRibbonControllerResources.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Properties.Resources.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBangKeCacLoaiChi.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBangKeThuTrongNgay.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBangKeTongHopThuTienHS.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBaoCaoChiTietHoatDongTaiChinh.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBaoCaoHoatDongTaiChinh.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptGiayBaoNopTien.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptPhieuThuTien.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoQuyTienMat.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoTheoDoiTaiSan.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoThuTienTrang1.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoThuTienTrang2.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptTaiSaHistory.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptThongTinHocSinh.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptTinhHinhThuChi.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormBanGiaoTaiSan.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormBangTinhPhi.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormKhoanThu.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormKhoanThuHangNam.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormKhoiHoc.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormLopHoc.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormPhanLoaiChi.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormPhanLoaiThu.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormTaiSan.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormThongTinHocSinh.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormTinhThanhPho.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormTruongHoc.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormUser.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormXepLop.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.exe.licenses
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\QLMamNon.exe.config
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\client_secret.json
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\QLMamNon.exe
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\QLMamNon.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.ActivityObserver.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Data.Static.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Logging.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Mediator.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Util.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\BouncyCastle.Crypto.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.CodeParser.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Data.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.DataAccess.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.DataAccess.v14.2.UI.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Images.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Office.v14.2.Core.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.PivotGrid.v14.2.Core.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Printing.v14.2.Core.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.RichEdit.v14.2.Core.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Sparkline.v14.2.Core.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Utils.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Utils.v14.2.UI.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Xpo.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraBars.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.Extensions.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.Wizard.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraEditors.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraGauges.v14.2.Core.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraGrid.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraLayout.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraNavBar.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraPivotGrid.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraPrinting.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraReports.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraReports.v14.2.Extensions.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraRichEdit.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraTreeList.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraVerticalGrid.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraWizard.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\EntityFramework.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\EntityFramework.SqlServer.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Auth.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Auth.PlatformServices.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Core.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Drive.v3.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.PlatformServices.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Protobuf.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\log4net.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\MySql.Data.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\MySqlBackup.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Newtonsoft.Json.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Renci.SshNet.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.Extensions.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.Primitives.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.WebRequest.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Zlib.Portable.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Charts.v14.2.Core.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.ActivityObserver.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Data.Static.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Logging.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Mediator.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Util.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Data.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.DataAccess.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.DataAccess.v14.2.UI.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Office.v14.2.Core.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.PivotGrid.v14.2.Core.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Printing.v14.2.Core.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.RichEdit.v14.2.Core.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Sparkline.v14.2.Core.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Utils.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Utils.v14.2.UI.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Xpo.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraBars.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.Wizard.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraEditors.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraGauges.v14.2.Core.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraGrid.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraLayout.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraNavBar.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraPivotGrid.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraPrinting.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraReports.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraReports.v14.2.Extensions.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraRichEdit.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraTreeList.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraVerticalGrid.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraWizard.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\EntityFramework.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\EntityFramework.SqlServer.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Auth.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Auth.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Core.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Core.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Drive.v3.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Drive.v3.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Protobuf.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\log4net.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Newtonsoft.Json.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Renci.SshNet.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.Extensions.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.Primitives.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.WebRequest.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Zlib.Portable.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Data.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Data.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Data.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Data.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.DataAccess.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.DataAccess.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.DataAccess.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.DataAccess.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.DataAccess.v14.2.UI.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.DataAccess.v14.2.UI.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.DataAccess.v14.2.UI.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.DataAccess.v14.2.UI.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Office.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Office.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Office.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Office.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.PivotGrid.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.PivotGrid.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.PivotGrid.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.PivotGrid.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Printing.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Printing.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Printing.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Printing.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.RichEdit.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.RichEdit.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.RichEdit.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.RichEdit.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Sparkline.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Sparkline.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Sparkline.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Sparkline.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Utils.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Utils.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Utils.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Utils.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Utils.v14.2.UI.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Utils.v14.2.UI.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Utils.v14.2.UI.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Utils.v14.2.UI.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Xpo.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Xpo.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Xpo.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Xpo.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraBars.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraBars.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraBars.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraBars.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraCharts.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraCharts.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraCharts.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraCharts.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraEditors.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraEditors.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraEditors.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraEditors.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraGauges.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraGauges.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraGauges.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraGauges.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraGrid.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraGrid.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraGrid.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraGrid.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraLayout.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraLayout.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraLayout.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraLayout.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraNavBar.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraNavBar.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraNavBar.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraNavBar.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraPivotGrid.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraPivotGrid.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraPivotGrid.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraPivotGrid.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraPrinting.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraPrinting.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraPrinting.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraPrinting.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraReports.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraReports.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraReports.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraReports.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraReports.v14.2.Extensions.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraReports.v14.2.Extensions.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraReports.v14.2.Extensions.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraReports.v14.2.Extensions.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraRichEdit.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraRichEdit.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraRichEdit.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraRichEdit.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraTreeList.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraTreeList.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraTreeList.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraTreeList.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraVerticalGrid.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraVerticalGrid.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraVerticalGrid.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraVerticalGrid.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraWizard.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraWizard.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraWizard.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraWizard.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.csproj.QLMamNon.exe.config
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.exe
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\MySql.Data.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.exe.config
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmPhieuChi.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmPhieuThu.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBangKeCacLoaiChi.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBangKeThuTrongNgay.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBangKeTongHopThuTienHS.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBaoCaoChiTietHoatDongTaiChinh.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBaoCaoHoatDongTaiChinh.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptGiayBaoNopTien.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptPhieuThuTien.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoQuyTienMat.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoTheoDoiTaiSan.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoThuTienTrang1.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoThuTienTrang2.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptTaiSaHistory.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptThongTinHocSinh.resources
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptTinhHinhThuChi.resources
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\MySql.Data.Entity.EF6.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Buffers.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Memory.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Ubiety.Dns.Core.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Protobuf.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\MySql.Data.Entity.EF6.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Buffers.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Memory.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\EntityFramework.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Protobuf.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Buffers.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Memory.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Ubiety.Dns.Core.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\EntityFramework.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Protobuf.pdb
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Protobuf.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\MySql.Data.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Buffers.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Memory.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\MySql.Data.EntityFramework.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\MySql.Data.EntityFramework.xml
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\SMSPDULib.dll
+D:\Projects\Git\.Net\QLMamNon\QLMamNon\bin\Debug\SMSPDULib.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\client_secret.json
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\QLMamNon.exe.config
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\QLMamNon.exe
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\QLMamNon.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.ActivityObserver.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Data.Static.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Logging.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Mediator.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Util.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\BouncyCastle.Crypto.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.CodeParser.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Data.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.DataAccess.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.DataAccess.v14.2.UI.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Images.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Office.v14.2.Core.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.PivotGrid.v14.2.Core.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Printing.v14.2.Core.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.RichEdit.v14.2.Core.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Sparkline.v14.2.Core.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Utils.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Utils.v14.2.UI.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Xpo.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraBars.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.Extensions.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.Wizard.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraEditors.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraGauges.v14.2.Core.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraGrid.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraLayout.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraNavBar.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraPivotGrid.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraPrinting.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraReports.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraReports.v14.2.Extensions.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraRichEdit.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraTreeList.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraVerticalGrid.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraWizard.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\EntityFramework.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\EntityFramework.SqlServer.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Auth.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Auth.PlatformServices.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Core.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Drive.v3.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.PlatformServices.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Protobuf.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\log4net.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\MySql.Data.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\MySql.Data.EntityFramework.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\MySqlBackup.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Newtonsoft.Json.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Renci.SshNet.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\SMSPDULib.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\System.Buffers.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\System.Memory.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.Extensions.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.Primitives.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Ubiety.Dns.Core.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Zlib.Portable.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Charts.v14.2.Core.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.ActivityObserver.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Data.Static.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Logging.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Mediator.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ACG.Core.WinForm.Util.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Data.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.DataAccess.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.DataAccess.v14.2.UI.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Office.v14.2.Core.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.PivotGrid.v14.2.Core.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Printing.v14.2.Core.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.RichEdit.v14.2.Core.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Sparkline.v14.2.Core.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Utils.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Utils.v14.2.UI.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.Xpo.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraBars.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraCharts.v14.2.Wizard.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraEditors.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraGauges.v14.2.Core.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraGrid.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraLayout.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraNavBar.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraPivotGrid.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraPrinting.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraReports.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraReports.v14.2.Extensions.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraRichEdit.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraTreeList.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraVerticalGrid.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\DevExpress.XtraWizard.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\EntityFramework.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\EntityFramework.SqlServer.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Auth.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Auth.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Core.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Core.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Drive.v3.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Apis.Drive.v3.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Protobuf.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Google.Protobuf.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\log4net.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\MySql.Data.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\MySql.Data.EntityFramework.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Newtonsoft.Json.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Renci.SshNet.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\SMSPDULib.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\System.Buffers.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\System.Memory.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.Extensions.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\System.Net.Http.Primitives.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\Zlib.Portable.xml
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Data.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Data.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Data.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Data.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.DataAccess.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.DataAccess.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.DataAccess.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.DataAccess.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.DataAccess.v14.2.UI.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.DataAccess.v14.2.UI.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.DataAccess.v14.2.UI.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.DataAccess.v14.2.UI.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Office.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Office.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Office.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Office.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.PivotGrid.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.PivotGrid.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.PivotGrid.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.PivotGrid.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Printing.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Printing.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Printing.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Printing.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.RichEdit.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.RichEdit.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.RichEdit.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.RichEdit.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Sparkline.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Sparkline.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Sparkline.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Sparkline.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Utils.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Utils.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Utils.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Utils.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Utils.v14.2.UI.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Utils.v14.2.UI.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Utils.v14.2.UI.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Utils.v14.2.UI.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.Xpo.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.Xpo.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.Xpo.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.Xpo.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraBars.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraBars.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraBars.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraBars.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraCharts.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraCharts.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraCharts.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraCharts.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraEditors.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraEditors.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraEditors.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraEditors.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraGauges.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraGauges.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraGauges.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraGauges.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraGrid.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraGrid.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraGrid.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraGrid.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraLayout.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraLayout.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraLayout.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraLayout.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraNavBar.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraNavBar.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraNavBar.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraNavBar.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraPivotGrid.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraPivotGrid.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraPivotGrid.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraPivotGrid.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraPrinting.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraPrinting.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraPrinting.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraPrinting.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraReports.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraReports.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraReports.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraReports.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraReports.v14.2.Extensions.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraReports.v14.2.Extensions.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraReports.v14.2.Extensions.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraReports.v14.2.Extensions.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraRichEdit.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraRichEdit.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraRichEdit.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraRichEdit.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraTreeList.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraTreeList.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraTreeList.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraTreeList.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraVerticalGrid.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraVerticalGrid.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraVerticalGrid.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraVerticalGrid.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\de\DevExpress.XtraWizard.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\es\DevExpress.XtraWizard.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ja\DevExpress.XtraWizard.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\bin\Debug\ru\DevExpress.XtraWizard.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.csprojAssemblyReference.cache
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.exe.config
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.Authenticate.FrmLogin.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmBangTinhPhi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmKhoanThu.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmKhoanThuHangNam.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmKhoiHoc.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmLopHoc.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmPhanLoaiChi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmPhanLoaiThu.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmPhuongXa.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmQuanHuyen.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmTinhThanhPho.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmTruongHoc.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.FrmMain.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.HocSinh.FrmThongTinHocSinh.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.HocSinh.FrmThongTinHocTap.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.HocSinh.FrmXepLop.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.Authenticate.FrmBackupDb.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.SystemSetting.FrmPreference.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.SystemSetting.FrmUser.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.HocSinh.FrmPhanBoTaiSan.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmSoTheoDoiTaiSan.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.DanhMuc.FrmTaiSan.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBangKeCacLoaiChi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBangKeThuHocPhi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBangKeThuTrongNgay.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBaoCaoChiTietHoatDongTaiChinh.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBaoCaoHoatDongTaiChinh.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmBaoCaoTinhHinhThuChi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmPhieuChi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmPhieuThu.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmSelectHocSinhsToGenerate.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmSoQuyTienMat.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmSoThuTien.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmTaoPhieuChi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmTaoPhieuThu.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.TinNhan.FrmTinNhanPhuHuynh.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.PrintRibbonControllerResources.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Properties.Resources.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBangKeCacLoaiChi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBangKeThuTrongNgay.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBangKeTongHopThuTienHS.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBaoCaoChiTietHoatDongTaiChinh.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptBaoCaoHoatDongTaiChinh.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptGiayBaoNopTien.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptPhieuThuTien.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoQuyTienMat.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoTheoDoiTaiSan.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoThuTienTrang1.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoThuTienTrang2.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptTaiSaHistory.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptThongTinHocSinh.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptTinhHinhThuChi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormBanGiaoTaiSan.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormBangTinhPhi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormKhoanThu.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormKhoanThuHangNam.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormKhoiHoc.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormLopHoc.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormPhanLoaiChi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormPhanLoaiThu.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormTaiSan.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormThongTinHocSinh.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormTinhThanhPho.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormTruongHoc.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormUser.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.UserControls.UCEditFormXepLop.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.csproj.GenerateResource.cache
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.exe.licenses
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.csproj.CoreCompileInputs.cache
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.csproj.CopyComplete
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.exe
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.pdb
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Forms.ThuChi.FrmDanhSachChuaNopHocPhi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptDanhSachChuaNopHocPhi.resources
+F:\Projects\Local\.Net\QLMamNon\QLMamNon\obj\Debug\QLMamNon.Reports.RptSoThuTien.resources

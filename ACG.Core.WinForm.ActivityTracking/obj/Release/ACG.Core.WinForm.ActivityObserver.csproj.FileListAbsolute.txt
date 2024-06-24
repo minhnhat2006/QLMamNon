@@ -1,0 +1,85 @@
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ACG.Core.WinForm.ActivityObserver.dll
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ACG.Core.WinForm.ActivityObserver.pdb
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ACG.Core.WinForm.Util.dll
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ACG.Core.WinForm.Util.pdb
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.dll
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ACG.Core.WinForm.ActivityObserver.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ACG.Core.WinForm.ActivityObserver.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ACG.Core.WinForm.Util.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.XtraEditors.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Utils.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Printing.v14.2.Core.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Data.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Sparkline.v14.2.Core.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ACG.Core.WinForm.Util.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.XtraEditors.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Utils.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Printing.v14.2.Core.xml
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Data.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Sparkline.v14.2.Core.xml
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\de\DevExpress.XtraEditors.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\es\DevExpress.XtraEditors.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ja\DevExpress.XtraEditors.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ru\DevExpress.XtraEditors.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\de\DevExpress.Utils.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\es\DevExpress.Utils.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ja\DevExpress.Utils.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ru\DevExpress.Utils.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\de\DevExpress.Printing.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\es\DevExpress.Printing.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ja\DevExpress.Printing.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ru\DevExpress.Printing.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\de\DevExpress.Data.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\es\DevExpress.Data.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ja\DevExpress.Data.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ru\DevExpress.Data.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\de\DevExpress.Sparkline.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\es\DevExpress.Sparkline.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ja\DevExpress.Sparkline.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ru\DevExpress.Sparkline.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.csprojAssemblyReference.cache
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.csproj.CoreCompileInputs.cache
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.csproj.CopyComplete
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.pdb
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ACG.Core.WinForm.ActivityObserver.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ACG.Core.WinForm.ActivityObserver.pdb
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ACG.Core.WinForm.Util.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.XtraEditors.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Utils.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Printing.v14.2.Core.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Data.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Sparkline.v14.2.Core.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ACG.Core.WinForm.Util.pdb
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.XtraEditors.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Utils.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Printing.v14.2.Core.xml
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Data.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\DevExpress.Sparkline.v14.2.Core.xml
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\de\DevExpress.XtraEditors.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\es\DevExpress.XtraEditors.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ja\DevExpress.XtraEditors.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ru\DevExpress.XtraEditors.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\de\DevExpress.Utils.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\es\DevExpress.Utils.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ja\DevExpress.Utils.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ru\DevExpress.Utils.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\de\DevExpress.Printing.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\es\DevExpress.Printing.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ja\DevExpress.Printing.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ru\DevExpress.Printing.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\de\DevExpress.Data.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\es\DevExpress.Data.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ja\DevExpress.Data.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ru\DevExpress.Data.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\de\DevExpress.Sparkline.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\es\DevExpress.Sparkline.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ja\DevExpress.Sparkline.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\bin\Release\ru\DevExpress.Sparkline.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.csprojAssemblyReference.cache
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.csproj.CoreCompileInputs.cache
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.csproj.CopyComplete
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.ActivityTracking\obj\Release\ACG.Core.WinForm.ActivityObserver.pdb

@@ -1,0 +1,16 @@
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\bin\Release\ACG.Core.WinForm.Data.Static.dll
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\bin\Release\ACG.Core.WinForm.Data.Static.pdb
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\obj\Release\ACG.Core.WinForm.Data.Static.dll
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\obj\Release\ACG.Core.WinForm.Data.Static.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\bin\Release\ACG.Core.WinForm.Data.Static.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\bin\Release\ACG.Core.WinForm.Data.Static.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\obj\Release\ACG.Core.WinForm.Data.Static.csproj.CoreCompileInputs.cache
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\obj\Release\ACG.Core.WinForm.Data.Static.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\obj\Release\ACG.Core.WinForm.Data.Static.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\obj\Release\ACG.Core.WinForm.Data.Static.csprojAssemblyReference.cache
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\bin\Release\ACG.Core.WinForm.Data.Static.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\bin\Release\ACG.Core.WinForm.Data.Static.pdb
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\obj\Release\ACG.Core.WinForm.Data.Static.csproj.CoreCompileInputs.cache
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\obj\Release\ACG.Core.WinForm.Data.Static.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\obj\Release\ACG.Core.WinForm.Data.Static.pdb
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Data.Static\obj\Release\ACG.Core.WinForm.Data.Static.csprojAssemblyReference.cache

@@ -1,0 +1,6 @@
+D:\Projects\Git\.Net\QLMamNon\Libs\sms-pdu\trunk\Src\SMSPDU\bin\Debug\SMSPDULib.dll
+D:\Projects\Git\.Net\QLMamNon\Libs\sms-pdu\trunk\Src\SMSPDU\bin\Debug\SMSPDULib.pdb
+D:\Projects\Git\.Net\QLMamNon\Libs\sms-pdu\trunk\Src\SMSPDU\obj\Debug\SMSPDULib.csprojAssemblyReference.cache
+D:\Projects\Git\.Net\QLMamNon\Libs\sms-pdu\trunk\Src\SMSPDU\obj\Debug\SMSPDULib.csproj.CoreCompileInputs.cache
+D:\Projects\Git\.Net\QLMamNon\Libs\sms-pdu\trunk\Src\SMSPDU\obj\Debug\SMSPDULib.dll
+D:\Projects\Git\.Net\QLMamNon\Libs\sms-pdu\trunk\Src\SMSPDU\obj\Debug\SMSPDULib.pdb

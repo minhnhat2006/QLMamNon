@@ -1,0 +1,17 @@
+﻿Go to Visual Studio 2010 Menu --> Tools
+Select Extension Manager
+Enter NuGet in the search box and click Online Gallery. Let it Retrieve information…
+Select the retrieved NuGet Package Manager, click Download. Let it Download…
+Click Install on the Visual Studio Extension Installer NuGet Package Manager. Wait for the installation to complete.
+Click Close and 'Restart Now'.
+Go to Visual Studio 2010 Menu --> Tools, select Options…
+Click Package Manager --> Package Sources
+Verify the following
+Available package sources - Check box (checked) and NuGet official package source is set to "https://nuget.org/api/v2/"
+Name is set to "NuGet official package source"
+Source is set to "https://nuget.org/api/v2/"
+Click OK.
+
+I. Install GDrive3 API
+Open the NuGet Package Manager Console, select the package source nuget.org, and run the following command:
+Install-Package Google.Apis.Drive.v3 -Version 1.10.0.130

@@ -1,0 +1,19 @@
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Logging\bin\Debug\ACG.Core.WinForm.Logging.dll
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Logging\bin\Debug\ACG.Core.WinForm.Logging.pdb
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Logging\obj\Debug\ACG.Core.WinForm.Logging.dll
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Logging\obj\Debug\ACG.Core.WinForm.Logging.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Logging\bin\Debug\ACG.Core.WinForm.Logging.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Logging\bin\Debug\ACG.Core.WinForm.Logging.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Logging\obj\Debug\ACG.Core.WinForm.Logging.csproj.CoreCompileInputs.cache
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Logging\obj\Debug\ACG.Core.WinForm.Logging.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Logging\obj\Debug\ACG.Core.WinForm.Logging.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Logging\bin\Debug\ACG.Core.WinForm.Logging.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Logging\bin\Debug\ACG.Core.WinForm.Logging.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Logging\obj\Debug\ACG.Core.WinForm.Logging.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Logging\obj\Debug\ACG.Core.WinForm.Logging.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Logging\obj\Debug\ACG.Core.WinForm.Logging.csprojAssemblyReference.cache
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Logging\bin\Debug\ACG.Core.WinForm.Logging.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Logging\bin\Debug\ACG.Core.WinForm.Logging.pdb
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Logging\obj\Debug\ACG.Core.WinForm.Logging.csproj.CoreCompileInputs.cache
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Logging\obj\Debug\ACG.Core.WinForm.Logging.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Logging\obj\Debug\ACG.Core.WinForm.Logging.pdb

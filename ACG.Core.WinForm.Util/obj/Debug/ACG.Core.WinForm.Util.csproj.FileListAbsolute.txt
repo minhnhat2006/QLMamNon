@@ -1,0 +1,112 @@
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ACG.Core.WinForm.Util.dll
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ACG.Core.WinForm.Util.pdb
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.dll
+\\vmware-host\Shared Folders\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ACG.Core.WinForm.Util.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ACG.Core.WinForm.Util.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Utils.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.XtraEditors.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Data.v14.2.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Printing.v14.2.Core.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Sparkline.v14.2.Core.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Utils.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.XtraEditors.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Data.v14.2.xml
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Printing.v14.2.Core.xml
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Sparkline.v14.2.Core.xml
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.Utils.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.Utils.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.Utils.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.Utils.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.XtraEditors.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.XtraEditors.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.XtraEditors.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.XtraEditors.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.Data.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.Data.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.Data.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.Data.v14.2.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.Printing.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.Printing.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.Printing.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.Printing.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.Sparkline.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.Sparkline.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.Sparkline.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.Sparkline.v14.2.Core.resources.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.csproj.CoreCompileInputs.cache
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.csproj.CopyComplete
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.dll
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ACG.Core.WinForm.Util.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ACG.Core.WinForm.Util.pdb
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Utils.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.XtraEditors.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Data.v14.2.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Printing.v14.2.Core.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Sparkline.v14.2.Core.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Utils.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.XtraEditors.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Data.v14.2.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Printing.v14.2.Core.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Sparkline.v14.2.Core.xml
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.Utils.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.Utils.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.Utils.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.Utils.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.XtraEditors.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.XtraEditors.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.XtraEditors.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.XtraEditors.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.Data.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.Data.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.Data.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.Data.v14.2.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.Printing.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.Printing.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.Printing.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.Printing.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.Sparkline.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.Sparkline.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.Sparkline.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.Sparkline.v14.2.Core.resources.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.dll
+\\vmware-host\Shared Folders\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.pdb
+D:\Projects\Git\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.csprojAssemblyReference.cache
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ACG.Core.WinForm.Util.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ACG.Core.WinForm.Util.pdb
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Utils.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.XtraEditors.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Data.v14.2.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Printing.v14.2.Core.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Sparkline.v14.2.Core.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Utils.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.XtraEditors.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Data.v14.2.xml
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Printing.v14.2.Core.xml
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\DevExpress.Sparkline.v14.2.Core.xml
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.Utils.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.Utils.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.Utils.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.Utils.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.XtraEditors.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.XtraEditors.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.XtraEditors.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.XtraEditors.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.Data.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.Data.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.Data.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.Data.v14.2.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.Printing.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.Printing.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.Printing.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.Printing.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\de\DevExpress.Sparkline.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\es\DevExpress.Sparkline.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ja\DevExpress.Sparkline.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\bin\Debug\ru\DevExpress.Sparkline.v14.2.Core.resources.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.csproj.CoreCompileInputs.cache
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.csproj.CopyComplete
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.dll
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.pdb
+F:\Projects\Local\.Net\QLMamNon\ACG.Core.WinForm.Util\obj\Debug\ACG.Core.WinForm.Util.csprojAssemblyReference.cache
