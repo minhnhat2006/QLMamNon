@@ -69,6 +69,8 @@ namespace QLMamNon.Dao
         [NotMapped]
         public string HoTen { get; set; }
         [NotMapped]
+        public string SoDienThoai { get; set; }
+        [NotMapped]
         public Nullable<System.DateTime> NgayNopLan1 { get; set; }
         [NotMapped]
         public Nullable<System.DateTime> NgayNopLan2 { get; set; }

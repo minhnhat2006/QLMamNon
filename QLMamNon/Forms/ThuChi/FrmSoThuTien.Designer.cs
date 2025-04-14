@@ -109,6 +109,8 @@
             this.colSoTienNopLan2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand31 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colGhiChu = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand37 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colSoDienThoai = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.btnReset = new DevExpress.XtraEditors.SimpleButton();
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
@@ -295,7 +297,8 @@
             this.gridBand10,
             this.gridBand11,
             this.gridBand14,
-            this.gridBand31});
+            this.gridBand31,
+            this.gridBand37});
             this.gvMain.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.colSTT,
             this.colTen,
@@ -327,7 +330,8 @@
             this.colSoTienNopLan2,
             this.colGhiChu,
             this.colThuDoDung,
-            this.colAnToiThangTruoc});
+            this.colAnToiThangTruoc,
+            this.colSoDienThoai});
             this.gvMain.GridControl = this.gcMain;
             this.gvMain.Name = "gvMain";
             this.gvMain.OptionsView.ColumnAutoWidth = false;
@@ -999,6 +1003,20 @@
             this.colGhiChu.Name = "colGhiChu";
             resources.ApplyResources(this.colGhiChu, "colGhiChu");
             // 
+            // gridBand37
+            // 
+            resources.ApplyResources(this.gridBand37, "gridBand37");
+            this.gridBand37.Columns.Add(this.colSoDienThoai);
+            this.gridBand37.VisibleIndex = 19;
+            // 
+            // colSoDienThoai
+            // 
+            this.colSoDienThoai.AppearanceCell.Options.UseTextOptions = true;
+            this.colSoDienThoai.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colSoDienThoai.FieldName = "SoDienThoai";
+            this.colSoDienThoai.Name = "colSoDienThoai";
+            resources.ApplyResources(this.colSoDienThoai, "colSoDienThoai");
+            // 
             // repositoryItemTextEdit1
             // 
             resources.ApplyResources(this.repositoryItemTextEdit1, "repositoryItemTextEdit1");
@@ -1392,9 +1410,14 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colPhucVuBanTru;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colTienSua;
         private DevExpress.Utils.ImageCollection imageCollection1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colTen;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colSoDienThoai;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand16;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand17;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colTen;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand19;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand36;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
@@ -1429,9 +1452,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand15;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand18;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand31;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private DevExpress.XtraEditors.SimpleButton btnPrint;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand37;
     }
 }

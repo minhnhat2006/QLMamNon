@@ -23,7 +23,7 @@ namespace QLMamNon.Forms.ThuChi
             return rows;
         }
 
-        private void fillRptSoThuTien(RptSoThuTien rpt)
+        private void fillRptSoThuTien(RptSoThuTienTiengAnh rpt)
         {
             SoThuTienService soThuTienService = new SoThuTienService();
             List<viewbangthutien> rows = soThuTienService.EvaluateViewBangThuTienRowsForReport(Entities, this.getViewBangThuTienRowsFromMainGrid(), this.ngayTinh);

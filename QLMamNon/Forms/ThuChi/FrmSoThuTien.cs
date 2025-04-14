@@ -277,7 +277,7 @@ namespace QLMamNon.Forms.ThuChi
         {
             if (this.isValidNgayTinhAndLop() && !this.isDataTableEmpty())
             {
-                RptSoThuTien rpt = new RptSoThuTien();
+                RptSoThuTienTiengAnh rpt = new RptSoThuTienTiengAnh();
                 this.fillRptSoThuTien(rpt);
                 FormMainFacade.ShowReport(rpt);
             }
@@ -539,6 +539,17 @@ namespace QLMamNon.Forms.ThuChi
                 {
                     row.Ten = StaticDataUtil.GetHocSinhNameByHocSinhId(hocSinhDataTable, row.HocSinhId);
                     row.HoTen = StaticDataUtil.GetHocSinhFullNameByHocSinhId(hocSinhDataTable, row.HocSinhId);
+
+                    hocsinh hocSinh = StaticDataUtil.GetHocSinhByHocSinhId(hocSinhDataTable, row.HocSinhId);
+                    if(hocSinh != null)
+                    {
+                        row.SoDienThoai = hocSinh.DienThoai;
+                        if (string.IsNullOrWhiteSpace(row.SoDienThoai))
+                        {
+                            row.SoDienThoai = hocSinh.DienThoaiMe;
+                        }
+                    }
+
                     BangThuTienUtil.EvaluateValuesForViewBangThuTienRow(row,
                         prevMonthRowDictionary != null && prevMonthRowDictionary.ContainsKey(row.HocSinhId) ? prevMonthRowDictionary[row.HocSinhId] : null,
                         bTTKTDataTable, phieuThuDataTable, false, false, true);

@@ -231,6 +231,23 @@ namespace QLMamNon
             return CommonConstant.EMPTY;
         }
 
+        public static hocsinh GetHocSinhByHocSinhId(List<hocsinh> hocSinhDataTable, int hocSinhId)
+        {
+            if (hocSinhId <= 0)
+            {
+                return null;
+            }
+
+            hocsinh hocSinhRow = hocSinhDataTable.Find(h => h.HocSinhId == hocSinhId);
+
+            if (hocSinhRow != null)
+            {
+                return hocSinhRow;
+            }
+
+            return null;
+        }
+
         public static string GetHocSinhFullNameByHocSinhId(List<hocsinh> hocSinhDataTable, int hocSinhId)
         {
             if (hocSinhId <= 0)
