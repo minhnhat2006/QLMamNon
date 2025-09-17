@@ -1,3 +1,13 @@
-/.vs/QLMamNon/v15/
+/.vs/
+/ACG.Core.WinForm.ActivityTracking/bin/
+/ACG.Core.WinForm.ActivityTracking/obj/
+/ACG.Core.WinForm.Data.Static/bin/
+/ACG.Core.WinForm.Data.Static/obj/
+/ACG.Core.WinForm.Logging/bin/
+/ACG.Core.WinForm.Logging/obj/
+/ACG.Core.WinForm.Mediator/bin/
+/ACG.Core.WinForm.Mediator/obj/
+/ACG.Core.WinForm.Util/bin/
+/ACG.Core.WinForm.Util/obj/
 /QLMamNon/bin/
 /QLMamNon/obj/
