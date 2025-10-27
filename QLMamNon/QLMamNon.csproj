@@ -1290,6 +1290,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DB\scripts\20251027\" />
     <Folder Include="Images\icon\" />
   </ItemGroup>
   <ItemGroup>

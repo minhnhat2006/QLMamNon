@@ -196,7 +196,7 @@ namespace QLMamNon.Forms.ThuChi
         private void cmbPhanLoaiThu_EditValueChanged(object sender, EventArgs e)
         {
             LayoutVisibility enableCmbHocSinhId = isSelectedPhanLoaiThuByHocSinh() ? LayoutVisibility.Always : LayoutVisibility.Never;
-            lciCmbHocSinh.Visibility = enableCmbHocSinhId;
+            // lciCmbHocSinh.Visibility = enableCmbHocSinhId;
             lciTxtConLai.Visibility = enableCmbHocSinhId;
         }
 

@@ -243,21 +243,10 @@ namespace QLMamNon.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool IsMNHongMinh {
             get {
                 return ((bool)(this["IsMNHongMinh"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=127.0.0.1;user id=root;password=root;persistsecurityinfo=True;database=qlm" +
-            "amnon;characterset=utf8;allowzerodatetime=True;convertzerodatetime=True")]
-        public string qlmamnonConnectionString1 {
-            get {
-                return ((string)(this["qlmamnonConnectionString1"]));
             }
         }
         
@@ -294,6 +283,17 @@ namespace QLMamNon.Properties {
         public string DomityAddress {
             get {
                 return ((string)(this["DomityAddress"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=127.0.0.1;user id=root;password=root;persistsecurityinfo=True;database=qlm" +
+            "amnon;characterset=utf8;allowzerodatetime=True;convertzerodatetime=True")]
+        public string qlmamnonConnectionString1 {
+            get {
+                return ((string)(this["qlmamnonConnectionString1"]));
             }
         }
     }

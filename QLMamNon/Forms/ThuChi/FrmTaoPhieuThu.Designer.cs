@@ -36,7 +36,6 @@ namespace QLMamNon.Forms.ThuChi
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.cmbHocSinh = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.hocSinhRowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colHoTen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLopDangHoc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -44,7 +43,6 @@ namespace QLMamNon.Forms.ThuChi
             this.btnChonMayIn = new DevExpress.XtraEditors.SimpleButton();
             this.btnIn = new DevExpress.XtraEditors.SimpleButton();
             this.cmbPhanLoaiThu = new DevExpress.XtraEditors.LookUpEdit();
-            this.phanLoaiThuRowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtGhiChu = new DevExpress.XtraEditors.MemoEdit();
             this.btnLuuTao = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
@@ -69,13 +67,13 @@ namespace QLMamNon.Forms.ThuChi
             this.lciCmbHocSinh = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.hocSinhRowBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.phanLoaiThuRowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbHocSinh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hocSinhRowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPhanLoaiThu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phanLoaiThuRowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoTien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaPhieu.Properties)).BeginInit();
@@ -97,6 +95,8 @@ namespace QLMamNon.Forms.ThuChi
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCmbHocSinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hocSinhRowBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phanLoaiThuRowBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lcMain
@@ -118,6 +118,7 @@ namespace QLMamNon.Forms.ThuChi
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Font = new System.Drawing.Font("Tahoma", 20F);
             this.lcMain.Location = new System.Drawing.Point(0, 0);
+            this.lcMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(2477, 242, 250, 350);
             this.lcMain.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
@@ -133,14 +134,14 @@ namespace QLMamNon.Forms.ThuChi
             this.lcMain.OptionsPrint.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.lcMain.OptionsPrint.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(444, 336);
+            this.lcMain.Size = new System.Drawing.Size(518, 503);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
             // cmbHocSinh
             // 
             this.cmbHocSinh.EditValue = "";
-            this.cmbHocSinh.Location = new System.Drawing.Point(180, 124);
+            this.cmbHocSinh.Location = new System.Drawing.Point(224, 138);
             this.cmbHocSinh.Name = "cmbHocSinh";
             this.cmbHocSinh.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.cmbHocSinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -151,15 +152,10 @@ namespace QLMamNon.Forms.ThuChi
             this.cmbHocSinh.Properties.UseReadOnlyAppearance = false;
             this.cmbHocSinh.Properties.ValueMember = "HocSinhId";
             this.cmbHocSinh.Properties.View = this.searchLookUpEdit1View;
-            this.cmbHocSinh.Size = new System.Drawing.Size(448, 40);
+            this.cmbHocSinh.Size = new System.Drawing.Size(486, 46);
             this.cmbHocSinh.StyleController = this.lcMain;
             this.cmbHocSinh.TabIndex = 16;
             this.cmbHocSinh.EditValueChanged += new System.EventHandler(this.cmbHocSinh_EditValueChanged);
-            // 
-            // hocSinhRowBindingSource
-            // 
-            this.hocSinhRowBindingSource.DataSource = typeof(hocsinh);
-            this.hocSinhRowBindingSource.Sort = "LopDangHoc";
             // 
             // searchLookUpEdit1View
             // 
@@ -204,9 +200,9 @@ namespace QLMamNon.Forms.ThuChi
             // btnChonMayIn
             // 
             this.btnChonMayIn.Image = ((System.Drawing.Image)(resources.GetObject("btnChonMayIn.Image")));
-            this.btnChonMayIn.Location = new System.Drawing.Point(505, 340);
+            this.btnChonMayIn.Location = new System.Drawing.Point(570, 422);
             this.btnChonMayIn.Name = "btnChonMayIn";
-            this.btnChonMayIn.Size = new System.Drawing.Size(123, 40);
+            this.btnChonMayIn.Size = new System.Drawing.Size(140, 47);
             this.btnChonMayIn.StyleController = this.lcMain;
             this.btnChonMayIn.TabIndex = 15;
             this.btnChonMayIn.Text = "Máy in";
@@ -215,11 +211,11 @@ namespace QLMamNon.Forms.ThuChi
             // btnIn
             // 
             this.btnIn.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.Image")));
-            this.btnIn.Location = new System.Drawing.Point(126, 340);
+            this.btnIn.Location = new System.Drawing.Point(126, 422);
             this.btnIn.MaximumSize = new System.Drawing.Size(150, 0);
             this.btnIn.MinimumSize = new System.Drawing.Size(100, 0);
             this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(100, 40);
+            this.btnIn.Size = new System.Drawing.Size(100, 47);
             this.btnIn.StyleController = this.lcMain;
             this.btnIn.TabIndex = 14;
             this.btnIn.Text = "In";
@@ -227,7 +223,7 @@ namespace QLMamNon.Forms.ThuChi
             // 
             // cmbPhanLoaiThu
             // 
-            this.cmbPhanLoaiThu.Location = new System.Drawing.Point(180, 36);
+            this.cmbPhanLoaiThu.Location = new System.Drawing.Point(224, 38);
             this.cmbPhanLoaiThu.Name = "cmbPhanLoaiThu";
             this.cmbPhanLoaiThu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -239,31 +235,27 @@ namespace QLMamNon.Forms.ThuChi
             this.cmbPhanLoaiThu.Properties.ShowHeader = false;
             this.cmbPhanLoaiThu.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.cmbPhanLoaiThu.Properties.ValueMember = "PhanLoaiThuId";
-            this.cmbPhanLoaiThu.Size = new System.Drawing.Size(448, 40);
+            this.cmbPhanLoaiThu.Size = new System.Drawing.Size(486, 46);
             this.cmbPhanLoaiThu.StyleController = this.lcMain;
             this.cmbPhanLoaiThu.TabIndex = 13;
             this.cmbPhanLoaiThu.EditValueChanged += new System.EventHandler(this.cmbPhanLoaiThu_EditValueChanged);
             // 
-            // phanLoaiThuRowBindingSource
-            // 
-            this.phanLoaiThuRowBindingSource.DataSource = typeof(phanloaithu);
-            // 
             // txtGhiChu
             // 
-            this.txtGhiChu.Location = new System.Drawing.Point(180, 300);
+            this.txtGhiChu.Location = new System.Drawing.Point(224, 338);
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(448, 36);
+            this.txtGhiChu.Size = new System.Drawing.Size(486, 80);
             this.txtGhiChu.StyleController = this.lcMain;
             this.txtGhiChu.TabIndex = 12;
             // 
             // btnLuuTao
             // 
             this.btnLuuTao.Image = ((System.Drawing.Image)(resources.GetObject("btnLuuTao.Image")));
-            this.btnLuuTao.Location = new System.Drawing.Point(230, 340);
+            this.btnLuuTao.Location = new System.Drawing.Point(230, 422);
             this.btnLuuTao.MaximumSize = new System.Drawing.Size(300, 0);
             this.btnLuuTao.MinimumSize = new System.Drawing.Size(250, 0);
             this.btnLuuTao.Name = "btnLuuTao";
-            this.btnLuuTao.Size = new System.Drawing.Size(271, 40);
+            this.btnLuuTao.Size = new System.Drawing.Size(300, 48);
             this.btnLuuTao.StyleController = this.lcMain;
             this.btnLuuTao.TabIndex = 10;
             this.btnLuuTao.Text = "Lưu, In và Tạo mới";
@@ -272,11 +264,11 @@ namespace QLMamNon.Forms.ThuChi
             // btnLuu
             // 
             this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(22, 340);
+            this.btnLuu.Location = new System.Drawing.Point(22, 422);
             this.btnLuu.MaximumSize = new System.Drawing.Size(150, 0);
             this.btnLuu.MinimumSize = new System.Drawing.Size(100, 0);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(100, 40);
+            this.btnLuu.Size = new System.Drawing.Size(100, 47);
             this.btnLuu.StyleController = this.lcMain;
             this.btnLuu.TabIndex = 9;
             this.btnLuu.Text = "Lưu";
@@ -284,14 +276,14 @@ namespace QLMamNon.Forms.ThuChi
             // 
             // txtSoTien
             // 
-            this.txtSoTien.Location = new System.Drawing.Point(180, 212);
+            this.txtSoTien.Location = new System.Drawing.Point(224, 238);
             this.txtSoTien.Name = "txtSoTien";
             this.txtSoTien.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSoTien.Properties.DisplayFormat.FormatString = "n0";
             this.txtSoTien.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.txtSoTien.Properties.Mask.EditMask = "n0";
-            this.txtSoTien.Size = new System.Drawing.Size(448, 40);
+            this.txtSoTien.Size = new System.Drawing.Size(486, 46);
             this.txtSoTien.StyleController = this.lcMain;
             this.txtSoTien.TabIndex = 7;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
@@ -304,23 +296,23 @@ namespace QLMamNon.Forms.ThuChi
             // 
             // txtMaPhieu
             // 
-            this.txtMaPhieu.Location = new System.Drawing.Point(180, 168);
+            this.txtMaPhieu.Location = new System.Drawing.Point(224, 188);
             this.txtMaPhieu.Name = "txtMaPhieu";
             this.txtMaPhieu.Properties.ReadOnly = true;
-            this.txtMaPhieu.Size = new System.Drawing.Size(448, 40);
+            this.txtMaPhieu.Size = new System.Drawing.Size(486, 46);
             this.txtMaPhieu.StyleController = this.lcMain;
             this.txtMaPhieu.TabIndex = 6;
             // 
             // dateNgay
             // 
             this.dateNgay.EditValue = null;
-            this.dateNgay.Location = new System.Drawing.Point(180, 80);
+            this.dateNgay.Location = new System.Drawing.Point(224, 88);
             this.dateNgay.Name = "dateNgay";
             this.dateNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgay.Size = new System.Drawing.Size(448, 40);
+            this.dateNgay.Size = new System.Drawing.Size(486, 46);
             this.dateNgay.StyleController = this.lcMain;
             this.dateNgay.TabIndex = 5;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -332,17 +324,17 @@ namespace QLMamNon.Forms.ThuChi
             this.lblTaoPhieuThu.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.lblTaoPhieuThu.Location = new System.Drawing.Point(12, 12);
             this.lblTaoPhieuThu.Name = "lblTaoPhieuThu";
-            this.lblTaoPhieuThu.Size = new System.Drawing.Size(616, 20);
+            this.lblTaoPhieuThu.Size = new System.Drawing.Size(698, 22);
             this.lblTaoPhieuThu.TabIndex = 4;
             this.lblTaoPhieuThu.Text = "TẠO/CẬP NHẬT PHIẾU THU";
             this.lblTaoPhieuThu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtConLai
             // 
-            this.txtConLai.Location = new System.Drawing.Point(180, 256);
+            this.txtConLai.Location = new System.Drawing.Point(224, 288);
             this.txtConLai.Name = "txtConLai";
             this.txtConLai.Properties.ReadOnly = true;
-            this.txtConLai.Size = new System.Drawing.Size(448, 40);
+            this.txtConLai.Size = new System.Drawing.Size(486, 46);
             this.txtConLai.StyleController = this.lcMain;
             this.txtConLai.TabIndex = 8;
             // 
@@ -368,7 +360,7 @@ namespace QLMamNon.Forms.ThuChi
             this.lciCmbHocSinh});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(640, 392);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(722, 482);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciLblTaoPhieuThu
@@ -376,53 +368,53 @@ namespace QLMamNon.Forms.ThuChi
             this.lciLblTaoPhieuThu.Control = this.lblTaoPhieuThu;
             this.lciLblTaoPhieuThu.Location = new System.Drawing.Point(0, 0);
             this.lciLblTaoPhieuThu.Name = "lciLblTaoPhieuThu";
-            this.lciLblTaoPhieuThu.Size = new System.Drawing.Size(620, 24);
+            this.lciLblTaoPhieuThu.Size = new System.Drawing.Size(702, 26);
             this.lciLblTaoPhieuThu.TextSize = new System.Drawing.Size(0, 0);
             this.lciLblTaoPhieuThu.TextVisible = false;
             // 
             // lciNgay
             // 
             this.lciNgay.Control = this.dateNgay;
-            this.lciNgay.Location = new System.Drawing.Point(0, 68);
+            this.lciNgay.Location = new System.Drawing.Point(0, 76);
             this.lciNgay.Name = "lciNgay";
-            this.lciNgay.Size = new System.Drawing.Size(620, 44);
+            this.lciNgay.Size = new System.Drawing.Size(702, 50);
             this.lciNgay.Text = "Ngày thu:";
-            this.lciNgay.TextSize = new System.Drawing.Size(165, 33);
+            this.lciNgay.TextSize = new System.Drawing.Size(209, 40);
             // 
             // lciTxtMaPhieu
             // 
             this.lciTxtMaPhieu.Control = this.txtMaPhieu;
-            this.lciTxtMaPhieu.Location = new System.Drawing.Point(0, 156);
+            this.lciTxtMaPhieu.Location = new System.Drawing.Point(0, 176);
             this.lciTxtMaPhieu.Name = "lciTxtMaPhieu";
-            this.lciTxtMaPhieu.Size = new System.Drawing.Size(620, 44);
+            this.lciTxtMaPhieu.Size = new System.Drawing.Size(702, 50);
             this.lciTxtMaPhieu.Text = "Số biên lai:";
-            this.lciTxtMaPhieu.TextSize = new System.Drawing.Size(165, 33);
+            this.lciTxtMaPhieu.TextSize = new System.Drawing.Size(209, 41);
             // 
             // lciTxtSoTien
             // 
             this.lciTxtSoTien.Control = this.txtSoTien;
-            this.lciTxtSoTien.Location = new System.Drawing.Point(0, 200);
+            this.lciTxtSoTien.Location = new System.Drawing.Point(0, 226);
             this.lciTxtSoTien.Name = "lciTxtSoTien";
-            this.lciTxtSoTien.Size = new System.Drawing.Size(620, 44);
+            this.lciTxtSoTien.Size = new System.Drawing.Size(702, 50);
             this.lciTxtSoTien.Text = "Số tiền nộp:";
-            this.lciTxtSoTien.TextSize = new System.Drawing.Size(165, 33);
+            this.lciTxtSoTien.TextSize = new System.Drawing.Size(209, 41);
             // 
             // lciTxtConLai
             // 
             this.lciTxtConLai.Control = this.txtConLai;
-            this.lciTxtConLai.Location = new System.Drawing.Point(0, 244);
+            this.lciTxtConLai.Location = new System.Drawing.Point(0, 276);
             this.lciTxtConLai.Name = "lciTxtConLai";
-            this.lciTxtConLai.Size = new System.Drawing.Size(620, 44);
+            this.lciTxtConLai.Size = new System.Drawing.Size(702, 50);
             this.lciTxtConLai.Text = "Còn lại:";
-            this.lciTxtConLai.TextSize = new System.Drawing.Size(165, 33);
+            this.lciTxtConLai.TextSize = new System.Drawing.Size(209, 41);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnLuu;
             this.layoutControlItem1.ControlAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            this.layoutControlItem1.Location = new System.Drawing.Point(10, 328);
+            this.layoutControlItem1.Location = new System.Drawing.Point(10, 410);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(104, 44);
+            this.layoutControlItem1.Size = new System.Drawing.Size(104, 52);
             this.layoutControlItem1.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Right;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -433,9 +425,9 @@ namespace QLMamNon.Forms.ThuChi
             // 
             this.layoutControlItem2.Control = this.btnLuuTao;
             this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            this.layoutControlItem2.Location = new System.Drawing.Point(218, 328);
+            this.layoutControlItem2.Location = new System.Drawing.Point(218, 410);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(275, 44);
+            this.layoutControlItem2.Size = new System.Drawing.Size(340, 52);
             this.layoutControlItem2.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Right;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -445,36 +437,36 @@ namespace QLMamNon.Forms.ThuChi
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 328);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 410);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(10, 44);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(10, 52);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.txtGhiChu;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 288);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 326);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(620, 40);
+            this.layoutControlItem3.Size = new System.Drawing.Size(702, 84);
             this.layoutControlItem3.Text = "Ghi chú:";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(165, 33);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(209, 40);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.cmbPhanLoaiThu;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(620, 44);
+            this.layoutControlItem4.Size = new System.Drawing.Size(702, 50);
             this.layoutControlItem4.Text = "Phân loại thu";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(165, 33);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(209, 41);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnIn;
             this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.layoutControlItem5.Location = new System.Drawing.Point(114, 328);
+            this.layoutControlItem5.Location = new System.Drawing.Point(114, 410);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(104, 44);
+            this.layoutControlItem5.Size = new System.Drawing.Size(104, 52);
             this.layoutControlItem5.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Right;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
@@ -484,21 +476,20 @@ namespace QLMamNon.Forms.ThuChi
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnChonMayIn;
-            this.layoutControlItem6.Location = new System.Drawing.Point(493, 328);
+            this.layoutControlItem6.Location = new System.Drawing.Point(558, 410);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(127, 44);
+            this.layoutControlItem6.Size = new System.Drawing.Size(144, 52);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // lciCmbHocSinh
             // 
             this.lciCmbHocSinh.Control = this.cmbHocSinh;
-            this.lciCmbHocSinh.Location = new System.Drawing.Point(0, 112);
+            this.lciCmbHocSinh.Location = new System.Drawing.Point(0, 126);
             this.lciCmbHocSinh.Name = "lciCmbHocSinh";
-            this.lciCmbHocSinh.Size = new System.Drawing.Size(620, 44);
+            this.lciCmbHocSinh.Size = new System.Drawing.Size(702, 50);
             this.lciCmbHocSinh.Text = "Cho Học sinh:";
-            this.lciCmbHocSinh.TextSize = new System.Drawing.Size(165, 33);
-            this.lciCmbHocSinh.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.lciCmbHocSinh.TextSize = new System.Drawing.Size(209, 41);
             // 
             // dxValidationProvider
             // 
@@ -508,12 +499,22 @@ namespace QLMamNon.Forms.ThuChi
             // 
             this.printDialog1.UseEXDialog = true;
             // 
+            // hocSinhRowBindingSource
+            // 
+            this.hocSinhRowBindingSource.DataSource = typeof(QLMamNon.Dao.hocsinh);
+            this.hocSinhRowBindingSource.Sort = "LopDangHoc";
+            // 
+            // phanLoaiThuRowBindingSource
+            // 
+            this.phanLoaiThuRowBindingSource.DataSource = typeof(QLMamNon.Dao.phanloaithu);
+            // 
             // FrmTaoPhieuThu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 336);
+            this.ClientSize = new System.Drawing.Size(518, 503);
             this.Controls.Add(this.lcMain);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmTaoPhieuThu";
@@ -526,10 +527,8 @@ namespace QLMamNon.Forms.ThuChi
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmbHocSinh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hocSinhRowBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPhanLoaiThu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phanLoaiThuRowBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoTien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaPhieu.Properties)).EndInit();
@@ -551,6 +550,8 @@ namespace QLMamNon.Forms.ThuChi
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCmbHocSinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hocSinhRowBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phanLoaiThuRowBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

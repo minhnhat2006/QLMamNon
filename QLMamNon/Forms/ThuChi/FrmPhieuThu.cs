@@ -75,7 +75,7 @@ namespace QLMamNon.Forms.ThuChi
                 DateTime ngay = (DateTime)this.GridViewMain.GetFocusedRowCellValue("Ngay");
                 long soTien = (long)this.GridViewMain.GetFocusedRowCellValue("SoTien");
                 string maPhieu = (string)this.GridViewMain.GetFocusedRowCellValue("MaPhieu");
-                int hocSinhId = (int)this.GridViewMain.GetFocusedRowCellValue("HocSinhId");
+                int? hocSinhId = (int?)this.GridViewMain.GetFocusedRowCellValue("HocSinhId");
                 DateTime createdDate = (DateTime)this.GridViewMain.GetFocusedRowCellValue("CreatedDate");
                 int phanLoaiThuId = (int)this.GridViewMain.GetFocusedRowCellValue("PhanLoaiThuId");
                 // Delete Phieu Thu
