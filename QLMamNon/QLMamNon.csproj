@@ -1240,6 +1240,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DB\qlmamnon.sql" />
+    <Content Include="DB\scripts\20251027\script.sql" />
     <Content Include="Document\MySqlBackup.Net.txt" />
     <Content Include="Document\Nuget.txt" />
     <Content Include="favicon.ico" />
@@ -1290,7 +1291,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DB\scripts\20251027\" />
     <Folder Include="Images\icon\" />
   </ItemGroup>
   <ItemGroup>

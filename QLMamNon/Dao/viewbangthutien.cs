@@ -10,6 +10,7 @@
 namespace QLMamNon.Dao
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class viewbangthutien
@@ -20,8 +21,10 @@ namespace QLMamNon.Dao
         public Nullable<int> SXThangTruoc { get; set; }
         public Nullable<long> SoTienSXThangTruoc { get; set; }
         public Nullable<int> AnSangThangTruoc { get; set; }
+        public Nullable<long> SoTienAnSangThangTruoc { get; set; }
         public long SoTienAnSangThangNay { get; set; }
         public int AnToiThangTruoc { get; set; }
+        public Nullable<long> SoTienAnToiThangTruoc { get; set; }
         public long SoTienAnToiThangNay { get; set; }
         public Nullable<long> SoTienNangKhieu { get; set; }
         public Nullable<long> SoTienTruyThu { get; set; }
@@ -35,8 +38,6 @@ namespace QLMamNon.Dao
         public string Lop { get; set; }
         public string SoBienLai { get; set; }
         public string TongThu { get; set; }
-        public Nullable<long> SoTienAnSangThangTruoc { get; set; }
-        public Nullable<long> SoTienAnToiThangTruoc { get; set; }
 
         [NotMapped]
         public long SoTienAnSangConLai { get; set; }

@@ -10,20 +10,21 @@
 namespace QLMamNon.Dao
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class phieuchi
     {
         public int PhieuChiId { get; set; }
         public string MaPhieu { get; set; }
-        public DateTime Ngay { get; set; }
+        public System.DateTime Ngay { get; set; }
         public long SoTien { get; set; }
         public string GhiChu { get; set; }
         public int PhanLoaiChiId { get; set; }
         public string NoiDung { get; set; }
         public Nullable<double> SoLuong { get; set; }
         public Nullable<double> DonGia { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public System.DateTime CreatedDate { get; set; }
 
         [NotMapped]
         public string DienGiai { get; set; }

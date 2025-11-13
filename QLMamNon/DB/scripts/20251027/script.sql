@@ -1,0 +1,1 @@
+﻿ALTER TABLE `phieuthu` ADD COLUMN `SoTienChuyenKhoan` BIGINT(20) DEFAULT 0 NULL AFTER `SoTien`; 

@@ -290,7 +290,8 @@ namespace QLMamNon.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("server=127.0.0.1;user id=root;password=root;persistsecurityinfo=True;database=qlm" +
-            "amnon;characterset=utf8;allowzerodatetime=True;convertzerodatetime=True")]
+            "amnon_20250919;characterset=utf8;allowzerodatetime=True;convertzerodatetime=True" +
+            "")]
         public string qlmamnonConnectionString1 {
             get {
                 return ((string)(this["qlmamnonConnectionString1"]));
