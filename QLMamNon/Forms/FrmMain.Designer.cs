@@ -73,6 +73,7 @@
             this.bbiBackupDb = new DevExpress.XtraBars.BarButtonItem();
             this.bbiBangKeCacLoaiChi = new DevExpress.XtraBars.BarButtonItem();
             this.bbiBangKeThuTrongNgay = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiBangKeThuTheoLop = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDanhSachHocSinhChuaNopHocPhi = new DevExpress.XtraBars.BarButtonItem();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.rpHocSinh = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -151,11 +152,12 @@
             this.bbiBackupDb,
             this.bbiBangKeCacLoaiChi,
             this.bbiBangKeThuTrongNgay,
+            this.bbiBangKeThuTheoLop,
             this.bbiDanhSachHocSinhChuaNopHocPhi});
             this.ribbon.LargeImages = this.imageCollection1;
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 20;
+            this.ribbon.MaxItemId = 21;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHocSinh,
@@ -164,7 +166,7 @@
             this.rpThuChi,
             this.rpDanhMuc,
             this.rpTinNhan});
-            this.ribbon.Size = new System.Drawing.Size(990, 171);
+            this.ribbon.Size = new System.Drawing.Size(1495, 194);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // applicationMenu1
@@ -176,7 +178,7 @@
             this.bbtnHocSinhThongTin.Caption = "Thông tin Học sinh";
             this.bbtnHocSinhThongTin.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.bbtnHocSinhThongTin.Id = 5;
-            this.bbtnHocSinhThongTin.LargeImageIndex = 3;
+            this.bbtnHocSinhThongTin.ImageOptions.LargeImageIndex = 3;
             this.bbtnHocSinhThongTin.Name = "bbtnHocSinhThongTin";
             this.bbtnHocSinhThongTin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtnHocSinhThongTin_ItemClick);
             // 
@@ -185,7 +187,7 @@
             this.bbtnHocSinhKiemTraTrung.Caption = "Kiểm tra Học sinh trùng";
             this.bbtnHocSinhKiemTraTrung.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.bbtnHocSinhKiemTraTrung.Id = 6;
-            this.bbtnHocSinhKiemTraTrung.LargeImageIndex = 4;
+            this.bbtnHocSinhKiemTraTrung.ImageOptions.LargeImageIndex = 4;
             this.bbtnHocSinhKiemTraTrung.Name = "bbtnHocSinhKiemTraTrung";
             // 
             // bbtnHocSinhThongTinHocTap
@@ -193,7 +195,7 @@
             this.bbtnHocSinhThongTinHocTap.Caption = "Nhập thông tin học tập";
             this.bbtnHocSinhThongTinHocTap.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.bbtnHocSinhThongTinHocTap.Id = 7;
-            this.bbtnHocSinhThongTinHocTap.LargeImageIndex = 7;
+            this.bbtnHocSinhThongTinHocTap.ImageOptions.LargeImageIndex = 7;
             this.bbtnHocSinhThongTinHocTap.Name = "bbtnHocSinhThongTinHocTap";
             this.bbtnHocSinhThongTinHocTap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtnHocSinhThongTinHocTap_ItemClick);
             // 
@@ -202,7 +204,7 @@
             this.bbtnHocSinhTuExcel.Caption = "Thêm Học sinh từ file Excel";
             this.bbtnHocSinhTuExcel.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.bbtnHocSinhTuExcel.Id = 8;
-            this.bbtnHocSinhTuExcel.LargeImageIndex = 2;
+            this.bbtnHocSinhTuExcel.ImageOptions.LargeImageIndex = 2;
             this.bbtnHocSinhTuExcel.Name = "bbtnHocSinhTuExcel";
             // 
             // bbtnHocSinhXepLop
@@ -210,7 +212,7 @@
             this.bbtnHocSinhXepLop.Caption = "Lên lớp - Xếp lớp";
             this.bbtnHocSinhXepLop.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.bbtnHocSinhXepLop.Id = 9;
-            this.bbtnHocSinhXepLop.LargeImageIndex = 5;
+            this.bbtnHocSinhXepLop.ImageOptions.LargeImageIndex = 5;
             this.bbtnHocSinhXepLop.Name = "bbtnHocSinhXepLop";
             this.bbtnHocSinhXepLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtnHocSinhXepLop_ItemClick);
             // 
@@ -219,7 +221,7 @@
             this.bbtnHocSinhThongTinCanDo.Caption = "Nhập thông tin cân đo";
             this.bbtnHocSinhThongTinCanDo.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.bbtnHocSinhThongTinCanDo.Id = 10;
-            this.bbtnHocSinhThongTinCanDo.LargeImageIndex = 1;
+            this.bbtnHocSinhThongTinCanDo.ImageOptions.LargeImageIndex = 1;
             this.bbtnHocSinhThongTinCanDo.Name = "bbtnHocSinhThongTinCanDo";
             // 
             // bbtnHocSinhSoLieuWHO
@@ -227,7 +229,7 @@
             this.bbtnHocSinhSoLieuWHO.Caption = "Bảng số liệu WHO";
             this.bbtnHocSinhSoLieuWHO.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.bbtnHocSinhSoLieuWHO.Id = 11;
-            this.bbtnHocSinhSoLieuWHO.LargeImageIndex = 0;
+            this.bbtnHocSinhSoLieuWHO.ImageOptions.LargeImageIndex = 0;
             this.bbtnHocSinhSoLieuWHO.Name = "bbtnHocSinhSoLieuWHO";
             // 
             // bbtnHocSinhBaoCaoSucKhoe
@@ -235,7 +237,7 @@
             this.bbtnHocSinhBaoCaoSucKhoe.Caption = "Báo cáo sức khỏe";
             this.bbtnHocSinhBaoCaoSucKhoe.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.bbtnHocSinhBaoCaoSucKhoe.Id = 12;
-            this.bbtnHocSinhBaoCaoSucKhoe.LargeImageIndex = 8;
+            this.bbtnHocSinhBaoCaoSucKhoe.ImageOptions.LargeImageIndex = 8;
             this.bbtnHocSinhBaoCaoSucKhoe.Name = "bbtnHocSinhBaoCaoSucKhoe";
             // 
             // bbtnHocSinhThongKe
@@ -243,77 +245,75 @@
             this.bbtnHocSinhThongKe.Caption = "Danh sách thống kê";
             this.bbtnHocSinhThongKe.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.bbtnHocSinhThongKe.Id = 13;
-            this.bbtnHocSinhThongKe.LargeImageIndex = 9;
+            this.bbtnHocSinhThongKe.ImageOptions.LargeImageIndex = 9;
             this.bbtnHocSinhThongKe.Name = "bbtnHocSinhThongKe";
             // 
             // bsiManHinh
             // 
-            this.bsiManHinh.Glyph = ((System.Drawing.Image)(resources.GetObject("bsiManHinh.Glyph")));
             this.bsiManHinh.Id = 1;
-            this.bsiManHinh.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bsiManHinh.LargeGlyph")));
+            this.bsiManHinh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bsiManHinh.ImageOptions.Image")));
+            this.bsiManHinh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bsiManHinh.ImageOptions.LargeImage")));
             this.bsiManHinh.Name = "bsiManHinh";
-            this.bsiManHinh.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // bsiTrangThai
             // 
             this.bsiTrangThai.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bsiTrangThai.Glyph = ((System.Drawing.Image)(resources.GetObject("bsiTrangThai.Glyph")));
             this.bsiTrangThai.Id = 2;
-            this.bsiTrangThai.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bsiTrangThai.LargeGlyph")));
+            this.bsiTrangThai.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bsiTrangThai.ImageOptions.Image")));
+            this.bsiTrangThai.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bsiTrangThai.ImageOptions.LargeImage")));
             this.bsiTrangThai.Name = "bsiTrangThai";
-            this.bsiTrangThai.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // bbiTruongHoc
             // 
             this.bbiTruongHoc.Caption = "Trường học";
-            this.bbiTruongHoc.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiTruongHoc.Glyph")));
             this.bbiTruongHoc.Id = 3;
-            this.bbiTruongHoc.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiTruongHoc.LargeGlyph")));
+            this.bbiTruongHoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiTruongHoc.ImageOptions.Image")));
+            this.bbiTruongHoc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiTruongHoc.ImageOptions.LargeImage")));
             this.bbiTruongHoc.Name = "bbiTruongHoc";
             this.bbiTruongHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTruongHoc_ItemClick);
             // 
             // bbiKhoiHoc
             // 
             this.bbiKhoiHoc.Caption = "Khối học";
-            this.bbiKhoiHoc.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiKhoiHoc.Glyph")));
             this.bbiKhoiHoc.Id = 4;
-            this.bbiKhoiHoc.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiKhoiHoc.LargeGlyph")));
+            this.bbiKhoiHoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiKhoiHoc.ImageOptions.Image")));
+            this.bbiKhoiHoc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiKhoiHoc.ImageOptions.LargeImage")));
             this.bbiKhoiHoc.Name = "bbiKhoiHoc";
             this.bbiKhoiHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiKhoiHoc_ItemClick);
             // 
             // bbiLopHoc
             // 
             this.bbiLopHoc.Caption = "Lớp học";
-            this.bbiLopHoc.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiLopHoc.Glyph")));
             this.bbiLopHoc.Id = 5;
-            this.bbiLopHoc.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiLopHoc.LargeGlyph")));
+            this.bbiLopHoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiLopHoc.ImageOptions.Image")));
+            this.bbiLopHoc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiLopHoc.ImageOptions.LargeImage")));
             this.bbiLopHoc.Name = "bbiLopHoc";
             this.bbiLopHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLopHoc_ItemClick);
             // 
             // bbiTinhThanhPho
             // 
             this.bbiTinhThanhPho.Caption = "Tình/Thành phố";
-            this.bbiTinhThanhPho.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiTinhThanhPho.Glyph")));
             this.bbiTinhThanhPho.Id = 7;
-            this.bbiTinhThanhPho.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiTinhThanhPho.LargeGlyph")));
+            this.bbiTinhThanhPho.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiTinhThanhPho.ImageOptions.Image")));
+            this.bbiTinhThanhPho.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiTinhThanhPho.ImageOptions.LargeImage")));
             this.bbiTinhThanhPho.Name = "bbiTinhThanhPho";
             this.bbiTinhThanhPho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTinhThanhPho_ItemClick);
             // 
             // bbiQuanHuyen
             // 
             this.bbiQuanHuyen.Caption = "Quận/Huyện";
-            this.bbiQuanHuyen.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiQuanHuyen.Glyph")));
             this.bbiQuanHuyen.Id = 8;
-            this.bbiQuanHuyen.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiQuanHuyen.LargeGlyph")));
+            this.bbiQuanHuyen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiQuanHuyen.ImageOptions.Image")));
+            this.bbiQuanHuyen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiQuanHuyen.ImageOptions.LargeImage")));
             this.bbiQuanHuyen.Name = "bbiQuanHuyen";
             this.bbiQuanHuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiQuanHuyen_ItemClick);
             // 
             // bbiPhuongXa
             // 
             this.bbiPhuongXa.Caption = "Phường/Xã";
-            this.bbiPhuongXa.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiPhuongXa.Glyph")));
             this.bbiPhuongXa.Id = 9;
-            this.bbiPhuongXa.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiPhuongXa.LargeGlyph")));
+            this.bbiPhuongXa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiPhuongXa.ImageOptions.Image")));
+            this.bbiPhuongXa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiPhuongXa.ImageOptions.LargeImage")));
             this.bbiPhuongXa.Name = "bbiPhuongXa";
             this.bbiPhuongXa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPhuongXa_ItemClick);
             // 
@@ -321,9 +321,9 @@
             // 
             this.bbiTaoPhieuThu.Caption = "Tạo Phiếu Thu";
             this.bbiTaoPhieuThu.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiTaoPhieuThu.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiTaoPhieuThu.Glyph")));
             this.bbiTaoPhieuThu.Id = 11;
-            this.bbiTaoPhieuThu.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiTaoPhieuThu.LargeGlyph")));
+            this.bbiTaoPhieuThu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiTaoPhieuThu.ImageOptions.Image")));
+            this.bbiTaoPhieuThu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiTaoPhieuThu.ImageOptions.LargeImage")));
             this.bbiTaoPhieuThu.Name = "bbiTaoPhieuThu";
             this.bbiTaoPhieuThu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTaoPhieuThu_ItemClick);
             this.bbiTaoPhieuThu.ItemDoubleClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTaoPhieuThu_ItemClick);
@@ -332,9 +332,9 @@
             // 
             this.bbiTaoPhieuChi.Caption = "Tạo Phiếu Chi";
             this.bbiTaoPhieuChi.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiTaoPhieuChi.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiTaoPhieuChi.Glyph")));
             this.bbiTaoPhieuChi.Id = 12;
-            this.bbiTaoPhieuChi.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiTaoPhieuChi.LargeGlyph")));
+            this.bbiTaoPhieuChi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiTaoPhieuChi.ImageOptions.Image")));
+            this.bbiTaoPhieuChi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiTaoPhieuChi.ImageOptions.LargeImage")));
             this.bbiTaoPhieuChi.Name = "bbiTaoPhieuChi";
             this.bbiTaoPhieuChi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTaoPhieuChi_ItemClick);
             // 
@@ -342,9 +342,9 @@
             // 
             this.bbiDSPhieuThu.Caption = "Danh sách Phiếu Thu";
             this.bbiDSPhieuThu.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiDSPhieuThu.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiDSPhieuThu.Glyph")));
             this.bbiDSPhieuThu.Id = 13;
-            this.bbiDSPhieuThu.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiDSPhieuThu.LargeGlyph")));
+            this.bbiDSPhieuThu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiDSPhieuThu.ImageOptions.Image")));
+            this.bbiDSPhieuThu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiDSPhieuThu.ImageOptions.LargeImage")));
             this.bbiDSPhieuThu.Name = "bbiDSPhieuThu";
             this.bbiDSPhieuThu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDSPhieuThu_ItemClick);
             this.bbiDSPhieuThu.ItemDoubleClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDSPhieuThu_ItemClick);
@@ -353,9 +353,9 @@
             // 
             this.bbiDSPhieuChi.Caption = "Danh sách Phiếu Chi";
             this.bbiDSPhieuChi.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiDSPhieuChi.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiDSPhieuChi.Glyph")));
             this.bbiDSPhieuChi.Id = 14;
-            this.bbiDSPhieuChi.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiDSPhieuChi.LargeGlyph")));
+            this.bbiDSPhieuChi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiDSPhieuChi.ImageOptions.Image")));
+            this.bbiDSPhieuChi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiDSPhieuChi.ImageOptions.LargeImage")));
             this.bbiDSPhieuChi.Name = "bbiDSPhieuChi";
             this.bbiDSPhieuChi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDSPhieuChi_ItemClick);
             // 
@@ -363,9 +363,9 @@
             // 
             this.bbiPhanLoaiChi.Caption = "Phân Loại Chi";
             this.bbiPhanLoaiChi.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiPhanLoaiChi.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiPhanLoaiChi.Glyph")));
             this.bbiPhanLoaiChi.Id = 15;
-            this.bbiPhanLoaiChi.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiPhanLoaiChi.LargeGlyph")));
+            this.bbiPhanLoaiChi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiPhanLoaiChi.ImageOptions.Image")));
+            this.bbiPhanLoaiChi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiPhanLoaiChi.ImageOptions.LargeImage")));
             this.bbiPhanLoaiChi.Name = "bbiPhanLoaiChi";
             this.bbiPhanLoaiChi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPhanLoaiChi_ItemClick);
             // 
@@ -373,9 +373,9 @@
             // 
             this.bbiSoThuTienHS.Caption = "Sổ thu tiền Học sinh";
             this.bbiSoThuTienHS.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiSoThuTienHS.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiSoThuTienHS.Glyph")));
             this.bbiSoThuTienHS.Id = 16;
-            this.bbiSoThuTienHS.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiSoThuTienHS.LargeGlyph")));
+            this.bbiSoThuTienHS.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSoThuTienHS.ImageOptions.Image")));
+            this.bbiSoThuTienHS.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSoThuTienHS.ImageOptions.LargeImage")));
             this.bbiSoThuTienHS.Name = "bbiSoThuTienHS";
             this.bbiSoThuTienHS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSoThuTienHS_ItemClick);
             // 
@@ -383,9 +383,9 @@
             // 
             this.bbiKhoanThu.Caption = "Các Khoản thu";
             this.bbiKhoanThu.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiKhoanThu.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiKhoanThu.Glyph")));
             this.bbiKhoanThu.Id = 17;
-            this.bbiKhoanThu.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiKhoanThu.LargeGlyph")));
+            this.bbiKhoanThu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiKhoanThu.ImageOptions.Image")));
+            this.bbiKhoanThu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiKhoanThu.ImageOptions.LargeImage")));
             this.bbiKhoanThu.Name = "bbiKhoanThu";
             this.bbiKhoanThu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiKhoanThu_ItemClick);
             // 
@@ -393,9 +393,9 @@
             // 
             this.bbiKhoanThuHangNam.Caption = "Khoản thu hằng năm";
             this.bbiKhoanThuHangNam.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiKhoanThuHangNam.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiKhoanThuHangNam.Glyph")));
             this.bbiKhoanThuHangNam.Id = 18;
-            this.bbiKhoanThuHangNam.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiKhoanThuHangNam.LargeGlyph")));
+            this.bbiKhoanThuHangNam.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiKhoanThuHangNam.ImageOptions.Image")));
+            this.bbiKhoanThuHangNam.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiKhoanThuHangNam.ImageOptions.LargeImage")));
             this.bbiKhoanThuHangNam.Name = "bbiKhoanThuHangNam";
             this.bbiKhoanThuHangNam.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiKhoanThuHangNam_ItemClick);
             // 
@@ -403,9 +403,9 @@
             // 
             this.bbiRptBaoCaoHoatDongTaiChinh.Caption = "Báo cáo hoạt động tài chính";
             this.bbiRptBaoCaoHoatDongTaiChinh.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiRptBaoCaoHoatDongTaiChinh.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiRptBaoCaoHoatDongTaiChinh.Glyph")));
             this.bbiRptBaoCaoHoatDongTaiChinh.Id = 2;
-            this.bbiRptBaoCaoHoatDongTaiChinh.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiRptBaoCaoHoatDongTaiChinh.LargeGlyph")));
+            this.bbiRptBaoCaoHoatDongTaiChinh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiRptBaoCaoHoatDongTaiChinh.ImageOptions.Image")));
+            this.bbiRptBaoCaoHoatDongTaiChinh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiRptBaoCaoHoatDongTaiChinh.ImageOptions.LargeImage")));
             this.bbiRptBaoCaoHoatDongTaiChinh.Name = "bbiRptBaoCaoHoatDongTaiChinh";
             this.bbiRptBaoCaoHoatDongTaiChinh.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiRptBaoCaoHoatDongTaiChinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRptBaoCaoHoatDongTaiChinh_ItemClick);
@@ -414,9 +414,9 @@
             // 
             this.bbiRptBaoCaoChiTietHoatDongTaiChinh.Caption = "Báo cáo chi tiết hoạt động tài chính";
             this.bbiRptBaoCaoChiTietHoatDongTaiChinh.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiRptBaoCaoChiTietHoatDongTaiChinh.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiRptBaoCaoChiTietHoatDongTaiChinh.Glyph")));
             this.bbiRptBaoCaoChiTietHoatDongTaiChinh.Id = 3;
-            this.bbiRptBaoCaoChiTietHoatDongTaiChinh.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiRptBaoCaoChiTietHoatDongTaiChinh.LargeGlyph")));
+            this.bbiRptBaoCaoChiTietHoatDongTaiChinh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiRptBaoCaoChiTietHoatDongTaiChinh.ImageOptions.Image")));
+            this.bbiRptBaoCaoChiTietHoatDongTaiChinh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiRptBaoCaoChiTietHoatDongTaiChinh.ImageOptions.LargeImage")));
             this.bbiRptBaoCaoChiTietHoatDongTaiChinh.Name = "bbiRptBaoCaoChiTietHoatDongTaiChinh";
             this.bbiRptBaoCaoChiTietHoatDongTaiChinh.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiRptBaoCaoChiTietHoatDongTaiChinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRptBaoCaoChiTietHoatDongTaiChinh_ItemClick);
@@ -425,9 +425,9 @@
             // 
             this.bbiTaiSan.Caption = "Thông tin Tài sản";
             this.bbiTaiSan.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiTaiSan.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiTaiSan.Glyph")));
             this.bbiTaiSan.Id = 4;
-            this.bbiTaiSan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiTaiSan.LargeGlyph")));
+            this.bbiTaiSan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiTaiSan.ImageOptions.Image")));
+            this.bbiTaiSan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiTaiSan.ImageOptions.LargeImage")));
             this.bbiTaiSan.Name = "bbiTaiSan";
             this.bbiTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTaiSan_ItemClick);
             // 
@@ -435,9 +435,9 @@
             // 
             this.bbiPhanBoTaiSan.Caption = "Bàn giao Tài sản cho lớp";
             this.bbiPhanBoTaiSan.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiPhanBoTaiSan.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiPhanBoTaiSan.Glyph")));
             this.bbiPhanBoTaiSan.Id = 5;
-            this.bbiPhanBoTaiSan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiPhanBoTaiSan.LargeGlyph")));
+            this.bbiPhanBoTaiSan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiPhanBoTaiSan.ImageOptions.Image")));
+            this.bbiPhanBoTaiSan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiPhanBoTaiSan.ImageOptions.LargeImage")));
             this.bbiPhanBoTaiSan.Name = "bbiPhanBoTaiSan";
             this.bbiPhanBoTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPhanBoTaiSan_ItemClick);
             // 
@@ -445,9 +445,9 @@
             // 
             this.bbiSoTheoDoiTaiSan.Caption = "Sổ theo dõi Tài sản";
             this.bbiSoTheoDoiTaiSan.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiSoTheoDoiTaiSan.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiSoTheoDoiTaiSan.Glyph")));
             this.bbiSoTheoDoiTaiSan.Id = 6;
-            this.bbiSoTheoDoiTaiSan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiSoTheoDoiTaiSan.LargeGlyph")));
+            this.bbiSoTheoDoiTaiSan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSoTheoDoiTaiSan.ImageOptions.Image")));
+            this.bbiSoTheoDoiTaiSan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSoTheoDoiTaiSan.ImageOptions.LargeImage")));
             this.bbiSoTheoDoiTaiSan.Name = "bbiSoTheoDoiTaiSan";
             this.bbiSoTheoDoiTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSoTheoDoiTaiSan_ItemClick);
             // 
@@ -455,36 +455,36 @@
             // 
             this.bbiPhuHuynhHS.Caption = "Phụ huynh học sinh";
             this.bbiPhuHuynhHS.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiPhuHuynhHS.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiPhuHuynhHS.Glyph")));
             this.bbiPhuHuynhHS.Id = 7;
-            this.bbiPhuHuynhHS.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiPhuHuynhHS.LargeGlyph")));
+            this.bbiPhuHuynhHS.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiPhuHuynhHS.ImageOptions.Image")));
+            this.bbiPhuHuynhHS.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiPhuHuynhHS.ImageOptions.LargeImage")));
             this.bbiPhuHuynhHS.Name = "bbiPhuHuynhHS";
             this.bbiPhuHuynhHS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPhuHuynhHS_ItemClick);
             // 
             // bbỉptSoQuyTienMat
             // 
             this.bbỉptSoQuyTienMat.Caption = "Sổ quỹ tiền mặt";
-            this.bbỉptSoQuyTienMat.Glyph = ((System.Drawing.Image)(resources.GetObject("bbỉptSoQuyTienMat.Glyph")));
             this.bbỉptSoQuyTienMat.Id = 8;
-            this.bbỉptSoQuyTienMat.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbỉptSoQuyTienMat.LargeGlyph")));
+            this.bbỉptSoQuyTienMat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbỉptSoQuyTienMat.ImageOptions.Image")));
+            this.bbỉptSoQuyTienMat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbỉptSoQuyTienMat.ImageOptions.LargeImage")));
             this.bbỉptSoQuyTienMat.Name = "bbỉptSoQuyTienMat";
             this.bbỉptSoQuyTienMat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbỉptSoQuyTienMat_ItemClick);
             // 
             // bbiBaoCaoTinhHinhThuChi
             // 
             this.bbiBaoCaoTinhHinhThuChi.Caption = "Báo cáo tình hình thu chi";
-            this.bbiBaoCaoTinhHinhThuChi.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiBaoCaoTinhHinhThuChi.Glyph")));
             this.bbiBaoCaoTinhHinhThuChi.Id = 10;
-            this.bbiBaoCaoTinhHinhThuChi.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiBaoCaoTinhHinhThuChi.LargeGlyph")));
+            this.bbiBaoCaoTinhHinhThuChi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiBaoCaoTinhHinhThuChi.ImageOptions.Image")));
+            this.bbiBaoCaoTinhHinhThuChi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiBaoCaoTinhHinhThuChi.ImageOptions.LargeImage")));
             this.bbiBaoCaoTinhHinhThuChi.Name = "bbiBaoCaoTinhHinhThuChi";
             this.bbiBaoCaoTinhHinhThuChi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBaoCaoTinhHinhThuChi_ItemClick);
             // 
             // bbiBangKeThuHocPhi
             // 
             this.bbiBangKeThuHocPhi.Caption = "In bảng kê thu học phí";
-            this.bbiBangKeThuHocPhi.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiBangKeThuHocPhi.Glyph")));
             this.bbiBangKeThuHocPhi.Id = 11;
-            this.bbiBangKeThuHocPhi.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiBangKeThuHocPhi.LargeGlyph")));
+            this.bbiBangKeThuHocPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiBangKeThuHocPhi.ImageOptions.Image")));
+            this.bbiBangKeThuHocPhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiBangKeThuHocPhi.ImageOptions.LargeImage")));
             this.bbiBangKeThuHocPhi.Name = "bbiBangKeThuHocPhi";
             this.bbiBangKeThuHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBangKeThuHocPhi_ItemClick);
             // 
@@ -492,72 +492,81 @@
             // 
             this.bbiPreference.Caption = "Số liệu phần mềm";
             this.bbiPreference.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiPreference.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiPreference.Glyph")));
             this.bbiPreference.Id = 12;
-            this.bbiPreference.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiPreference.LargeGlyph")));
+            this.bbiPreference.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiPreference.ImageOptions.Image")));
+            this.bbiPreference.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiPreference.ImageOptions.LargeImage")));
             this.bbiPreference.Name = "bbiPreference";
             this.bbiPreference.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPreference_ItemClick);
             // 
             // bbiUser
             // 
             this.bbiUser.Caption = "User";
-            this.bbiUser.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiUser.Glyph")));
             this.bbiUser.Id = 13;
-            this.bbiUser.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiUser.LargeGlyph")));
+            this.bbiUser.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiUser.ImageOptions.Image")));
+            this.bbiUser.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiUser.ImageOptions.LargeImage")));
             this.bbiUser.Name = "bbiUser";
             this.bbiUser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiUser_ItemClick);
             // 
             // bbiBangTinhPhi
             // 
             this.bbiBangTinhPhi.Caption = "Bảng tính phí";
-            this.bbiBangTinhPhi.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiBangTinhPhi.Glyph")));
             this.bbiBangTinhPhi.Id = 14;
-            this.bbiBangTinhPhi.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiBangTinhPhi.LargeGlyph")));
+            this.bbiBangTinhPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiBangTinhPhi.ImageOptions.Image")));
+            this.bbiBangTinhPhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiBangTinhPhi.ImageOptions.LargeImage")));
             this.bbiBangTinhPhi.Name = "bbiBangTinhPhi";
             this.bbiBangTinhPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBangTinhPhi_ItemClick);
             // 
             // bbiPhanLoaiThu
             // 
             this.bbiPhanLoaiThu.Caption = "Phân loại thu";
-            this.bbiPhanLoaiThu.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiPhanLoaiThu.Glyph")));
             this.bbiPhanLoaiThu.Id = 15;
-            this.bbiPhanLoaiThu.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiPhanLoaiThu.LargeGlyph")));
+            this.bbiPhanLoaiThu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiPhanLoaiThu.ImageOptions.Image")));
+            this.bbiPhanLoaiThu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiPhanLoaiThu.ImageOptions.LargeImage")));
             this.bbiPhanLoaiThu.Name = "bbiPhanLoaiThu";
             this.bbiPhanLoaiThu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPhanLoaiThu_ItemClick);
             // 
             // bbiBackupDb
             // 
             this.bbiBackupDb.Caption = "Sao lưu CSDL";
-            this.bbiBackupDb.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiBackupDb.Glyph")));
             this.bbiBackupDb.Id = 16;
-            this.bbiBackupDb.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiBackupDb.LargeGlyph")));
+            this.bbiBackupDb.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiBackupDb.ImageOptions.Image")));
+            this.bbiBackupDb.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiBackupDb.ImageOptions.LargeImage")));
             this.bbiBackupDb.Name = "bbiBackupDb";
             this.bbiBackupDb.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBackupDb_ItemClick);
             // 
             // bbiBangKeCacLoaiChi
             // 
             this.bbiBangKeCacLoaiChi.Caption = "Bảng kê các loại chi";
-            this.bbiBangKeCacLoaiChi.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiBangKeCacLoaiChi.Glyph")));
             this.bbiBangKeCacLoaiChi.Id = 17;
-            this.bbiBangKeCacLoaiChi.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiBangKeCacLoaiChi.LargeGlyph")));
+            this.bbiBangKeCacLoaiChi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiBangKeCacLoaiChi.ImageOptions.Image")));
+            this.bbiBangKeCacLoaiChi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiBangKeCacLoaiChi.ImageOptions.LargeImage")));
             this.bbiBangKeCacLoaiChi.Name = "bbiBangKeCacLoaiChi";
             this.bbiBangKeCacLoaiChi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBangKeCacLoaiChi_ItemClick);
             // 
             // bbiBangKeThuTrongNgay
             // 
             this.bbiBangKeThuTrongNgay.Caption = "Bảng kê thu trong ngày";
-            this.bbiBangKeThuTrongNgay.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiBangKeThuTrongNgay.Glyph")));
             this.bbiBangKeThuTrongNgay.Id = 18;
-            this.bbiBangKeThuTrongNgay.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiBangKeThuTrongNgay.LargeGlyph")));
+            this.bbiBangKeThuTrongNgay.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiBangKeThuTrongNgay.ImageOptions.Image")));
+            this.bbiBangKeThuTrongNgay.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiBangKeThuTrongNgay.ImageOptions.LargeImage")));
             this.bbiBangKeThuTrongNgay.Name = "bbiBangKeThuTrongNgay";
             this.bbiBangKeThuTrongNgay.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBangKeThuTrongNgay_ItemClick);
+            // 
+            // bbiBangKeThuTheoLop
+            // 
+            this.bbiBangKeThuTheoLop.Caption = "Bảng kê thu theo lớp";
+            this.bbiBangKeThuTheoLop.Id = 19;
+            this.bbiBangKeThuTheoLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiBangKeThuTheoLop.ImageOptions.Image")));
+            this.bbiBangKeThuTheoLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiBangKeThuTheoLop.ImageOptions.LargeImage")));
+            this.bbiBangKeThuTheoLop.Name = "bbiBangKeThuTheoLop";
+            this.bbiBangKeThuTheoLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBangKeThuTheoLop_ItemClick);
             // 
             // bbiDanhSachHocSinhChuaNopHocPhi
             // 
             this.bbiDanhSachHocSinhChuaNopHocPhi.Caption = "Danh sách chưa nộp học phí";
-            this.bbiDanhSachHocSinhChuaNopHocPhi.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiDanhSachHocSinhChuaNopHocPhi.Glyph")));
-            this.bbiDanhSachHocSinhChuaNopHocPhi.Id = 19;
-            this.bbiDanhSachHocSinhChuaNopHocPhi.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiDanhSachHocSinhChuaNopHocPhi.LargeGlyph")));
+            this.bbiDanhSachHocSinhChuaNopHocPhi.Id = 20;
+            this.bbiDanhSachHocSinhChuaNopHocPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiDanhSachHocSinhChuaNopHocPhi.ImageOptions.Image")));
+            this.bbiDanhSachHocSinhChuaNopHocPhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiDanhSachHocSinhChuaNopHocPhi.ImageOptions.LargeImage")));
             this.bbiDanhSachHocSinhChuaNopHocPhi.Name = "bbiDanhSachHocSinhChuaNopHocPhi";
             this.bbiDanhSachHocSinhChuaNopHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDanhSachHocSinhChuaNopHocPhi_ItemClick);
             // 
@@ -686,6 +695,7 @@
             this.rpgBaoCaoThuChi.ItemLinks.Add(this.bbiBangKeThuHocPhi);
             this.rpgBaoCaoThuChi.ItemLinks.Add(this.bbiBangKeCacLoaiChi);
             this.rpgBaoCaoThuChi.ItemLinks.Add(this.bbiBangKeThuTrongNgay);
+            this.rpgBaoCaoThuChi.ItemLinks.Add(this.bbiBangKeThuTheoLop);
             this.rpgBaoCaoThuChi.ItemLinks.Add(this.bbiDanhSachHocSinhChuaNopHocPhi);
             this.rpgBaoCaoThuChi.Name = "rpgBaoCaoThuChi";
             this.rpgBaoCaoThuChi.Text = "Báo cáo";
@@ -755,11 +765,11 @@
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.bsiManHinh);
             this.ribbonStatusBar.ItemLinks.Add(this.bsiTrangThai, true);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 718);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 677);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(990, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1495, 40);
             // 
             // xtraTabbedMdiManager1
             // 
@@ -777,7 +787,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(990, 749);
+            this.ClientSize = new System.Drawing.Size(1495, 717);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.Font = new System.Drawing.Font("Times New Roman", 12F);
@@ -868,6 +878,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiBackupDb;
         private DevExpress.XtraBars.BarButtonItem bbiBangKeCacLoaiChi;
         private DevExpress.XtraBars.BarButtonItem bbiBangKeThuTrongNgay;
+        private DevExpress.XtraBars.BarButtonItem bbiBangKeThuTheoLop;
         private DevExpress.XtraBars.BarButtonItem bbiDanhSachHocSinhChuaNopHocPhi;
     }
 }

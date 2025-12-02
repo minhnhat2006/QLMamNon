@@ -31,13 +31,14 @@ namespace QLMamNon.Service.Data
             return table;
         }
 
-        public void InsertPhieuThu(DateTime ngay, long soTien, string maPhieu, string ghiChu, int? hocSinhId, int? phanLoaiThuId)
+        public void InsertPhieuThu(DateTime ngay, long soTien, long soTienChuyenKhoan, string maPhieu, string ghiChu, int? hocSinhId, int? phanLoaiThuId)
         {
             qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities();
             phieuthu phieuThu = new phieuthu()
             {
                 Ngay = ngay,
                 SoTien = soTien,
+                SoTienChuyenKhoan = soTienChuyenKhoan,
                 MaPhieu = maPhieu,
                 GhiChu = ghiChu,
                 HocSinhId = hocSinhId,
@@ -48,11 +49,12 @@ namespace QLMamNon.Service.Data
             entities.SaveChanges();
         }
 
-        public void UpdatePhieuThu(phieuthu phieuThuRow, DateTime ngay, long soTien, string maPhieu, string ghiChu, int? hocSinhId, int? phanLoaiThuId)
+        public void UpdatePhieuThu(phieuthu phieuThuRow, DateTime ngay, long soTien, long soTienChuyenKhoan, string maPhieu, string ghiChu, int? hocSinhId, int? phanLoaiThuId)
         {
             qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities();
             phieuthu phieuThu = entities.phieuthus.FirstOrDefault(p => p.PhieuThuId == phieuThuRow.PhieuThuId);
             phieuThu.SoTien = soTien;
+            phieuThu.SoTienChuyenKhoan = soTienChuyenKhoan;
             phieuThu.MaPhieu = maPhieu;
             phieuThu.GhiChu = ghiChu;
             phieuThu.HocSinhId = hocSinhId;

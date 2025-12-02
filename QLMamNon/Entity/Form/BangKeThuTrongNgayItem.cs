@@ -12,6 +12,8 @@
 
         public long SoTienNop { get; set; }
 
+        public long SoTienChuyenKhoan { get; set; }
+
         public long ConLai { get; set; }
 
         public string SoBienLai { get; set; }

@@ -48,7 +48,10 @@ namespace QLMamNon.Forms.ThuChi
             Dictionary<int, BangKeThuTienItem> hocSinhIdToBangKeThuTienItems = new Dictionary<int, BangKeThuTienItem>();
             foreach (var item in allBangKeThuTienItems)
             {
-                hocSinhIdToBangKeThuTienItems.Add(item.HocSinhId, item);
+                if (!hocSinhIdToBangKeThuTienItems.ContainsKey(item.HocSinhId))
+                {
+                    hocSinhIdToBangKeThuTienItems.Add(item.HocSinhId, item);
+                }
             }
 
             RptBangKeThuTrongNgay rpt = new RptBangKeThuTrongNgay();

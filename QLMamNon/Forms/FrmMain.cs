@@ -241,6 +241,11 @@ namespace QLMamNon.Forms
             FormMainFacade.ShowDialog(AppForms.FormBangKeThuTrongNgay);
         }
 
+        private void bbiBangKeThuTheoLop_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormMainFacade.ShowDialog(AppForms.FormBangKeThuTheoLop);
+        }
+
         private void bbiBackupDb_ItemClick(object sender, ItemClickEventArgs e)
         {
             FormMainFacade.ShowDialog(AppForms.FormBackupDb);

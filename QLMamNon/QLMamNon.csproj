@@ -72,36 +72,39 @@
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.CodeParser.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.DataAccess.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.DataAccess.v14.2.UI, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Images.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Office.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.PivotGrid.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.RichEdit.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Sparkline.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v14.2.UI, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraCharts.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v14.2.Extensions, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v14.2.Wizard, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGauges.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraGrid.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraNavBar.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPivotGrid.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v14.2.Extensions, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraRichEdit.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraVerticalGrid.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraWizard.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Export, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.1.Wizard, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraWizard.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -309,6 +312,7 @@
     <Compile Include="Constant\PhanLoaiThuConstant.cs" />
     <Compile Include="Constant\FormPrivilegeConstant.cs" />
     <Compile Include="Dao\Constant\ViewBangThuTienFieldName.cs" />
+    <Compile Include="Entity\Form\BangKeThuTheoLopItem.cs" />
     <Compile Include="Entity\Form\HocSinhChuaNopHocPhiItem.cs" />
     <Compile Include="Entity\Form\BangKeThuTrongNgayItem.cs" />
     <Compile Include="Entity\Form\BangKeCacLoaiChiItem.cs" />
@@ -463,6 +467,12 @@
     </Compile>
     <Compile Include="Forms\TaiSan\FrmTaiSan.Designer.cs">
       <DependentUpon>FrmTaiSan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ThuChi\FrmBangKeThuTheoLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ThuChi\FrmBangKeThuTheoLop.Designer.cs">
+      <DependentUpon>FrmBangKeThuTheoLop.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ThuChi\FrmDanhSachChuaNopHocPhi.cs">
       <SubType>Form</SubType>
@@ -724,6 +734,18 @@
     </Compile>
     <Compile Include="Dao\quanhuyen.cs">
       <DependentUpon>QLMNModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RptBangKeThuTheoLop.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptBangKeThuTheoLop.designer.cs">
+      <DependentUpon>RptBangKeThuTheoLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RptBangKeThuHocPhiTheoLop.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptBangKeThuHocPhiTheoLop.designer.cs">
+      <DependentUpon>RptBangKeThuHocPhiTheoLop.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\RptDanhSachChuaNopHocPhi.cs">
       <SubType>Component</SubType>
@@ -1046,6 +1068,9 @@
     <EmbeddedResource Include="Forms\TaiSan\FrmTaiSan.resx">
       <DependentUpon>FrmTaiSan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ThuChi\FrmBangKeThuTheoLop.resx">
+      <DependentUpon>FrmBangKeThuTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ThuChi\FrmDanhSachChuaNopHocPhi.resx">
       <DependentUpon>FrmDanhSachChuaNopHocPhi.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1108,6 +1133,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\RptBangKeThuTheoLop.resx">
+      <DependentUpon>RptBangKeThuTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptBangKeThuHocPhiTheoLop.resx">
+      <DependentUpon>RptBangKeThuHocPhiTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptDanhSachChuaNopHocPhi.resx">
       <DependentUpon>RptDanhSachChuaNopHocPhi.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1234,6 +1265,7 @@
     <None Include="Properties\DataSources\QLMamNon.Dao.smstemplate.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Dao.viewbangthutien.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.BangKeCacLoaiChiItem.datasource" />
+    <None Include="Properties\DataSources\QLMamNon.Entity.Form.BangKeThuTheoLopItem.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.BangKeThuTienItem.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.BangKeThuTrongNgayItem.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.HocSinhChuaNopHocPhiItem.datasource" />

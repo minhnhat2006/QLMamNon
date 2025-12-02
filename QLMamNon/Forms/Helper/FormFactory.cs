@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using QLMamNon.Constant;
+﻿using QLMamNon.Constant;
 using QLMamNon.Forms.Authenticate;
 using QLMamNon.Forms.DanhMuc;
 using QLMamNon.Forms.HocSinh;
 using QLMamNon.Forms.SystemSetting;
 using QLMamNon.Forms.ThuChi;
 using QLMamNon.Forms.TinNhan;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace QLMamNon.Forms.Resource
 {
@@ -53,6 +53,7 @@ namespace QLMamNon.Forms.Resource
             formToTypes.Add(AppForms.FormBackupDb, typeof(FrmBackupDb).FullName);
             formToTypes.Add(AppForms.FormBangKeCacLoaiChi, typeof(FrmBangKeCacLoaiChi).FullName);
             formToTypes.Add(AppForms.FormBangKeThuTrongNgay, typeof(FrmBangKeThuTrongNgay).FullName);
+            formToTypes.Add(AppForms.FormBangKeThuTheoLop, typeof(FrmBangKeThuTheoLop).FullName);
             formToTypes.Add(AppForms.FormDanhSachChuaNopHocPhi, typeof(FrmDanhSachChuaNopHocPhi).FullName);
         }
 

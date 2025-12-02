@@ -131,6 +131,7 @@ namespace QLMamNon.Forms.ThuChi
         {
             this.dateNgay.DateTime = this.PhieuThuRow.Ngay;
             this.txtSoTien.Value = this.PhieuThuRow.SoTien;
+            this.txtSoTienChuyenKhoan.Value = this.PhieuThuRow.SoTienChuyenKhoan;
             this.txtMaPhieu.Text = this.PhieuThuRow.MaPhieu;
             this.txtGhiChu.Text = this.PhieuThuRow.GhiChu;
             this.cmbHocSinh.EditValue = this.PhieuThuRow.HocSinhId;
@@ -161,12 +162,13 @@ namespace QLMamNon.Forms.ThuChi
         {
             DateTime ngay = this.dateNgay.DateTime;
             long soTien = (long)this.txtSoTien.Value;
+            long soTienChuyenKhoan = (long)this.txtSoTienChuyenKhoan.Value;
             string maPhieu = this.txtMaPhieu.Text;
             string ghiChu = this.txtGhiChu.Text;
             int? hocSinhId = (int?)this.cmbHocSinh.EditValue;
             int? phanLoaiThuId = (int?)this.cmbPhanLoaiThu.EditValue;
             PhieuThuService phieuThuService = new PhieuThuService();
-            phieuThuService.InsertPhieuThu(ngay, soTien, maPhieu, ghiChu, hocSinhId, phanLoaiThuId);
+            phieuThuService.InsertPhieuThu(ngay, soTien, soTienChuyenKhoan, maPhieu, ghiChu, hocSinhId, phanLoaiThuId);
 
             Settings.Default["LastMaPhieuThu"] = Settings.Default.LastMaPhieuThu + 1;
             Settings.Default.Save();
@@ -176,17 +178,19 @@ namespace QLMamNon.Forms.ThuChi
         {
             DateTime ngay = this.dateNgay.DateTime;
             long soTien = (long)this.txtSoTien.Value;
+            long soTienChuyenKhoan = (long)this.txtSoTienChuyenKhoan.Value;
             string maPhieu = this.txtMaPhieu.Text;
             string ghiChu = this.txtGhiChu.Text;
             int? hocSinhId = (int?)this.cmbHocSinh.EditValue;
             int? phanLoaiThuId = (int?)this.cmbPhanLoaiThu.EditValue;
             PhieuThuService phieuThuService = new PhieuThuService();
-            phieuThuService.UpdatePhieuThu(this.PhieuThuRow, ngay, soTien, maPhieu, ghiChu, hocSinhId, phanLoaiThuId);
+            phieuThuService.UpdatePhieuThu(this.PhieuThuRow, ngay, soTien, soTienChuyenKhoan, maPhieu, ghiChu, hocSinhId, phanLoaiThuId);
         }
 
         private void resetForm()
         {
             this.txtSoTien.Value = 0;
+            this.txtSoTienChuyenKhoan.Value = 0;
             this.txtMaPhieu.Text = $"{Settings.Default.LastMaPhieuThu + 1}";
             this.txtGhiChu.Text = "";
             this.txtConLai.Text = "";
@@ -214,6 +218,7 @@ namespace QLMamNon.Forms.ThuChi
             rptPhieuThuTien.NgayNop.Value = dateNgay.DateTime;
             rptPhieuThuTien.HoTenHS.Value = cmbHocSinh.Text;
             rptPhieuThuTien.SoTien.Value = txtSoTien.EditValue;
+            rptPhieuThuTien.SoTienChuyenKhoan.Value = txtSoTienChuyenKhoan.EditValue;
             rptPhieuThuTien.ConLai.Value = txtConLai.EditValue;
             Dictionary<int, lop> hocSinhIdToLops = StaticDataUtil.GetLopsByHocSinhIds(entities, new List<int>() { (int)cmbHocSinh.EditValue }, dateNgay.DateTime);
             if (hocSinhIdToLops.ContainsKey((int)cmbHocSinh.EditValue))
@@ -254,6 +259,8 @@ namespace QLMamNon.Forms.ThuChi
             {
                 txtSoTien.Value = 0;
             }
+
+            txtSoTienChuyenKhoan.Value = 0;
         }
 
         private void txtSoTien_EditValueChanged(object sender, EventArgs e)
@@ -264,11 +271,11 @@ namespace QLMamNon.Forms.ThuChi
                 double soTienConLai = 0;
                 if (IsEditing)
                 {
-                    soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu + PhieuThuRow.SoTien - Convert.ToDouble(txtSoTien.EditValue);
+                    soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu + PhieuThuRow.SoTien - Convert.ToDouble(txtSoTien.EditValue) - Convert.ToDouble(txtSoTienChuyenKhoan.EditValue);
                 }
                 else
                 {
-                    soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu - Convert.ToDouble(txtSoTien.EditValue);
+                    soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu - Convert.ToDouble(txtSoTien.EditValue) - Convert.ToDouble(txtSoTienChuyenKhoan.EditValue);
                 }
 
                 txtConLai.EditValue = string.Format("{0:n0}", soTienConLai);

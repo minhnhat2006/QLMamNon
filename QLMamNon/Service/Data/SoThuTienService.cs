@@ -455,9 +455,9 @@ namespace QLMamNon.Service.Data
                     AnSang = viewBangThuTienRow.SoTienAnSangConLai,
                     AnToi = viewBangThuTienRow.SoTienAnToiConLai,
                     NangKhieu = viewBangThuTienRow.SoTienNangKhieu == null ? 0 : viewBangThuTienRow.SoTienNangKhieu.Value,
-                    DoDung = viewBangThuTienRow.SoTienDoDung.Value,
-                    DieuHoa = viewBangThuTienRow.SoTienDieuHoa.Value,
-                    TruyThu = viewBangThuTienRow.SoTienTruyThu.Value,
+                    DoDung = viewBangThuTienRow.SoTienDoDung == null ? 0 : viewBangThuTienRow.SoTienDoDung.Value,
+                    DieuHoa = viewBangThuTienRow.SoTienDieuHoa == null ? 0 : viewBangThuTienRow.SoTienDieuHoa.Value,
+                    TruyThu = viewBangThuTienRow.SoTienTruyThu == null ? 0 : viewBangThuTienRow.SoTienTruyThu.Value,
                     PhaiThu = viewBangThuTienRow.ThanhTien,
                     DaThu = soTien,
                     ConNo = viewBangThuTienRow.ThanhTien - soTien
