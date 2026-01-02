@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ACG.Core.WinForm.Util;
+using QLMamNon.Dao;
+using QLMamNon.Facade;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using ACG.Core.WinForm.Util;
-using QLMamNon.Dao;
-using QLMamNon.Facade;
+using static QLMamNon.Constant.PhanLoaiThuConstant;
 
 namespace QLMamNon.Service.Data
 {
@@ -38,7 +39,7 @@ namespace QLMamNon.Service.Data
             {
                 Ngay = ngay,
                 SoTien = soTien,
-                SoTienChuyenKhoan = soTienChuyenKhoan,
+                PaymentType = (soTienChuyenKhoan > 0 ? PaymentType.TRANSFER : PaymentType.CASH).ToString(),
                 MaPhieu = maPhieu,
                 GhiChu = ghiChu,
                 HocSinhId = hocSinhId,
@@ -54,7 +55,7 @@ namespace QLMamNon.Service.Data
             qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities();
             phieuthu phieuThu = entities.phieuthus.FirstOrDefault(p => p.PhieuThuId == phieuThuRow.PhieuThuId);
             phieuThu.SoTien = soTien;
-            phieuThu.SoTienChuyenKhoan = soTienChuyenKhoan;
+            phieuThu.PaymentType = (soTienChuyenKhoan > 0 ? PaymentType.TRANSFER : PaymentType.CASH).ToString();
             phieuThu.MaPhieu = maPhieu;
             phieuThu.GhiChu = ghiChu;
             phieuThu.HocSinhId = hocSinhId;

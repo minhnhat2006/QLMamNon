@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using static QLMamNon.Constant.PhanLoaiThuConstant;
 
 namespace QLMamNon.Forms.ThuChi
 {
@@ -58,9 +59,9 @@ namespace QLMamNon.Forms.ThuChi
             List<BangKeThuTheoLopItem> bangKeThuTheoLopItems = new List<BangKeThuTheoLopItem>();
             foreach (phieuthu item in phieuThuDataTable)
             {
-                var lops = StaticDataUtil.GetLopsByHocSinhIds(entities, new List<int>() { item.HocSinhId.Value }, fromDate);
+                var lops = StaticDataUtil.GetLopsByHocSinhIds(entities, new List<int>() { item.HocSinhId.Value }, item.Ngay);
                 string lop = (lops.Count > 0 ? lops.First().Value.Name : string.Empty).Trim();
-                string ngay = item.Ngay.ToShortDateString();
+                string formatedNgay = item.Ngay.ToShortDateString();
 
                 if (!string.IsNullOrWhiteSpace(lop))
                 {
@@ -74,23 +75,23 @@ namespace QLMamNon.Forms.ThuChi
                         bangKeThuTheoLopItemsByLop.Add(lop, bangKeThuTheoLopItemsByNgay);
                     }
 
-                    if (bangKeThuTheoLopItemsByNgay.ContainsKey(ngay))
+                    if (bangKeThuTheoLopItemsByNgay.ContainsKey(formatedNgay))
                     {
-                        BangKeThuTheoLopItem bangKeThuTheoLopItem = bangKeThuTheoLopItemsByNgay[ngay];
-                        bangKeThuTheoLopItem.SoTienNop += item.SoTien;
-                        bangKeThuTheoLopItem.SoTienChuyenKhoan += item.SoTienChuyenKhoan;
+                        BangKeThuTheoLopItem bangKeThuTheoLopItem = bangKeThuTheoLopItemsByNgay[formatedNgay];
+                        bangKeThuTheoLopItem.SoTienNop += (item.PaymentType != PaymentType.TRANSFER.ToString() ? item.SoTien : 0);
+                        bangKeThuTheoLopItem.SoTienChuyenKhoan += (item.PaymentType == PaymentType.TRANSFER.ToString() ? item.SoTien : 0);
                     }
                     else
                     {
                         BangKeThuTheoLopItem bangKeThuTheoLopItem = new BangKeThuTheoLopItem()
                         {
-                            Ngay = ngay,
+                            Ngay = formatedNgay,
                             Lop = lop,
-                            SoTienNop = item.SoTien,
-                            SoTienChuyenKhoan = item.SoTienChuyenKhoan
+                            SoTienNop = (item.PaymentType != PaymentType.TRANSFER.ToString() ? item.SoTien : 0),
+                            SoTienChuyenKhoan = (item.PaymentType == PaymentType.TRANSFER.ToString() ? item.SoTien : 0)
 
                         };
-                        bangKeThuTheoLopItemsByNgay.Add(ngay, bangKeThuTheoLopItem);
+                        bangKeThuTheoLopItemsByNgay.Add(formatedNgay, bangKeThuTheoLopItem);
                         bangKeThuTheoLopItems.Add(bangKeThuTheoLopItem);
                     }
                 }

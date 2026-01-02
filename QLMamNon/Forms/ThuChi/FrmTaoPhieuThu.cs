@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Windows.Forms;
-using ACG.Core.WinForm.Util;
+﻿using ACG.Core.WinForm.Util;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraReports.UI;
 using QLMamNon.Components.Data.Static;
@@ -15,6 +10,12 @@ using QLMamNon.Facade;
 using QLMamNon.Properties;
 using QLMamNon.Reports;
 using QLMamNon.Service.Data;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Windows.Forms;
+using static QLMamNon.Constant.PhanLoaiThuConstant;
 using LayoutVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility;
 
 namespace QLMamNon.Forms.ThuChi
@@ -131,7 +132,7 @@ namespace QLMamNon.Forms.ThuChi
         {
             this.dateNgay.DateTime = this.PhieuThuRow.Ngay;
             this.txtSoTien.Value = this.PhieuThuRow.SoTien;
-            this.txtSoTienChuyenKhoan.Value = this.PhieuThuRow.SoTienChuyenKhoan;
+            this.cbPaymentType.SelectedIndex = this.PhieuThuRow.PaymentType == PaymentType.TRANSFER.ToString() ? 1 : 0;
             this.txtMaPhieu.Text = this.PhieuThuRow.MaPhieu;
             this.txtGhiChu.Text = this.PhieuThuRow.GhiChu;
             this.cmbHocSinh.EditValue = this.PhieuThuRow.HocSinhId;
@@ -161,8 +162,8 @@ namespace QLMamNon.Forms.ThuChi
         private void insertPhieuThu()
         {
             DateTime ngay = this.dateNgay.DateTime;
-            long soTien = (long)this.txtSoTien.Value;
-            long soTienChuyenKhoan = (long)this.txtSoTienChuyenKhoan.Value;
+            long soTien = this.cbPaymentType.SelectedIndex == 0 ? (long)this.txtSoTien.Value : 0;
+            long soTienChuyenKhoan = this.cbPaymentType.SelectedIndex == 1 ? (long)this.txtSoTien.Value : 0;
             string maPhieu = this.txtMaPhieu.Text;
             string ghiChu = this.txtGhiChu.Text;
             int? hocSinhId = (int?)this.cmbHocSinh.EditValue;
@@ -177,8 +178,8 @@ namespace QLMamNon.Forms.ThuChi
         private void updatePhieuThu()
         {
             DateTime ngay = this.dateNgay.DateTime;
-            long soTien = (long)this.txtSoTien.Value;
-            long soTienChuyenKhoan = (long)this.txtSoTienChuyenKhoan.Value;
+            long soTien = this.cbPaymentType.SelectedIndex == 0 ? (long)this.txtSoTien.Value : 0;
+            long soTienChuyenKhoan = this.cbPaymentType.SelectedIndex == 1 ? (long)this.txtSoTien.Value : 0;
             string maPhieu = this.txtMaPhieu.Text;
             string ghiChu = this.txtGhiChu.Text;
             int? hocSinhId = (int?)this.cmbHocSinh.EditValue;
@@ -190,7 +191,7 @@ namespace QLMamNon.Forms.ThuChi
         private void resetForm()
         {
             this.txtSoTien.Value = 0;
-            this.txtSoTienChuyenKhoan.Value = 0;
+            this.cbPaymentType.SelectedIndex = 0;
             this.txtMaPhieu.Text = $"{Settings.Default.LastMaPhieuThu + 1}";
             this.txtGhiChu.Text = "";
             this.txtConLai.Text = "";
@@ -218,7 +219,7 @@ namespace QLMamNon.Forms.ThuChi
             rptPhieuThuTien.NgayNop.Value = dateNgay.DateTime;
             rptPhieuThuTien.HoTenHS.Value = cmbHocSinh.Text;
             rptPhieuThuTien.SoTien.Value = txtSoTien.EditValue;
-            rptPhieuThuTien.SoTienChuyenKhoan.Value = txtSoTienChuyenKhoan.EditValue;
+            rptPhieuThuTien.SoTienChuyenKhoan.Value = cbPaymentType.EditValue;
             rptPhieuThuTien.ConLai.Value = txtConLai.EditValue;
             Dictionary<int, lop> hocSinhIdToLops = StaticDataUtil.GetLopsByHocSinhIds(entities, new List<int>() { (int)cmbHocSinh.EditValue }, dateNgay.DateTime);
             if (hocSinhIdToLops.ContainsKey((int)cmbHocSinh.EditValue))
@@ -259,8 +260,6 @@ namespace QLMamNon.Forms.ThuChi
             {
                 txtSoTien.Value = 0;
             }
-
-            txtSoTienChuyenKhoan.Value = 0;
         }
 
         private void txtSoTien_EditValueChanged(object sender, EventArgs e)
@@ -271,11 +270,11 @@ namespace QLMamNon.Forms.ThuChi
                 double soTienConLai = 0;
                 if (IsEditing)
                 {
-                    soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu + PhieuThuRow.SoTien - Convert.ToDouble(txtSoTien.EditValue) - Convert.ToDouble(txtSoTienChuyenKhoan.EditValue);
+                    soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu + PhieuThuRow.SoTien - Convert.ToDouble(txtSoTien.EditValue) - Convert.ToDouble(cbPaymentType.EditValue);
                 }
                 else
                 {
-                    soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu - Convert.ToDouble(txtSoTien.EditValue) - Convert.ToDouble(txtSoTienChuyenKhoan.EditValue);
+                    soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu - Convert.ToDouble(txtSoTien.EditValue) - Convert.ToDouble(cbPaymentType.EditValue);
                 }
 
                 txtConLai.EditValue = string.Format("{0:n0}", soTienConLai);
