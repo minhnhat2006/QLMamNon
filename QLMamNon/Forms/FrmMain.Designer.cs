@@ -75,6 +75,7 @@
             this.bbiBangKeThuTrongNgay = new DevExpress.XtraBars.BarButtonItem();
             this.bbiBangKeThuTheoLop = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDanhSachHocSinhChuaNopHocPhi = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiBaoCaoThuHocPhi = new DevExpress.XtraBars.BarButtonItem();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.rpHocSinh = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgHocSinh = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -99,6 +100,7 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.bbiBaoCaoSoLuongHocSinhTheoLop = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
@@ -153,11 +155,13 @@
             this.bbiBangKeCacLoaiChi,
             this.bbiBangKeThuTrongNgay,
             this.bbiBangKeThuTheoLop,
-            this.bbiDanhSachHocSinhChuaNopHocPhi});
+            this.bbiDanhSachHocSinhChuaNopHocPhi,
+            this.bbiBaoCaoThuHocPhi,
+            this.bbiBaoCaoSoLuongHocSinhTheoLop});
             this.ribbon.LargeImages = this.imageCollection1;
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 21;
+            this.ribbon.MaxItemId = 23;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHocSinh,
@@ -570,6 +574,15 @@
             this.bbiDanhSachHocSinhChuaNopHocPhi.Name = "bbiDanhSachHocSinhChuaNopHocPhi";
             this.bbiDanhSachHocSinhChuaNopHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDanhSachHocSinhChuaNopHocPhi_ItemClick);
             // 
+            // bbiBaoCaoThuHocPhi
+            // 
+            this.bbiBaoCaoThuHocPhi.Caption = "Báo cáo thu học phí";
+            this.bbiBaoCaoThuHocPhi.Id = 21;
+            this.bbiBaoCaoThuHocPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiBaoCaoThuHocPhi.ImageOptions.Image")));
+            this.bbiBaoCaoThuHocPhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiBaoCaoThuHocPhi.ImageOptions.LargeImage")));
+            this.bbiBaoCaoThuHocPhi.Name = "bbiBaoCaoThuHocPhi";
+            this.bbiBaoCaoThuHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBaoCaoThuHocPhi_ItemClick);
+            // 
             // imageCollection1
             // 
             this.imageCollection1.ImageSize = new System.Drawing.Size(32, 32);
@@ -618,6 +631,7 @@
             // 
             this.rpgHocSinhBaoCao.ItemLinks.Add(this.bbtnHocSinhBaoCaoSucKhoe);
             this.rpgHocSinhBaoCao.ItemLinks.Add(this.bbtnHocSinhThongKe);
+            this.rpgHocSinhBaoCao.ItemLinks.Add(this.bbiBaoCaoSoLuongHocSinhTheoLop);
             this.rpgHocSinhBaoCao.Name = "rpgHocSinhBaoCao";
             this.rpgHocSinhBaoCao.Text = "Báo cáo";
             // 
@@ -697,6 +711,7 @@
             this.rpgBaoCaoThuChi.ItemLinks.Add(this.bbiBangKeThuTrongNgay);
             this.rpgBaoCaoThuChi.ItemLinks.Add(this.bbiBangKeThuTheoLop);
             this.rpgBaoCaoThuChi.ItemLinks.Add(this.bbiDanhSachHocSinhChuaNopHocPhi);
+            this.rpgBaoCaoThuChi.ItemLinks.Add(this.bbiBaoCaoThuHocPhi);
             this.rpgBaoCaoThuChi.Name = "rpgBaoCaoThuChi";
             this.rpgBaoCaoThuChi.Text = "Báo cáo";
             // 
@@ -780,6 +795,15 @@
             | DevExpress.XtraTab.TabButtons.Default)));
             this.xtraTabbedMdiManager1.Images = this.imageCollection1;
             this.xtraTabbedMdiManager1.MdiParent = this;
+            // 
+            // bbiBaoCaoSoLuongHocSinhTheoLop
+            // 
+            this.bbiBaoCaoSoLuongHocSinhTheoLop.Caption = "Báo cáo số lượng học sinh";
+            this.bbiBaoCaoSoLuongHocSinhTheoLop.Id = 22;
+            this.bbiBaoCaoSoLuongHocSinhTheoLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiBaoCaoSoLuongHocSinhTheoLop.ImageOptions.Image")));
+            this.bbiBaoCaoSoLuongHocSinhTheoLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiBaoCaoSoLuongHocSinhTheoLop.ImageOptions.LargeImage")));
+            this.bbiBaoCaoSoLuongHocSinhTheoLop.Name = "bbiBaoCaoSoLuongHocSinhTheoLop";
+            this.bbiBaoCaoSoLuongHocSinhTheoLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBaoCaoSoLuongHocSinhTheoLop_ItemClick);
             // 
             // FrmMain
             // 
@@ -880,5 +904,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiBangKeThuTrongNgay;
         private DevExpress.XtraBars.BarButtonItem bbiBangKeThuTheoLop;
         private DevExpress.XtraBars.BarButtonItem bbiDanhSachHocSinhChuaNopHocPhi;
+        private DevExpress.XtraBars.BarButtonItem bbiBaoCaoThuHocPhi;
+        private DevExpress.XtraBars.BarButtonItem bbiBaoCaoSoLuongHocSinhTheoLop;
     }
 }

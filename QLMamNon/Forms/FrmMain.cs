@@ -256,6 +256,15 @@ namespace QLMamNon.Forms
             FormMainFacade.ShowDialog(AppForms.FormDanhSachChuaNopHocPhi);
         }
 
+        private void bbiBaoCaoThuHocPhi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormMainFacade.ShowDialog(AppForms.FormBaoCaoThuHocPhiTheoThang);
+        }
+
+        private void bbiBaoCaoSoLuongHocSinhTheoLop_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormMainFacade.ShowDialog(AppForms.FormBaoCaoSoLuongHocSinhTheoLop);
+        }
         #endregion
     }
 }

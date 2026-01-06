@@ -55,6 +55,8 @@ namespace QLMamNon.Forms.Resource
             formToTypes.Add(AppForms.FormBangKeThuTrongNgay, typeof(FrmBangKeThuTrongNgay).FullName);
             formToTypes.Add(AppForms.FormBangKeThuTheoLop, typeof(FrmBangKeThuTheoLop).FullName);
             formToTypes.Add(AppForms.FormDanhSachChuaNopHocPhi, typeof(FrmDanhSachChuaNopHocPhi).FullName);
+            formToTypes.Add(AppForms.FormBaoCaoThuHocPhiTheoThang, typeof(FrmBaoCaoThuHocPhiTheoThang).FullName);
+            formToTypes.Add(AppForms.FormBaoCaoSoLuongHocSinhTheoLop, typeof(FrmBaoCaoSoLuongHocSinhTheoLop).FullName);
         }
 
         public Form GetForm(string key)

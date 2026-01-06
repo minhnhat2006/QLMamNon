@@ -167,7 +167,7 @@ namespace QLMamNon
             row.SoTienNopLan1 = 0;
             row.SoTienNopLan2 = 0;
 
-            List<phieuthu> phieuThuRows = phieuThuDataTable.FindAll(p => p.HocSinhId == row.HocSinhId);
+            List<phieuthu> phieuThuRows = phieuThuDataTable.FindAll(p => p.HocSinhId == row.HocSinhId && p.PhanLoaiThuId.HasValue && p.PhanLoaiThuId == PhanLoaiThuConstant.PhanLoaiThuIdThuTienHocPhi);
 
             if (ListUtil.IsEmpty(phieuThuRows))
             {

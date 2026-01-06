@@ -38,6 +38,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -312,7 +313,9 @@
     <Compile Include="Constant\PhanLoaiThuConstant.cs" />
     <Compile Include="Constant\FormPrivilegeConstant.cs" />
     <Compile Include="Dao\Constant\ViewBangThuTienFieldName.cs" />
+    <Compile Include="Entity\Form\BaoCaoThuHocPhiTheoLopItem.cs" />
     <Compile Include="Entity\Form\BangKeThuTheoLopItem.cs" />
+    <Compile Include="Entity\Form\BaoCaoSoLuongHocSinhTheoLopItem.cs" />
     <Compile Include="Entity\Form\HocSinhChuaNopHocPhiItem.cs" />
     <Compile Include="Entity\Form\BangKeThuTrongNgayItem.cs" />
     <Compile Include="Entity\Form\BangKeCacLoaiChiItem.cs" />
@@ -468,11 +471,23 @@
     <Compile Include="Forms\TaiSan\FrmTaiSan.Designer.cs">
       <DependentUpon>FrmTaiSan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ThuChi\FrmBaoCaoSoLuongHocSinhTheoLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ThuChi\FrmBaoCaoSoLuongHocSinhTheoLop.Designer.cs">
+      <DependentUpon>FrmBaoCaoSoLuongHocSinhTheoLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ThuChi\FrmBangKeThuTheoLop.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ThuChi\FrmBangKeThuTheoLop.Designer.cs">
       <DependentUpon>FrmBangKeThuTheoLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ThuChi\FrmBaoCaoThuHocPhiTheoThang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ThuChi\FrmBaoCaoThuHocPhiTheoThang.Designer.cs">
+      <DependentUpon>FrmBaoCaoThuHocPhiTheoThang.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ThuChi\FrmDanhSachChuaNopHocPhi.cs">
       <SubType>Form</SubType>
@@ -735,17 +750,23 @@
     <Compile Include="Dao\quanhuyen.cs">
       <DependentUpon>QLMNModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RptBaoCaoSoLuongHocSinhTheoLop.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptBaoCaoSoLuongHocSinhTheoLop.designer.cs">
+      <DependentUpon>RptBaoCaoSoLuongHocSinhTheoLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\RptBangKeThuTheoLop.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\RptBangKeThuTheoLop.designer.cs">
       <DependentUpon>RptBangKeThuTheoLop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\RptBangKeThuHocPhiTheoLop.cs">
+    <Compile Include="Reports\RptBaoCaoThuHocPhiTheoThang.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\RptBangKeThuHocPhiTheoLop.designer.cs">
-      <DependentUpon>RptBangKeThuHocPhiTheoLop.cs</DependentUpon>
+    <Compile Include="Reports\RptBaoCaoThuHocPhiTheoThang.designer.cs">
+      <DependentUpon>RptBaoCaoThuHocPhiTheoThang.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\RptDanhSachChuaNopHocPhi.cs">
       <SubType>Component</SubType>
@@ -1068,8 +1089,15 @@
     <EmbeddedResource Include="Forms\TaiSan\FrmTaiSan.resx">
       <DependentUpon>FrmTaiSan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ThuChi\FrmBaoCaoSoLuongHocSinhTheoLop.resx">
+      <DependentUpon>FrmBaoCaoSoLuongHocSinhTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ThuChi\FrmBangKeThuTheoLop.resx">
       <DependentUpon>FrmBangKeThuTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ThuChi\FrmBaoCaoThuHocPhiTheoThang.resx">
+      <DependentUpon>FrmBaoCaoThuHocPhiTheoThang.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ThuChi\FrmDanhSachChuaNopHocPhi.resx">
       <DependentUpon>FrmDanhSachChuaNopHocPhi.cs</DependentUpon>
@@ -1133,11 +1161,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\RptBaoCaoSoLuongHocSinhTheoLop.resx">
+      <DependentUpon>RptBaoCaoSoLuongHocSinhTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptBangKeThuTheoLop.resx">
       <DependentUpon>RptBangKeThuTheoLop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\RptBangKeThuHocPhiTheoLop.resx">
-      <DependentUpon>RptBangKeThuHocPhiTheoLop.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\RptBaoCaoThuHocPhiTheoThang.resx">
+      <DependentUpon>RptBaoCaoThuHocPhiTheoThang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptDanhSachChuaNopHocPhi.resx">
       <DependentUpon>RptDanhSachChuaNopHocPhi.cs</DependentUpon>
@@ -1268,6 +1299,7 @@
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.BangKeThuTheoLopItem.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.BangKeThuTienItem.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.BangKeThuTrongNgayItem.datasource" />
+    <None Include="Properties\DataSources\QLMamNon.Entity.Form.BaoCaoThuHocPhiTheoLopItem.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.HocSinhChuaNopHocPhiItem.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.KeyValuePair.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.NamHoc.datasource" />

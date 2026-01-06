@@ -36,9 +36,11 @@ namespace QLMamNon.Constant
         public const string FormUser = "FrmUser";
         public const string FormBangTinhPhi = "FrmBangTinhPhi";
         public const string FormBackupDb = "FrmBackupDb";
-        public const string FormBangKeCacLoaiChi = "FormBangKeCacLoaiChi";
-        public const string FormBangKeThuTrongNgay = "FormBangKeThuTrongNgay";
-        public const string FormBangKeThuTheoLop = "FormBangKeThuTheoLop";
-        public const string FormDanhSachChuaNopHocPhi = "FormDanhSachChuaNopHocPhi";
+        public const string FormBangKeCacLoaiChi = "FrmBangKeCacLoaiChi";
+        public const string FormBangKeThuTrongNgay = "FrmBangKeThuTrongNgay";
+        public const string FormBangKeThuTheoLop = "FrmBangKeThuTheoLop";
+        public const string FormDanhSachChuaNopHocPhi = "FrmDanhSachChuaNopHocPhi";
+        public const string FormBaoCaoThuHocPhiTheoThang = "FrmBaoCaoThuHocPhiTheoThang";
+        public const string FormBaoCaoSoLuongHocSinhTheoLop = "FrmBaoCaoSoLuongHocSinhTheoLop";
     }
 }
