@@ -1,4 +1,5 @@
 ﻿using ACG.Core.WinForm.Util;
+using QLMamNon.Components.Data.Static;
 using QLMamNon.Constant;
 using QLMamNon.Dao;
 using QLMamNon.Entity.Form;
@@ -43,6 +44,21 @@ namespace QLMamNon.Forms.ThuChi
                 return;
             }
 
+            List<int> lopIds = new List<int>();
+            int[] selectedRowHandlers = this.gridViewLop.GetSelectedRows();
+
+            if (ArrayUtil.IsEmpty(selectedRowHandlers))
+            {
+                MessageBox.Show("Xin vui lòng chọn Lớp", "Chọn Phân loại thu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            foreach (int rowHandler in selectedRowHandlers)
+            {
+                int lopId = (int)this.gridViewLop.GetRowCellValue(rowHandler, "LopId");
+                lopIds.Add(lopId);
+            }
+
             RptBangKeThuTheoLop rpt = new RptBangKeThuTheoLop();
             DateTime fromDate = DateTimeUtil.StartOfDate(dateTuNgay.DateTime);
             rpt.FromDate.Value = fromDate;
@@ -60,19 +76,26 @@ namespace QLMamNon.Forms.ThuChi
             foreach (phieuthu item in phieuThuDataTable)
             {
                 var lops = StaticDataUtil.GetLopsByHocSinhIds(entities, new List<int>() { item.HocSinhId.Value }, item.Ngay);
-                string lop = (lops.Count > 0 ? lops.First().Value.Name : string.Empty).Trim();
+                var lop = lops.Count > 0 ? lops.First().Value : null;
+
+                if (lop == null || !lopIds.Contains(lop.LopId))
+                {
+                    continue;
+                }
+
+                string lopName = (lop != null ? lop.Name : string.Empty).Trim();
                 string formatedNgay = item.Ngay.ToShortDateString();
 
-                if (!string.IsNullOrWhiteSpace(lop))
+                if (!string.IsNullOrWhiteSpace(lopName))
                 {
                     Dictionary<string, BangKeThuTheoLopItem> bangKeThuTheoLopItemsByNgay = new Dictionary<string, BangKeThuTheoLopItem>();
-                    if (bangKeThuTheoLopItemsByLop.ContainsKey(lop))
+                    if (bangKeThuTheoLopItemsByLop.ContainsKey(lopName))
                     {
-                        bangKeThuTheoLopItemsByNgay = bangKeThuTheoLopItemsByLop[lop];
+                        bangKeThuTheoLopItemsByNgay = bangKeThuTheoLopItemsByLop[lopName];
                     }
                     else
                     {
-                        bangKeThuTheoLopItemsByLop.Add(lop, bangKeThuTheoLopItemsByNgay);
+                        bangKeThuTheoLopItemsByLop.Add(lopName, bangKeThuTheoLopItemsByNgay);
                     }
 
                     if (bangKeThuTheoLopItemsByNgay.ContainsKey(formatedNgay))
@@ -86,7 +109,7 @@ namespace QLMamNon.Forms.ThuChi
                         BangKeThuTheoLopItem bangKeThuTheoLopItem = new BangKeThuTheoLopItem()
                         {
                             Ngay = formatedNgay,
-                            Lop = lop,
+                            Lop = lopName,
                             SoTienNop = (item.PaymentType != PaymentType.TRANSFER.ToString() ? item.SoTien : 0),
                             SoTienChuyenKhoan = (item.PaymentType == PaymentType.TRANSFER.ToString() ? item.SoTien : 0)
 
@@ -101,10 +124,16 @@ namespace QLMamNon.Forms.ThuChi
             FormMainFacade.ShowReport(rpt);
         }
 
-        private void FrmBaoCaoHoatDongTaiChinh_Load(object sender, EventArgs e)
+        private void FrmBangKeThuTheoLop_Load(object sender, EventArgs e)
         {
             dateTuNgay.DateTime = DateTime.Now;
             dateDenNgay.DateTime = DateTime.Now;
+            this.lopBindingSource.DataSource = StaticDataFacade.Get(StaticDataKeys.LopHoc);
+        }
+
+        private void FrmBangKeThuTheoLop_Shown(object sender, EventArgs e)
+        {
+            this.gridViewLop.SelectAll();
         }
     }
 }
