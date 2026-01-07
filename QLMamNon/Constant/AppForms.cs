@@ -42,5 +42,6 @@ namespace QLMamNon.Constant
         public const string FormDanhSachChuaNopHocPhi = "FrmDanhSachChuaNopHocPhi";
         public const string FormBaoCaoThuHocPhiTheoThang = "FrmBaoCaoThuHocPhiTheoThang";
         public const string FormBaoCaoSoLuongHocSinhTheoLop = "FrmBaoCaoSoLuongHocSinhTheoLop";
+        public const string FormBaoCaoSiSoHocSinhTheoLop = "FrmBaoCaoSiSoHocSinhTheoLop";
     }
 }

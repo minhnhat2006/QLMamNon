@@ -313,6 +313,7 @@
     <Compile Include="Constant\PhanLoaiThuConstant.cs" />
     <Compile Include="Constant\FormPrivilegeConstant.cs" />
     <Compile Include="Dao\Constant\ViewBangThuTienFieldName.cs" />
+    <Compile Include="Entity\Form\BaoCaoSiSoHocSinhTheoLopItem.cs" />
     <Compile Include="Entity\Form\BaoCaoThuHocPhiTheoLopItem.cs" />
     <Compile Include="Entity\Form\BangKeThuTheoLopItem.cs" />
     <Compile Include="Entity\Form\BaoCaoSoLuongHocSinhTheoLopItem.cs" />
@@ -470,6 +471,12 @@
     </Compile>
     <Compile Include="Forms\TaiSan\FrmTaiSan.Designer.cs">
       <DependentUpon>FrmTaiSan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ThuChi\FrmBaoCaoSiSoHocSinhTheoLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ThuChi\FrmBaoCaoSiSoHocSinhTheoLop.Designer.cs">
+      <DependentUpon>FrmBaoCaoSiSoHocSinhTheoLop.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ThuChi\FrmBaoCaoSoLuongHocSinhTheoLop.cs">
       <SubType>Form</SubType>
@@ -761,6 +768,12 @@
     </Compile>
     <Compile Include="Reports\RptBangKeThuTheoLop.designer.cs">
       <DependentUpon>RptBangKeThuTheoLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RptBaoCaoSiSoHocSinhTheoLop.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptBaoCaoSiSoHocSinhTheoLop.designer.cs">
+      <DependentUpon>RptBaoCaoSiSoHocSinhTheoLop.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\RptBaoCaoThuHocPhiTheoThang.cs">
       <SubType>Component</SubType>
@@ -1089,6 +1102,9 @@
     <EmbeddedResource Include="Forms\TaiSan\FrmTaiSan.resx">
       <DependentUpon>FrmTaiSan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ThuChi\FrmBaoCaoSiSoHocSinhTheoLop.resx">
+      <DependentUpon>FrmBaoCaoSiSoHocSinhTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ThuChi\FrmBaoCaoSoLuongHocSinhTheoLop.resx">
       <DependentUpon>FrmBaoCaoSoLuongHocSinhTheoLop.cs</DependentUpon>
     </EmbeddedResource>
@@ -1166,6 +1182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptBangKeThuTheoLop.resx">
       <DependentUpon>RptBangKeThuTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptBaoCaoSiSoHocSinhTheoLop.resx">
+      <DependentUpon>RptBaoCaoSiSoHocSinhTheoLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptBaoCaoThuHocPhiTheoThang.resx">
       <DependentUpon>RptBaoCaoThuHocPhiTheoThang.cs</DependentUpon>

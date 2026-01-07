@@ -265,6 +265,12 @@ namespace QLMamNon.Forms
         {
             FormMainFacade.ShowDialog(AppForms.FormBaoCaoSoLuongHocSinhTheoLop);
         }
+
+        private void bbiBaoCaoSiSoHocSinh_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormMainFacade.ShowDialog(AppForms.FormBaoCaoSiSoHocSinhTheoLop);
+        }
+
         #endregion
     }
 }
