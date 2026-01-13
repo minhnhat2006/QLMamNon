@@ -218,8 +218,8 @@ namespace QLMamNon.Forms.ThuChi
             RptPhieuThuTien rptPhieuThuTien = new RptPhieuThuTien();
             rptPhieuThuTien.NgayNop.Value = dateNgay.DateTime;
             rptPhieuThuTien.HoTenHS.Value = cmbHocSinh.Text;
-            rptPhieuThuTien.SoTien.Value = txtSoTien.EditValue;
-            rptPhieuThuTien.SoTienChuyenKhoan.Value = cbPaymentType.EditValue;
+            rptPhieuThuTien.SoTien.Value = this.txtSoTien.Value;
+            //rptPhieuThuTien.SoTienChuyenKhoan.Value = this.cbPaymentType.SelectedIndex == 1 ? (long)this.txtSoTien.Value : 0;
             rptPhieuThuTien.ConLai.Value = txtConLai.EditValue;
             Dictionary<int, lop> hocSinhIdToLops = StaticDataUtil.GetLopsByHocSinhIds(entities, new List<int>() { (int)cmbHocSinh.EditValue }, dateNgay.DateTime);
             if (hocSinhIdToLops.ContainsKey((int)cmbHocSinh.EditValue))
@@ -270,11 +270,11 @@ namespace QLMamNon.Forms.ThuChi
                 double soTienConLai = 0;
                 if (IsEditing)
                 {
-                    soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu + PhieuThuRow.SoTien - Convert.ToDouble(txtSoTien.EditValue) - Convert.ToDouble(cbPaymentType.EditValue);
+                    soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu + PhieuThuRow.SoTien - Convert.ToDouble(txtSoTien.EditValue);
                 }
                 else
                 {
-                    soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu - Convert.ToDouble(txtSoTien.EditValue) - Convert.ToDouble(cbPaymentType.EditValue);
+                    soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu - Convert.ToDouble(txtSoTien.EditValue);
                 }
 
                 txtConLai.EditValue = string.Format("{0:n0}", soTienConLai);

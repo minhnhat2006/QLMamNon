@@ -340,15 +340,7 @@
 warning 6002: The table/view 'def.qlmamnon.viewbangiaotaisan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="viewbangiaotaisan">
           <Key>
-            <PropertyRef Name="TaiSanId" />
-            
-            
-            
-            
-            
-            
-            
-            
+            <PropertyRef Name="TaiSanId" />            
           </Key>
           <Property Name="TaiSanId" Type="int" Nullable="false" />
           <Property Name="Ten" Type="text" Nullable="false" />
@@ -371,14 +363,6 @@ warning 6002: The table/view 'def.qlmamnon.viewbangthutien' does not have a prim
         <EntityType Name="viewbangthutien">
           <Key>
             <PropertyRef Name="BangThuTienId" />
-            
-            
-            
-            
-            
-            
-            
-            
           </Key>
           <Property Name="BangThuTienId" Type="int" Nullable="false" />
           <Property Name="HocSinhId" Type="int" Nullable="false" />
@@ -475,15 +459,6 @@ warning 6002: The table/view 'def.qlmamnon.viewtaisanforbangiaotaisan' does not 
         <EntityType Name="viewtaisanforbangiaotaisan">
           <Key>
             <PropertyRef Name="TaiSanId" />
-            
-            
-            
-            
-            
-            
-            
-            
-            
           </Key>
           <Property Name="TaiSanId" Type="int" Nullable="false" />
           <Property Name="Ten" Type="mediumtext" Nullable="false" />
@@ -497,61 +472,61 @@ warning 6002: The table/view 'def.qlmamnon.viewtaisanforbangiaotaisan' does not 
           <Property Name="PhieuChiId" Type="int" Nullable="false" />
           <Property Name="PhanLoaiChiId" Type="bigint" Nullable="false" />
         </EntityType>
-        <Function Name="countBangThuTienGenHistoryByLopAndNgayTinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="countBangThuTienGenHistoryByLopAndNgayTinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="lop" Type="int" Mode="In" />
           <Parameter Name="ngay" Type="date" Mode="In" />
         </Function>
-        <Function Name="deleteBangThuTienByHocSinhIdsAndDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="deleteBangThuTienByHocSinhIdsAndDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_hocsinhids" Type="text" Mode="In" />
           <Parameter Name="p_date" Type="date" Mode="In" />
         </Function>
-        <Function Name="deleteBangThuTienById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="deleteBangThuTienById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_bangthutienid" Type="int" Mode="In" />
         </Function>
-        <Function Name="deleteBangThuTienKhoanThuByBangThuTienId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="deleteBangThuTienKhoanThuByBangThuTienId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_bangthutienid" Type="int" Mode="In" />
         </Function>
-        <Function Name="deleteHocSinhLopByHocSinhIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="deleteHocSinhLopByHocSinhIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="hocsinhids" Type="text" Mode="In" />
           <Parameter Name="deleteddate" Type="date" Mode="In" />
         </Function>
-        <Function Name="deleteKhoiTruongByKhoiId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="deleteKhoiTruongByKhoiId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="khoi" Type="int" Mode="In" />
         </Function>
-        <Function Name="deleteLopKhoiByLopId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="deleteLopKhoiByLopId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="lop" Type="int" Mode="In" />
         </Function>
-        <Function Name="deleteUserPrivileges" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="deleteUserPrivileges" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_notinprivilegeids" Type="text" Mode="In" />
           <Parameter Name="p_userid" Type="int" Mode="In" />
         </Function>
-        <Function Name="deleteViewBanGiaoTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="deleteViewBanGiaoTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="taisanlopid" Type="int" Mode="In" />
         </Function>
-        <Function Name="deleteViewTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="deleteViewTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="taisanid" Type="int" Mode="In" />
         </Function>
-        <Function Name="getBangThuTienById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getBangThuTienById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_bangthutienid" Type="int" Mode="In" />
         </Function>
-        <Function Name="getBangThuTienGenHistoryByLopAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getBangThuTienGenHistoryByLopAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_lopid" Type="int" Mode="In" />
           <Parameter Name="p_ngay" Type="date" Mode="In" />
         </Function>
-        <Function Name="getBangThuTienKhoanThuByBangThuTienIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getBangThuTienKhoanThuByBangThuTienIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="bangthutienids" Type="text" Mode="In" />
         </Function>
-        <Function Name="getHocSinhByLopAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getHocSinhByLopAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="lop" Type="int" Mode="In" />
           <Parameter Name="ngay" Type="date" Mode="In" />
         </Function>
-        <Function Name="getHocSinhByParams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getHocSinhByParams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="ngay" Type="date" Mode="In" />
           <Parameter Name="khoihoc" Type="int" Mode="In" />
           <Parameter Name="lophoc" Type="int" Mode="In" />
           <Parameter Name="ngayvaolop" Type="date" Mode="In" />
         </Function>
-        <Function Name="getHocSinhForThongTinHocSinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getHocSinhForThongTinHocSinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_quan" Type="int" Mode="In" />
           <Parameter Name="p_phuong" Type="int" Mode="In" />
           <Parameter Name="p_ngaysinh" Type="date" Mode="In" />
@@ -560,119 +535,119 @@ warning 6002: The table/view 'def.qlmamnon.viewtaisanforbangiaotaisan' does not 
           <Parameter Name="p_thoihoc" Type="bit" Mode="In" />
           <Parameter Name="p_namsinh" Type="int" Mode="In" />
         </Function>
-        <Function Name="getHocSinhLopByHocSinhIdsAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getHocSinhLopByHocSinhIdsAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="hocsinhids" Type="text" Mode="In" />
           <Parameter Name="ngay" Type="date" Mode="In" />
         </Function>
-        <Function Name="getHocSinhNotAssignedToLop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon" />
-        <Function Name="getKhoanThuByIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getHocSinhNotAssignedToLop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="" />
+        <Function Name="getKhoanThuByIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="khoanthuids" Type="text" Mode="In" />
         </Function>
-        <Function Name="getKhoanThuHangNamByParams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getKhoanThuHangNamByParams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="khoanthuids" Type="text" Mode="In" />
           <Parameter Name="khoi" Type="int" Mode="In" />
           <Parameter Name="ngay" Type="date" Mode="In" />
         </Function>
-        <Function Name="getKhoiTruongByKhoiId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getKhoiTruongByKhoiId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="khoi" Type="int" Mode="In" />
         </Function>
-        <Function Name="getLopKhoiByLopId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getLopKhoiByLopId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="lop" Type="int" Mode="In" />
         </Function>
-        <Function Name="getPhieuChiByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getPhieuChiByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_fromDate" Type="date" Mode="In" />
           <Parameter Name="p_toDate" Type="date" Mode="In" />
           <Parameter Name="p_phanloaichiids" Type="text" Mode="In" />
         </Function>
-        <Function Name="getPhieuChiByDateRangeWithGroupPhanLoaiChi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getPhieuChiByDateRangeWithGroupPhanLoaiChi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_fromDate" Type="date" Mode="In" />
           <Parameter Name="p_toDate" Type="date" Mode="In" />
           <Parameter Name="p_phanloaichiids" Type="text" Mode="In" />
         </Function>
-        <Function Name="getPhieuChiById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getPhieuChiById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="phieuchiid" Type="int" Mode="In" />
         </Function>
-        <Function Name="getPhieuChiListForReportBCHDTC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getPhieuChiListForReportBCHDTC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="tungay" Type="date" Mode="In" />
           <Parameter Name="denngay" Type="date" Mode="In" />
           <Parameter Name="phanloaichiids" Type="text" Mode="In" />
         </Function>
-        <Function Name="getPhieuThuByDateRangeWithGroupPhanLoaiThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getPhieuThuByDateRangeWithGroupPhanLoaiThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_fromDate" Type="date" Mode="In" />
           <Parameter Name="p_toDate" Type="date" Mode="In" />
           <Parameter Name="p_phanloaithuids" Type="text" Mode="In" />
         </Function>
-        <Function Name="getPhieuThuByHocSinhIdAndNgayTinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getPhieuThuByHocSinhIdAndNgayTinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="hocsinhid" Type="int" Mode="In" />
           <Parameter Name="ngaytinh" Type="date" Mode="In" />
         </Function>
-        <Function Name="getPhieuThuForReportBCHDTC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getPhieuThuForReportBCHDTC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="tungay" Type="date" Mode="In" />
           <Parameter Name="denngay" Type="date" Mode="In" />
         </Function>
-        <Function Name="getPhieuThuForSoQuyTienMat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getPhieuThuForSoQuyTienMat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_fromDate" Type="date" Mode="In" />
           <Parameter Name="p_toDate" Type="date" Mode="In" />
           <Parameter Name="p_phanloaithuids" Type="text" Mode="In" />
         </Function>
-        <Function Name="getPhieuThuOfMonthByHocSinhIdsAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getPhieuThuOfMonthByHocSinhIdsAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_hocsinhids" Type="text" Mode="In" />
           <Parameter Name="p_ngay" Type="date" Mode="In" />
         </Function>
-        <Function Name="getSoNgayNghiThangByNgayAndHocSinhIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getSoNgayNghiThangByNgayAndHocSinhIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="hocsinhids" Type="text" Mode="In" />
           <Parameter Name="ngay" Type="date" Mode="In" />
         </Function>
-        <Function Name="getSoTienTruyThuByHocSinhId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getSoTienTruyThuByHocSinhId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="hocsinhid" Type="int" Mode="In" />
         </Function>
-        <Function Name="getSumSoTienChiByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getSumSoTienChiByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_fromDate" Type="date" Mode="In" />
           <Parameter Name="p_toDate" Type="date" Mode="In" />
           <Parameter Name="p_phanloaichiids" Type="text" Mode="In" />
         </Function>
-        <Function Name="getSumSoTienThuByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getSumSoTienThuByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_fromDate" Type="date" Mode="In" />
           <Parameter Name="p_toDate" Type="date" Mode="In" />
           <Parameter Name="p_phanloaithuids" Type="text" Mode="In" />
         </Function>
-        <Function Name="getUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_username" Type="text" Mode="In" />
           <Parameter Name="p_password" Type="text" Mode="In" />
         </Function>
-        <Function Name="getUserPriviledgeByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getUserPriviledgeByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_userid" Type="int" Mode="In" />
         </Function>
-        <Function Name="getViewBanGiaoTaiSanByLopId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getViewBanGiaoTaiSanByLopId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="lopid" Type="int" Mode="In" />
         </Function>
-        <Function Name="getViewBanGiaoTaiSanByYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getViewBanGiaoTaiSanByYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="year" Type="int" Mode="In" />
         </Function>
-        <Function Name="getViewBangThuTienByNgayTinhAndHocSinhId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getViewBangThuTienByNgayTinhAndHocSinhId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_ngay" Type="date" Mode="In" />
           <Parameter Name="p_hocsinhid" Type="int" Mode="In" />
         </Function>
-        <Function Name="getViewBangThuTienByNgayTinhAndLop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getViewBangThuTienByNgayTinhAndLop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="ngay" Type="date" Mode="In" />
           <Parameter Name="lop" Type="int" Mode="In" />
         </Function>
-        <Function Name="getViewHocTapByLopAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getViewHocTapByLopAndNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="lop" Type="int" Mode="In" />
           <Parameter Name="ngay" Type="date" Mode="In" />
         </Function>
-        <Function Name="getViewTaiSanForBanGiaoTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon" />
-        <Function Name="insertHocSinhToLop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="getViewTaiSanForBanGiaoTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="" />
+        <Function Name="insertHocSinhToLop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="hocsinh" Type="int" Mode="In" />
           <Parameter Name="lop" Type="int" Mode="In" />
           <Parameter Name="ngayvaolop" Type="date" Mode="In" />
         </Function>
-        <Function Name="insertUserPrivilegeIfNotExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="insertUserPrivilegeIfNotExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="p_userid" Type="int" Mode="In" />
           <Parameter Name="p_privilegeid" Type="int" Mode="In" />
           <Parameter Name="p_value" Type="int" Mode="In" />
         </Function>
-        <Function Name="insertViewBanGiaoTaiSai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="insertViewBanGiaoTaiSai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="taisanid" Type="int" Mode="In" />
           <Parameter Name="lopid" Type="int" Mode="In" />
           <Parameter Name="ngaybangiao" Type="date" Mode="In" />
@@ -680,7 +655,7 @@ warning 6002: The table/view 'def.qlmamnon.viewtaisanforbangiaotaisan' does not 
           <Parameter Name="ghichu" Type="text" Mode="In" />
           <Parameter Name="soluongbangiao" Type="double" Mode="In" />
         </Function>
-        <Function Name="insertViewTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="insertViewTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="ten" Type="text" Mode="In" />
           <Parameter Name="ngaynhap" Type="date" Mode="In" />
           <Parameter Name="donvitinh" Type="text" Mode="In" />
@@ -691,13 +666,13 @@ warning 6002: The table/view 'def.qlmamnon.viewtaisanforbangiaotaisan' does not 
           <Parameter Name="ngaychungtu" Type="date" Mode="In" />
           <Parameter Name="phanloaichi" Type="int" Mode="In" />
         </Function>
-        <Function Name="selectViewBanGiaoTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon" />
-        <Function Name="updateSoTienTruyThuByHocSinhAndNgayUpdated" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="selectViewBanGiaoTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="" />
+        <Function Name="updateSoTienTruyThuByHocSinhAndNgayUpdated" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="hocsinhid" Type="int" Mode="In" />
           <Parameter Name="ngayupdated" Type="date" Mode="In" />
           <Parameter Name="sotientruythuadded" Type="bigint" Mode="In" />
         </Function>
-        <Function Name="updateViewBanGiaoTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="updateViewBanGiaoTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="taisanlopid" Type="int" Mode="In" />
           <Parameter Name="lopid" Type="int" Mode="In" />
           <Parameter Name="ngaybangiao" Type="date" Mode="In" />
@@ -705,13 +680,13 @@ warning 6002: The table/view 'def.qlmamnon.viewtaisanforbangiaotaisan' does not 
           <Parameter Name="ghichu" Type="text" Mode="In" />
           <Parameter Name="soluongbangiao" Type="double" Mode="In" />
         </Function>
-        <Function Name="updateViewHocTap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="updateViewHocTap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="hoctapid" Type="int" Mode="In" />
           <Parameter Name="hocsinhlopid" Type="int" Mode="In" />
           <Parameter Name="songaynghithang" Type="int" Mode="In" />
           <Parameter Name="ngay" Type="date" Mode="In" />
         </Function>
-        <Function Name="updateViewTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="qlmamnon">
+        <Function Name="updateViewTaiSan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="">
           <Parameter Name="ten" Type="text" Mode="In" />
           <Parameter Name="ngaynhap" Type="date" Mode="In" />
           <Parameter Name="donvitinh" Type="text" Mode="In" />
@@ -724,37 +699,37 @@ warning 6002: The table/view 'def.qlmamnon.viewtaisanforbangiaotaisan' does not 
           <Parameter Name="taisanid" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="qlmamnonModelStoreContainer">
-          <EntitySet Name="bangthutien" EntityType="Self.bangthutien" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="bangthutien_khoanthu" EntityType="Self.bangthutien_khoanthu" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="bangthutiengenhistory" EntityType="Self.bangthutiengenhistory" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="bangtinhphi" EntityType="Self.bangtinhphi" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="baocaothang" EntityType="Self.baocaothang" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="baocaothanggenhistory" EntityType="Self.baocaothanggenhistory" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="hocsinh" EntityType="Self.hocsinh" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="hocsinh_lop" EntityType="Self.hocsinh_lop" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="hoctap" EntityType="Self.hoctap" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="khoanthu" EntityType="Self.khoanthu" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="khoanthuhangnam" EntityType="Self.khoanthuhangnam" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="khoi" EntityType="Self.khoi" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="khoi_truong" EntityType="Self.khoi_truong" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="lop" EntityType="Self.lop" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="lop_khoi" EntityType="Self.lop_khoi" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="phanloaichi" EntityType="Self.phanloaichi" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="phanloaithu" EntityType="Self.phanloaithu" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="phieuchi" EntityType="Self.phieuchi" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="phieuthu" EntityType="Self.phieuthu" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="phuongxa" EntityType="Self.phuongxa" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="privilege" EntityType="Self.privilege" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="quanhuyen" EntityType="Self.quanhuyen" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="schoolsetting" EntityType="Self.schoolsetting" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="smstemplate" EntityType="Self.smstemplate" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="taisan" EntityType="Self.taisan" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="taisan_lop" EntityType="Self.taisan_lop" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="thanhpho" EntityType="Self.thanhpho" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="truong" EntityType="Self.truong" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="user" EntityType="Self.user" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="user_privilege" EntityType="Self.user_privilege" Schema="qlmamnon" store:Type="Tables" />
-          <EntitySet Name="viewbangiaotaisan" EntityType="Self.viewbangiaotaisan" store:Type="Views" store:Schema="qlmamnon">
+          <EntitySet Name="bangthutien" EntityType="Self.bangthutien" Schema="" store:Type="Tables" />
+          <EntitySet Name="bangthutien_khoanthu" EntityType="Self.bangthutien_khoanthu" Schema="" store:Type="Tables" />
+          <EntitySet Name="bangthutiengenhistory" EntityType="Self.bangthutiengenhistory" Schema="" store:Type="Tables" />
+          <EntitySet Name="bangtinhphi" EntityType="Self.bangtinhphi" Schema="" store:Type="Tables" />
+          <EntitySet Name="baocaothang" EntityType="Self.baocaothang" Schema="" store:Type="Tables" />
+          <EntitySet Name="baocaothanggenhistory" EntityType="Self.baocaothanggenhistory" Schema="" store:Type="Tables" />
+          <EntitySet Name="hocsinh" EntityType="Self.hocsinh" Schema="" store:Type="Tables" />
+          <EntitySet Name="hocsinh_lop" EntityType="Self.hocsinh_lop" Schema="" store:Type="Tables" />
+          <EntitySet Name="hoctap" EntityType="Self.hoctap" Schema="" store:Type="Tables" />
+          <EntitySet Name="khoanthu" EntityType="Self.khoanthu" Schema="" store:Type="Tables" />
+          <EntitySet Name="khoanthuhangnam" EntityType="Self.khoanthuhangnam" Schema="" store:Type="Tables" />
+          <EntitySet Name="khoi" EntityType="Self.khoi" Schema="" store:Type="Tables" />
+          <EntitySet Name="khoi_truong" EntityType="Self.khoi_truong" Schema="" store:Type="Tables" />
+          <EntitySet Name="lop" EntityType="Self.lop" Schema="" store:Type="Tables" />
+          <EntitySet Name="lop_khoi" EntityType="Self.lop_khoi" Schema="" store:Type="Tables" />
+          <EntitySet Name="phanloaichi" EntityType="Self.phanloaichi" Schema="" store:Type="Tables" />
+          <EntitySet Name="phanloaithu" EntityType="Self.phanloaithu" Schema="" store:Type="Tables" />
+          <EntitySet Name="phieuchi" EntityType="Self.phieuchi" Schema="" store:Type="Tables" />
+          <EntitySet Name="phieuthu" EntityType="Self.phieuthu" Schema="" store:Type="Tables" />
+          <EntitySet Name="phuongxa" EntityType="Self.phuongxa" Schema="" store:Type="Tables" />
+          <EntitySet Name="privilege" EntityType="Self.privilege" Schema="" store:Type="Tables" />
+          <EntitySet Name="quanhuyen" EntityType="Self.quanhuyen" Schema="" store:Type="Tables" />
+          <EntitySet Name="schoolsetting" EntityType="Self.schoolsetting" Schema="" store:Type="Tables" />
+          <EntitySet Name="smstemplate" EntityType="Self.smstemplate" Schema="" store:Type="Tables" />
+          <EntitySet Name="taisan" EntityType="Self.taisan" Schema="" store:Type="Tables" />
+          <EntitySet Name="taisan_lop" EntityType="Self.taisan_lop" Schema="" store:Type="Tables" />
+          <EntitySet Name="thanhpho" EntityType="Self.thanhpho" Schema="" store:Type="Tables" />
+          <EntitySet Name="truong" EntityType="Self.truong" Schema="" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="" store:Type="Tables" />
+          <EntitySet Name="user_privilege" EntityType="Self.user_privilege" Schema="" store:Type="Tables" />
+          <EntitySet Name="viewbangiaotaisan" EntityType="Self.viewbangiaotaisan" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT
 `viewbangiaotaisan`.`TaiSanId`, 
 `viewbangiaotaisan`.`Ten`, 
@@ -773,7 +748,7 @@ warning 6002: The table/view 'def.qlmamnon.viewtaisanforbangiaotaisan' does not 
 `viewbangiaotaisan`.`NgayNhap`
 FROM `viewbangiaotaisan` AS `viewbangiaotaisan`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="viewbangthutien" EntityType="Self.viewbangthutien" store:Type="Views" store:Schema="qlmamnon">
+          <EntitySet Name="viewbangthutien" EntityType="Self.viewbangthutien" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT
 `viewbangthutien`.`BangThuTienId`, 
 `viewbangthutien`.`HocSinhId`, 
@@ -801,7 +776,7 @@ FROM `viewbangiaotaisan` AS `viewbangiaotaisan`</DefiningQuery>
 `viewbangthutien`.`TienAn`
 FROM `viewbangthutien` AS `viewbangthutien`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="viewhoctap" EntityType="Self.viewhoctap" store:Type="Views" store:Schema="qlmamnon">
+          <EntitySet Name="viewhoctap" EntityType="Self.viewhoctap" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT
 `viewhoctap`.`HocSinhId`, 
 `viewhoctap`.`HoDem`, 
@@ -830,7 +805,7 @@ FROM `viewbangthutien` AS `viewbangthutien`</DefiningQuery>
 `viewhoctap`.`DateLeft`
 FROM `viewhoctap` AS `viewhoctap`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="viewtaisan" EntityType="Self.viewtaisan" store:Type="Views" store:Schema="qlmamnon">
+          <EntitySet Name="viewtaisan" EntityType="Self.viewtaisan" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT
 `viewtaisan`.`TaiSanId`, 
 `viewtaisan`.`Ten`, 
@@ -845,7 +820,7 @@ FROM `viewhoctap` AS `viewhoctap`</DefiningQuery>
 `viewtaisan`.`PhanLoaiChiId`
 FROM `viewtaisan` AS `viewtaisan`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="viewtaisanforbangiaotaisan" EntityType="Self.viewtaisanforbangiaotaisan" store:Type="Views" store:Schema="qlmamnon">
+          <EntitySet Name="viewtaisanforbangiaotaisan" EntityType="Self.viewtaisanforbangiaotaisan" store:Type="Views" store:Schema="">
             <DefiningQuery>SELECT
 `viewtaisanforbangiaotaisan`.`TaiSanId`, 
 `viewtaisanforbangiaotaisan`.`Ten`, 
