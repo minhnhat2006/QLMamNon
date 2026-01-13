@@ -11,8 +11,7 @@ namespace QLMamNon.Dao
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class lop
     {
         public int LopId { get; set; }
@@ -20,8 +19,5 @@ namespace QLMamNon.Dao
         public string Description { get; set; }
         public System.DateTime DateCreated { get; set; }
         public Nullable<System.DateTime> DateDeleted { get; set; }
-
-        [NotMapped]
-        public int? KhoiId { get; set; }
     }
 }

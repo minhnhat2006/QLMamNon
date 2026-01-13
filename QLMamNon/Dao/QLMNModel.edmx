@@ -230,6 +230,7 @@
           <Property Name="PhieuThuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ngay" Type="date" Nullable="false" />
           <Property Name="SoTien" Type="bigint" Nullable="false" />
+          <Property Name="PaymentType" Type="enum" />
           <Property Name="MaPhieu" Type="varchar" MaxLength="255" />
           <Property Name="GhiChu" Type="text" />
           <Property Name="PhanLoaiThuId" Type="int" />
@@ -1089,6 +1090,7 @@ FROM `viewtaisanforbangiaotaisan` AS `viewtaisanforbangiaotaisan`</DefiningQuery
           <Property Name="PhieuThuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ngay" Type="DateTime" Nullable="false" />
           <Property Name="SoTien" Type="Int64" Nullable="false" />
+          <Property Name="PaymentType" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
           <Property Name="MaPhieu" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="GhiChu" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <Property Name="PhanLoaiThuId" Type="Int32" />
@@ -1843,6 +1845,7 @@ FROM `viewtaisanforbangiaotaisan` AS `viewtaisanforbangiaotaisan`</DefiningQuery
                 <ScalarProperty Name="Ngay" ColumnName="Ngay" />
                 <ScalarProperty Name="SoTien" ColumnName="SoTien" />
                 <ScalarProperty Name="MaPhieu" ColumnName="MaPhieu" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
                 <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
                 <ScalarProperty Name="PhanLoaiThuId" ColumnName="PhanLoaiThuId" />
                 <ScalarProperty Name="HocSinhId" ColumnName="HocSinhId" />

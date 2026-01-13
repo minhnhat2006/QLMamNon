@@ -11,8 +11,7 @@ namespace QLMamNon.Dao
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class hocsinh
     {
         public int HocSinhId { get; set; }
@@ -33,20 +32,5 @@ namespace QLMamNon.Dao
         public string DiaChi { get; set; }
         public bool ThoiHoc { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
-
-        [NotMapped]
-        public int STT { get; set; }
-
-        [NotMapped]
-        public string HoTen { get { return $"{HoDem} {Ten}"; } }
-
-        [NotMapped]
-        public string LopDangHoc { get; set; }
-
-        [NotMapped]
-        public string PhuongXa { get; set; }
-
-        [NotMapped]
-        public string QuanHuyen { get; set; }
     }
 }

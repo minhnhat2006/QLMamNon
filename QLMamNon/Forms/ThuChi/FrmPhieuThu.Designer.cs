@@ -155,7 +155,7 @@ namespace QLMamNon.Forms.ThuChi
             // 
             // colSoTien
             // 
-            this.colSoTien.Caption = "Tiền mặt";
+            this.colSoTien.Caption = "Số tiền";
             this.colSoTien.DisplayFormat.FormatString = "n0";
             this.colSoTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colSoTien.FieldName = "SoTien";
@@ -168,10 +168,8 @@ namespace QLMamNon.Forms.ThuChi
             // 
             // colSoTienChuyenKhoan
             // 
-            this.colSoTienChuyenKhoan.Caption = "Chuyển khoản";
-            this.colSoTienChuyenKhoan.DisplayFormat.FormatString = "n0";
-            this.colSoTienChuyenKhoan.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.colSoTienChuyenKhoan.FieldName = "SoTienChuyenKhoan";
+            this.colSoTienChuyenKhoan.Caption = "Cách thanh toán";
+            this.colSoTienChuyenKhoan.FieldName = "PaymentType";
             this.colSoTienChuyenKhoan.Name = "colSoTienChuyenKhoan";
             this.colSoTienChuyenKhoan.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SoTienChuyenKhoan", "{0:n0}")});
@@ -214,7 +212,7 @@ namespace QLMamNon.Forms.ThuChi
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXoa.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.btnXoa.Appearance.Options.UseFont = true;
-            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
             this.btnXoa.Location = new System.Drawing.Point(796, 11);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnXoa.Name = "btnXoa";
@@ -227,7 +225,7 @@ namespace QLMamNon.Forms.ThuChi
             this.btnChinhSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChinhSua.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.btnChinhSua.Appearance.Options.UseFont = true;
-            this.btnChinhSua.Image = ((System.Drawing.Image)(resources.GetObject("btnChinhSua.Image")));
+            this.btnChinhSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChinhSua.ImageOptions.Image")));
             this.btnChinhSua.Location = new System.Drawing.Point(668, 12);
             this.btnChinhSua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnChinhSua.Name = "btnChinhSua";
@@ -240,7 +238,7 @@ namespace QLMamNon.Forms.ThuChi
             this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.btnThem.Appearance.Options.UseFont = true;
-            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
+            this.btnThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.Image")));
             this.btnThem.Location = new System.Drawing.Point(540, 12);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnThem.Name = "btnThem";

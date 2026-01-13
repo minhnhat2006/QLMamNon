@@ -54,7 +54,7 @@ namespace QLMamNon.Service.Data
         {
             qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities();
             phieuthu phieuThu = entities.phieuthus.FirstOrDefault(p => p.PhieuThuId == phieuThuRow.PhieuThuId);
-            phieuThu.SoTien = soTien;
+            phieuThu.SoTien = soTienChuyenKhoan > 0 ? soTienChuyenKhoan : soTien;
             phieuThu.PaymentType = (soTienChuyenKhoan > 0 ? PaymentType.TRANSFER : PaymentType.CASH).ToString();
             phieuThu.MaPhieu = maPhieu;
             phieuThu.GhiChu = ghiChu;

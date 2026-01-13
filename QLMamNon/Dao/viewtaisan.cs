@@ -11,8 +11,7 @@ namespace QLMamNon.Dao
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class viewtaisan
     {
         public int TaiSanId { get; set; }
@@ -26,8 +25,5 @@ namespace QLMamNon.Dao
         public long ThanhTien { get; set; }
         public int PhieuChiId { get; set; }
         public int PhanLoaiChiId { get; set; }
-
-        [NotMapped]
-        public string PhanLoaiTaiSan { get; set; }
     }
 }

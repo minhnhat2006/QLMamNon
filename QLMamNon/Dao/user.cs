@@ -11,16 +11,12 @@ namespace QLMamNon.Dao
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class user
     {
         public int UserId { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public System.DateTime CreatedDate { get; set; }
-
-        [NotMapped]
-        public List<int> UserPrivileges { get; set; }
     }
 }

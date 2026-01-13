@@ -11,8 +11,7 @@ namespace QLMamNon.Dao
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class viewbangiaotaisan
     {
         public int TaiSanId { get; set; }
@@ -30,8 +29,5 @@ namespace QLMamNon.Dao
         public Nullable<int> TaiSanLopId { get; set; }
         public Nullable<double> SoLuongBanGiao { get; set; }
         public System.DateTime NgayNhap { get; set; }
-
-        [NotMapped]
-        public string LopName { get; set; }
     }
 }

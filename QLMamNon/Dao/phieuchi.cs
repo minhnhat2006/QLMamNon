@@ -11,8 +11,7 @@ namespace QLMamNon.Dao
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class phieuchi
     {
         public int PhieuChiId { get; set; }
@@ -25,14 +24,5 @@ namespace QLMamNon.Dao
         public Nullable<double> SoLuong { get; set; }
         public Nullable<double> DonGia { get; set; }
         public System.DateTime CreatedDate { get; set; }
-
-        [NotMapped]
-        public string DienGiai { get; set; }
-
-        [NotMapped]
-        public string MaPhanLoai { get; set; }
-
-        [NotMapped]
-        public string PhanLoaiChi { get; set; }
     }
 }

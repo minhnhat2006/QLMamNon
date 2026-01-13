@@ -11,15 +11,11 @@ namespace QLMamNon.Dao
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class khoi
     {
         public int KhoiId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-
-        [NotMapped]
-        public int? TruongId { get; set; }
     }
 }

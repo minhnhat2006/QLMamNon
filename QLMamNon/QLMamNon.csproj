@@ -15,8 +15,7 @@
     <FileAlignment>512</FileAlignment>
     <StartupObject>QLMamNon.Program</StartupObject>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -313,6 +312,15 @@
     <Compile Include="Constant\PhanLoaiThuConstant.cs" />
     <Compile Include="Constant\FormPrivilegeConstant.cs" />
     <Compile Include="Dao\Constant\ViewBangThuTienFieldName.cs" />
+    <Compile Include="Dao\hocsinh.Partial.cs" />
+    <Compile Include="Dao\viewtaisan.Partial.cs" />
+    <Compile Include="Dao\viewbangiaotaisan.Partial.cs" />
+    <Compile Include="Dao\phieuchi.Partial.cs" />
+    <Compile Include="Dao\lop.Partial.cs" />
+    <Compile Include="Dao\khoi.Partial.cs" />
+    <Compile Include="Dao\user.Partial.cs" />
+    <Compile Include="Dao\viewbangthutien.Partial.cs" />
+    <Compile Include="Dao\phieuthu.Partial.cs" />
     <Compile Include="Entity\Form\BaoCaoSiSoHocSinhTheoLopItem.cs" />
     <Compile Include="Entity\Form\BaoCaoThuHocPhiTheoLopItem.cs" />
     <Compile Include="Entity\Form\BangKeThuTheoLopItem.cs" />
