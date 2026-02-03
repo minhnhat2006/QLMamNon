@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using ACG.Core.WinForm.Util;
+﻿using ACG.Core.WinForm.Util;
 using QLMamNon.Constant;
 using QLMamNon.Dao;
 using QLMamNon.Entity.Form;
 using QLMamNon.Facade;
 using QLMamNon.Reports;
 using QLMamNon.Service.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+using static QLMamNon.Constant.PhanLoaiThuConstant;
 
 namespace QLMamNon.Forms.ThuChi
 {
@@ -97,7 +98,8 @@ namespace QLMamNon.Forms.ThuChi
                         HoTenHS = item.HocSinhId == null ? string.Empty : StaticDataUtil.GetHocSinhFullNameByHocSinhId(hocSinhTable, item.HocSinhId.Value),
                         LopId = lopId,
                         Lop = lop,
-                        SoTienNop = item.SoTien,
+                        SoTienNop = item.PaymentTypeEnum != PaymentType.TRANSFER ? item.SoTien : 0,
+                        SoTienChuyenKhoan = item.PaymentTypeEnum == PaymentType.TRANSFER ? item.SoTien : 0,
                         ConLai = conLai,
                         SoBienLai = item.MaPhieu
                     };

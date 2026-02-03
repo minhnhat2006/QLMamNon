@@ -102,8 +102,7 @@ namespace QLMamNon.Forms.ThuChi
             this.gvMain.GridControl = this.gcMain;
             this.gvMain.GroupCount = 1;
             this.gvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SoTien", null, "Tổng = {0:n0}"),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SoTienChuyenKhoan", null, "Tổng = {0:n0}")});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SoTien", null, "Tổng = {0:n0}")});
             this.gvMain.Name = "gvMain";
             this.gvMain.OptionsBehavior.Editable = false;
             this.gvMain.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
@@ -171,8 +170,6 @@ namespace QLMamNon.Forms.ThuChi
             this.colSoTienChuyenKhoan.Caption = "Cách thanh toán";
             this.colSoTienChuyenKhoan.FieldName = "PaymentType";
             this.colSoTienChuyenKhoan.Name = "colSoTienChuyenKhoan";
-            this.colSoTienChuyenKhoan.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SoTienChuyenKhoan", "{0:n0}")});
             this.colSoTienChuyenKhoan.Visible = true;
             this.colSoTienChuyenKhoan.VisibleIndex = 4;
             this.colSoTienChuyenKhoan.Width = 107;

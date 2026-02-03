@@ -38,7 +38,7 @@ namespace QLMamNon.Service.Data
             phieuthu phieuThu = new phieuthu()
             {
                 Ngay = ngay,
-                SoTien = soTien,
+                SoTien = soTienChuyenKhoan > 0 ? soTienChuyenKhoan : soTien,
                 PaymentType = (soTienChuyenKhoan > 0 ? PaymentType.TRANSFER : PaymentType.CASH).ToString(),
                 MaPhieu = maPhieu,
                 GhiChu = ghiChu,
