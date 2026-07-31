@@ -30,11 +30,19 @@ namespace QLMamNon.Forms.ThuChi
 
         public bool IsEditing { get; set; }
 
+        /// <summary>
+        /// True khi phiếu thu đã được lưu thành công trong lần mở form này.
+        /// Form gọi phải tự đặt lại về false trước khi ShowDialog.
+        /// </summary>
+        public bool IsSaved { get; set; }
+
         public phieuthu PhieuThuRow { get; set; }
 
         private Dictionary<int, BangKeThuTienItem> hocSinhIdToBangKeThuTienItems;
 
         private qlmamnonEntities entities;
+
+        private bool isStaticDataLoaded;
 
         #endregion
 
@@ -46,24 +54,40 @@ namespace QLMamNon.Forms.ThuChi
 
         private void FrmTaoPhieuThu_Load(object sender, EventArgs e)
         {
-            entities = StaticDataFacade.GetQLMNEntities();
-            List<hocsinh> hocSinhTable = entities.getHocSinhForThongTinHocSinh(null, null, null, null, null, false, null).ToList();
-            ThongTinHocSinhUtil.EvaluateLopInfoForHocSinhTable(entities, hocSinhTable);
-            this.hocSinhRowBindingSource.DataSource = hocSinhTable;
-            this.hocSinhRowBindingSource.Filter = "LopDangHoc IS NOT NULL";
-            this.phanLoaiThuRowBindingSource.DataSource = StaticDataFacade.Get(StaticDataKeys.PhanLoaiThu);
+            this.InitFormData();
+        }
 
-            SoThuTienService soThuTienService = new SoThuTienService();
-            DateTime endOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
-            List<BangKeThuTienItem> allBangKeThuTienItems = soThuTienService.GetBangKeTongHopThuTienForTaoPhieuThu(entities, endOfMonth, null);
-
-            hocSinhIdToBangKeThuTienItems = new Dictionary<int, BangKeThuTienItem>();
-            foreach (var item in allBangKeThuTienItems)
+        /// <summary>
+        /// Nạp dữ liệu vào các control của form. Phải gọi trước mỗi lần ShowDialog:
+        /// FormFactory dùng lại cùng một instance nên sự kiện Load chỉ chạy đúng một
+        /// lần, các lần mở sau form sẽ còn nguyên giá trị rỗng do resetForm() để lại
+        /// và dxValidationProvider.Validate() sẽ chặn việc lưu.
+        /// </summary>
+        public void InitFormData()
+        {
+            if (!this.isStaticDataLoaded)
             {
-                hocSinhIdToBangKeThuTienItems.Add(item.HocSinhId, item);
+                entities = StaticDataFacade.GetQLMNEntities();
+                List<hocsinh> hocSinhTable = entities.getHocSinhForThongTinHocSinh(null, null, null, null, null, false, null).ToList();
+                ThongTinHocSinhUtil.EvaluateLopInfoForHocSinhTable(entities, hocSinhTable);
+                this.hocSinhRowBindingSource.DataSource = hocSinhTable;
+                this.hocSinhRowBindingSource.Filter = "LopDangHoc IS NOT NULL";
+                this.phanLoaiThuRowBindingSource.DataSource = StaticDataFacade.Get(StaticDataKeys.PhanLoaiThu);
+
+                SoThuTienService soThuTienService = new SoThuTienService();
+                DateTime endOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
+                List<BangKeThuTienItem> allBangKeThuTienItems = soThuTienService.GetBangKeTongHopThuTienForTaoPhieuThu(entities, endOfMonth, null);
+
+                hocSinhIdToBangKeThuTienItems = new Dictionary<int, BangKeThuTienItem>();
+                foreach (var item in allBangKeThuTienItems)
+                {
+                    hocSinhIdToBangKeThuTienItems.Add(item.HocSinhId, item);
+                }
+
+                this.isStaticDataLoaded = true;
             }
 
-            if (this.IsEditing)
+            if (this.IsEditing && this.PhieuThuRow != null)
             {
                 loadPhieuThu();
             }
@@ -119,6 +143,7 @@ namespace QLMamNon.Forms.ThuChi
             }
 
             this.luuPhieuThu();
+            this.IsSaved = true;
 
             if (isSelectedPhanLoaiThuByHocSinh())
             {
@@ -148,14 +173,6 @@ namespace QLMamNon.Forms.ThuChi
             else
             {
                 this.insertPhieuThu();
-            }
-
-            if (this.GridView != null)
-            {
-                BindingSource phieuThuBindingSource = this.GridView.GridControl.DataSource as BindingSource;
-                PhieuThuService phieuThuService = new PhieuThuService();
-                entities.hocsinhs.Load();
-                phieuThuBindingSource.DataSource = phieuThuService.LoadPhieuThu(entities.hocsinhs.Local.ToBindingList());
             }
         }
 

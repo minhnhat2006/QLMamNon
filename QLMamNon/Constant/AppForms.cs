@@ -24,6 +24,7 @@ namespace QLMamNon.Constant
         public const string FormBaoCaoHoatDongTaiChinh = "FrmBaoCaoHoatDongTaiChinh";
         public const string FormBaoCaoChiTietHoatDongTaiChinh = "FrmBaoCaoChiTietHoatDongTaiChinh";
         public const string FormSoQuyTienMat = "FrmSoQuyTienMat";
+        public const string FormSoQuyTienMatTheoNgay = "FrmSoQuyTienMatTheoNgay";
         public const string FormBangKeThuHocPhi = "FrmBangKeThuHocPhi";
         public const string FormBaoCaoTinhHinhThuChi = "FrmBaoCaoTinhHinhThuChi";
         public const string FormTaiSan = "FrmTaiSan";

@@ -198,7 +198,8 @@ namespace QLMamNon.Forms
 
         private void bbỉptSoQuyTienMat_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FormMainFacade.ShowDialog(AppForms.FormSoQuyTienMat);
+            // FormMainFacade.ShowDialog(AppForms.FormSoQuyTienMat);
+            FormMainFacade.ShowDialog(AppForms.FormSoQuyTienMatTheoNgay);
         }
 
         private void bbiBaoCaoTinhHinhThuChi_ItemClick(object sender, ItemClickEventArgs e)

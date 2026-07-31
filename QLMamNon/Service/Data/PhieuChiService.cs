@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ACG.Core.WinForm.Util;
 using QLMamNon.Dao;
+using static QLMamNon.Constant.PhanLoaiThuConstant;
 
 namespace QLMamNon.Service.Data
 {
@@ -18,7 +19,16 @@ namespace QLMamNon.Service.Data
 
         public List<phieuchi> LoadPhieuChiByDateRange(qlmamnonEntities entities, DateTime? fromDate, DateTime? toDate, List<int> phanLoaiChiIds)
         {
-            List<phieuchi> table = entities.getPhieuChiByDateRange(fromDate, toDate, StringUtil.JoinWithCommas(phanLoaiChiIds)).ToList();
+            // Explicitly define nullable DateTime variables so EF maps them correctly to SQL NULL
+            DateTime? finalFromDate = fromDate.HasValue ? fromDate.Value.Date : (DateTime?)null;
+            DateTime? finalToDate = toDate.HasValue ? toDate.Value.Date : (DateTime?)null;
+
+            // Convert your list to a comma-separated string
+            string idsString = StringUtil.JoinWithCommas(phanLoaiChiIds);
+
+            // Execute the stored procedure
+            List<phieuchi> table = entities.getPhieuChiByDateRange(finalFromDate, finalToDate, idsString).ToList();
+
             FillPhanLoaiChiForPhieuChiRows(entities, table);
 
             return table;
@@ -38,13 +48,14 @@ namespace QLMamNon.Service.Data
             }
         }
 
-        public void InsertPhieuChi(qlmamnonEntities entities, DateTime ngay, long soTien, string maPhieu, string ghiChu, int phanLoaiChiId, string noiDung, double soLuong, double donGia)
+        public void InsertPhieuChi(qlmamnonEntities entities, DateTime ngay, long soTien, long soTienChuyenKhoan, string maPhieu, string ghiChu, int phanLoaiChiId, string noiDung, double soLuong, double donGia)
         {
             phieuchi phieuChi = new phieuchi()
             {
                 MaPhieu = maPhieu,
                 Ngay = ngay,
-                SoTien = soTien,
+                SoTien = soTienChuyenKhoan > 0 ? soTienChuyenKhoan : soTien,
+                PaymentType = (soTienChuyenKhoan > 0 ? PaymentType.TRANSFER : PaymentType.CASH).ToString(),
                 GhiChu = ghiChu,
                 PhanLoaiChiId = phanLoaiChiId,
                 CreatedDate = DateTime.Now,
@@ -56,11 +67,12 @@ namespace QLMamNon.Service.Data
             entities.SaveChanges();
         }
 
-        public void UpdatePhieuChi(qlmamnonEntities entities, phieuchi phieuChiRow, DateTime ngay, long soTien, string maPhieu, string ghiChu, int phanLoaiChiId, string noiDung, double soLuong, double donGia)
+        public void UpdatePhieuChi(qlmamnonEntities entities, phieuchi phieuChiRow, DateTime ngay, long soTien, long soTienChuyenKhoan, string maPhieu, string ghiChu, int phanLoaiChiId, string noiDung, double soLuong, double donGia)
         {
             phieuchi phieuChi= entities.phieuchis.Single(p => p.PhieuChiId == phieuChiRow.PhieuChiId);
             phieuChi.MaPhieu = maPhieu;
-            phieuChi.SoTien = soTien;
+            phieuChi.SoTien = soTienChuyenKhoan > 0 ? soTienChuyenKhoan : soTien;
+            phieuChi.PaymentType = (soTienChuyenKhoan > 0 ? PaymentType.TRANSFER : PaymentType.CASH).ToString();
             phieuChi.GhiChu = ghiChu;
             phieuChi.PhanLoaiChiId = phanLoaiChiId;
             phieuChi.NoiDung = noiDung;

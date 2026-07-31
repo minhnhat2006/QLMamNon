@@ -38,3 +38,17 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `getPhieuThuByDateRangeWithGroupPhan
 BEGIN SET @sql = CONCAT('SELECT MAX(PhieuThuId) AS PhieuThuId, "9999-01-01" AS CreatedDate, 0 AS HocSinhId, "" AS GhiChu, "" AS MaPhieu, "" AS PaymentType, "9999-01-01" AS Ngay, plc.PhanLoaiThuId, 0 AS SoLuong, SUM(SoTien) AS SoTien FROM `phieuthu` pc INNER JOIN phanloaithu plc ON pc.PhanLoaiThuId=plc.PhanLoaiThuId WHERE pc.Ngay>="', `@fromDate`, '" AND pc.Ngay<="', `@toDate`, '" AND pc.PhanLoaiThuId IN (', `@phanloaithuids`,') GROUP BY plc.PhanLoaiThuId'); PREPARE stmt FROM @sql; EXECUTE stmt; DEALLOCATE PREPARE stmt; END$$
 
 DELIMITER ;
+
+
+
+DELIMITER $$
+
+USE `qlmamnon_20250919`$$
+
+DROP PROCEDURE IF EXISTS `getPhieuChiByDateRangeWithGroupPhanLoaiChi`$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getPhieuChiByDateRangeWithGroupPhanLoaiChi`(IN `@fromDate` DATE, IN `@toDate` DATE, IN `@phanloaichiids` TEXT)
+    NO SQL
+BEGIN SET @sql = CONCAT('SELECT MAX(PhieuChiId) AS PhieuChiId, "9999-01-01" AS CreatedDate, 0 AS DonGia, "" AS GhiChu, "" AS MaPhieu, "" AS PaymentType, "9999-01-01" AS Ngay, plc.MaPhanLoai AS NoiDung, 0 AS PhanLoaiChiId, 0 AS SoLuong, SUM(SoTien) AS SoTien FROM `phieuchi` pc INNER JOIN phanloaichi plc ON pc.PhanLoaiChiId=plc.PhanLoaiChiId WHERE pc.Ngay>="', `@fromDate`, '" AND pc.Ngay<="', `@toDate`, '" AND pc.PhanLoaiChiId IN (', `@phanloaichiids`,') GROUP BY plc.MaPhanLoai'); PREPARE stmt FROM @sql; EXECUTE stmt; DEALLOCATE PREPARE stmt; END$$
+
+DELIMITER ;

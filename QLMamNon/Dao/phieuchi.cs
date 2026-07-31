@@ -18,6 +18,7 @@ namespace QLMamNon.Dao
         public string MaPhieu { get; set; }
         public System.DateTime Ngay { get; set; }
         public long SoTien { get; set; }
+        public string PaymentType { get; set; }
         public string GhiChu { get; set; }
         public int PhanLoaiChiId { get; set; }
         public string NoiDung { get; set; }

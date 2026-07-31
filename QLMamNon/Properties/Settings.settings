@@ -66,10 +66,12 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="MNHongMinh" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">TRƯỜNG MN HỒNG MINH</Value>
+      <Value Profile="(Default)">UBND PHƯỜNG SƠN TRÀ
+TRƯỜNG MN HỒNG MINH</Value>
     </Setting>
     <Setting Name="Domity" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">TRUNG TÂM ANH NGỮ DOMYTY</Value>
+      <Value Profile="(Default)">SỞ GD &amp; ĐT ĐÀ NẴNG
+TRUNG TÂM ANH NGỮ DOMYTY</Value>
     </Setting>
     <Setting Name="MNHongMinhAddress" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Số 40-42 Nguyễn Trung Trực, Sơn Trà, Đà Nẵng</Value>

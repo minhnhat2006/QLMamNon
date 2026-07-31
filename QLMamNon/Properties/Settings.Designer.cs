@@ -12,7 +12,7 @@ namespace QLMamNon.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -252,7 +252,7 @@ namespace QLMamNon.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("TRƯỜNG MN HỒNG MINH")]
+        [global::System.Configuration.DefaultSettingValueAttribute("UBND PHƯỜNG SƠN TRÀ\r\nTRƯỜNG MN HỒNG MINH")]
         public string MNHongMinh {
             get {
                 return ((string)(this["MNHongMinh"]));
@@ -261,7 +261,7 @@ namespace QLMamNon.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("TRUNG TÂM ANH NGỮ DOMYTY")]
+        [global::System.Configuration.DefaultSettingValueAttribute("SỞ GD & ĐT ĐÀ NẴNG\r\nTRUNG TÂM ANH NGỮ DOMYTY")]
         public string Domity {
             get {
                 return ((string)(this["Domity"]));

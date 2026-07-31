@@ -14,6 +14,7 @@ namespace QLMamNon.Constant
         public static Dictionary<string, int> FormKeyToPrivilegeId = new Dictionary<string, int>()
         {
             {AppForms.FormSoQuyTienMat, XemSoQuyTienMat},
+            {AppForms.FormSoQuyTienMatTheoNgay, XemSoQuyTienMat},
             {AppForms.FormBaoCaoTinhHinhThuChi, XemBaoCaoThuChi},
             {AppForms.FormTaoPhieuThu, AddEditPhieuThu},
             {AppForms.FormUser, ManageUser }

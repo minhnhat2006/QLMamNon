@@ -31,9 +31,10 @@ namespace QLMamNon.Forms.ThuChi
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTaoPhieuThu));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTaoPhieuThu));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.cmbHocSinh = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.hocSinhRowBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -160,6 +161,9 @@ namespace QLMamNon.Forms.ThuChi
             this.cmbHocSinh.Size = new System.Drawing.Size(453, 46);
             this.cmbHocSinh.StyleController = this.lcMain;
             this.cmbHocSinh.TabIndex = 3;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
+            conditionValidationRule1.ErrorText = "Vui lòng chọn Học sinh";
+            this.dxValidationProvider.SetValidationRule(this.cmbHocSinh, conditionValidationRule1);
             this.cmbHocSinh.EditValueChanged += new System.EventHandler(this.cmbHocSinh_EditValueChanged);
             // 
             // hocSinhRowBindingSource
@@ -300,12 +304,12 @@ namespace QLMamNon.Forms.ThuChi
             this.txtSoTien.Size = new System.Drawing.Size(453, 46);
             this.txtSoTien.StyleController = this.lcMain;
             this.txtSoTien.TabIndex = 5;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule1.ErrorText = "Vui lòng nhập Số tiền";
-            conditionValidationRule1.Value1 = ((long)(0));
-            conditionValidationRule1.Value2 = "0";
-            conditionValidationRule1.Values.Add("0");
-            this.dxValidationProvider.SetValidationRule(this.txtSoTien, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule2.ErrorText = "Vui lòng nhập Số tiền";
+            conditionValidationRule2.Value1 = ((long)(0));
+            conditionValidationRule2.Value2 = "0";
+            conditionValidationRule2.Values.Add("0");
+            this.dxValidationProvider.SetValidationRule(this.txtSoTien, conditionValidationRule2);
             this.txtSoTien.EditValueChanged += new System.EventHandler(this.txtSoTien_EditValueChanged);
             // 
             // txtMaPhieu
@@ -329,9 +333,9 @@ namespace QLMamNon.Forms.ThuChi
             this.dateNgay.Size = new System.Drawing.Size(453, 46);
             this.dateNgay.StyleController = this.lcMain;
             this.dateNgay.TabIndex = 2;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Vui lòng chọn Ngày";
-            this.dxValidationProvider.SetValidationRule(this.dateNgay, conditionValidationRule2);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Vui lòng chọn Ngày";
+            this.dxValidationProvider.SetValidationRule(this.dateNgay, conditionValidationRule3);
             // 
             // lblTaoPhieuThu
             // 

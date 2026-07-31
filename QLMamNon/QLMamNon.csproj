@@ -329,6 +329,7 @@
     <Compile Include="Entity\Form\BangKeThuTrongNgayItem.cs" />
     <Compile Include="Entity\Form\BangKeCacLoaiChiItem.cs" />
     <Compile Include="Entity\Form\BangKeThuTienItem.cs" />
+    <Compile Include="Entity\Form\SoQuyTienMatTheoNgayItem.cs" />
     <Compile Include="Entity\Form\SoQuyTienMatItem.cs" />
     <Compile Include="Entity\Form\GiayBaoNopTientem.cs" />
     <Compile Include="Entity\Form\KeyValuePair.cs" />
@@ -563,6 +564,12 @@
     </Compile>
     <Compile Include="Forms\ThuChi\FrmSelectHocSinhsToGenerate.Designer.cs">
       <DependentUpon>FrmSelectHocSinhsToGenerate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ThuChi\FrmSoQuyTienMatTheoNgay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ThuChi\FrmSoQuyTienMatTheoNgay.Designer.cs">
+      <DependentUpon>FrmSoQuyTienMatTheoNgay.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ThuChi\FrmSoQuyTienMat.cs">
       <SubType>Form</SubType>
@@ -836,6 +843,12 @@
     </Compile>
     <Compile Include="Reports\RptPhieuThuTien.designer.cs">
       <DependentUpon>RptPhieuThuTien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RptSoQuyTienMatTheoNgay.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptSoQuyTienMatTheoNgay.designer.cs">
+      <DependentUpon>RptSoQuyTienMatTheoNgay.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\RptSoQuyTienMat.cs">
       <SubType>Component</SubType>
@@ -1154,6 +1167,9 @@
     <EmbeddedResource Include="Forms\ThuChi\FrmSelectHocSinhsToGenerate.resx">
       <DependentUpon>FrmSelectHocSinhsToGenerate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ThuChi\FrmSoQuyTienMatTheoNgay.resx">
+      <DependentUpon>FrmSoQuyTienMatTheoNgay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ThuChi\FrmSoQuyTienMat.resx">
       <DependentUpon>FrmSoQuyTienMat.cs</DependentUpon>
     </EmbeddedResource>
@@ -1174,6 +1190,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>PrintRibbonControllerResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -1220,6 +1237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptPhieuThuTien.resx">
       <DependentUpon>RptPhieuThuTien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptSoQuyTienMatTheoNgay.resx">
+      <DependentUpon>RptSoQuyTienMatTheoNgay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptSoQuyTienMat.resx">
       <DependentUpon>RptSoQuyTienMat.cs</DependentUpon>
@@ -1293,6 +1313,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="CLAUDE.md" />
     <None Include="client_secret.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -1330,6 +1351,7 @@
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.KeyValuePair.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.NamHoc.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.SoQuyTienMatItem.datasource" />
+    <None Include="Properties\DataSources\QLMamNon.Entity.Form.SoQuyTienMatTheoNgayItem.datasource" />
     <None Include="Properties\DataSources\QLMamNon.Entity.Form.SoTheoDoiTaiSanItem.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1351,6 +1373,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DB\qlmamnon.sql" />
+    <Content Include="DB\scripts\20260602\script.sql" />
     <Content Include="DB\scripts\20251027\script.sql" />
     <Content Include="Document\MySqlBackup.Net.txt" />
     <Content Include="Document\Nuget.txt" />
