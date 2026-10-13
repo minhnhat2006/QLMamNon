@@ -1028,6 +1028,7 @@
     <Compile Include="Dao\user_privilege.cs">
       <DependentUpon>QLMNModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utils\BangThuTienGenHistoryCache.cs" />
     <Compile Include="Utils\BangThuTienUtil.cs" />
     <Compile Include="Utils\ThongTinHocSinhUtil.cs" />
     <Compile Include="Utils\StaticDataUtil.cs" />
