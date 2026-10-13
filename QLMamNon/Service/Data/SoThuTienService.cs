@@ -6,6 +6,7 @@ using QLMamNon.Facade;
 using QLMamNon.Properties;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 
 namespace QLMamNon.Service.Data
@@ -423,6 +424,11 @@ namespace QLMamNon.Service.Data
             Dictionary<int, long> hocSinhIdToSoTien = new Dictionary<int, long>();
             foreach (phieuthu phieuThuRow in phieuThuDataTable)
             {
+                if (!phieuThuRow.PhanLoaiThuId.HasValue || phieuThuRow.PhanLoaiThuId != PhanLoaiThuConstant.PhanLoaiThuIdThuTienHocPhi)
+                {
+                    continue;
+                }
+
                 if (!hocSinhIdToSoTien.ContainsKey(phieuThuRow.HocSinhId.Value))
                 {
                     hocSinhIdToSoTien.Add(phieuThuRow.HocSinhId.Value, phieuThuRow.SoTien);
@@ -498,13 +504,14 @@ namespace QLMamNon.Service.Data
 
                 Dictionary<int, viewbangthutien> prevMonthRowDictionary = this.EvaluatePrevMonthViewBangThuTienTable(entities, toDate.AddMonths(-1), lopId);
                 List<hocsinh> hocSinhDataTable = this.getHocSinhData(entities);
+                BangThuTienGenHistoryCache genHistoryCache = new BangThuTienGenHistoryCache(entities);
 
                 foreach (viewbangthutien row in table)
                 {
                     row.HoTen = StaticDataUtil.GetHocSinhFullNameByHocSinhId(hocSinhDataTable, row.HocSinhId);
                     BangThuTienUtil.EvaluateValuesForViewBangThuTienRow(row,
                         prevMonthRowDictionary != null && prevMonthRowDictionary.ContainsKey(row.HocSinhId) ? prevMonthRowDictionary[row.HocSinhId] : null,
-                        bTTKTDataTable, phieuThuDataTable, false, false, true);
+                        bTTKTDataTable, phieuThuDataTable, false, false, true, genHistoryCache);
                 }
             }
 
@@ -552,7 +559,10 @@ namespace QLMamNon.Service.Data
         {
             Dictionary<int, viewbangthutien> prevMonthRowDictionary = new Dictionary<int, viewbangthutien>();
 
-            List<viewbangthutien> prevMonthBangThuTienTable = entities.getViewBangThuTienByNgayTinhAndLop(ngayTinh, null).ToList();
+            // NoTracking: these rows are recalculated in memory below, and viewbangthutien is a
+            // read-only (DefiningQuery) entity set — leaving them tracked would make the caller's
+            // SaveChanges throw when EF tries to UPDATE the view.
+            List<viewbangthutien> prevMonthBangThuTienTable = entities.getViewBangThuTienByNgayTinhAndLop(ngayTinh, null, MergeOption.NoTracking).ToList();
             List<int> prevMonthBangThuTienIds = new List<int>(prevMonthBangThuTienTable.Count);
 
             foreach (viewbangthutien row in prevMonthBangThuTienTable)
@@ -562,13 +572,14 @@ namespace QLMamNon.Service.Data
 
             if (!ListUtil.IsEmpty(prevMonthBangThuTienIds))
             {
-                List<bangthutien_khoanthu> prevMonthBTTKTDataTable = entities.getBangThuTienKhoanThuByBangThuTienIds(String.Join(",", prevMonthBangThuTienIds)).ToList();
+                List<bangthutien_khoanthu> prevMonthBTTKTDataTable = entities.getBangThuTienKhoanThuByBangThuTienIds(String.Join(",", prevMonthBangThuTienIds), MergeOption.NoTracking).ToList();
                 List<phieuthu> prevMonthPhieuThuDataTable = entities.getPhieuThuByHocSinhIdAndNgayTinh(-1, ngayTinh).ToList();
                 prevMonthRowDictionary = new Dictionary<int, viewbangthutien>();
+                BangThuTienGenHistoryCache genHistoryCache = new BangThuTienGenHistoryCache(entities);
 
                 foreach (viewbangthutien row in prevMonthBangThuTienTable)
                 {
-                    BangThuTienUtil.EvaluateValuesForViewBangThuTienRow(row, null, prevMonthBTTKTDataTable, prevMonthPhieuThuDataTable, true, false, true);
+                    BangThuTienUtil.EvaluateValuesForViewBangThuTienRow(row, null, prevMonthBTTKTDataTable, prevMonthPhieuThuDataTable, true, false, true, genHistoryCache);
 
                     if (row != null && !prevMonthRowDictionary.ContainsKey(row.HocSinhId))
                     {

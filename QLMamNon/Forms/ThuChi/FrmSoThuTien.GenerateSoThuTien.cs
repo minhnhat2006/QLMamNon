@@ -141,9 +141,11 @@ namespace QLMamNon.Forms.ThuChi
                     SoTienAnChinh = Settings.Default.TienAnChinh
                 };
 
-                qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities();
-                entities.bangthutiengenhistories.Add(bangThuTienGenHistory);
-                entities.SaveChanges();
+                using (qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities())
+                {
+                    entities.bangthutiengenhistories.Add(bangThuTienGenHistory);
+                    entities.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
