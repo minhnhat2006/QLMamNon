@@ -120,6 +120,14 @@ Saved caption only on success; `Entities` is disposed in `Form_FormClosed`. Late
 override `onSaving` must call `base.onSaving()` last and must not re-add a blanket
 `Detached → Added` loop.
 
+**Resolved contract (as implemented — Tasks 8 and 9 depend on it):** `onAdding` records the row
+returned by `bindingSource.AddNew()` in an `addedRows` set, and `onSaving` promotes
+`Detached → Added` for **only** those rows. The set is cleared after a successful save, on cancel,
+and whenever `DataTable` is reassigned. Rows loaded from a view entity set are therefore never
+promoted, which is what keeps the read-only-view forms in Task 9 from throwing `UpdateException`.
+Rows typed directly into a grid's New Item Row are not tracked — no compiled `CRUDForm` grid enables
+that row (see 0.1).
+
 **0.1 `onAdding` assigns an `int` to the grid's `DataSource`.**
 [CRUDForm.cs:219](QLMamNon/Forms/CRUDForm.cs:219):
 ```csharp
@@ -127,17 +135,26 @@ this.GridViewMain.GridControl.DataSource = GridControl.NewItemRowHandle;
 ```
 `GridControl.NewItemRowHandle` is an `int` constant and `DataSource` is `object`, so this compiles
 and replaces the bound list with a boxed integer — the grid loses its rows and `ShowEditForm()` has
-no row to edit. The intent is clearly the focused row handle:
-```csharp
-this.GridViewMain.FocusedRowHandle = GridControl.NewItemRowHandle;
-```
+no row to edit.
+
+**Delete the assignment entirely.** Do not "fix" it to
+`FocusedRowHandle = GridControl.NewItemRowHandle` — that was this plan's first instruction and it
+was wrong: `OptionsView.NewItemRowPosition` is set in only two designers repo-wide
+(`TinNhan/FrmTinNhanPhuHuynh.Designer.cs:394`, not a `CRUDForm`, and
+`HocSinh/FrmThongTinCanDo.Designer.cs:625`, not compiled into the csproj), so on every compiled
+`CRUDForm` grid that handle is not a focusable row — the assignment would be a no-op at best and
+could move focus off the row `AddNew()` just created. `bindingSource.AddNew()` on the preceding line
+already appends the row and moves `BindingSource.Position` to it, which the grid syncs focus to, and
+`ShowEditForm()` then opens on it — DevExpress's normal add-through-EditForm path. Do not use
+`GetRowHandle(bindingSource.Count - 1)` either: it is wrong under an active filter or sort.
+
 Also guard the cast two lines up (`:217`), which is used unchecked:
 ```csharp
 BindingSource bindingSource = this.GridViewMain.GridControl.DataSource as BindingSource;
 if (bindingSource == null) { return; }
 ```
-This line dates to the initial commit. Exercise **Thêm** in the running app before and after the
-change and report what you observed each time.
+This bug dates to the initial commit, so **Thêm** has never worked on these forms. The human
+partner's manual pass confirms the fix — a subagent cannot run the app.
 
 **0.2 `onDeleting` loses rows and throws on unsaved ones.**
 [CRUDForm.cs:262-271](QLMamNon/Forms/CRUDForm.cs:262):
