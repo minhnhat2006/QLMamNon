@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Data.Entity;
+using QLMamNon.Components.Data.Static;
 using QLMamNon.Constant;
 using QLMamNon.Dao;
+using QLMamNon.Facade;
 using QLMamNon.UserControls;
 
 namespace QLMamNon.Forms.DanhMuc
 {
     public partial class FrmTruongHoc : CRUDForm<truong>
     {
+        // base.onSaving() tự bắt lỗi và báo qua onSavingError, không trả về trạng thái thành công,
+        // nên dùng cờ này để biết SaveChanges() của lớp cơ sở có lỗi hay không.
+        private bool savingFailed;
+
         public FrmTruongHoc()
         {
             InitializeComponent();
@@ -28,6 +34,30 @@ namespace QLMamNon.Forms.DanhMuc
         private void FrmTruongHoc_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected override void onSaving()
+        {
+            this.savingFailed = false;
+
+            base.onSaving();
+
+            if (this.savingFailed)
+            {
+                return;
+            }
+
+            // Các form khác lấy tên trường từ cache tĩnh (StaticDataUtil.GetTruongNameByTruongId,
+            // GetTruongByKhoiId dùng thẳng kết quả Find nên trường mới mà cache chưa biết sẽ gây
+            // NullReferenceException), vì vậy phải bỏ cache sau khi lưu thành công.
+            StaticDataFacade.Reload(StaticDataKeys.TruongHoc);
+        }
+
+        protected override void onSavingError(Exception ex)
+        {
+            this.savingFailed = true;
+            FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.SaveFailedCaption);
+            base.onSavingError(ex);
         }
     }
 }

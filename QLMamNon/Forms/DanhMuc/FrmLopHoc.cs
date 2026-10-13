@@ -24,6 +24,13 @@ namespace QLMamNon.Forms.DanhMuc
         // nên dùng cờ này để biết SaveChanges() của lớp cơ sở có lỗi hay không.
         private bool savingFailed;
 
+        // Trong khi transaction còn mở thì không được hiện MessageBox: InnoDB giữ lock của các dòng
+        // lop_khoi vừa xóa cho tới khi người dùng bấm OK, máy khác sửa cùng lớp sẽ bị lock timeout.
+        // Vì vậy gom lỗi lại và chỉ báo sau khi transaction đã rollback.
+        private bool deferSavingError;
+
+        private Exception deferredSavingError;
+
         public FrmLopHoc()
         {
             InitializeComponent();
@@ -81,8 +88,11 @@ namespace QLMamNon.Forms.DanhMuc
             }
 
             this.savingFailed = false;
+            this.deferredSavingError = null;
+            this.deferSavingError = true;
             List<lop_khoi> addedLinkRows = new List<lop_khoi>();
             bool baseSaveSucceeded = false;
+            bool committed = false;
 
             try
             {
@@ -144,44 +154,65 @@ namespace QLMamNon.Forms.DanhMuc
 
                     if (this.savingFailed)
                     {
-                        // base.onSaving() đã hiện thông báo lỗi và ghi log. Không Commit để các dòng
-                        // lop_khoi vừa bị stored procedure xóa được phục hồi, và bỏ các dòng lop_khoi
-                        // vừa thêm ra khỏi context để lần Lưu sau không ghi trùng.
+                        // Không Commit để các dòng lop_khoi vừa bị stored procedure xóa được phục
+                        // hồi, và bỏ các dòng lop_khoi vừa thêm ra khỏi context để lần Lưu sau không
+                        // ghi trùng. Lỗi được báo bên dưới, sau khi transaction đã rollback.
                         this.detachLinkRows(addedLinkRows);
-                        return;
                     }
-
-                    baseSaveSucceeded = true;
-
-                    // Dòng mới chỉ có LopId thật sau khi base.onSaving() lưu thành công: ghi lop_khoi
-                    // trước đó sẽ tạo liên kết với LopId = 0.
-                    foreach (lop row in addedRow)
+                    else
                     {
-                        if (row.KhoiId != null && row.LopId > 0)
-                        {
-                            lop_khoi lopKhoi = new lop_khoi()
-                            {
-                                LopId = row.LopId,
-                                KhoiId = row.KhoiId.Value
-                            };
-                            Entities.lop_khoi.Add(lopKhoi);
-                            addedLinkRows.Add(lopKhoi);
-                        }
-                        else if (row.KhoiId != null)
-                        {
-                            LoggerFacade.Warning(String.Format("Bỏ qua lop_khoi của lớp '{0}' vì LopId vẫn là 0 sau khi lưu.", row.Name),
-                                this.FormKey);
-                        }
-                    }
+                        baseSaveSucceeded = true;
 
-                    Entities.SaveChanges();
-                    transaction.Commit();
+                        // Dòng mới chỉ có LopId thật sau khi base.onSaving() lưu thành công: ghi
+                        // lop_khoi trước đó sẽ tạo liên kết với LopId = 0.
+                        foreach (lop row in addedRow)
+                        {
+                            if (row.KhoiId != null && row.LopId > 0)
+                            {
+                                lop_khoi lopKhoi = new lop_khoi()
+                                {
+                                    LopId = row.LopId,
+                                    KhoiId = row.KhoiId.Value
+                                };
+                                Entities.lop_khoi.Add(lopKhoi);
+                                addedLinkRows.Add(lopKhoi);
+                            }
+                            else if (row.KhoiId != null)
+                            {
+                                LoggerFacade.Warning(String.Format("Bỏ qua lop_khoi của lớp '{0}' vì LopId vẫn là 0 sau khi lưu.", row.Name),
+                                    this.FormKey);
+                            }
+                        }
+
+                        Entities.SaveChanges();
+                        transaction.Commit();
+                        committed = true;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                this.detachLinkRows(addedLinkRows);
-                this.onSavingError(ex);
+                if (committed)
+                {
+                    // Commit() đã xong, lỗi chỉ xảy ra khi Dispose() transaction: dữ liệu đã được lưu
+                    // nên chỉ ghi log, không được báo với người dùng là chưa lưu.
+                    LoggerFacade.Error(ex, this.FormKey);
+                }
+                else
+                {
+                    this.detachLinkRows(addedLinkRows);
+                    this.savingFailed = true;
+                    this.deferredSavingError = ex;
+                }
+            }
+            finally
+            {
+                this.deferSavingError = false;
+            }
+
+            if (this.savingFailed)
+            {
+                this.reportDeferredSavingError();
 
                 if (baseSaveSucceeded)
                 {
@@ -201,11 +232,64 @@ namespace QLMamNon.Forms.DanhMuc
             StaticDataFacade.Reload(StaticDataKeys.LopHoc);
         }
 
+        protected override void onCanceling()
+        {
+            base.onCanceling();
+
+            // base.onCanceling() hoàn tác bằng Entry(row).Reload() nên không phục hồi được KhoiId
+            // ([NotMapped], và sửa riêng Khối còn không làm entry thành Modified). Nếu không gán lại
+            // từ bản chụp thì lưới vẫn giữ Khối người dùng đã hủy và lần Lưu sau sẽ ghi nó xuống
+            // lop_khoi.
+            if (this.DataTable != null)
+            {
+                foreach (lop row in this.DataTable)
+                {
+                    int? loadedKhoiId;
+
+                    if (this.loadedKhoiIdByLopId.TryGetValue(row.LopId, out loadedKhoiId))
+                    {
+                        row.KhoiId = loadedKhoiId;
+                    }
+                    else
+                    {
+                        row.KhoiId = null;
+                    }
+                }
+            }
+
+            // Bỏ khỏi bản chụp các dòng không còn trên lưới (dòng mới thêm rồi hủy).
+            this.refreshKhoiIdSnapshot(this.DataTable);
+
+            this.lopRowBindingSource.ResetBindings(false);
+        }
+
         protected override void onSavingError(Exception ex)
         {
             this.savingFailed = true;
+
+            if (this.deferSavingError)
+            {
+                this.deferredSavingError = ex;
+                return;
+            }
+
             FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.SaveFailedCaption);
             base.onSavingError(ex);
+        }
+
+        private void reportDeferredSavingError()
+        {
+            Exception ex = this.deferredSavingError;
+            this.deferredSavingError = null;
+
+            if (ex == null)
+            {
+                FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.SaveFailedCaption);
+                return;
+            }
+
+            // deferSavingError đã được tắt trong finally nên lần này lỗi được báo thật.
+            this.onSavingError(ex);
         }
 
         private bool isKhoiIdChanged(lop row)
