@@ -35,6 +35,8 @@ namespace QLMamNon.Forms.HocSinh
 
             // Cột "Ngày vào lớp" chỉ để hiển thị: bind vào thuộc tính NotMapped để hocsinh không bị Modified.
             this.colNgayVaoLop.FieldName = "NgayVaoLopDisplay";
+            this.colNgayVaoLop.OptionsColumn.AllowEdit = false;
+            this.colNgayVaoLop.OptionsColumn.ReadOnly = true;
 
             this.gvMain.OptionsEditForm.CustomEditFormLayout = new UCEditFormThongTinHocSinh();
             this.InitForm(this.btnThem, this.btnChinhSua, this.btnXoa, this.btnLuu, this.btnHuyBo, this.gvMain, this.hocSinhRowBindingSource.DataSource);
