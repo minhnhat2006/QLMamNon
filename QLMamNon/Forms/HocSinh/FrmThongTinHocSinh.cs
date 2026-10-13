@@ -123,6 +123,20 @@ namespace QLMamNon.Forms.HocSinh
                     }
                 }
             }
+            else if (e.Column == this.colNgayVaoLop && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+            {
+                // Display-first; học sinh chưa có hocsinh_lop hiện tại vẫn hiện hocsinh.NgayVaoLop đã lưu.
+                object ngayVaoLop = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "NgayVaoLopDisplay");
+                if (!(ngayVaoLop is DateTime))
+                {
+                    ngayVaoLop = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "NgayVaoLop");
+                }
+
+                if (ngayVaoLop is DateTime)
+                {
+                    e.DisplayText = ((DateTime)ngayVaoLop).ToString("d");
+                }
+            }
             else if (e.Column.FieldName == "ThoiHoc" && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
             {
                 Object thoiHoc = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "ThoiHoc");

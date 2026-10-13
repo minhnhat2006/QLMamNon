@@ -58,15 +58,17 @@ namespace QLMamNon.Forms.HocSinh
             }
             else if (e.Column.FieldName == "NgayVaoLop" && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
             {
-                // NgayVaoLop (cột thật, ghi vào hocsinh_lop.DateJoin) chỉ có giá trị với học sinh vừa thêm vào lớp.
-                // Học sinh đã có sẵn trong lớp lấy ngày hiển thị từ NgayVaoLopDisplay (NotMapped, do util gán).
-                if (view.GetListSourceRowCellValue(e.ListSourceRowIndex, "NgayVaoLop") == null)
+                // Ưu tiên NgayVaoLopDisplay (hocsinh_lop.DateJoin thật do util gán); học sinh vừa thêm vào lớp
+                // chưa có giá trị này nên dùng NgayVaoLop (DateTime.Now hoặc ngày người dùng nhập).
+                object ngayVaoLop = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "NgayVaoLopDisplay");
+                if (!(ngayVaoLop is DateTime))
                 {
-                    object ngayVaoLopDisplay = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "NgayVaoLopDisplay");
-                    if (ngayVaoLopDisplay is DateTime)
-                    {
-                        e.DisplayText = ((DateTime)ngayVaoLopDisplay).ToString("d");
-                    }
+                    ngayVaoLop = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "NgayVaoLop");
+                }
+
+                if (ngayVaoLop is DateTime)
+                {
+                    e.DisplayText = ((DateTime)ngayVaoLop).ToString("d");
                 }
             }
         }
@@ -158,6 +160,7 @@ namespace QLMamNon.Forms.HocSinh
             }
 
             List<int> hocSinhIds = new List<int>();
+            List<string> skippedHocSinhNames = new List<string>();
             int lop = (int)cmbLopHocDen.EditValue;
             List<hocsinh> hocSinhTable = Entities.getHocSinhByParams(DateTime.Now, null, lop, null).ToList();
 
@@ -168,8 +171,24 @@ namespace QLMamNon.Forms.HocSinh
 
                 if (Entities.Entry(hocSinhRow).State == EntityState.Modified || Entities.Entry(hocSinhRow).State == EntityState.Added || Entities.Entry(hocSinhRow).State == EntityState.Detached)
                 {
-                    Entities.insertHocSinhToLop(hocSinh, lop, hocSinhRow.NgayVaoLop);
+                    // Display-first: thành viên cũ có DateJoin thật từ util; dòng mới chỉ có NgayVaoLop.
+                    DateTime? ngayVaoLop = hocSinhRow.NgayVaoLopDisplay != null ? hocSinhRow.NgayVaoLopDisplay : hocSinhRow.NgayVaoLop;
+                    if (ngayVaoLop == null)
+                    {
+                        // DateJoin NULL sẽ làm hỏng hocsinh_lop (học sinh biến mất khỏi lớp), nên bỏ qua dòng này.
+                        LoggerFacade.Error("Bỏ qua xếp lớp vì thiếu ngày vào lớp: HocSinhId=" + hocSinh, this.FormKey);
+                        skippedHocSinhNames.Add(hocSinhRow.HoTen);
+                        continue;
+                    }
+
+                    Entities.insertHocSinhToLop(hocSinh, lop, ngayVaoLop);
                 }
+            }
+
+            if (skippedHocSinhNames.Count > 0)
+            {
+                MessageBox.Show("Không thể xếp lớp cho các học sinh sau vì thiếu ngày vào lớp:\n" + string.Join("\n", skippedHocSinhNames),
+                    "Thiếu ngày vào lớp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             List<int> deletingHocSinhIds = new List<int>();
