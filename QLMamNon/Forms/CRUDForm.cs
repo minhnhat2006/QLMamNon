@@ -53,15 +53,8 @@ namespace QLMamNon.Forms
             get { return this.dataTable; }
             set
             {
-                if (this.dataTable != null)
-                {
-                    this.dataTable.ListChanged -= DataTable_ListChanged;
-                }
+                this.addedRows.Clear();
                 this.dataTable = value;
-                if (this.dataTable != null)
-                {
-                    this.dataTable.ListChanged += DataTable_ListChanged;
-                }
             }
         }
 
@@ -147,18 +140,6 @@ namespace QLMamNon.Forms
             {
                 this.Entities.Dispose();
                 this.Entities = null;
-            }
-        }
-
-        private void DataTable_ListChanged(object sender, ListChangedEventArgs e)
-        {
-            if (e.ListChangedType == ListChangedType.ItemAdded && e.NewIndex >= 0 && e.NewIndex < this.dataTable.Count)
-            {
-                T row = this.dataTable[e.NewIndex];
-                if (row != null)
-                {
-                    this.addedRows.Add(row);
-                }
             }
         }
 
@@ -255,8 +236,11 @@ namespace QLMamNon.Forms
                 return;
             }
 
-            bindingSource.AddNew();
-            this.GridViewMain.FocusedRowHandle = GridControl.NewItemRowHandle;
+            object newRow = bindingSource.AddNew();
+            if (newRow is T)
+            {
+                this.addedRows.Add((T)newRow);
+            }
             this.GridViewMain.ShowEditForm();
 
             FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.AddedCaption);
@@ -297,7 +281,7 @@ namespace QLMamNon.Forms
         protected virtual void onSavingError(Exception ex)
         {
             LoggerFacade.Error(ex, this.FormKey);
-            MessageBox.Show(String.Format("Không thể lưu {0}. Vui lòng thử lại.\n\n{1}", this.DanhMuc, ex.Message), "Lỗi",
+            MessageBox.Show(String.Format("Không thể lưu {0}. Vui lòng thử lại.\n\n{1}", this.DanhMuc, GetInnermostMessage(ex)), "Lỗi",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             if (ex is DBConcurrencyException)
@@ -307,6 +291,15 @@ namespace QLMamNon.Forms
         }
 
         protected virtual void reloadDataTable() { }
+
+        private static string GetInnermostMessage(Exception ex)
+        {
+            while (ex.InnerException != null)
+            {
+                ex = ex.InnerException;
+            }
+            return ex.Message;
+        }
 
         protected virtual void onDeleting()
         {
@@ -332,18 +325,28 @@ namespace QLMamNon.Forms
 
                 this.GridViewMain.DeleteSelectedRows();
 
-                foreach (T row in rowsToDelete)
+                try
                 {
-                    EntityState rowState = Entities.Entry<T>(row).State;
-                    if (rowState == EntityState.Detached || rowState == EntityState.Added)
+                    foreach (T row in rowsToDelete)
                     {
-                        Entities.Entry<T>(row).State = EntityState.Detached;
+                        EntityState rowState = Entities.Entry<T>(row).State;
+                        if (rowState == EntityState.Detached || rowState == EntityState.Added)
+                        {
+                            Entities.Entry<T>(row).State = EntityState.Detached;
+                        }
+                        else if (rowState != EntityState.Deleted)
+                        {
+                            Entities.Entry<T>(row).State = EntityState.Deleted;
+                        }
+                        this.addedRows.Remove(row);
                     }
-                    else if (rowState != EntityState.Deleted)
-                    {
-                        Entities.Entry<T>(row).State = EntityState.Deleted;
-                    }
-                    this.addedRows.Remove(row);
+                }
+                catch (Exception ex)
+                {
+                    LoggerFacade.Error(ex, this.FormKey);
+                    MessageBox.Show(String.Format("Không thể xóa {0}. Vui lòng thử lại.\n\n{1}", this.DanhMuc, GetInnermostMessage(ex)), "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
                 FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.DeletedCaption);
