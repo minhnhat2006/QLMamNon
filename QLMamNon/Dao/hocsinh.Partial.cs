@@ -18,5 +18,8 @@
 
         [NotMapped]
         public string QuanHuyen { get; set; }
+
+        [NotMapped]
+        public System.Nullable<System.DateTime> NgayVaoLopDisplay { get; set; }
     }
 }

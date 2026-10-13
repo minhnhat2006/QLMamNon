@@ -56,6 +56,19 @@ namespace QLMamNon.Forms.HocSinh
                     case 1: e.DisplayText = "Nam"; break;
                 }
             }
+            else if (e.Column.FieldName == "NgayVaoLop" && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+            {
+                // NgayVaoLop (cột thật, ghi vào hocsinh_lop.DateJoin) chỉ có giá trị với học sinh vừa thêm vào lớp.
+                // Học sinh đã có sẵn trong lớp lấy ngày hiển thị từ NgayVaoLopDisplay (NotMapped, do util gán).
+                if (view.GetListSourceRowCellValue(e.ListSourceRowIndex, "NgayVaoLop") == null)
+                {
+                    object ngayVaoLopDisplay = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "NgayVaoLopDisplay");
+                    if (ngayVaoLopDisplay is DateTime)
+                    {
+                        e.DisplayText = ((DateTime)ngayVaoLopDisplay).ToString("d");
+                    }
+                }
+            }
         }
 
         private void btnMoveRight_Click(object sender, EventArgs e)
