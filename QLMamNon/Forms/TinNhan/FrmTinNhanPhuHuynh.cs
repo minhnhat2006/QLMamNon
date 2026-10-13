@@ -146,6 +146,8 @@ namespace QLMamNon.Forms.TinNhan
                 return;
             }
 
+            List<string> tooLongNames = new List<string>();
+
             foreach (int rowHandler in selectedRowHandlers)
             {
                 string soDienThoai = "";
@@ -160,6 +162,12 @@ namespace QLMamNon.Forms.TinNhan
                 if (motherName == null) motherName = string.Empty;
 
                 string smsContent = txtNoiDung.Text.Replace(PhraseHocSinhName, hocSinhName).Replace(PhraseFatherName, fatherName).Replace(PhraseMotherName, motherName);
+
+                if (smsContent.Length > MaxSmsLength)
+                {
+                    tooLongNames.Add(hocSinhName);
+                    continue;
+                }
 
                 if (sdtMe != null)
                 {
@@ -182,6 +190,14 @@ namespace QLMamNon.Forms.TinNhan
                         }
                     }
                 }
+            }
+
+            if (tooLongNames.Count > 0)
+            {
+                MessageBox.Show(
+                    String.Format("Tin nhắn vượt quá {0} kí tự sau khi thay tên cho các học sinh sau, chưa gửi tin nhắn nào. Xin vui lòng rút ngắn nội dung: {1}", MaxSmsLength, string.Join(", ", tooLongNames)),
+                    "Nội dung tin nhắn quá dài", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             try
@@ -219,12 +235,6 @@ namespace QLMamNon.Forms.TinNhan
             if (newText == null)
             {
                 newText = string.Empty;
-            }
-
-            if (newText.Length > MaxSmsLength)
-            {
-                newText = newText.Substring(0, MaxSmsLength);
-                e.NewValue = newText;
             }
 
             this.lblKiTu.Text = String.Format("Nội dung tin nhắn tối đa 160 kí tự (số kí tự còn lại: {0})", MaxSmsLength - newText.Length);

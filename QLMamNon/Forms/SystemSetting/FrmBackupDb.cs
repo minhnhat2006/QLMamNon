@@ -23,6 +23,7 @@ namespace QLMamNon.Forms.Authenticate
         private async void FrmBackupDb_Load(object sender, EventArgs e)
         {
             this.simpleButton1.Enabled = false;
+            this.ControlBox = false;
             this.progressBarControl1.EditValue = 0;
             string timestamp = (DateTime.Now).ToString("yyyyMMddHHmmssffff");
             string sqlFileName = Path.Combine(Path.GetTempPath(), String.Format("qlmn_backup_{0}.sql", timestamp));
@@ -59,6 +60,7 @@ namespace QLMamNon.Forms.Authenticate
             LoggerFacade.Error(ex, AppForms.FormBackupDb);
             this.lblState.Text = "Sao lưu thất bại: " + stageMessage;
             this.simpleButton1.Enabled = true;
+            this.ControlBox = true;
             deleteTempFile(sqlFileName);
             MessageBox.Show(String.Format("{0}. Chi tiết: {1}", stageMessage, ex.Message), "Sao lưu dữ liệu không thành công",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -91,6 +93,7 @@ namespace QLMamNon.Forms.Authenticate
             this.progressBarControl1.EditValue = 100;
             this.lblState.Text = "Hoàn thành";
             this.simpleButton1.Enabled = true;
+            this.ControlBox = true;
             deleteTempFile(sqlFileName);
             return sqlFileName;
         }
