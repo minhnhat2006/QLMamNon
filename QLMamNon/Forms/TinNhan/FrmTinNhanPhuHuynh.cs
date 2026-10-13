@@ -4,8 +4,10 @@ using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
+using System.Linq;
 using System.Windows.Forms;
 using ACG.Core.WinForm.Util;
+using QLMamNon.Constant;
 using QLMamNon.Components.Data.Static;
 using QLMamNon.Dao;
 using QLMamNon.Facade;
@@ -15,6 +17,7 @@ namespace QLMamNon.Forms.TinNhan
 {
     public partial class FrmTinNhanPhuHuynh : DevExpress.XtraEditors.XtraForm
     {
+        private const int MaxSmsLength = 160;
         private const string PhraseHocSinhName = "{Ten_HS}";
         private const string PhraseFatherName = "{Ten_Cha}";
         private const string PhraseMotherName = "{Ten_Me}";
@@ -24,6 +27,14 @@ namespace QLMamNon.Forms.TinNhan
         public FrmTinNhanPhuHuynh()
         {
             InitializeComponent();
+
+            this.FormClosed += (sender, e) =>
+            {
+                if (entities != null)
+                {
+                    entities.Dispose();
+                }
+            };
         }
 
         private void FrmTinNhanPhuHuynh_Load(object sender, EventArgs e)
@@ -51,7 +62,15 @@ namespace QLMamNon.Forms.TinNhan
         {
             if (e.Button.ButtonType == DevExpress.XtraEditors.NavigatorButtonType.EndEdit)
             {
-                entities.SaveChanges();
+                try
+                {
+                    entities.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    LoggerFacade.Error(ex, AppForms.FormTinNhanPhuHuynh);
+                    MessageBox.Show(string.Format("Không lưu được mẫu tin nhắn. Chi tiết: {0}", ex.Message), "Lỗi lưu dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -100,11 +119,11 @@ namespace QLMamNon.Forms.TinNhan
         {
             if (this.cmbLop.EditValue == null)
             {
-                this.hocsinhBindingSource.DataSource = entities.getHocSinhByLopAndNgay(null, DateTime.Now);
+                this.hocsinhBindingSource.DataSource = entities.getHocSinhByLopAndNgay(null, DateTime.Now).ToList();
             }
             else
             {
-                this.hocsinhBindingSource.DataSource = entities.getHocSinhByLopAndNgay((int)this.cmbLop.EditValue, DateTime.Now);
+                this.hocsinhBindingSource.DataSource = entities.getHocSinhByLopAndNgay((int)this.cmbLop.EditValue, DateTime.Now).ToList();
             }
 
             this.gvMain.SelectAll();
@@ -135,6 +154,11 @@ namespace QLMamNon.Forms.TinNhan
                 string hocSinhName = (string)gvMain.GetRowCellValue(rowHandler, "HoTen");
                 string fatherName = (string)gvMain.GetRowCellValue(rowHandler, "HoTenCha");
                 string motherName = (string)gvMain.GetRowCellValue(rowHandler, "HoTenMe");
+
+                if (hocSinhName == null) hocSinhName = string.Empty;
+                if (fatherName == null) fatherName = string.Empty;
+                if (motherName == null) motherName = string.Empty;
+
                 string smsContent = txtNoiDung.Text.Replace(PhraseHocSinhName, hocSinhName).Replace(PhraseFatherName, fatherName).Replace(PhraseMotherName, motherName);
 
                 if (sdtMe != null)
@@ -175,23 +199,35 @@ namespace QLMamNon.Forms.TinNhan
 
                 if (!backgroundWorker1.IsBusy)
                 {
-                    backgroundWorker1.RunWorkerAsync(phoneNumberToSmsContentDic);
+                    // Read the control here: the worker thread must not touch txtInterval.
+                    backgroundWorker1.RunWorkerAsync(Tuple.Create(phoneNumberToSmsContentDic, (int)txtInterval.Value));
                 }
             }
             catch (Exception ex)
             {
+                LoggerFacade.Error(ex, AppForms.FormTinNhanPhuHuynh);
                 MessageBox.Show(string.Format("Xuất hiện lỗi trong quá trình gửi tin nhắn. Chi tiết: {0}", ex.Message), "Gửi tin nhắn không thành công", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                btnSend.Text = "Gửi";
-                btnSend.Enabled = true;
+                btnGui.Text = "Gửi";
+                btnGui.Enabled = true;
             }
         }
 
         private void txtNoiDung_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            this.lblKiTu.Text = String.Format("Nội dung tin nhắn tối đa 160 kí tự (số kí tự còn lại: {0})", StringUtil.IsEmpty(this.txtNoiDung.Text) ? 160 : 160 - this.txtNoiDung.Text.Length);
+            string newText = e.NewValue as string;
+
+            if (newText == null)
+            {
+                newText = string.Empty;
+            }
+
+            if (newText.Length > MaxSmsLength)
+            {
+                newText = newText.Substring(0, MaxSmsLength);
+                e.NewValue = newText;
+            }
+
+            this.lblKiTu.Text = String.Format("Nội dung tin nhắn tối đa 160 kí tự (số kí tự còn lại: {0})", MaxSmsLength - newText.Length);
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -219,27 +255,19 @@ namespace QLMamNon.Forms.TinNhan
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            try
-            {
-                Dictionary<string, string> phoneNumberToSmsContentDic = (Dictionary<string, string>)e.Argument;
-                ISMS sms = new USB3GSms(serialPort1, (int)txtInterval.Value);
-                Dictionary<string, bool> sentStatuses = sms.SendSMS(phoneNumberToSmsContentDic);
-                string pathToLogFile = $"{AppDomain.CurrentDomain.BaseDirectory}sms_log.txt";
+            // Runs on a worker thread: no UI access. An exception thrown here is delivered to
+            // RunWorkerCompleted through e.Error, where the dialogs are shown on the UI thread.
+            Tuple<Dictionary<string, string>, int> argument = (Tuple<Dictionary<string, string>, int>)e.Argument;
+            Dictionary<string, string> phoneNumberToSmsContentDic = argument.Item1;
+            ISMS sms = new USB3GSms(serialPort1, argument.Item2);
+            Dictionary<string, bool> sentStatuses = sms.SendSMS(phoneNumberToSmsContentDic);
+            string pathToLogFile = $"{AppDomain.CurrentDomain.BaseDirectory}sms_log.txt";
 
-                foreach (var item in sentStatuses)
-                {
-                    string phoneNumberKey = item.Key;
-                    string phoneNumber = phoneNumberKey.Substring(0, phoneNumberKey.IndexOf("-"));
-                    File.AppendAllText(pathToLogFile, $"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToLongTimeString()}    {phoneNumber}    {phoneNumberToSmsContentDic[item.Key]}    {item.Value} \r\n");
-                }
-
-                MessageBox.Show("Tin nhắn đã được gửi", "Gửi tin nhắn thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
+            foreach (var item in sentStatuses)
             {
-                MessageBox.Show(
-                    String.Format("Xuất hiện lỗi trong quá trình gửi tin nhắn. Chi tiết: {0}", ex.Message),
-                    "Gửi tin nhắn không thành công", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string phoneNumberKey = item.Key;
+                string phoneNumber = phoneNumberKey.Substring(0, phoneNumberKey.IndexOf("-"));
+                File.AppendAllText(pathToLogFile, $"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToLongTimeString()}    {phoneNumber}    {phoneNumberToSmsContentDic[item.Key]}    {item.Value} \r\n");
             }
         }
 
@@ -247,6 +275,18 @@ namespace QLMamNon.Forms.TinNhan
         {
             btnGui.Text = "Gửi";
             btnGui.Enabled = true;
+
+            if (e.Error != null)
+            {
+                LoggerFacade.Error(e.Error, AppForms.FormTinNhanPhuHuynh);
+                MessageBox.Show(
+                    String.Format("Xuất hiện lỗi trong quá trình gửi tin nhắn. Chi tiết: {0}", e.Error.Message),
+                    "Gửi tin nhắn không thành công", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Tin nhắn đã được gửi", "Gửi tin nhắn thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

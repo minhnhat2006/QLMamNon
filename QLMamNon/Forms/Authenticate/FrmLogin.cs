@@ -19,12 +19,22 @@ namespace QLMamNon.Forms.Authenticate
             entities = StaticDataFacade.GetQLMNEntities();
 
             InitializeComponent();
+
+            this.FormClosed += (sender, e) => entities.Dispose();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             AuthenService authenService = new AuthenService();
             string username = txtUsername.Text;
+
+            if (StringUtil.IsEmpty(username) || StringUtil.IsEmpty(txtPassword.Text))
+            {
+                MessageBox.Show("Xin vui lòng nhập Tên đăng nhập và Mật khẩu.", "Lỗi đăng nhập",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string password = PasswordUtil.GetMd5Hash(txtPassword.Text);
             List<user> userDataTable = authenService.GetUsersForLogin(entities, username, password);
 
@@ -46,7 +56,14 @@ namespace QLMamNon.Forms.Authenticate
         private static void showCurrentForm()
         {
             String form = (String)StaticDataFacade.Get(StaticDataKeys.CurrentForm);
-            FormShowType showType = (FormShowType)StaticDataFacade.Get(StaticDataKeys.CurrentFormShowType);
+            object showTypeValue = StaticDataFacade.Get(StaticDataKeys.CurrentFormShowType);
+
+            if (form == null || showTypeValue == null)
+            {
+                return;
+            }
+
+            FormShowType showType = (FormShowType)showTypeValue;
 
             if (FormShowType.Normal == showType)
             {
