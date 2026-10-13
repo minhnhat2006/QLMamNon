@@ -15,6 +15,11 @@ namespace QLMamNon.Forms.HocSinh
         // nên "người dùng đã sửa ngày vào lớp" đúng bằng "NgayVaoLop khác giá trị lúc nạp".
         private readonly Dictionary<int, DateTime?> ngayVaoLopSnapshots = new Dictionary<int, DateTime?>();
 
+        // Lớp mà lưới "chuyển đến" và ảnh chụp ở trên đang thực sự chứa dữ liệu của. null = chưa nạp
+        // được lớp nào. onSaving chỉ lưu khi giá trị này đúng bằng lớp đang chọn, nếu không thì lưới
+        // đang là của lớp khác và việc so lưới với CSDL sẽ xóa sạch lớp đang chọn.
+        private int? loadedLopDen;
+
         private bool isHocSinhExisted(BindingSource hocSinhRowBindingSource, int hocSinhId)
         {
             return findHocSinhById(hocSinhRowBindingSource, hocSinhId) != null;
@@ -44,9 +49,9 @@ namespace QLMamNon.Forms.HocSinh
             }
         }
 
-        // Chụp lại ngày vào lớp của các dòng vừa nạp. Chỉ gọi khi lưới thực sự được nạp lại, để ảnh chụp
-        // luôn khớp với những gì lưới đang hiển thị.
-        private void takeNgayVaoLopSnapshots(List<hocsinh> hocSinhTable)
+        // Chụp lại ngày vào lớp của các dòng vừa nạp, cùng với lớp mà chúng thuộc về. Chỉ gọi khi lưới
+        // thực sự được nạp xong, để ảnh chụp luôn khớp với những gì lưới đang hiển thị.
+        private void takeNgayVaoLopSnapshots(int lopDen, List<hocsinh> hocSinhTable)
         {
             this.ngayVaoLopSnapshots.Clear();
 
@@ -54,6 +59,8 @@ namespace QLMamNon.Forms.HocSinh
             {
                 this.ngayVaoLopSnapshots[row.HocSinhId] = row.NgayVaoLop;
             }
+
+            this.loadedLopDen = lopDen;
         }
 
         // Người dùng có sửa ngày vào lớp của dòng này trong form xếp lớp hay không. Dòng mới thêm vào lưới
@@ -107,13 +114,19 @@ namespace QLMamNon.Forms.HocSinh
                 return;
             }
 
-            List<hocsinh> hocSinhTable = Entities.getHocSinhByParams(DateTime.Now, null, (int)this.cmbLopHocDen.EditValue, null).ToList();
+            int lopDen = (int)this.cmbLopHocDen.EditValue;
+
+            // Nếu nạp lỗi giữa đường thì không lớp nào được coi là đã nạp: lưới vẫn còn học sinh của lớp
+            // trước đó, nên onSaving phải từ chối lưu thay vì coi cả lớp mới là "đã bị bỏ khỏi lớp".
+            this.loadedLopDen = null;
+
+            List<hocsinh> hocSinhTable = Entities.getHocSinhByParams(DateTime.Now, null, lopDen, null).ToList();
 
             ThongTinHocSinhUtil.EvaluateLopInfoForHocSinhTable(Entities, hocSinhTable);
 
             this.hocSinhRowBindingSourceDen.DataSource = new BindingList<hocsinh>(hocSinhTable);
 
-            this.takeNgayVaoLopSnapshots(hocSinhTable);
+            this.takeNgayVaoLopSnapshots(lopDen, hocSinhTable);
         }
     }
 }

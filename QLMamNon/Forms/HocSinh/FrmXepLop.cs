@@ -25,6 +25,8 @@ namespace QLMamNon.Forms.HocSinh
             InitializeComponent();
 
             this.FormKey = AppForms.FormXepLop;
+            // Dùng cho thông báo lỗi của CRUDForm.onSavingError ("Không thể lưu Xếp lớp...").
+            this.DanhMuc = "Xếp lớp";
             this.InitForm(null, null, null, this.btnSave, null, this.gvDen, null);
         }
 
@@ -164,6 +166,23 @@ namespace QLMamNon.Forms.HocSinh
         // thêm base.onSaving() hoặc SaveChanges().
         protected override void onSaving()
         {
+            try
+            {
+                this.saveXepLop();
+            }
+            catch (Exception ex)
+            {
+                // CRUDForm.onSaving bọc thân hàm trong try/catch rồi gọi onSavingError; override này cố ý
+                // không gọi base nên phải tự bắt lỗi, nếu không một stored procedure lỗi (hoặc không tồn
+                // tại trên CSDL đang dùng) sẽ thành hộp thoại crash, không có log và không rõ đã ghi được
+                // tới đâu. Ba procedure ở đây không nằm trong cùng một transaction.
+                this.onSavingError(ex);
+            }
+        }
+
+        // Thân thật của onSaving (xem comment ở trên); mọi lỗi do onSaving bắt và báo qua onSavingError.
+        private void saveXepLop()
+        {
             if (ControlUtil.IsEditValueNull(this.cmbLopHocDen))
             {
                 MessageBox.Show("Xin vui long chọn Lớp học", "Chọn lớp học", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -171,6 +190,20 @@ namespace QLMamNon.Forms.HocSinh
             }
 
             int lop = (int)cmbLopHocDen.EditValue;
+
+            if (this.loadedLopDen == null || this.loadedLopDen.Value != lop)
+            {
+                // Lưới "chuyển đến" không phải của lớp đang chọn: chưa nạp được lần nào, hoặc đổi lớp mà
+                // lần nạp lại bị lỗi. So lưới của lớp khác với dữ liệu của lớp này sẽ biến toàn bộ lớp
+                // này thành "đã bị bỏ khỏi lớp", nên không cho lưu, kể cả khi người dùng xác nhận.
+                string loadedLopText = this.loadedLopDen == null ? "(chưa nạp)" : this.loadedLopDen.Value.ToString();
+                LoggerFacade.Error($"Không lưu xếp lớp: lưới đang chứa dữ liệu của lớp {loadedLopText} nhưng đang lưu cho lớp {lop}.", this.FormKey);
+                MessageBox.Show($"Danh sách học sinh chưa được nạp cho lớp {this.cmbLopHocDen.Text}.\n\n" +
+                    "Vui lòng chọn lại lớp học để nạp lại danh sách rồi lưu.",
+                    "Không thể lưu xếp lớp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             List<hocsinh> hocSinhTable = Entities.getHocSinhByParams(DateTime.Now, null, lop, null).ToList();
 
             List<int> hocSinhIds = new List<int>();
@@ -183,24 +216,17 @@ namespace QLMamNon.Forms.HocSinh
             // xóa luôn bảng thu tiền. Tính trước khi ghi bất cứ thứ gì để người dùng trả lời Không là
             // không có gì thay đổi.
             List<hocsinh> deletingHocSinhRows = new List<hocsinh>();
+            List<int> deletingHocSinhIds = new List<int>();
             foreach (hocsinh hsRow in hocSinhTable)
             {
-                if (!hocSinhIds.Contains(hsRow.HocSinhId))
+                // getHocSinhByParams có thể trả về hai dòng cho cùng một học sinh (dòng hocsinh_lop cũ
+                // với DateLeft ở tương lai và dòng mới), nên phải lọc trùng theo HocSinhId: nếu không,
+                // hộp thoại xác nhận sẽ đếm và liệt kê trùng tên.
+                if (!hocSinhIds.Contains(hsRow.HocSinhId) && !deletingHocSinhIds.Contains(hsRow.HocSinhId))
                 {
                     deletingHocSinhRows.Add(hsRow);
+                    deletingHocSinhIds.Add(hsRow.HocSinhId);
                 }
-            }
-
-            if (ListUtil.IsEmpty(hocSinhIds) && !ListUtil.IsEmpty(hocSinhTable))
-            {
-                // Lưới trống trong khi CSDL vẫn còn học sinh của lớp này: gần như chắc chắn danh sách
-                // chưa nạp được (lỗi khi nạp, hoặc đổi lớp mà chưa nạp lại), không phải người dùng muốn
-                // xóa cả lớp. Không cho phép lưu, kể cả khi người dùng xác nhận.
-                LoggerFacade.Error($"Không lưu xếp lớp: lưới trống nhưng lớp {lop} còn {hocSinhTable.Count} học sinh trong CSDL.", this.FormKey);
-                MessageBox.Show($"Danh sách học sinh của lớp {this.cmbLopHocDen.Text} đang trống nhưng trong dữ liệu lớp này vẫn còn {hocSinhTable.Count} học sinh.\n\n" +
-                    "Có thể danh sách chưa được nạp. Vui lòng chọn lại lớp học để nạp lại danh sách rồi lưu.",
-                    "Không thể lưu xếp lớp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
             }
 
             if (!ListUtil.IsEmpty(deletingHocSinhRows) && !this.confirmXoaHocSinhKhoiLop(deletingHocSinhRows))
@@ -262,14 +288,8 @@ namespace QLMamNon.Forms.HocSinh
                     "Thiếu ngày vào lớp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            if (!ListUtil.IsEmpty(deletingHocSinhRows))
+            if (!ListUtil.IsEmpty(deletingHocSinhIds))
             {
-                List<int> deletingHocSinhIds = new List<int>();
-                foreach (hocsinh hsRow in deletingHocSinhRows)
-                {
-                    deletingHocSinhIds.Add(hsRow.HocSinhId);
-                }
-
                 DateTime ngayRoiLop = DateTime.Now.AddDays(-1);
                 DateTime ngayXoaBangThuTien = DateTimeUtil.DateEndOfMonth(DateTime.Now);
 
@@ -298,8 +318,12 @@ namespace QLMamNon.Forms.HocSinh
                 hocSinhNames.Add("- " + deletingHocSinhRows[i].HoTen);
             }
 
+            // deleteHocSinhLopByHocSinhIds chỉ lọc theo HocSinhId, không lọc LopId (DB/qlmamnon.sql), nên
+            // nó đóng mọi dòng hocsinh_lop còn mở của những học sinh này - ở tất cả các lớp. Hộp thoại
+            // xác nhận phải nói đúng phạm vi đó.
             string message = $"Có {deletingHocSinhRows.Count} học sinh không còn trong danh sách của lớp {this.cmbLopHocDen.Text}. "
-                + "Các học sinh sau sẽ bị xóa khỏi lớp, đồng thời xóa bảng thu tiền của tháng này:\n\n"
+                + "Các học sinh sau sẽ bị xóa khỏi tất cả các lớp đang theo học (không chỉ lớp này), "
+                + "đồng thời xóa bảng thu tiền của tháng này:\n\n"
                 + string.Join("\n", hocSinhNames);
 
             if (deletingHocSinhRows.Count > MaxHocSinhNamesInConfirmDialog)
