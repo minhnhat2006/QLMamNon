@@ -17,6 +17,9 @@ namespace QLMamNon.Forms.HocSinh
 {
     public partial class FrmXepLop : CRUDForm<hocsinh>
     {
+        // Số tên học sinh liệt kê tối đa trong hộp thoại xác nhận xóa, để hộp thoại không quá dài.
+        private const int MaxHocSinhNamesInConfirmDialog = 10;
+
         public FrmXepLop()
         {
             InitializeComponent();
@@ -122,9 +125,12 @@ namespace QLMamNon.Forms.HocSinh
 
             if (this.isHocSinhExisted(this.hocSinhRowBindingSourceDi, oldRow.HocSinhId))
             {
-                List<hocsinh> hocSinhTable = this.hocSinhRowBindingSourceDi.DataSource as List<hocsinh>;
-                List<hocsinh> hocSinhRows = hocSinhTable.FindAll(h => h.HocSinhId == oldRow.HocSinhId);
-                hocSinhRows[0].LopDangHoc = CommonConstant.EMPTY;
+                hocsinh hocSinhRowDi = findHocSinhById(this.hocSinhRowBindingSourceDi, oldRow.HocSinhId);
+                if (hocSinhRowDi != null)
+                {
+                    hocSinhRowDi.LopDangHoc = CommonConstant.EMPTY;
+                }
+
                 this.gvDen.DeleteSelectedRows();
 
                 return;
@@ -151,6 +157,11 @@ namespace QLMamNon.Forms.HocSinh
             this.loadHocSinhToGridDen();
         }
 
+        // Form này lưu hoàn toàn bằng stored procedure (insertHocSinhToLop, deleteHocSinhLopByHocSinhIds)
+        // và SoThuTienService. Cố ý KHÔNG gọi base.onSaving() và KHÔNG gọi SaveChanges(): các entity
+        // hocsinh ở hai lưới chỉ dùng để chở dữ liệu hiển thị, ghi bằng SaveChanges() sẽ sửa sai bảng
+        // hocsinh (ví dụ LopDangHoc/NgayVaoLop đang được dùng như giá trị tạm). Đừng "sửa" lại bằng cách
+        // thêm base.onSaving() hoặc SaveChanges().
         protected override void onSaving()
         {
             if (ControlUtil.IsEditValueNull(this.cmbLopHocDen))
@@ -159,30 +170,90 @@ namespace QLMamNon.Forms.HocSinh
                 return;
             }
 
-            List<int> hocSinhIds = new List<int>();
-            List<string> skippedHocSinhNames = new List<string>();
             int lop = (int)cmbLopHocDen.EditValue;
             List<hocsinh> hocSinhTable = Entities.getHocSinhByParams(DateTime.Now, null, lop, null).ToList();
+
+            List<int> hocSinhIds = new List<int>();
+            foreach (hocsinh hocSinhRow in hocSinhRowBindingSourceDen)
+            {
+                hocSinhIds.Add(hocSinhRow.HocSinhId);
+            }
+
+            // Học sinh CSDL còn xếp trong lớp nhưng lưới "chuyển đến" không còn: sẽ bị xóa khỏi lớp và
+            // xóa luôn bảng thu tiền. Tính trước khi ghi bất cứ thứ gì để người dùng trả lời Không là
+            // không có gì thay đổi.
+            List<hocsinh> deletingHocSinhRows = new List<hocsinh>();
+            foreach (hocsinh hsRow in hocSinhTable)
+            {
+                if (!hocSinhIds.Contains(hsRow.HocSinhId))
+                {
+                    deletingHocSinhRows.Add(hsRow);
+                }
+            }
+
+            if (ListUtil.IsEmpty(hocSinhIds) && !ListUtil.IsEmpty(hocSinhTable))
+            {
+                // Lưới trống trong khi CSDL vẫn còn học sinh của lớp này: gần như chắc chắn danh sách
+                // chưa nạp được (lỗi khi nạp, hoặc đổi lớp mà chưa nạp lại), không phải người dùng muốn
+                // xóa cả lớp. Không cho phép lưu, kể cả khi người dùng xác nhận.
+                LoggerFacade.Error($"Không lưu xếp lớp: lưới trống nhưng lớp {lop} còn {hocSinhTable.Count} học sinh trong CSDL.", this.FormKey);
+                MessageBox.Show($"Danh sách học sinh của lớp {this.cmbLopHocDen.Text} đang trống nhưng trong dữ liệu lớp này vẫn còn {hocSinhTable.Count} học sinh.\n\n" +
+                    "Có thể danh sách chưa được nạp. Vui lòng chọn lại lớp học để nạp lại danh sách rồi lưu.",
+                    "Không thể lưu xếp lớp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!ListUtil.IsEmpty(deletingHocSinhRows) && !this.confirmXoaHocSinhKhoiLop(deletingHocSinhRows))
+            {
+                // Chưa gọi stored procedure nào: hocsinh_lop và bangthutien giữ nguyên.
+                return;
+            }
+
+            List<string> skippedHocSinhNames = new List<string>();
 
             foreach (hocsinh hocSinhRow in hocSinhRowBindingSourceDen)
             {
                 int hocSinh = hocSinhRow.HocSinhId;
-                hocSinhIds.Add(hocSinh);
+                bool ngayVaoLopChanged = this.isNgayVaoLopChangedByUser(hocSinhRow);
+                EntityState state = Entities.Entry(hocSinhRow).State;
 
-                if (Entities.Entry(hocSinhRow).State == EntityState.Modified || Entities.Entry(hocSinhRow).State == EntityState.Added || Entities.Entry(hocSinhRow).State == EntityState.Detached)
+                bool needsInsert = ngayVaoLopChanged
+                    || state == EntityState.Modified
+                    || state == EntityState.Added
+                    || state == EntityState.Detached;
+
+                if (!needsInsert)
+                {
+                    continue;
+                }
+
+                DateTime? ngayVaoLop;
+                if (ngayVaoLopChanged)
+                {
+                    // Người dùng vừa sửa ngày vào lớp trong form: giá trị của editor (NgayVaoLop) mới là
+                    // ý muốn của họ, không phải DateJoin cũ trong NgayVaoLopDisplay.
+                    ngayVaoLop = hocSinhRow.NgayVaoLop;
+                }
+                else
                 {
                     // Display-first: thành viên cũ có DateJoin thật từ util; dòng mới chỉ có NgayVaoLop.
-                    DateTime? ngayVaoLop = hocSinhRow.NgayVaoLopDisplay != null ? hocSinhRow.NgayVaoLopDisplay : hocSinhRow.NgayVaoLop;
-                    if (ngayVaoLop == null)
-                    {
-                        // DateJoin NULL sẽ làm hỏng hocsinh_lop (học sinh biến mất khỏi lớp), nên bỏ qua dòng này.
-                        LoggerFacade.Error("Bỏ qua xếp lớp vì thiếu ngày vào lớp: HocSinhId=" + hocSinh, this.FormKey);
-                        skippedHocSinhNames.Add(hocSinhRow.HoTen);
-                        continue;
-                    }
-
-                    Entities.insertHocSinhToLop(hocSinh, lop, ngayVaoLop);
+                    ngayVaoLop = hocSinhRow.NgayVaoLopDisplay != null ? hocSinhRow.NgayVaoLopDisplay : hocSinhRow.NgayVaoLop;
                 }
+
+                if (ngayVaoLop == null)
+                {
+                    // DateJoin NULL sẽ làm hỏng hocsinh_lop (học sinh biến mất khỏi lớp), nên bỏ qua dòng này.
+                    LoggerFacade.Error("Bỏ qua xếp lớp vì thiếu ngày vào lớp: HocSinhId=" + hocSinh, this.FormKey);
+                    skippedHocSinhNames.Add(hocSinhRow.HoTen);
+                    continue;
+                }
+
+                Entities.insertHocSinhToLop(hocSinh, lop, ngayVaoLop);
+
+                // Ghi xong thì DateJoin thật trong hocsinh_lop chính là ngayVaoLop: cập nhật lại giá trị
+                // hiển thị và ảnh chụp để lần lưu sau không ghi lùi về ngày cũ.
+                hocSinhRow.NgayVaoLopDisplay = ngayVaoLop;
+                this.ngayVaoLopSnapshots[hocSinh] = hocSinhRow.NgayVaoLop;
             }
 
             if (skippedHocSinhNames.Count > 0)
@@ -191,33 +262,81 @@ namespace QLMamNon.Forms.HocSinh
                     "Thiếu ngày vào lớp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            List<int> deletingHocSinhIds = new List<int>();
-
-            foreach (hocsinh hsRow in hocSinhTable)
+            if (!ListUtil.IsEmpty(deletingHocSinhRows))
             {
-                if (!hocSinhIds.Contains(hsRow.HocSinhId))
+                List<int> deletingHocSinhIds = new List<int>();
+                foreach (hocsinh hsRow in deletingHocSinhRows)
                 {
                     deletingHocSinhIds.Add(hsRow.HocSinhId);
                 }
-            }
 
-            if (!ListUtil.IsEmpty(deletingHocSinhIds))
-            {
-                Entities.deleteHocSinhLopByHocSinhIds(StringUtil.Join(deletingHocSinhIds, ","), DateTime.Now.AddDays(-1));
+                DateTime ngayRoiLop = DateTime.Now.AddDays(-1);
+                DateTime ngayXoaBangThuTien = DateTimeUtil.DateEndOfMonth(DateTime.Now);
+
+                // Ghi log trước khi xóa để một lần xóa nhầm vẫn truy được ra đã xóa ai, ngày nào.
+                LoggerFacade.Info($"Xóa học sinh khỏi lớp {lop}: HocSinhIds={StringUtil.JoinWithCommas(deletingHocSinhIds)}; DateLeft={ngayRoiLop:dd/MM/yyyy}; xóa bảng thu tiền đến {ngayXoaBangThuTien:dd/MM/yyyy}.", this.FormKey);
+
+                Entities.deleteHocSinhLopByHocSinhIds(StringUtil.Join(deletingHocSinhIds, ","), ngayRoiLop);
 
                 SoThuTienService soThuTienService = new SoThuTienService();
-                soThuTienService.DeleteBangThuTienByHocSinhIdsAndDate(Entities, deletingHocSinhIds, DateTimeUtil.DateEndOfMonth(DateTime.Now));
+                soThuTienService.DeleteBangThuTienByHocSinhIdsAndDate(Entities, deletingHocSinhIds, ngayXoaBangThuTien);
+
+                foreach (int deletedHocSinhId in deletingHocSinhIds)
+                {
+                    this.ngayVaoLopSnapshots.Remove(deletedHocSinhId);
+                }
             }
 
             FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.SavedCaption);
         }
 
+        private bool confirmXoaHocSinhKhoiLop(List<hocsinh> deletingHocSinhRows)
+        {
+            List<string> hocSinhNames = new List<string>();
+            for (int i = 0; i < deletingHocSinhRows.Count && i < MaxHocSinhNamesInConfirmDialog; i++)
+            {
+                hocSinhNames.Add("- " + deletingHocSinhRows[i].HoTen);
+            }
+
+            string message = $"Có {deletingHocSinhRows.Count} học sinh không còn trong danh sách của lớp {this.cmbLopHocDen.Text}. "
+                + "Các học sinh sau sẽ bị xóa khỏi lớp, đồng thời xóa bảng thu tiền của tháng này:\n\n"
+                + string.Join("\n", hocSinhNames);
+
+            if (deletingHocSinhRows.Count > MaxHocSinhNamesInConfirmDialog)
+            {
+                message += $"\n… và {deletingHocSinhRows.Count - MaxHocSinhNamesInConfirmDialog} học sinh khác";
+            }
+
+            message += "\n\nBạn có chắc muốn xóa không? Chọn Không để hủy toàn bộ việc lưu.";
+
+            DialogResult confirmResult = MessageBox.Show(message, "Xóa học sinh khỏi lớp", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+            if (confirmResult != DialogResult.Yes)
+            {
+                LoggerFacade.Info($"Người dùng hủy việc xóa {deletingHocSinhRows.Count} học sinh khỏi lớp {this.cmbLopHocDen.Text}.", this.FormKey);
+                return false;
+            }
+
+            return true;
+        }
+
         private void gvDen_RowUpdated(object sender, RowObjectEventArgs e)
         {
-            if (this.gvDen.IsNewItemRow(e.RowHandle))
+            if (!this.gvDen.IsNewItemRow(e.RowHandle))
             {
-                this.hocSinhRowBindingSourceDi.RemoveCurrent();
+                return;
             }
+
+            hocsinh addedRow = e.Row as hocsinh;
+            if (addedRow == null)
+            {
+                return;
+            }
+
+            // Xóa đúng học sinh vừa được chuyển sang lớp mới khỏi lưới "chuyển đi": RemoveCurrent() xóa
+            // dòng đang được chọn ở lưới đó, không chắc là dòng vừa chuyển.
+            removeHocSinhById(this.hocSinhRowBindingSourceDi, addedRow.HocSinhId);
         }
     }
 }
