@@ -24,6 +24,16 @@ namespace QLMamNon.Forms.ThuChi
     {
         #region Properties
 
+        /// <summary>
+        /// Tên cột HocSinhId trên lưới phiếu thu.
+        /// </summary>
+        private const string HocSinhIdFieldName = "HocSinhId";
+
+        /// <summary>
+        /// Tên cột PhanLoaiThuId trên lưới phiếu thu.
+        /// </summary>
+        private const string PhanLoaiThuIdFieldName = "PhanLoaiThuId";
+
         protected string FormKey { get; set; }
 
         public GridView GridView { get; set; }
@@ -44,24 +54,44 @@ namespace QLMamNon.Forms.ThuChi
 
         private bool isStaticDataLoaded;
 
+        /// <summary>
+        /// True khi dữ liệu của lần mở form này đã được nạp. Đặt lại về false khi form đóng, nên
+        /// mỗi lần mở form dữ liệu được nạp đúng một lần, bất kể form được mở từ FrmPhieuThu
+        /// (có gọi InitFormData trước ShowDialog) hay trực tiếp từ ribbon (không gọi).
+        /// </summary>
+        private bool perOpenDataLoaded;
+
         #endregion
 
         public FrmTaoPhieuThu()
         {
             this.FormKey = AppForms.FormTaoPhieuThu;
             InitializeComponent();
+            this.Shown += new EventHandler(this.FrmTaoPhieuThu_Shown);
         }
 
         private void FrmTaoPhieuThu_Load(object sender, EventArgs e)
         {
-            this.InitFormData();
+            if (!this.perOpenDataLoaded)
+            {
+                this.InitFormData();
+            }
+        }
+
+        private void FrmTaoPhieuThu_Shown(object sender, EventArgs e)
+        {
+            // Mở trực tiếp từ ribbon thì không ai gọi InitFormData, và sự kiện Load chỉ chạy một
+            // lần cho cả đời form vì FormFactory dùng lại cùng một instance.
+            if (!this.perOpenDataLoaded)
+            {
+                this.InitFormData();
+            }
         }
 
         /// <summary>
-        /// Nạp dữ liệu vào các control của form. Phải gọi trước mỗi lần ShowDialog:
-        /// FormFactory dùng lại cùng một instance nên sự kiện Load chỉ chạy đúng một
-        /// lần, các lần mở sau form sẽ còn nguyên giá trị rỗng do resetForm() để lại
-        /// và dxValidationProvider.Validate() sẽ chặn việc lưu.
+        /// Nạp dữ liệu vào các control của form. FrmPhieuThu gọi trước mỗi lần ShowDialog; nếu
+        /// không ai gọi thì sự kiện Shown gọi thay, nên dữ liệu luôn được nạp đúng một lần cho
+        /// mỗi lần mở form.
         /// </summary>
         public void InitFormData()
         {
@@ -85,6 +115,8 @@ namespace QLMamNon.Forms.ThuChi
             {
                 resetForm();
             }
+
+            this.perOpenDataLoaded = true;
         }
 
         /// <summary>
@@ -117,14 +149,20 @@ namespace QLMamNon.Forms.ThuChi
                     }
                 }
 
-                this.entities = newEntities;
                 this.hocSinhIdToBangKeThuTienItems = bangKeThuTienItems;
                 this.hocSinhRowBindingSource.DataSource = hocSinhTable;
                 this.hocSinhRowBindingSource.Filter = "LopDangHoc IS NOT NULL";
+                // Gán cuối cùng: nếu một trong các lệnh trên lỗi thì form vẫn giữ context cũ đang
+                // dùng được, còn context mới bị hủy trong catch.
+                this.entities = newEntities;
             }
             catch (Exception ex)
             {
-                newEntities.Dispose();
+                if (!object.ReferenceEquals(this.entities, newEntities))
+                {
+                    newEntities.Dispose();
+                }
+
                 LoggerFacade.Error(ex, this.FormKey);
                 LoggerFacade.Error("Không nạp được danh sách học sinh và bảng kê thu tiền cho form Tạo phiếu thu.", this.FormKey);
                 MessageBox.Show("Không nạp được danh sách học sinh và số tiền còn lại. Xin vui lòng thử lại.",
@@ -132,7 +170,7 @@ namespace QLMamNon.Forms.ThuChi
                 return;
             }
 
-            if (previousEntities != null)
+            if (previousEntities != null && !object.ReferenceEquals(previousEntities, this.entities))
             {
                 previousEntities.Dispose();
             }
@@ -140,10 +178,24 @@ namespace QLMamNon.Forms.ThuChi
 
         private void FrmTaoPhieuThu_Enter(object sender, EventArgs e)
         {
-            int hocSinhId = (int)this.GridView.GetFocusedRowCellValue("HocSinhId");
-            int phanLoaiThuId = (int)this.GridView.GetFocusedRowCellValue("PhanLoaiThuId");
-            this.cmbHocSinh.EditValue = hocSinhId;
-            this.cmbPhanLoaiThu.EditValue = phanLoaiThuId;
+            // GridView chỉ được FrmPhieuThu gán; mở form trực tiếp từ ribbon thì nó là null.
+            if (this.GridView == null)
+            {
+                return;
+            }
+
+            int? hocSinhId = toNullableInt(this.GridView.GetFocusedRowCellValue(HocSinhIdFieldName));
+            int? phanLoaiThuId = toNullableInt(this.GridView.GetFocusedRowCellValue(PhanLoaiThuIdFieldName));
+
+            if (hocSinhId != null)
+            {
+                this.cmbHocSinh.EditValue = hocSinhId.Value;
+            }
+
+            if (phanLoaiThuId != null)
+            {
+                this.cmbPhanLoaiThu.EditValue = phanLoaiThuId.Value;
+            }
         }
 
         protected void FrmTaoPhieuThu_Activated(object sender, EventArgs e)
@@ -154,6 +206,8 @@ namespace QLMamNon.Forms.ThuChi
         private void FrmTaoPhieuThu_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.IsEditing = false;
+            // Lần mở sau phải nạp lại dữ liệu: học sinh mới và số đã thu đều có thể đã thay đổi.
+            this.perOpenDataLoaded = false;
         }
 
         private void btnLuuTao_Click(object sender, EventArgs e)
@@ -186,27 +240,29 @@ namespace QLMamNon.Forms.ThuChi
                 return false;
             }
 
+            bool isPhanLoaiThuByHocSinh = this.isSelectedPhanLoaiThuByHocSinh();
+            int? hocSinhId = this.getSelectedHocSinhId();
+
+            if (isPhanLoaiThuByHocSinh && hocSinhId == null)
+            {
+                // Phải chặn trước khi lưu: một phiếu thu học phí với HocSinhId NULL vừa không in
+                // được lớp, vừa không tính lại được truy thu của tháng sau.
+                LoggerFacade.Error("Không lưu phiếu thu: phân loại thu theo học sinh nhưng chưa chọn học sinh.", this.FormKey);
+                MessageBox.Show("Xin vui lòng chọn học sinh", "Chọn học sinh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
             this.luuPhieuThu();
             this.IsSaved = true;
 
-            if (isSelectedPhanLoaiThuByHocSinh())
+            if (isPhanLoaiThuByHocSinh)
             {
-                int? hocSinhId = this.getSelectedHocSinhId();
-
-                if (hocSinhId == null)
+                // Context riêng cho lần tính truy thu này: context của form đang giữ các dòng
+                // viewbangthutien của tháng hiện tại đã bị sửa trong bộ nhớ.
+                using (qlmamnonEntities truyThuEntities = StaticDataFacade.GetQLMNEntities())
                 {
-                    LoggerFacade.Error("Không tính lại truy thu vì phiếu thu theo học sinh nhưng chưa chọn học sinh.", this.FormKey);
-                }
-                else
-                {
-                    // Context riêng cho lần tính truy thu này: context của form đang giữ các dòng
-                    // viewbangthutien của tháng hiện tại đã bị sửa trong bộ nhớ, dùng lại sẽ làm
-                    // OriginalValues của bảng thu tiền tháng sau sai.
-                    using (qlmamnonEntities truyThuEntities = StaticDataFacade.GetQLMNEntities())
-                    {
-                        TruyThuService truyThuService = new TruyThuService();
-                        truyThuService.UpdateSoTienTruyThuForBangThuTienNextMonths(truyThuEntities, this.dateNgay.DateTime, hocSinhId.Value);
-                    }
+                    TruyThuService truyThuService = new TruyThuService();
+                    truyThuService.UpdateSoTienTruyThuForBangThuTienNextMonths(truyThuEntities, this.dateNgay.DateTime, hocSinhId.Value);
                 }
             }
 
@@ -219,21 +275,28 @@ namespace QLMamNon.Forms.ThuChi
         /// </summary>
         private int? getSelectedHocSinhId()
         {
-            object editValue = this.cmbHocSinh.EditValue;
+            return toNullableInt(this.cmbHocSinh.EditValue);
+        }
 
-            if (editValue == null || editValue == DBNull.Value)
+        /// <summary>
+        /// Giá trị int của một EditValue hay một ô trên lưới, hoặc null khi trống, DBNull hoặc
+        /// không phải số.
+        /// </summary>
+        private static int? toNullableInt(object value)
+        {
+            if (value == null || value == DBNull.Value)
             {
                 return null;
             }
 
-            int hocSinhId;
+            int result;
 
-            if (!int.TryParse(string.Format("{0}", editValue), out hocSinhId))
+            if (!int.TryParse(string.Format("{0}", value), out result))
             {
                 return null;
             }
 
-            return hocSinhId;
+            return result;
         }
 
         private void loadPhieuThu()

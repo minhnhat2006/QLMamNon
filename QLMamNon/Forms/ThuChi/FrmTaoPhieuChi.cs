@@ -43,6 +43,13 @@ namespace QLMamNon.Forms.ThuChi
         /// </summary>
         private string previousPhanLoaiChiDienGiai;
 
+        /// <summary>
+        /// True khi dữ liệu của lần mở form này đã được nạp. Đặt lại về false khi form đóng, nên
+        /// mỗi lần mở form dữ liệu được nạp đúng một lần, bất kể form được mở từ FrmPhieuChi
+        /// (có gọi InitFormData trước ShowDialog) hay trực tiếp từ ribbon (không gọi).
+        /// </summary>
+        private bool perOpenDataLoaded;
+
         #endregion
 
         public FrmTaoPhieuChi()
@@ -50,18 +57,31 @@ namespace QLMamNon.Forms.ThuChi
             this.FormKey = AppForms.FormTaoPhieuChi;
             // Context được tạo lại trong InitFormData() mỗi lần mở form.
             InitializeComponent();
+            this.Shown += new EventHandler(this.FrmTaoPhieuChi_Shown);
         }
 
         private void FrmTaoPhieuChi_Load(object sender, EventArgs e)
         {
-            this.InitFormData();
+            if (!this.perOpenDataLoaded)
+            {
+                this.InitFormData();
+            }
+        }
+
+        private void FrmTaoPhieuChi_Shown(object sender, EventArgs e)
+        {
+            // Mở trực tiếp từ ribbon thì không ai gọi InitFormData, và sự kiện Load chỉ chạy một
+            // lần cho cả đời form vì FormFactory dùng lại cùng một instance.
+            if (!this.perOpenDataLoaded)
+            {
+                this.InitFormData();
+            }
         }
 
         /// <summary>
-        /// Nạp dữ liệu vào các control của form. Phải gọi trước mỗi lần ShowDialog:
-        /// FormFactory dùng lại cùng một instance nên sự kiện Load chỉ chạy đúng một
-        /// lần, các lần mở sau form sẽ còn nguyên giá trị rỗng do resetForm() để lại
-        /// và dxValidationProvider.Validate() sẽ chặn việc lưu.
+        /// Nạp dữ liệu vào các control của form. FrmPhieuChi gọi trước mỗi lần ShowDialog; nếu
+        /// không ai gọi thì sự kiện Shown gọi thay, nên dữ liệu luôn được nạp đúng một lần cho
+        /// mỗi lần mở form.
         /// </summary>
         public void InitFormData()
         {
@@ -78,6 +98,8 @@ namespace QLMamNon.Forms.ThuChi
             {
                 this.resetForm();
             }
+
+            this.perOpenDataLoaded = true;
         }
 
         /// <summary>
@@ -92,12 +114,18 @@ namespace QLMamNon.Forms.ThuChi
             try
             {
                 newEntities.phanloaichis.Load();
-                this.entities = newEntities;
                 this.phanLoaiChiRowBindingSource.DataSource = newEntities.phanloaichis.Local.ToBindingList();
+                // Gán cuối cùng: nếu các lệnh trên lỗi thì form vẫn giữ context cũ đang dùng được,
+                // còn context mới bị hủy trong catch.
+                this.entities = newEntities;
             }
             catch (Exception ex)
             {
-                newEntities.Dispose();
+                if (!object.ReferenceEquals(this.entities, newEntities))
+                {
+                    newEntities.Dispose();
+                }
+
                 LoggerFacade.Error(ex, this.FormKey);
                 LoggerFacade.Error("Không nạp được danh sách phân loại chi cho form Tạo phiếu chi.", this.FormKey);
                 MessageBox.Show("Không nạp được danh sách phân loại chi. Xin vui lòng thử lại.",
@@ -105,7 +133,7 @@ namespace QLMamNon.Forms.ThuChi
                 return;
             }
 
-            if (previousEntities != null)
+            if (previousEntities != null && !object.ReferenceEquals(previousEntities, this.entities))
             {
                 previousEntities.Dispose();
             }
@@ -119,6 +147,8 @@ namespace QLMamNon.Forms.ThuChi
         private void FrmTaoPhieuChi_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.IsEditing = false;
+            // Lần mở sau phải nạp lại danh sách phân loại chi.
+            this.perOpenDataLoaded = false;
         }
 
         private void btnLuuTao_Click(object sender, EventArgs e)

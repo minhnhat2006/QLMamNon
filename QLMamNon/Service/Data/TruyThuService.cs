@@ -23,19 +23,26 @@ namespace QLMamNon.Service.Data
         /// sinh <c>hocSinhId</c> và cập nhật phần chênh lệch qua stored procedure.
         /// </summary>
         /// <remarks>
-        /// Context truyền vào nên là một context riêng, ngắn hạn (xem FrmTaoPhieuThu.onSavePhieuThu):
-        /// dòng viewbangthutien của tháng sau phải được theo dõi (tracked) để đọc được
-        /// OriginalValues/CurrentValues, nên nếu context đã nạp sẵn dòng đó từ trước thì
-        /// MergeOption.AppendOnly sẽ giữ lại giá trị cũ và phần chênh lệch sẽ sai.
-        /// Dòng đó được gỡ khỏi change tracker ở cuối hàm, vì viewbangthutien là entity set
+        /// Hàm không phụ thuộc vào việc người gọi truyền context nào: dòng viewbangthutien của
+        /// tháng sau phải được theo dõi (tracked) để đọc được OriginalValues/CurrentValues, nên nó
+        /// được đọc với MergeOption.OverwriteChanges - nếu context đã nạp sẵn dòng đó từ trước
+        /// (ví dụ context của lưới phiếu thu) thì giá trị gốc vẫn được lấy lại từ DB, thay vì
+        /// MergeOption.AppendOnly trả về đúng instance đã bị sửa và làm chênh lệch sai.
+        /// Dòng đó cũng được gỡ khỏi change tracker ở cuối hàm, vì viewbangthutien là entity set
         /// chỉ đọc (DefiningQuery) - để nguyên trạng thái Modified sẽ làm SaveChanges() của
         /// người gọi throw UpdateException.
+        /// Dù vậy, một context riêng và ngắn hạn vẫn là cách dùng được khuyến nghị
+        /// (xem FrmTaoPhieuThu.onSavePhieuThu).
         /// </remarks>
         public void UpdateSoTienTruyThuForBangThuTienNextMonths(qlmamnonEntities entities, DateTime ngay, int hocSinhId)
         {
             QLMNDaoJobInvoker qlmnDaoJobInvoker = new QLMNDaoJobInvoker();
             qlmnDaoJobInvoker.UpdateSoTienTruyThuOfBangThuTienCommand = new UpdateSoTienTruyThuOfBangThuTienCommand();
-            List<viewbangthutien> table = entities.getViewBangThuTienByNgayTinhAndHocSinhId(ngay.AddMonths(1), hocSinhId).ToList();
+
+            // OverwriteChanges thay vì AppendOnly (mặc định): xem <remarks>. Với một context mới
+            // thì hai MergeOption này cho kết quả như nhau, vì chưa có gì được theo dõi.
+            List<viewbangthutien> table = entities
+                .getViewBangThuTienByNgayTinhAndHocSinhId(ngay.AddMonths(1), hocSinhId, MergeOption.OverwriteChanges).ToList();
 
             if (ListUtil.IsEmpty(table))
             {
@@ -43,33 +50,39 @@ namespace QLMamNon.Service.Data
             }
 
             viewbangthutien viewBangThuTienRow = table[0];
-            List<bangthutien_khoanthu> bTTKTDataTable = entities.getBangThuTienKhoanThuByBangThuTienIds(viewBangThuTienRow.BangThuTienId.ToString()).ToList();
-            List<phieuthu> phieuThuDataTable = entities.getPhieuThuByHocSinhIdAndNgayTinh(-1, ngay).ToList();
-            Dictionary<int, viewbangthutien> prevMonthRowDictionary = this.evaluatePrevMonthViewBangThuTienTable(entities, ngay.AddMonths(-1), hocSinhId);
-            BangThuTienUtil.EvaluateValuesForViewBangThuTienRow(viewBangThuTienRow,
-                prevMonthRowDictionary != null && prevMonthRowDictionary.ContainsKey(viewBangThuTienRow.HocSinhId) ? prevMonthRowDictionary[viewBangThuTienRow.HocSinhId] : null,
-                bTTKTDataTable, phieuThuDataTable, false, false, true);
 
-            if (entities.Entry(viewBangThuTienRow).OriginalValues[ViewBangThuTienFieldName.ThanhTien] != null
-                && entities.Entry(viewBangThuTienRow).CurrentValues[ViewBangThuTienFieldName.ThanhTien] != null)
+            try
             {
-                long originalVersionToCompare = (long)entities.Entry(viewBangThuTienRow).OriginalValues[ViewBangThuTienFieldName.ThanhTien];
-                long currentVersionToCompare = (long)entities.Entry(viewBangThuTienRow).CurrentValues[ViewBangThuTienFieldName.ThanhTien];
+                List<bangthutien_khoanthu> bTTKTDataTable = entities.getBangThuTienKhoanThuByBangThuTienIds(viewBangThuTienRow.BangThuTienId.ToString()).ToList();
+                List<phieuthu> phieuThuDataTable = entities.getPhieuThuByHocSinhIdAndNgayTinh(-1, ngay).ToList();
+                Dictionary<int, viewbangthutien> prevMonthRowDictionary = this.evaluatePrevMonthViewBangThuTienTable(entities, ngay.AddMonths(-1), hocSinhId);
+                BangThuTienUtil.EvaluateValuesForViewBangThuTienRow(viewBangThuTienRow,
+                    prevMonthRowDictionary != null && prevMonthRowDictionary.ContainsKey(viewBangThuTienRow.HocSinhId) ? prevMonthRowDictionary[viewBangThuTienRow.HocSinhId] : null,
+                    bTTKTDataTable, phieuThuDataTable, false, false, true);
 
-                if (originalVersionToCompare != currentVersionToCompare)
+                if (entities.Entry(viewBangThuTienRow).OriginalValues[ViewBangThuTienFieldName.ThanhTien] != null
+                    && entities.Entry(viewBangThuTienRow).CurrentValues[ViewBangThuTienFieldName.ThanhTien] != null)
                 {
-                    qlmnDaoJobInvoker.UpdateSoTienTruyThuOfBangThuTienCommand.CommandParameter.Remove(UpdateSoTienTruyThuOfBangThuTienCommand.ParameterCurrentViewBangThuTien);
-                    qlmnDaoJobInvoker.UpdateSoTienTruyThuOfBangThuTienCommand.CommandParameter.Remove(UpdateSoTienTruyThuOfBangThuTienCommand.ParameterSoTienAdded);
-                    qlmnDaoJobInvoker.UpdateSoTienTruyThuOfBangThuTienCommand.CommandParameter.Add(UpdateSoTienTruyThuOfBangThuTienCommand.ParameterCurrentViewBangThuTien, viewBangThuTienRow);
-                    qlmnDaoJobInvoker.UpdateSoTienTruyThuOfBangThuTienCommand.CommandParameter.Add(UpdateSoTienTruyThuOfBangThuTienCommand.ParameterSoTienAdded, currentVersionToCompare - originalVersionToCompare);
-                    qlmnDaoJobInvoker.UpdateSoTienTruyThuOfBangThuTien();
+                    long originalVersionToCompare = (long)entities.Entry(viewBangThuTienRow).OriginalValues[ViewBangThuTienFieldName.ThanhTien];
+                    long currentVersionToCompare = (long)entities.Entry(viewBangThuTienRow).CurrentValues[ViewBangThuTienFieldName.ThanhTien];
+
+                    if (originalVersionToCompare != currentVersionToCompare)
+                    {
+                        qlmnDaoJobInvoker.UpdateSoTienTruyThuOfBangThuTienCommand.CommandParameter.Remove(UpdateSoTienTruyThuOfBangThuTienCommand.ParameterCurrentViewBangThuTien);
+                        qlmnDaoJobInvoker.UpdateSoTienTruyThuOfBangThuTienCommand.CommandParameter.Remove(UpdateSoTienTruyThuOfBangThuTienCommand.ParameterSoTienAdded);
+                        qlmnDaoJobInvoker.UpdateSoTienTruyThuOfBangThuTienCommand.CommandParameter.Add(UpdateSoTienTruyThuOfBangThuTienCommand.ParameterCurrentViewBangThuTien, viewBangThuTienRow);
+                        qlmnDaoJobInvoker.UpdateSoTienTruyThuOfBangThuTienCommand.CommandParameter.Add(UpdateSoTienTruyThuOfBangThuTienCommand.ParameterSoTienAdded, currentVersionToCompare - originalVersionToCompare);
+                        qlmnDaoJobInvoker.UpdateSoTienTruyThuOfBangThuTien();
+                    }
                 }
             }
-
-            // Dòng view đã bị sửa trong bộ nhớ ở trên. viewbangthutien là entity set chỉ đọc nên
-            // phải gỡ khỏi change tracker, để SaveChanges() của người gọi không throw UpdateException
-            // và để lần gọi sau trên cùng context đọc lại giá trị gốc từ DB.
-            entities.Entry(viewBangThuTienRow).State = EntityState.Detached;
+            finally
+            {
+                // Dòng view đã bị sửa trong bộ nhớ ở trên. viewbangthutien là entity set chỉ đọc nên
+                // phải gỡ khỏi change tracker, kể cả khi ở trên có lỗi: nếu không, SaveChanges() của
+                // người gọi sẽ throw UpdateException và che mất lỗi gốc.
+                entities.Entry(viewBangThuTienRow).State = EntityState.Detached;
+            }
         }
 
         private Dictionary<int, viewbangthutien> evaluatePrevMonthViewBangThuTienTable(qlmamnonEntities entities, DateTime ngayTinh, int hocSinhId)
