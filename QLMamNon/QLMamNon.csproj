@@ -1314,7 +1314,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="CLAUDE.md" />
     <None Include="client_secret.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
