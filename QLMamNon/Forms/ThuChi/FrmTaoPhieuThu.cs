@@ -67,25 +67,15 @@ namespace QLMamNon.Forms.ThuChi
         {
             if (!this.isStaticDataLoaded)
             {
-                entities = StaticDataFacade.GetQLMNEntities();
-                List<hocsinh> hocSinhTable = entities.getHocSinhForThongTinHocSinh(null, null, null, null, null, false, null).ToList();
-                ThongTinHocSinhUtil.EvaluateLopInfoForHocSinhTable(entities, hocSinhTable);
-                this.hocSinhRowBindingSource.DataSource = hocSinhTable;
-                this.hocSinhRowBindingSource.Filter = "LopDangHoc IS NOT NULL";
+                // Phân loại thu lấy từ cache dữ liệu tĩnh, không thay đổi trong một phiên làm việc.
                 this.phanLoaiThuRowBindingSource.DataSource = StaticDataFacade.Get(StaticDataKeys.PhanLoaiThu);
-
-                SoThuTienService soThuTienService = new SoThuTienService();
-                DateTime endOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
-                List<BangKeThuTienItem> allBangKeThuTienItems = soThuTienService.GetBangKeTongHopThuTienForTaoPhieuThu(entities, endOfMonth, null);
-
-                hocSinhIdToBangKeThuTienItems = new Dictionary<int, BangKeThuTienItem>();
-                foreach (var item in allBangKeThuTienItems)
-                {
-                    hocSinhIdToBangKeThuTienItems.Add(item.HocSinhId, item);
-                }
-
                 this.isStaticDataLoaded = true;
             }
+
+            // Danh sách học sinh và bảng kê thu tiền phải nạp lại mỗi lần mở form: FormFactory
+            // dùng lại cùng một instance nên nếu chỉ nạp một lần thì học sinh mới không xuất hiện
+            // và "Còn lại" vẫn tính theo số đã thu lúc mở form lần đầu.
+            this.reloadPerOpenData();
 
             if (this.IsEditing && this.PhieuThuRow != null)
             {
@@ -94,6 +84,57 @@ namespace QLMamNon.Forms.ThuChi
             else
             {
                 resetForm();
+            }
+        }
+
+        /// <summary>
+        /// Nạp lại danh sách học sinh và bảng kê thu tiền trên một context mới, rồi hủy context cũ.
+        /// Dữ liệu được dựng xong vào biến cục bộ trước khi gán vào form, để khi nạp lỗi thì form
+        /// vẫn giữ nguyên dữ liệu của lần mở trước thay vì còn một nửa.
+        /// </summary>
+        private void reloadPerOpenData()
+        {
+            qlmamnonEntities previousEntities = this.entities;
+            qlmamnonEntities newEntities = StaticDataFacade.GetQLMNEntities();
+
+            try
+            {
+                List<hocsinh> hocSinhTable = newEntities.getHocSinhForThongTinHocSinh(null, null, null, null, null, false, null).ToList();
+                ThongTinHocSinhUtil.EvaluateLopInfoForHocSinhTable(newEntities, hocSinhTable);
+
+                SoThuTienService soThuTienService = new SoThuTienService();
+                DateTime endOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
+                List<BangKeThuTienItem> allBangKeThuTienItems = soThuTienService.GetBangKeTongHopThuTienForTaoPhieuThu(newEntities, endOfMonth, null);
+
+                Dictionary<int, BangKeThuTienItem> bangKeThuTienItems = new Dictionary<int, BangKeThuTienItem>();
+
+                foreach (BangKeThuTienItem item in allBangKeThuTienItems)
+                {
+                    // Một học sinh có thể có nhiều dòng bảng kê: lấy dòng đầu tiên, không để Add throw.
+                    if (!bangKeThuTienItems.ContainsKey(item.HocSinhId))
+                    {
+                        bangKeThuTienItems.Add(item.HocSinhId, item);
+                    }
+                }
+
+                this.entities = newEntities;
+                this.hocSinhIdToBangKeThuTienItems = bangKeThuTienItems;
+                this.hocSinhRowBindingSource.DataSource = hocSinhTable;
+                this.hocSinhRowBindingSource.Filter = "LopDangHoc IS NOT NULL";
+            }
+            catch (Exception ex)
+            {
+                newEntities.Dispose();
+                LoggerFacade.Error(ex, this.FormKey);
+                LoggerFacade.Error("Không nạp được danh sách học sinh và bảng kê thu tiền cho form Tạo phiếu thu.", this.FormKey);
+                MessageBox.Show("Không nạp được danh sách học sinh và số tiền còn lại. Xin vui lòng thử lại.",
+                    "Lỗi nạp dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (previousEntities != null)
+            {
+                previousEntities.Dispose();
             }
         }
 
@@ -120,6 +161,9 @@ namespace QLMamNon.Forms.ThuChi
             if (this.onSavePhieuThu())
             {
                 this.btnIn_Click(sender, e);
+                // Form không đóng sau khi lưu, nên phải nạp lại bảng kê thu tiền: nếu không,
+                // phiếu thu kế tiếp của cùng học sinh vẫn tính "Còn lại" theo số đã thu cũ.
+                this.reloadPerOpenData();
                 this.resetForm();
                 FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.AddedAndAddingPhieuThuCaption);
                 this.IsEditing = false;
@@ -147,10 +191,49 @@ namespace QLMamNon.Forms.ThuChi
 
             if (isSelectedPhanLoaiThuByHocSinh())
             {
-                this.updateSoTienTruyThuForBangThuTienNextMonths(this.dateNgay.DateTime, (int)this.cmbHocSinh.EditValue);
+                int? hocSinhId = this.getSelectedHocSinhId();
+
+                if (hocSinhId == null)
+                {
+                    LoggerFacade.Error("Không tính lại truy thu vì phiếu thu theo học sinh nhưng chưa chọn học sinh.", this.FormKey);
+                }
+                else
+                {
+                    // Context riêng cho lần tính truy thu này: context của form đang giữ các dòng
+                    // viewbangthutien của tháng hiện tại đã bị sửa trong bộ nhớ, dùng lại sẽ làm
+                    // OriginalValues của bảng thu tiền tháng sau sai.
+                    using (qlmamnonEntities truyThuEntities = StaticDataFacade.GetQLMNEntities())
+                    {
+                        TruyThuService truyThuService = new TruyThuService();
+                        truyThuService.UpdateSoTienTruyThuForBangThuTienNextMonths(truyThuEntities, this.dateNgay.DateTime, hocSinhId.Value);
+                    }
+                }
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Id học sinh đang chọn, hoặc null khi phân loại thu không theo học sinh (cmbHocSinh
+        /// để trống). EditValue có thể là null, DBNull hoặc chuỗi rỗng nên không ép kiểu trực tiếp.
+        /// </summary>
+        private int? getSelectedHocSinhId()
+        {
+            object editValue = this.cmbHocSinh.EditValue;
+
+            if (editValue == null || editValue == DBNull.Value)
+            {
+                return null;
+            }
+
+            int hocSinhId;
+
+            if (!int.TryParse(string.Format("{0}", editValue), out hocSinhId))
+            {
+                return null;
+            }
+
+            return hocSinhId;
         }
 
         private void loadPhieuThu()
@@ -184,7 +267,7 @@ namespace QLMamNon.Forms.ThuChi
             long soTienChuyenKhoan = this.cbPaymentType.SelectedIndex == 1 ? (long)this.txtSoTien.Value : 0;
             string maPhieu = this.txtMaPhieu.Text;
             string ghiChu = this.txtGhiChu.Text;
-            int? hocSinhId = (int?)this.cmbHocSinh.EditValue;
+            int? hocSinhId = this.getSelectedHocSinhId();
             int? phanLoaiThuId = (int?)this.cmbPhanLoaiThu.EditValue;
             PhieuThuService phieuThuService = new PhieuThuService();
             phieuThuService.InsertPhieuThu(ngay, soTien, soTienChuyenKhoan, maPhieu, ghiChu, hocSinhId, phanLoaiThuId);
@@ -200,7 +283,7 @@ namespace QLMamNon.Forms.ThuChi
             long soTienChuyenKhoan = this.cbPaymentType.SelectedIndex == 1 ? (long)this.txtSoTien.Value : 0;
             string maPhieu = this.txtMaPhieu.Text;
             string ghiChu = this.txtGhiChu.Text;
-            int? hocSinhId = (int?)this.cmbHocSinh.EditValue;
+            int? hocSinhId = this.getSelectedHocSinhId();
             int? phanLoaiThuId = (int?)this.cmbPhanLoaiThu.EditValue;
             PhieuThuService phieuThuService = new PhieuThuService();
             phieuThuService.UpdatePhieuThu(this.PhieuThuRow, ngay, soTien, soTienChuyenKhoan, maPhieu, ghiChu, hocSinhId, phanLoaiThuId);
@@ -239,14 +322,31 @@ namespace QLMamNon.Forms.ThuChi
             rptPhieuThuTien.SoTien.Value = this.txtSoTien.Value;
             //rptPhieuThuTien.SoTienChuyenKhoan.Value = this.cbPaymentType.SelectedIndex == 1 ? (long)this.txtSoTien.Value : 0;
             rptPhieuThuTien.ConLai.Value = txtConLai.EditValue;
-            Dictionary<int, lop> hocSinhIdToLops = StaticDataUtil.GetLopsByHocSinhIds(entities, new List<int>() { (int)cmbHocSinh.EditValue }, dateNgay.DateTime);
-            if (hocSinhIdToLops.ContainsKey((int)cmbHocSinh.EditValue))
+
+            // Phiếu thu của phân loại thu không theo học sinh thì không có học sinh được chọn:
+            // bỏ qua việc tra lớp và không in tham số Lop.
+            int? hocSinhId = this.getSelectedHocSinhId();
+
+            if (hocSinhId != null && this.entities != null)
             {
-                rptPhieuThuTien.Lop.Value = hocSinhIdToLops[(int)cmbHocSinh.EditValue].Name;
+                Dictionary<int, lop> hocSinhIdToLops = StaticDataUtil.GetLopsByHocSinhIds(this.entities, new List<int>() { hocSinhId.Value }, dateNgay.DateTime);
+
+                if (hocSinhIdToLops.ContainsKey(hocSinhId.Value))
+                {
+                    rptPhieuThuTien.Lop.Value = hocSinhIdToLops[hocSinhId.Value].Name;
+                }
             }
 
             AuthenticatedEntity authenticatedEntity = StaticDataFacade.Get(StaticDataKeys.AuthenticatedData) as AuthenticatedEntity;
-            rptPhieuThuTien.NguoiThu.Value = authenticatedEntity.User.UserName;
+
+            if (authenticatedEntity != null && authenticatedEntity.User != null)
+            {
+                rptPhieuThuTien.NguoiThu.Value = authenticatedEntity.User.UserName;
+            }
+            else
+            {
+                LoggerFacade.Error("Không xác định được người thu khi in phiếu thu: thiếu dữ liệu đăng nhập.", this.FormKey);
+            }
 
             ReportPrintTool printTool = new ReportPrintTool(rptPhieuThuTien);
             printTool.Print((string)Settings.Default["POSPrinterName"]);
@@ -269,9 +369,11 @@ namespace QLMamNon.Forms.ThuChi
                 return;
             }
 
-            if (cmbHocSinh.EditValue != null && hocSinhIdToBangKeThuTienItems.ContainsKey((int)cmbHocSinh.EditValue))
+            int? hocSinhId = this.getSelectedHocSinhId();
+
+            if (hocSinhId != null && hocSinhIdToBangKeThuTienItems != null && hocSinhIdToBangKeThuTienItems.ContainsKey(hocSinhId.Value))
             {
-                BangKeThuTienItem bangKeThuTienItem = hocSinhIdToBangKeThuTienItems[(int)cmbHocSinh.EditValue];
+                BangKeThuTienItem bangKeThuTienItem = hocSinhIdToBangKeThuTienItems[hocSinhId.Value];
                 txtSoTien.Value = (decimal)(bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu);
             }
             else
@@ -282,11 +384,13 @@ namespace QLMamNon.Forms.ThuChi
 
         private void txtSoTien_EditValueChanged(object sender, EventArgs e)
         {
-            if (cmbHocSinh.EditValue != null && !string.IsNullOrWhiteSpace(cmbHocSinh.EditValue.ToString()) && hocSinhIdToBangKeThuTienItems.ContainsKey((int)cmbHocSinh.EditValue))
+            int? hocSinhId = this.getSelectedHocSinhId();
+
+            if (hocSinhId != null && hocSinhIdToBangKeThuTienItems != null && hocSinhIdToBangKeThuTienItems.ContainsKey(hocSinhId.Value))
             {
-                BangKeThuTienItem bangKeThuTienItem = hocSinhIdToBangKeThuTienItems[(int)cmbHocSinh.EditValue];
+                BangKeThuTienItem bangKeThuTienItem = hocSinhIdToBangKeThuTienItems[hocSinhId.Value];
                 double soTienConLai = 0;
-                if (IsEditing)
+                if (IsEditing && PhieuThuRow != null)
                 {
                     soTienConLai = bangKeThuTienItem.PhaiThu - bangKeThuTienItem.DaThu + PhieuThuRow.SoTien - Convert.ToDouble(txtSoTien.EditValue);
                 }
