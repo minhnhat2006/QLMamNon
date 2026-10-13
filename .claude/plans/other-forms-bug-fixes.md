@@ -368,6 +368,27 @@ fully loaded — an exception inside `loadHocSinhToGridDen`, a lớp switched wi
   `hocSinhRowBindingSourceDi.RemoveCurrent()`, which removes whatever is *currently* selected in the
   left grid — not necessarily the student just moved. Remove the moved student by id instead.
 
+**3.13 (transferred from Task 2 — the edit path for an existing member's ngày vào lớp).** Task 2
+split the display value into `[NotMapped] hocsinh.NgayVaoLopDisplay` and left the mapped
+`hocsinh.NgayVaoLop` as the real-write field, then made `onSaving` resolve the date display-first
+with a null-skip guard. Two consequences land here:
+
+- **An intentional edit is currently ignored.** `UCEditFormXepLop.Designer.cs:95` binds the date
+  editor to the mapped `NgayVaoLop`, but `onSaving` now prefers `NgayVaoLopDisplay`, so a user who
+  edits an existing member's date sees it discarded. And re-pointing the editor at the display
+  property would be worse: it is `[NotMapped]`, so EF would never mark the row `Modified` and
+  `onSaving`'s `State == Modified` test would never fire.
+- **The fix is snapshot-based change detection**, the same pattern Task 8 uses for item 3.3.
+  After `loadHocSinhToGridDen`, snapshot each row's resolved join date into a
+  `Dictionary<int, DateTime?>` keyed by `HocSinhId`. At save time, treat a row whose editor value
+  differs from its snapshot as needing `insertHocSinhToLop`, in addition to the rows EF reports as
+  `Added`/`Detached`/`Modified`. Refresh the snapshot after a successful save. Keep the
+  display-first resolution and the null-skip guard Task 2 added — they are correct; this only adds
+  the missing "the user changed it" trigger.
+
+Do not revert Task 2's narrowing of which rows reach `insertHocSinhToLop`: running the procedure for
+every loaded row was itself a bug (see the ruling recorded in Task 2's interfaces).
+
 **Do not change** `new DateTime(namHoc.Value + 1, 1, 1)` at `FrmXepLop..Service.cs:38`. It looks
 wrong but may be the intended school-year convention; it is listed as out of scope.
 
@@ -735,6 +756,15 @@ the user touches anything — **Lưu throws even with no edits**.
 - Fix `:82` — `IntUtil.StringToInt((string)cmbThang.EditValue).Value` casts an editable combo's
   value to `string` and then dereferences an `int?`. Resolve as `int?`, validate `1 <= thang <= 12`,
   and return early with a message box rather than throwing.
+
+**2.4 (transferred from Task 2 — the `NgayVaoLop` column has no maintainer).** `viewhoctap.NgayVaoLop`
+is `hs.NgayVaoLop` (`DB/qlmamnon.sql:1575`), and Task 2 removed the accidental write that used to
+keep `hocsinh.NgayVaoLop` populated — nothing in the application writes that column now, so this
+form's "Ngày vào lớp" column reads blank for every student placed through `Xếp lớp`. The view also
+exposes `DateJoin` (from `hocsinh_lop`), which is the authoritative join date. Re-point the column
+to `DateJoin` in code-behind (not the Designer), or give the view's partial class a display property
+resolving `DateJoin` first and `NgayVaoLop` second, consistent with how Task 2 resolved the same
+question for `hocsinh`. Say which you chose and why.
 
 This form is currently unreachable: its menu handler at `FrmMain.cs:91` is commented out. **Leave
 `FrmMain.cs` alone** — keep the form compiling and correct, do not re-enable the menu item.
