@@ -176,17 +176,58 @@ namespace QLMamNon.Forms.ThuChi
 
             if (confirmResult == DialogResult.Yes)
             {
-                int phieuThuId = (int)this.GridViewMain.GetFocusedRowCellValue("PhieuThuId");
-                DateTime ngay = (DateTime)this.GridViewMain.GetFocusedRowCellValue("Ngay");
-                long soTien = (long)this.GridViewMain.GetFocusedRowCellValue("SoTien");
-                string maPhieu = (string)this.GridViewMain.GetFocusedRowCellValue("MaPhieu");
-                int? hocSinhId = (int?)this.GridViewMain.GetFocusedRowCellValue("HocSinhId");
-                DateTime createdDate = (DateTime)this.GridViewMain.GetFocusedRowCellValue("CreatedDate");
-                int phanLoaiThuId = (int)this.GridViewMain.GetFocusedRowCellValue("PhanLoaiThuId");
+                // Các cột này cho phép NULL nên không được unbox trực tiếp.
+                object phieuThuIdValue = this.GridViewMain.GetFocusedRowCellValue(this.TablePrimaryKey);
+                object ngayValue = this.GridViewMain.GetFocusedRowCellValue("Ngay");
+                object hocSinhIdValue = this.GridViewMain.GetFocusedRowCellValue("HocSinhId");
+
+                if (phieuThuIdValue == null || phieuThuIdValue == DBNull.Value)
+                {
+                    return;
+                }
+
+                int phieuThuId = Convert.ToInt32(phieuThuIdValue);
+                DateTime? ngay = (ngayValue == null || ngayValue == DBNull.Value) ? (DateTime?)null : Convert.ToDateTime(ngayValue);
+                int? hocSinhId = (hocSinhIdValue == null || hocSinhIdValue == DBNull.Value) ? (int?)null : Convert.ToInt32(hocSinhIdValue);
+
                 // Delete Phieu Thu
-                var phieuThu = new phieuthu() { PhieuThuId=phieuThuId };
-                this.Entities.Entry(phieuThu).State = EntityState.Deleted;
-                this.Entities.SaveChanges();
+                var phieuThu = new phieuthu() { PhieuThuId = phieuThuId };
+
+                try
+                {
+                    this.Entities.Entry(phieuThu).State = EntityState.Deleted;
+                    this.Entities.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    // Bỏ entity vừa đánh dấu xóa để lần lưu sau không bị kẹt vì nó.
+                    try
+                    {
+                        this.Entities.Entry(phieuThu).State = EntityState.Detached;
+                    }
+                    catch (Exception)
+                    {
+                    }
+
+                    this.onSavingError(ex);
+                    return;
+                }
+
+                // Phiếu thu đã xóa thì số tiền truy thu của tháng sau không còn được trừ phiếu này nữa.
+                if (hocSinhId.HasValue && ngay.HasValue)
+                {
+                    try
+                    {
+                        TruyThuService truyThuService = new TruyThuService();
+                        truyThuService.UpdateSoTienTruyThuForBangThuTienNextMonths(this.Entities, ngay.Value, hocSinhId.Value);
+                    }
+                    catch (Exception ex)
+                    {
+                        LoggerFacade.Error(ex, this.FormKey);
+                        MessageBox.Show(String.Format("Đã xóa {0} nhưng không thể cập nhật lại số tiền truy thu của tháng sau.\n\n{1}", this.DanhMuc, ex.Message), "Lỗi",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
 
                 this.loadPhieuThu();
                 FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.DeletedCaption);
