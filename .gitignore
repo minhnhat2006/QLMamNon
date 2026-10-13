@@ -31,3 +31,7 @@
 /Setup/Release/setup.exe
 /Setup/Release/Setup.msi
 *.htm
+
+# Claude Code: personal overrides and session worktrees stay local
+/.claude/settings.local.json
+/.claude/worktrees/
