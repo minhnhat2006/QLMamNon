@@ -3,9 +3,12 @@
     public static class ViewBangThuTienFieldName
     {
         public const string SXThangTruoc = "SXThangTruoc";
+        public const string SoTienSXThangTruoc = "SoTienSXThangTruoc";
         public const string AnSangThangTruoc = "AnSangThangTruoc";
+        public const string SoTienAnSangThangTruoc = "SoTienAnSangThangTruoc";
         public const string SoTienAnSangThangNay = "SoTienAnSangThangNay";
         public const string AnToiThangTruoc = "AnToiThangTruoc";
+        public const string SoTienAnToiThangTruoc = "SoTienAnToiThangTruoc";
         public const string SoTienAnToiThangNay = "SoTienAnToiThangNay";
         public const string SoTienNangKhieu = "SoTienNangKhieu";
         public const string SoTienTruyThu = "SoTienTruyThu";
@@ -16,7 +19,6 @@
         public const string BanTru = "BanTru";
         public const string HocPhi = "HocPhi";
         public const string PhucVuBanTru = "PhucVuBanTru";
-        public const string TienAnVaSua = "TienAnSua";
         public const string TienSua = "TienSua";
         public const string SoTienAnSangConLai = "SoTienAnSangConLai";
         public const string SoTienAnToiConLai = "SoTienAnToiConLai";

@@ -162,6 +162,7 @@ namespace QLMamNon.Forms.ThuChi
             this.txtGhiChu.Text = this.PhieuThuRow.GhiChu;
             this.cmbHocSinh.EditValue = this.PhieuThuRow.HocSinhId;
             this.cmbPhanLoaiThu.EditValue = this.PhieuThuRow.PhanLoaiThuId;
+            this.txtSoTien_EditValueChanged(this.txtSoTien, EventArgs.Empty);
         }
 
         private void luuPhieuThu()

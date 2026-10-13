@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "plansDirectory": ".claude/plans",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git blame *)",
+      "Bash(MSBuild.exe *)"
+    ],
+    "ask": [
+      "Edit(**/*.Designer.cs)",
+      "Edit(**/*.resx)",
+      "Edit(QLMamNon/Dao/QLMNModel.edmx)",
+      "Edit(DB/**)"
+    ],
+    "deny": [
+      "Read(QLMamNon/client_secret.json)",
+      "Edit(QLMamNon/client_secret.json)"
+    ]
+  }
+}

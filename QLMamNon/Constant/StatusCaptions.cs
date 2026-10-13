@@ -13,6 +13,7 @@ namespace QLMamNon.Constant
         public static readonly string SavedCaption = "Đã lưu";
         public static readonly string DeletedCaption = "Đã xóa";
         public static readonly string CanceledCaption = "Đã hủy bỏ";
+        public static readonly string SaveFailedCaption = "Lưu không thành công";
 
         public static readonly string AddingPhieuChiCaption = "Đang tạo Phiếu chi";
         public static readonly string AddedPhieuChiCaption = "Đã tạo Phiếu chi";
