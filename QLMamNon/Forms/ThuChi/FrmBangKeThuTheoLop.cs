@@ -29,6 +29,17 @@ namespace QLMamNon.Forms.ThuChi
             entities = StaticDataFacade.GetQLMNEntities();
 
             InitializeComponent();
+
+            this.FormClosed += new FormClosedEventHandler(FrmBangKeThuTheoLop_FormClosed);
+        }
+
+        private void FrmBangKeThuTheoLop_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.entities != null)
+            {
+                this.entities.Dispose();
+                this.entities = null;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

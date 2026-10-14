@@ -35,6 +35,17 @@ namespace QLMamNon.Forms.ThuChi
 
             this.dateTuNgay.EditValue = DateTime.Now;
             this.dateDenNgay.EditValue = DateTime.Now;
+
+            this.FormClosed += new FormClosedEventHandler(FrmSoQuyTienMatTheoNgay_FormClosed);
+        }
+
+        private void FrmSoQuyTienMatTheoNgay_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.entities != null)
+            {
+                this.entities.Dispose();
+                this.entities = null;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

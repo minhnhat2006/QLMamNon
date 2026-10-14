@@ -110,6 +110,8 @@ namespace QLMamNon.Facade
         {
             ReportPrintTool printTool = new ReportPrintTool(rpt);
             printTool.ShowPreview();
+            printTool.Dispose();
+            rpt.Dispose();
         }
 
         public static void CloseForm(string form)
