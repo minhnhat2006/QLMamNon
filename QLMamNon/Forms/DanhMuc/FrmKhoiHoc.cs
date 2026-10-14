@@ -37,7 +37,7 @@ namespace QLMamNon.Forms.DanhMuc
 
             this.TablePrimaryKey = "KhoiId";
             this.DanhMuc = DanhMucConstant.KhoiHoc;
-            this.FormKey = AppForms.FormDanhMucTruongHoc;
+            this.FormKey = AppForms.FormDanhMucKhoiHoc;
 
             this.gvMain.OptionsEditForm.CustomEditFormLayout = new UCEditFormKhoiHoc();
             this.loadKhoiData();

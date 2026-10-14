@@ -31,7 +31,7 @@ namespace QLMamNon.Forms.ThuChi
 
         public FrmSoTheoDoiTaiSan()
         {
-            this.FormKey = AppForms.FormBaoCaoChiTietHoatDongTaiChinh;
+            this.FormKey = AppForms.FormSoTheoDoiTaiSan;
             entities = StaticDataFacade.GetQLMNEntities();
 
             InitializeComponent();

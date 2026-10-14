@@ -83,14 +83,12 @@ namespace QLMamNon.Forms.Resource
 
         public string GetFormCaption(string key)
         {
-            Form form = this.GetForm(key);
-
-            if (form != null)
+            if (!forms.ContainsKey(key) || forms[key].IsDisposed)
             {
-                return form.Text;
+                return CommonConstant.EMPTY;
             }
 
-            return CommonConstant.EMPTY;
+            return forms[key].Text;
         }
 
         public void RemoveForm(string key)

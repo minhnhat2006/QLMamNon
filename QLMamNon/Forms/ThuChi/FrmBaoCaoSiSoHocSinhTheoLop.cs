@@ -24,7 +24,7 @@ namespace QLMamNon.Forms.ThuChi
 
         public FrmBaoCaoSiSoHocSinhTheoLop()
         {
-            FormKey = AppForms.FormBangKeThuHocPhi;
+            FormKey = AppForms.FormBaoCaoSiSoHocSinhTheoLop;
             entities = StaticDataFacade.GetQLMNEntities();
 
             InitializeComponent();

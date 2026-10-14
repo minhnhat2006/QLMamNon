@@ -25,7 +25,7 @@ namespace QLMamNon.Forms.ThuChi
 
         public FrmBangKeThuTheoLop()
         {
-            FormKey = AppForms.FormBangKeThuHocPhi;
+            FormKey = AppForms.FormBangKeThuTheoLop;
             entities = StaticDataFacade.GetQLMNEntities();
 
             InitializeComponent();

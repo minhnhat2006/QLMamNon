@@ -37,7 +37,7 @@ namespace QLMamNon.Forms.DanhMuc
 
             this.TablePrimaryKey = "LopId";
             this.DanhMuc = DanhMucConstant.LopHoc;
-            this.FormKey = AppForms.FormDanhMucTruongHoc;
+            this.FormKey = AppForms.FormDanhMucLopHoc;
 
             this.gvMain.OptionsEditForm.CustomEditFormLayout = new UCEditFormLopHoc(Entities);
             this.loadLopData();

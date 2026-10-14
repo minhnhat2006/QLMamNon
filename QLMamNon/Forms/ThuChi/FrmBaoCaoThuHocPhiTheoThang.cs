@@ -23,7 +23,7 @@ namespace QLMamNon.Forms.ThuChi
 
         public FrmBaoCaoThuHocPhiTheoThang()
         {
-            FormKey = AppForms.FormDanhSachChuaNopHocPhi;
+            FormKey = AppForms.FormBaoCaoThuHocPhiTheoThang;
 
             InitializeComponent();
         }

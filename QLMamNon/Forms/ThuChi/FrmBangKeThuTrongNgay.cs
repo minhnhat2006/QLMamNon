@@ -25,7 +25,7 @@ namespace QLMamNon.Forms.ThuChi
 
         public FrmBangKeThuTrongNgay()
         {
-            FormKey = AppForms.FormBangKeThuHocPhi;
+            FormKey = AppForms.FormBangKeThuTrongNgay;
             entities = StaticDataFacade.GetQLMNEntities();
 
             InitializeComponent();
