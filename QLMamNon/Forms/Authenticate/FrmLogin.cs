@@ -20,7 +20,7 @@ namespace QLMamNon.Forms.Authenticate
 
             InitializeComponent();
 
-            this.FormClosed += (sender, e) => entities.Dispose();
+            this.FormClosed += (sender, e) => { entities.Dispose(); entities = StaticDataFacade.GetQLMNEntities(); };
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

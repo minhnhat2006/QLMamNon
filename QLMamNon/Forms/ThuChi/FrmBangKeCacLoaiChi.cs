@@ -37,7 +37,7 @@ namespace QLMamNon.Forms.ThuChi
             if (this.entities != null)
             {
                 this.entities.Dispose();
-                this.entities = null;
+                this.entities = StaticDataFacade.GetQLMNEntities();
             }
         }
 
@@ -113,7 +113,7 @@ namespace QLMamNon.Forms.ThuChi
             {
                 DateTime date = fromDate.AddDays(i);
 
-                if (i == 0 || date.DayOfWeek == DayOfWeek.Monday)
+                if (date.DayOfWeek == DayOfWeek.Monday || (i == 0 && date.DayOfWeek != DayOfWeek.Sunday))
                 {
                     week++;
                     startOfWeek = date.Day;

@@ -36,7 +36,7 @@ namespace QLMamNon.Forms.ThuChi
             if (this.entities != null)
             {
                 this.entities.Dispose();
-                this.entities = null;
+                this.entities = StaticDataFacade.GetQLMNEntities();
             }
         }
 

@@ -219,7 +219,10 @@ namespace QLMamNon.Forms.ThuChi
                     try
                     {
                         TruyThuService truyThuService = new TruyThuService();
-                        truyThuService.UpdateSoTienTruyThuForBangThuTienNextMonths(this.Entities, ngay.Value, hocSinhId.Value);
+                        using (qlmamnonEntities truyThuEntities = StaticDataFacade.GetQLMNEntities())
+                        {
+                            truyThuService.UpdateSoTienTruyThuForBangThuTienNextMonths(truyThuEntities, ngay.Value, hocSinhId.Value);
+                        }
                     }
                     catch (Exception ex)
                     {

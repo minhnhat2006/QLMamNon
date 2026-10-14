@@ -109,7 +109,7 @@ namespace QLMamNon.Facade
         public static void ShowReport(XtraReport rpt)
         {
             ReportPrintTool printTool = new ReportPrintTool(rpt);
-            printTool.ShowPreview();
+            printTool.ShowPreviewDialog();
             printTool.Dispose();
             rpt.Dispose();
         }
