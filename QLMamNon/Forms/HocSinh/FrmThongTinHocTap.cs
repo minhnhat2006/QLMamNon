@@ -97,7 +97,7 @@ namespace QLMamNon.Forms.HocSinh
             int nam = (int)cmbNam.EditValue;
 
             // cmbThang is an editable combo — EditValue may be any object; parse defensively.
-            int? thangNullable = IntUtil.StringToInt((string)cmbThang.EditValue);
+            int? thangNullable = IntUtil.StringToInt(Convert.ToString(cmbThang.EditValue));
             if (thangNullable == null || thangNullable.Value < 1 || thangNullable.Value > 12)
             {
                 System.Windows.Forms.MessageBox.Show("Tháng không hợp lệ. Vui lòng chọn tháng từ 1 đến 12.", "Lỗi",
