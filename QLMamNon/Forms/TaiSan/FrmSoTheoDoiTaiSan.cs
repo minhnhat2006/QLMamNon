@@ -51,14 +51,17 @@ namespace QLMamNon.Forms.ThuChi
             }
 
             RptSoTheoDoiTaiSan rpt = new RptSoTheoDoiTaiSan();
-            List<viewbangiaotaisan> table = entities.getViewBanGiaoTaiSanByYear((int)cmbYear.EditValue).ToList();
+            // OrderBy TaiSanId so "first row of an asset" grouping logic is reliable
+            List<viewbangiaotaisan> table = entities.getViewBanGiaoTaiSanByYear(Convert.ToInt32(cmbYear.EditValue)).ToList().OrderBy(row => row.TaiSanId).ToList();
             List<SoTheoDoiTaiSanItem> soTheoDoiTaiSan = new List<SoTheoDoiTaiSanItem>();
             SoTheoDoiTaiSanItem prevSoTheoDoiTaiSanItem = null;
             SoTheoDoiTaiSanItem soTheoDoiTaiSanItem = null;
 
             foreach (viewbangiaotaisan row in table)
             {
-                row.LopName = StaticDataUtil.GetLopNameByLopId(row.LopId.Value);
+                // LopId is nullable — coalesce to avoid crash on unassigned handover rows
+                row.LopName = row.LopId.HasValue ? StaticDataUtil.GetLopNameByLopId(row.LopId.Value) : CommonConstant.EMPTY;
+                double soLuongBanGiao = row.SoLuongBanGiao.HasValue ? row.SoLuongBanGiao.Value : 0;
 
                 if (prevSoTheoDoiTaiSanItem != null && prevSoTheoDoiTaiSanItem.TaiSanId == row.TaiSanId)
                 {
@@ -69,8 +72,8 @@ namespace QLMamNon.Forms.ThuChi
                         LyDoGiam = "Bàn giao",
                         NgayChungTuGiam = row.NgayChungTu,
                         SoChungTuGiam = row.SoChungTu,
-                        SoLuongBanGiao = row.SoLuongBanGiao.Value,
-                        SoTienBanGiao = row.DonGia * row.SoLuongBanGiao.Value,
+                        SoLuongBanGiao = soLuongBanGiao,
+                        SoTienBanGiao = row.DonGia * soLuongBanGiao,
                     };
                 }
                 else
@@ -88,8 +91,8 @@ namespace QLMamNon.Forms.ThuChi
                         SoChungTu = row.SoChungTu,
                         SoChungTuGiam = row.SoChungTu,
                         SoLuong = row.SoLuong,
-                        SoLuongBanGiao = row.SoLuongBanGiao.Value,
-                        SoTienBanGiao = row.DonGia * row.SoLuongBanGiao.Value,
+                        SoLuongBanGiao = soLuongBanGiao,
+                        SoTienBanGiao = row.DonGia * soLuongBanGiao,
                         ThanhTien = row.SoLuong * row.DonGia
                     };
                 }

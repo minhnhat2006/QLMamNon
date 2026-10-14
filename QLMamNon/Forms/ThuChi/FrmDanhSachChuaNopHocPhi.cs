@@ -18,14 +18,11 @@ namespace QLMamNon.Forms.ThuChi
 
         protected string FormKey { get; set; }
 
-        private qlmamnonEntities entities;
-
         #endregion
 
         public FrmDanhSachChuaNopHocPhi()
         {
             FormKey = AppForms.FormDanhSachChuaNopHocPhi;
-            entities = StaticDataFacade.GetQLMNEntities();
 
             InitializeComponent();
         }
@@ -45,9 +42,11 @@ namespace QLMamNon.Forms.ThuChi
 
             int year = (int)cmbNam.EditValue;
             int month = int.Parse(cmbThang.Text);
+            // getViewBangThuTienByNgayTinhAndLop matches on YEAR/MONTH only — day value is irrelevant
             DateTime ngaytinh = new DateTime(year, month, 1);
-            qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities();
-            List<viewbangthutien> table = new List<viewbangthutien>(entities.getViewBangThuTienByNgayTinhAndLop(ngaytinh, null).ToList());
+            using (qlmamnonEntities localEntities = StaticDataFacade.GetQLMNEntities())
+            {
+            List<viewbangthutien> table = new List<viewbangthutien>(localEntities.getViewBangThuTienByNgayTinhAndLop(ngaytinh, null).ToList());
             List<int> bangThuTienIds = new List<int>(table.Count);
 
             foreach (viewbangthutien row in table)
@@ -57,12 +56,15 @@ namespace QLMamNon.Forms.ThuChi
 
             if (!ListUtil.IsEmpty(bangThuTienIds))
             {
-                List<bangthutien_khoanthu> bTTKTDataTable = entities.getBangThuTienKhoanThuByBangThuTienIds(string.Join(",", bangThuTienIds)).ToList();
-                List<phieuthu> phieuThuDataTable = entities.getPhieuThuByHocSinhIdAndNgayTinh(-1, ngaytinh).ToList();
-                Dictionary<int, lop> hocSinhIdsToLopNames = StaticDataUtil.GetLopsByHocSinhIds(entities, table.Select(row => row.HocSinhId).ToList(), ngaytinh);
+                List<bangthutien_khoanthu> bTTKTDataTable = localEntities.getBangThuTienKhoanThuByBangThuTienIds(string.Join(",", bangThuTienIds)).ToList();
+                List<phieuthu> phieuThuDataTable = localEntities.getPhieuThuByHocSinhIdAndNgayTinh(-1, ngaytinh).ToList();
+                Dictionary<int, lop> hocSinhIdsToLopNames = StaticDataUtil.GetLopsByHocSinhIds(localEntities, table.Select(row => row.HocSinhId).ToList(), ngaytinh);
 
                 SoThuTienService soThuTienService = new SoThuTienService();
-                Dictionary<int, viewbangthutien> prevMonthRowDictionary = soThuTienService.EvaluatePrevMonthViewBangThuTienTable(entities, ngaytinh.AddMonths(-1), null);
+                Dictionary<int, viewbangthutien> prevMonthRowDictionary = soThuTienService.EvaluatePrevMonthViewBangThuTienTable(localEntities, ngaytinh.AddMonths(-1), null);
+
+                // Hoist hocsinhs to a single list — avoids two full-table loads per row (6.1)
+                List<hocsinh> hocSinhList = localEntities.hocsinhs.ToList();
 
                 foreach (viewbangthutien row in table)
                 {
@@ -71,8 +73,8 @@ namespace QLMamNon.Forms.ThuChi
                         row.Lop = hocSinhIdsToLopNames[row.HocSinhId].Name;
                     }
 
-                    row.Ten = StaticDataUtil.GetHocSinhNameByHocSinhId(entities.hocsinhs.ToList(), row.HocSinhId);
-                    row.HoTen = StaticDataUtil.GetHocSinhFullNameByHocSinhId(entities.hocsinhs.ToList(), row.HocSinhId);
+                    row.Ten = StaticDataUtil.GetHocSinhNameByHocSinhId(hocSinhList, row.HocSinhId);
+                    row.HoTen = StaticDataUtil.GetHocSinhFullNameByHocSinhId(hocSinhList, row.HocSinhId);
                     BangThuTienUtil.EvaluateValuesForViewBangThuTienRow(row,
                         prevMonthRowDictionary != null && prevMonthRowDictionary.ContainsKey(row.HocSinhId) ? prevMonthRowDictionary[row.HocSinhId] : null,
                         bTTKTDataTable, phieuThuDataTable, false, false, true);
@@ -93,6 +95,7 @@ namespace QLMamNon.Forms.ThuChi
             rpt.Year.Value = year;
             rpt.viewBangThuTienBindingSource.DataSource = table;
             FormMainFacade.ShowReport(rpt);
+            } // end using localEntities
         }
 
         private void FrmDanhSachChuaNopHocPhi_Load(object sender, EventArgs e)

@@ -71,12 +71,31 @@ namespace QLMamNon.Forms.ThuChi
                 (pt.Ngay.Year < toDate.Year || (pt.Ngay.Year == toDate.Year && pt.Ngay.Month < toDate.Month) || (pt.Ngay.Year == toDate.Year && pt.Ngay.Month == toDate.Month && pt.Ngay.Day <= toDate.Day)) &&
                 pt.HocSinhId.HasValue).ToList();
 
+            // Batch lop lookups per date: group receipts by date, call GetLopsByHocSinhIds once per date (6.2)
+            Dictionary<DateTime, Dictionary<int, lop>> lopsByDate = new Dictionary<DateTime, Dictionary<int, lop>>();
+            foreach (phieuthu item in phieuThuDataTable)
+            {
+                DateTime itemDate = item.Ngay.Date;
+                if (!lopsByDate.ContainsKey(itemDate))
+                {
+                    List<int> idsForDate = new List<int>();
+                    foreach (phieuthu pt in phieuThuDataTable)
+                    {
+                        if (pt.Ngay.Date == itemDate && pt.HocSinhId.HasValue)
+                        {
+                            idsForDate.Add(pt.HocSinhId.Value);
+                        }
+                    }
+                    lopsByDate.Add(itemDate, StaticDataUtil.GetLopsByHocSinhIds(entities, idsForDate, itemDate));
+                }
+            }
+
             Dictionary<string, Dictionary<string, BangKeThuTheoLopItem>> bangKeThuTheoLopItemsByLop = new Dictionary<string, Dictionary<string, BangKeThuTheoLopItem>>();
             List<BangKeThuTheoLopItem> bangKeThuTheoLopItems = new List<BangKeThuTheoLopItem>();
             foreach (phieuthu item in phieuThuDataTable)
             {
-                var lops = StaticDataUtil.GetLopsByHocSinhIds(entities, new List<int>() { item.HocSinhId.Value }, item.Ngay);
-                var lop = lops.Count > 0 ? lops.First().Value : null;
+                Dictionary<int, lop> lopsForDate = lopsByDate.ContainsKey(item.Ngay.Date) ? lopsByDate[item.Ngay.Date] : new Dictionary<int, lop>();
+                lop lop = (item.HocSinhId.HasValue && lopsForDate.ContainsKey(item.HocSinhId.Value)) ? lopsForDate[item.HocSinhId.Value] : null;
 
                 if (lop == null || !lopIds.Contains(lop.LopId))
                 {

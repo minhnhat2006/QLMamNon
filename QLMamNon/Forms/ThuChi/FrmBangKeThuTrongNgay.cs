@@ -57,27 +57,31 @@ namespace QLMamNon.Forms.ThuChi
 
             RptBangKeThuTrongNgay rpt = new RptBangKeThuTrongNgay();
             DateTime fromDate = DateTimeUtil.StartOfDate(dateTuNgay.DateTime);
-            List<phieuthu> phieuThuDataTable = entities.phieuthus.ToList();
+            DateTime endDate = DateTimeUtil.EndOfDate(dateTuNgay.DateTime);
+            // Filter in the query — avoids loading the entire phieuthus table (6.3)
+            List<phieuthu> phieuThuDataTable = entities.phieuthus.Where(pt =>
+                pt.Ngay >= fromDate && pt.Ngay <= endDate).ToList();
 
             rpt.FromDate.Value = fromDate;
 
             List<int> hocSinhIds = new List<int>();
             foreach (phieuthu item in phieuThuDataTable)
             {
-                if (item.Ngay.ToShortDateString() == fromDate.ToShortDateString() && item.HocSinhId != null)
+                if (item.HocSinhId != null)
                 {
                     hocSinhIds.Add(item.HocSinhId.Value);
                 }
             }
 
-            List<hocsinh> hocSinhTable = entities.hocsinhs.ToList();
+            // Load only the students that appear in today's receipts (6.3)
+            List<hocsinh> hocSinhTable = ListUtil.IsEmpty(hocSinhIds)
+                ? new List<hocsinh>()
+                : entities.hocsinhs.Where(hs => hocSinhIds.Contains(hs.HocSinhId)).ToList();
             Dictionary<int, lop> hocSinhIdToLops = StaticDataUtil.GetLopsByHocSinhIds(entities, hocSinhIds, fromDate);
             List<BangKeThuTrongNgayItem> displayedBangKeThuTienItems = new List<BangKeThuTrongNgayItem>();
 
             foreach (phieuthu item in phieuThuDataTable)
             {
-                if (item.Ngay.ToShortDateString() == fromDate.ToShortDateString())
-                {
                     int lopId = 0;
                     string lop = string.Empty;
                     if (item.HocSinhId != null && hocSinhIdToLops.ContainsKey(item.HocSinhId.Value))
@@ -103,8 +107,7 @@ namespace QLMamNon.Forms.ThuChi
                         ConLai = conLai,
                         SoBienLai = item.MaPhieu
                     };
-                    displayedBangKeThuTienItems.Add(bangKeThuTrongNgayItem);
-                }
+                displayedBangKeThuTienItems.Add(bangKeThuTrongNgayItem);
             }
 
             List<BangKeThuTrongNgayItem> sortedDisplayBangKeThuTienItems = displayedBangKeThuTienItems.OrderBy(o => o.LopId).ToList();

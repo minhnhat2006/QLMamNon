@@ -43,7 +43,14 @@ namespace QLMamNon.Forms.ThuChi
                 return;
             }
 
-            DateTime fromDate = DateTimeUtil.StartOfDate(new DateTime((int)cmbNam.EditValue, int.Parse(cmbThang.Text), 1));
+            int parsedMonth;
+            if (!int.TryParse(cmbThang.Text, out parsedMonth) || parsedMonth < 1 || parsedMonth > 12)
+            {
+                MessageBox.Show("Xin vui lòng chọn Năm/Tháng", "Chọn Năm/Tháng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DateTime fromDate = DateTimeUtil.StartOfDate(new DateTime((int)cmbNam.EditValue, parsedMonth, 1));
             DateTime toDate = DateTimeUtil.EndOfDate(fromDate.AddMonths(1).AddDays(-1));
 
             List<phanloaichi> phanLoaiChiDataTable = StaticDataFacade.Get(StaticDataKeys.PhanLoaiChi) as List<phanloaichi>;
@@ -61,6 +68,13 @@ namespace QLMamNon.Forms.ThuChi
 
             foreach (phieuchi item in phieuChiDataTable)
             {
+                // Guard null PhanLoaiChi — GetMaPhanLoaiChiNameByPhieuChiId can return null when
+                // the DB row has no matching phan loai → ArgumentNullException on Dictionary key
+                if (string.IsNullOrEmpty(item.PhanLoaiChi))
+                {
+                    continue;
+                }
+
                 if (!dayToSoTienPhanLoaiChi.ContainsKey(item.Ngay.Day))
                 {
                     dayToSoTienPhanLoaiChi.Add(item.Ngay.Day, new Dictionary<string, long>());
@@ -88,20 +102,22 @@ namespace QLMamNon.Forms.ThuChi
             {
                 DateTime date = fromDate.AddDays(i);
 
-                if (date.DayOfWeek == DayOfWeek.Sunday)
-                {
-                    continue;
-                }
-
                 if (i == 0 || date.DayOfWeek == DayOfWeek.Monday)
                 {
                     week++;
                     startOfWeek = date.Day;
                 }
 
+                // Record the week-end range before skipping Sunday, so a month that ends on
+                // Sunday still closes out its last week range
                 if (i == (totalDays - 1) || date.DayOfWeek == DayOfWeek.Saturday)
                 {
-                    dateRanges.Add($"{startOfWeek}/{date.Month}-{date.ToString("d/M")}");
+                    dateRanges.Add(string.Format("{0}/{1}-{2}", startOfWeek, date.Month, date.ToString("d/M")));
+                }
+
+                if (date.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    continue;
                 }
 
                 if (!dayToSoTienPhanLoaiChi.ContainsKey(date.Day))
@@ -157,10 +173,10 @@ namespace QLMamNon.Forms.ThuChi
             RptBangKeCacLoaiChi rpt = new RptBangKeCacLoaiChi();
             rpt.FromDate.Value = fromDate;
             rpt.ToDate.Value = toDate;
-            rpt.Week1.Value = dateRanges[0];
-            rpt.Week2.Value = dateRanges[1];
-            rpt.Week3.Value = dateRanges[2];
-            rpt.Week4.Value = dateRanges[3];
+            rpt.Week1.Value = dateRanges.Count > 0 ? dateRanges[0] : string.Empty;
+            rpt.Week2.Value = dateRanges.Count > 1 ? dateRanges[1] : string.Empty;
+            rpt.Week3.Value = dateRanges.Count > 2 ? dateRanges[2] : string.Empty;
+            rpt.Week4.Value = dateRanges.Count > 3 ? dateRanges[3] : string.Empty;
             rpt.Week5.Value = dateRanges.Count > 4 ? dateRanges[4] : string.Empty;
             rpt.Week6.Value = dateRanges.Count > 5 ? dateRanges[5] : string.Empty;
             rpt.bangKeCacLoaiChiBindingSource.DataSource = displayedBangKeThuTienItems.Values;
@@ -170,8 +186,10 @@ namespace QLMamNon.Forms.ThuChi
         private void FrmBaoCaoHoatDongTaiChinh_Load(object sender, EventArgs e)
         {
             this.namHocBindingSource.DataSource = StaticDataFacade.Get(StaticDataKeys.NamHoc);
-            cmbNam.EditValue = DateTime.Now.Year;
-            cmbThang.Text = (DateTime.Now.Month - 1).ToString();
+            // Derive previous month from AddMonths(-1) so January correctly yields December of prior year
+            DateTime prevMonth = DateTime.Now.AddMonths(-1);
+            cmbNam.EditValue = prevMonth.Year;
+            cmbThang.Text = prevMonth.Month.ToString();
         }
     }
 }
