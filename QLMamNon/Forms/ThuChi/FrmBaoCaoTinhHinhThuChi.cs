@@ -90,16 +90,22 @@ namespace QLMamNon.Forms.ThuChi
             DateTime fromDate = DateTimeUtil.StartOfDate(this.dateTuNgay.DateTime);
             DateTime toDate = DateTimeUtil.EndOfDate(this.dateDenNgay.DateTime);
 
+            decimal? tongThuNullable = entities.getSumSoTienThuByDateRange(fromDate, toDate, StringUtil.JoinWithCommas(phanLoaiThuIds)).FirstOrDefault();
+            decimal? tongChiNullable = entities.getSumSoTienChiByDateRange(fromDate, toDate, StringUtil.JoinWithCommas(phanLoaiChiIds)).FirstOrDefault();
+            long tongThu = tongThuNullable == null ? 0 : (long)tongThuNullable.Value;
+            long tongChi = tongChiNullable == null ? 0 : (long)tongChiNullable.Value;
+            long ton = findSoTienTonDauKy(fromDate);
+            long phaiThu = findSoTienPhaiThu(fromDate, toDate);
+
             RptTinhHinhThuChi rpt = new RptTinhHinhThuChi();
             rpt.TuNgay.Value = fromDate;
             rpt.DenNgay.Value = toDate;
-            rpt.TongThu.Value = entities.getSumSoTienThuByDateRange(fromDate, toDate, StringUtil.JoinWithCommas(phanLoaiThuIds)).FirstOrDefault();
-            rpt.TongChi.Value = entities.getSumSoTienChiByDateRange(fromDate, toDate, StringUtil.JoinWithCommas(phanLoaiChiIds)).FirstOrDefault();
-
-            rpt.Ton.Value = findSoTienTonDauKy(toDate);
-            rpt.ChenhLech.Value = (long)rpt.Ton.Value + (long)rpt.TongThu.Value - (long)rpt.TongChi.Value;
-            rpt.PhaiThu.Value = findSoTienPhaiThu(fromDate, toDate);
-            rpt.TruyThu.Value = (long)rpt.PhaiThu.Value - (long)rpt.TongThu.Value;
+            rpt.TongThu.Value = tongThu;
+            rpt.TongChi.Value = tongChi;
+            rpt.Ton.Value = ton;
+            rpt.ChenhLech.Value = ton + tongThu - tongChi;
+            rpt.PhaiThu.Value = phaiThu;
+            rpt.TruyThu.Value = phaiThu - tongThu;
 
             PhieuThuService phieuThuService = new PhieuThuService();
             rpt.thuDataSource.DataSource = phieuThuService.LoadPhieuThuByDateRangeWithGroupPhanLoaiThu(fromDate, toDate, phanLoaiThuIds);
@@ -110,14 +116,14 @@ namespace QLMamNon.Forms.ThuChi
             FormMainFacade.ShowReport(rpt);
         }
 
-        private long findSoTienTonDauKy(DateTime toDate)
+        private long findSoTienTonDauKy(DateTime fromDate)
         {
             long soTienTonDauKy = (long)txtTon.Value;
 
             if (!chkTon.Checked)
             {
                 SoThuTienService soThuTienService = new SoThuTienService();
-                soTienTonDauKy = (long)soThuTienService.GetSoTienTonDauKy(entities, toDate);
+                soTienTonDauKy = (long)soThuTienService.GetSoTienTonDauKy(entities, fromDate);
             }
             return soTienTonDauKy;
         }

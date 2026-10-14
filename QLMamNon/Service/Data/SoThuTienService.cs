@@ -599,8 +599,10 @@ namespace QLMamNon.Service.Data
         public decimal GetSoTienTonDauKy(qlmamnonEntities entities, DateTime toDate)
         {
             DateTime lastDayOfPrevMonth = DateTimeUtil.DateEndOfMonth(toDate.AddMonths(-1));
-            decimal tongThu = entities.getSumSoTienThuByDateRange(Settings.Default.AppLannchDate, lastDayOfPrevMonth, null).First().Value;
-            decimal tongChi = entities.getSumSoTienChiByDateRange(Settings.Default.AppLannchDate, lastDayOfPrevMonth, null).First().Value;
+            decimal? tongThuNullable = entities.getSumSoTienThuByDateRange(Settings.Default.AppLannchDate, lastDayOfPrevMonth, null).FirstOrDefault();
+            decimal tongThu = tongThuNullable == null ? 0 : tongThuNullable.Value;
+            decimal? tongChiNullable = entities.getSumSoTienChiByDateRange(Settings.Default.AppLannchDate, lastDayOfPrevMonth, null).FirstOrDefault();
+            decimal tongChi = tongChiNullable == null ? 0 : tongChiNullable.Value;
             decimal chenhLech = tongThu - tongChi + Settings.Default.SoTienTonDauKy;
             return chenhLech;
         }

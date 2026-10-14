@@ -89,7 +89,7 @@ namespace QLMamNon.Forms.ThuChi
             DateTime fromDate = DateTimeUtil.StartOfDate(this.dateTuNgay.DateTime);
             DateTime toDate = DateTimeUtil.EndOfDate(this.dateDenNgay.DateTime);
 
-            decimal soTienTonDauKy = findSoTienTonDauKy(toDate);
+            decimal soTienTonDauKy = findSoTienTonDauKy(fromDate);
 
             SortedList SoQuyTienMatTheoNgayMap = new SortedList();
             SoQuyTienMatTheoNgayItem SoQuyTienMatTheoNgayDauKy = new SoQuyTienMatTheoNgayItem()
@@ -111,14 +111,14 @@ namespace QLMamNon.Forms.ThuChi
             FormMainFacade.ShowReport(rpt);
         }
 
-        private decimal findSoTienTonDauKy(DateTime toDate)
+        private decimal findSoTienTonDauKy(DateTime fromDate)
         {
             decimal soTienTonDauKy = txtTon.Value;
 
             if (!chkTon.Checked)
             {
                 SoThuTienService soThuTienService = new SoThuTienService();
-                soTienTonDauKy = soThuTienService.GetSoTienTonDauKy(entities, toDate);
+                soTienTonDauKy = soThuTienService.GetSoTienTonDauKy(entities, fromDate);
             }
             return soTienTonDauKy;
         }
@@ -166,7 +166,7 @@ namespace QLMamNon.Forms.ThuChi
         private void addPhieuThuToReport(SortedList SoQuyTienMatTheoNgayMap, DateTime fromDate, DateTime toDate, List<int> phanLoaiThuIds)
         {
             bool hasFilterIds = phanLoaiThuIds != null && phanLoaiThuIds.Count > 0;
-            List<phieuthu> phieuThuDataTable = entities.phieuthus.Where(pt => pt.Ngay >= fromDate && pt.Ngay <= toDate && pt.PhanLoaiThuId.HasValue && pt.PhanLoaiThuId.Value > 0 && (!hasFilterIds || phanLoaiThuIds.Contains(pt.PhanLoaiThuId.Value))).ToList();
+            List<phieuthu> phieuThuDataTable = entities.phieuthus.Where(pt => pt.Ngay >= fromDate && pt.Ngay <= toDate && (!hasFilterIds || !pt.PhanLoaiThuId.HasValue || phanLoaiThuIds.Contains(pt.PhanLoaiThuId.Value))).ToList();
             Dictionary<string, SoQuyTienMatTheoNgayItem> groupDateToSoQuyTienMatTheoNgayItemsMap = new Dictionary<string, SoQuyTienMatTheoNgayItem>();
 
             foreach (phieuthu phieuThuRow in phieuThuDataTable)
@@ -181,7 +181,8 @@ namespace QLMamNon.Forms.ThuChi
                     dateOfGroup = toDate;
                 }
 
-                string key = StringUtil.Join(new int[] { groupDate, phieuThuRow.PhanLoaiThuId.Value }, "~");
+                int phanLoaiThuIdKey = phieuThuRow.PhanLoaiThuId == null ? 0 : phieuThuRow.PhanLoaiThuId.Value;
+                string key = StringUtil.Join(new int[] { groupDate, phanLoaiThuIdKey }, "~");
                 if (!groupDateToSoQuyTienMatTheoNgayItemsMap.ContainsKey(key))
                 {
                     groupDateToSoQuyTienMatTheoNgayItemsMap.Add(key, new SoQuyTienMatTheoNgayItem()
@@ -197,7 +198,8 @@ namespace QLMamNon.Forms.ThuChi
             foreach (phieuthu phieuThuRow in phieuThuDataTable)
             {
                 int groupDate = getGroupDate(fromDate, phieuThuRow);
-                string key = StringUtil.Join(new int[] { groupDate, phieuThuRow.PhanLoaiThuId.Value }, "~");
+                int phanLoaiThuIdKey = phieuThuRow.PhanLoaiThuId == null ? 0 : phieuThuRow.PhanLoaiThuId.Value;
+                string key = StringUtil.Join(new int[] { groupDate, phanLoaiThuIdKey }, "~");
                 SoQuyTienMatTheoNgayItem SoQuyTienMatTheoNgayItemThu = groupDateToSoQuyTienMatTheoNgayItemsMap[key];
 
                 if (phieuThuRow.PaymentTypeEnum == PaymentType.TRANSFER)
@@ -210,10 +212,9 @@ namespace QLMamNon.Forms.ThuChi
                 }
             }
 
-            int addedCount = 0;
             foreach (SoQuyTienMatTheoNgayItem SoQuyTienMatTheoNgayItemThu in groupDateToSoQuyTienMatTheoNgayItemsMap.Values)
             {
-                SoQuyTienMatTheoNgayMap.Add(SoQuyTienMatTheoNgayItemThu.Ngay.AddMilliseconds(addedCount++), SoQuyTienMatTheoNgayItemThu);
+                SoQuyTienMatTheoNgayMap.Add(SoQuyTienMatTheoNgayItemThu.Ngay.AddMilliseconds(SoQuyTienMatTheoNgayMap.Count), SoQuyTienMatTheoNgayItemThu);
             }
         }
 
