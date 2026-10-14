@@ -36,7 +36,7 @@ namespace QLMamNon.Forms.ThuChi
 
         private void btnXemBaoCao_Click(object sender, EventArgs e)
         {
-            if (this.dateFromMonth.DateTime == null || this.dateToMonth.DateTime == null)
+            if (this.dateFromMonth.DateTime == DateTime.MinValue || this.dateToMonth.DateTime == DateTime.MinValue)
             {
                 MessageBox.Show("Xin vui lòng chọn ngày", "Chọn ngày", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
