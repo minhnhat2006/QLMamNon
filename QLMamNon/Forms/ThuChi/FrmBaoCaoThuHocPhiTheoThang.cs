@@ -1,4 +1,4 @@
-﻿using ACG.Core.WinForm.Util;
+using ACG.Core.WinForm.Util;
 using QLMamNon.Components.Data.Static;
 using QLMamNon.Constant;
 using QLMamNon.Dao;
@@ -54,81 +54,81 @@ namespace QLMamNon.Forms.ThuChi
             DateTime ngaytinh = new DateTime(year, month, 1);
             using (qlmamnonEntities localEntities = StaticDataFacade.GetQLMNEntities())
             {
-            List<viewbangthutien> table = new List<viewbangthutien>(localEntities.getViewBangThuTienByNgayTinhAndLop(ngaytinh, null).ToList());
-            List<int> bangThuTienIds = new List<int>(table.Count);
-
-            foreach (viewbangthutien row in table)
-            {
-                bangThuTienIds.Add(row.BangThuTienId);
-            }
-
-            if (!ListUtil.IsEmpty(bangThuTienIds))
-            {
-                List<bangthutien_khoanthu> bTTKTDataTable = localEntities.getBangThuTienKhoanThuByBangThuTienIds(string.Join(",", bangThuTienIds)).ToList();
-                List<phieuthu> phieuThuDataTable = localEntities.getPhieuThuByHocSinhIdAndNgayTinh(-1, ngaytinh).ToList();
-                Dictionary<int, lop> hocSinhIdsToLopNames = StaticDataUtil.GetLopsByHocSinhIds(localEntities, table.Select(row => row.HocSinhId).ToList(), ngaytinh);
-
-                SoThuTienService soThuTienService = new SoThuTienService();
-                Dictionary<int, viewbangthutien> prevMonthRowDictionary = soThuTienService.EvaluatePrevMonthViewBangThuTienTable(localEntities, ngaytinh.AddMonths(-1), null);
-
-                // Hoist hocsinhs to a single list — avoids two full-table loads per row (6.1)
-                List<hocsinh> hocSinhList = localEntities.hocsinhs.ToList();
+                List<viewbangthutien> table = new List<viewbangthutien>(localEntities.getViewBangThuTienByNgayTinhAndLop(ngaytinh, null).ToList());
+                List<int> bangThuTienIds = new List<int>(table.Count);
 
                 foreach (viewbangthutien row in table)
                 {
-                    if (hocSinhIdsToLopNames.ContainsKey(row.HocSinhId))
+                    bangThuTienIds.Add(row.BangThuTienId);
+                }
+
+                if (!ListUtil.IsEmpty(bangThuTienIds))
+                {
+                    List<bangthutien_khoanthu> bTTKTDataTable = localEntities.getBangThuTienKhoanThuByBangThuTienIds(string.Join(",", bangThuTienIds)).ToList();
+                    List<phieuthu> phieuThuDataTable = localEntities.getPhieuThuByHocSinhIdAndNgayTinh(-1, ngaytinh).ToList();
+                    Dictionary<int, lop> hocSinhIdsToLopNames = StaticDataUtil.GetLopsByHocSinhIds(localEntities, table.Select(row => row.HocSinhId).ToList(), ngaytinh);
+
+                    SoThuTienService soThuTienService = new SoThuTienService();
+                    Dictionary<int, viewbangthutien> prevMonthRowDictionary = soThuTienService.EvaluatePrevMonthViewBangThuTienTable(localEntities, ngaytinh.AddMonths(-1), null);
+
+                    // Hoist hocsinhs to a single list — avoids two full-table loads per row (6.1)
+                    List<hocsinh> hocSinhList = localEntities.hocsinhs.ToList();
+
+                    foreach (viewbangthutien row in table)
                     {
-                        row.Lop = hocSinhIdsToLopNames[row.HocSinhId].Name;
+                        if (hocSinhIdsToLopNames.ContainsKey(row.HocSinhId))
+                        {
+                            row.Lop = hocSinhIdsToLopNames[row.HocSinhId].Name;
+                        }
+
+                        row.Ten = StaticDataUtil.GetHocSinhNameByHocSinhId(hocSinhList, row.HocSinhId);
+                        row.HoTen = StaticDataUtil.GetHocSinhFullNameByHocSinhId(hocSinhList, row.HocSinhId);
+                        BangThuTienUtil.EvaluateValuesForViewBangThuTienRow(row,
+                            prevMonthRowDictionary != null && prevMonthRowDictionary.ContainsKey(row.HocSinhId) ? prevMonthRowDictionary[row.HocSinhId] : null,
+                            bTTKTDataTable, phieuThuDataTable, false, false, true);
+                        row.PhucVuBanTru = row.HocPhi + row.BanTru;
+                        row.OriginalThanhTien = row.ThanhTien;
                     }
 
-                    row.Ten = StaticDataUtil.GetHocSinhNameByHocSinhId(hocSinhList, row.HocSinhId);
-                    row.HoTen = StaticDataUtil.GetHocSinhFullNameByHocSinhId(hocSinhList, row.HocSinhId);
-                    BangThuTienUtil.EvaluateValuesForViewBangThuTienRow(row,
-                        prevMonthRowDictionary != null && prevMonthRowDictionary.ContainsKey(row.HocSinhId) ? prevMonthRowDictionary[row.HocSinhId] : null,
-                        bTTKTDataTable, phieuThuDataTable, false, false, true);
-                    row.PhucVuBanTru = row.HocPhi + row.BanTru;
-                    row.OriginalThanhTien = row.ThanhTien;
-                }
+                    table.RemoveAll(row => string.IsNullOrWhiteSpace(row.Lop));
 
-                table.RemoveAll(row => string.IsNullOrWhiteSpace(row.Lop));
-
-                for (int idx = 0; idx < table.Count; idx++)
-                {
-                    table[idx].STT = idx + 1;
-                }
-            }
-
-            Dictionary<int, BaoCaoThuHocPhiTheoLopItem> baoCaoThuHocPhiTheoLopItemMap = new Dictionary<int, BaoCaoThuHocPhiTheoLopItem>();
-            foreach (viewbangthutien row in table)
-            {
-                BaoCaoThuHocPhiTheoLopItem item = null;
-                if (baoCaoThuHocPhiTheoLopItemMap.ContainsKey(row.LopId))
-                {
-                    item = baoCaoThuHocPhiTheoLopItemMap[row.LopId];
-                }
-                else
-                {
-                    item = new BaoCaoThuHocPhiTheoLopItem()
+                    for (int idx = 0; idx < table.Count; idx++)
                     {
-                        Lop = row.Lop,
-                        PhaiThu = 0,
-                        DaThu = 0,
-                        ConLai = 0
-                    };
-                    baoCaoThuHocPhiTheoLopItemMap.Add(row.LopId, item);
+                        table[idx].STT = idx + 1;
+                    }
                 }
 
-                item.PhaiThu += row.ThanhTien;
-                item.DaThu += (row.SoTienNopLan1 + row.SoTienNopLan2);
-                item.ConLai = item.PhaiThu - item.DaThu;
-            }
+                Dictionary<int, BaoCaoThuHocPhiTheoLopItem> baoCaoThuHocPhiTheoLopItemMap = new Dictionary<int, BaoCaoThuHocPhiTheoLopItem>();
+                foreach (viewbangthutien row in table)
+                {
+                    BaoCaoThuHocPhiTheoLopItem item = null;
+                    if (baoCaoThuHocPhiTheoLopItemMap.ContainsKey(row.LopId))
+                    {
+                        item = baoCaoThuHocPhiTheoLopItemMap[row.LopId];
+                    }
+                    else
+                    {
+                        item = new BaoCaoThuHocPhiTheoLopItem()
+                        {
+                            Lop = row.Lop,
+                            PhaiThu = 0,
+                            DaThu = 0,
+                            ConLai = 0
+                        };
+                        baoCaoThuHocPhiTheoLopItemMap.Add(row.LopId, item);
+                    }
 
-            RptBaoCaoThuHocPhiTheoThang rpt = new RptBaoCaoThuHocPhiTheoThang();
-            rpt.Month.Value = month;
-            rpt.Year.Value = year;
-            rpt.baoCaoThuHocPhiTheoLopBindingSource.DataSource = baoCaoThuHocPhiTheoLopItemMap.Values.OrderBy(item => item.Lop);
-            FormMainFacade.ShowReport(rpt);
-            } // end using localEntities
+                    item.PhaiThu += row.ThanhTien;
+                    item.DaThu += (row.SoTienNopLan1 + row.SoTienNopLan2);
+                    item.ConLai = item.PhaiThu - item.DaThu;
+                }
+
+                RptBaoCaoThuHocPhiTheoThang rpt = new RptBaoCaoThuHocPhiTheoThang();
+                rpt.Month.Value = month;
+                rpt.Year.Value = year;
+                rpt.baoCaoThuHocPhiTheoLopBindingSource.DataSource = baoCaoThuHocPhiTheoLopItemMap.Values.OrderBy(item => item.Lop);
+                FormMainFacade.ShowReport(rpt);
+            }
         }
     }
 }

@@ -52,7 +52,7 @@ namespace QLMamNon.Forms.ThuChi
 
             RptSoTheoDoiTaiSan rpt = new RptSoTheoDoiTaiSan();
             // OrderBy TaiSanId so "first row of an asset" grouping logic is reliable
-            List<viewbangiaotaisan> table = entities.getViewBanGiaoTaiSanByYear(Convert.ToInt32(cmbYear.EditValue)).ToList().OrderBy(row => row.TaiSanId).ToList();
+            List<viewbangiaotaisan> table = entities.getViewBanGiaoTaiSanByYear(Convert.ToInt32(cmbYear.EditValue)).OrderBy(row => row.TaiSanId).ToList();
             List<SoTheoDoiTaiSanItem> soTheoDoiTaiSan = new List<SoTheoDoiTaiSanItem>();
             SoTheoDoiTaiSanItem prevSoTheoDoiTaiSanItem = null;
             SoTheoDoiTaiSanItem soTheoDoiTaiSanItem = null;
