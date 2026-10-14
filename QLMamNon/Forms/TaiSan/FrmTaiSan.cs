@@ -18,9 +18,21 @@ namespace QLMamNon.Forms.DanhMuc
             this.DanhMuc = DanhMucConstant.QuanLyTaiSan;
             this.FormKey = AppForms.FormTaiSan;
 
+            // This grid is bound to viewtaisan, which is a read-only view entity (DefiningQuery,
+            // no UpdateFunction).  SaveChanges() on any Modified viewtaisan row throws UpdateException.
+            // Writes belong on the taisan table through a dedicated service; until that service
+            // exists this form is intentionally read-only.  Pass null for all five buttons so
+            // CRUDForm wires no Add/Edit/Delete/Save/Cancel behaviour.
+            this.btnThem.Visible = false;
+            this.btnChinhSua.Visible = false;
+            this.btnXoa.Visible = false;
+            this.btnLuu.Visible = false;
+            this.btnHuyBo.Visible = false;
+            this.gvMain.OptionsBehavior.Editable = false;
+
             this.gvMain.OptionsEditForm.CustomEditFormLayout = new UCEditFormTaiSan();
             this.loadTaiSanData();
-            this.InitForm(this.btnThem, this.btnChinhSua, this.btnXoa, this.btnLuu, this.btnHuyBo, this.gvMain, this.viewTaiSanRowBindingSource.DataSource);
+            this.InitForm(null, null, null, null, null, this.gvMain, this.viewTaiSanRowBindingSource.DataSource);
         }
 
         private void loadTaiSanData()

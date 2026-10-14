@@ -26,8 +26,24 @@ namespace QLMamNon.Forms.HocSinh
             this.TablePrimaryKey = "HocTapId";
             this.DanhMuc = DanhMucConstant.ThongTinHocTap;
             this.FormKey = AppForms.FormThongTinHocTap;
+
+            // viewhoctap is a read-only view entity (DefiningQuery, no UpdateFunction).
+            // loadThongTinHocTap used to write NgayTinh and SoNgayNghiThang directly onto
+            // EF-tracked rows, making every row Modified before the user touched anything — Lưu
+            // threw UpdateException even with no user edits.  Those defaults are now written into
+            // the [NotMapped] display properties (NgayTinhDisplay, SoNgayNghiThangDisplay) so EF
+            // tracking is never dirtied.  All five buttons are hidden and null-wired in CRUDForm.
+            this.btnLuu.Visible = false;
+            this.btnHuyBo.Visible = false;
+            this.gvMain.OptionsBehavior.Editable = false;
+
+            // Rebind the two columns to [NotMapped] display properties so the grid shows the
+            // computed defaults without involving EF change tracking.
+            this.colNgayTinh.FieldName = "NgayTinhDisplay";
+            this.colSoNgayNghiThang.FieldName = "SoNgayNghiThangDisplay";
+
             this.loadThongTinHocTap();
-            this.InitForm(null, null, null, this.btnLuu, this.btnHuyBo, this.gvMain, this.viewHocTapRowBindingSource.DataSource);
+            this.InitForm(null, null, null, null, null, this.gvMain, this.viewHocTapRowBindingSource.DataSource);
         }
 
         private void FrmThongTinHocTap_Load(object sender, EventArgs e)
@@ -79,22 +95,29 @@ namespace QLMamNon.Forms.HocSinh
 
             int lopId = (int)cmbLop.EditValue;
             int nam = (int)cmbNam.EditValue;
-            int thang = IntUtil.StringToInt((string)cmbThang.EditValue).Value;
+
+            // cmbThang is an editable combo — EditValue may be any object; parse defensively.
+            int? thangNullable = IntUtil.StringToInt((string)cmbThang.EditValue);
+            if (thangNullable == null || thangNullable.Value < 1 || thangNullable.Value > 12)
+            {
+                System.Windows.Forms.MessageBox.Show("Tháng không hợp lệ. Vui lòng chọn tháng từ 1 đến 12.", "Lỗi",
+                    System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
+
+            int thang = thangNullable.Value;
             DateTime ngay = new DateTime(nam, thang, DateTime.DaysInMonth(nam, thang));
             this.DataTable = new BindingList<viewhoctap>(Entities.getViewHocTapByLopAndNgay(lopId, ngay).ToList());
             this.viewHocTapRowBindingSource.DataSource = this.DataTable;
 
+            // Compute display defaults into [NotMapped] properties so EF change tracking is
+            // never dirtied (writing to NgayTinh / SoNgayNghiThang directly would mark every
+            // row as Modified and cause SaveChanges to throw UpdateException).
+            DateTime defaultNgayTinh = new DateTime(nam, thang, DateTime.DaysInMonth(nam, thang), 0, 0, 0, 0);
             foreach (viewhoctap row in this.DataTable)
             {
-                if (row.NgayTinh == null)
-                {
-                    row.NgayTinh = new DateTime(nam, thang, DateTime.DaysInMonth(nam, thang), 0, 0, 0, 0);
-                }
-
-                if (row.SoNgayNghiThang == null)
-                {
-                    row.SoNgayNghiThang = 0;
-                }
+                row.NgayTinhDisplay = row.NgayTinh != null ? row.NgayTinh : defaultNgayTinh;
+                row.SoNgayNghiThangDisplay = row.SoNgayNghiThang != null ? row.SoNgayNghiThang.Value : 0;
             }
         }
 
