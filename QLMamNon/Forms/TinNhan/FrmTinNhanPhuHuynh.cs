@@ -33,6 +33,7 @@ namespace QLMamNon.Forms.TinNhan
                 if (entities != null)
                 {
                     entities.Dispose();
+                    entities = StaticDataFacade.GetQLMNEntities();
                 }
             };
         }
