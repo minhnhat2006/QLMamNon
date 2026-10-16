@@ -25,7 +25,7 @@ Tick a box (and nothing else in this file) when a task is committed.
 - [x] T4  No MessageBox on the worker thread in "Tạo sổ thu tiền" — `FrmSoThuTien.GenerateSoThuTien.cs`
 - [x] T5  Truy thu recalculation corrupts later months — `TruyThuService` **(gated: run the SQL check first)**
 - [x] T6  SMS: app crash on serial-port error, wrong recipient for numbers with "-" — `USB3GSms`, `FrmTinNhanPhuHuynh`
-- [ ] T7  User privileges leak from one user to the next in the edit popup — `UCEditFormUser` **(reproduce first)**
+- [x] T7  User privileges leak from one user to the next in the edit popup — `UCEditFormUser` **(reproduce first)**
 - [ ] T8  Lookup cache never refreshes (fee rules, categories, names) — `Components/Data.Static/*`, 5 DanhMuc forms
 - [ ] T9  "Lưu" in Preferences silently drops two settings — `FrmPreference`
 - [ ] T10 `DateStartOfMonth` returns the wrong day — `DateTimeUtil` + its 2 callers

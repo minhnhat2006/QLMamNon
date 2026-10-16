@@ -35,6 +35,10 @@ namespace QLMamNon.UserControls
         private void UCEditFormUser_Enter(object sender, EventArgs e)
         {
             this._selectGvMainRowQuietMode = true;
+
+            // UserControl này được dùng lại cho mọi lần mở popup: xóa lựa chọn của người dùng trước,
+            // nếu không quyền của người đó sẽ bị cộng dồn sang người đang sửa.
+            this.gvMain.ClearSelection();
             object userPrivilegesObj = this.GridView.GetFocusedRowCellValue("UserPrivileges");
 
             if (userPrivilegesObj == null)
