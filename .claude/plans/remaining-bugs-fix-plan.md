@@ -21,7 +21,7 @@ Tick a box (and nothing else in this file) when a task is committed.
 
 - [x] T1  Global exception handler + culture on worker threads — `Program.cs`
 - [x] T2  Log full exception text (inner exceptions were lost) — `LoggerFacade`, `TraceListenerLogger`
-- [ ] T3  "Tạo sổ thu tiền" crash / orphan rows — `SoThuTienService`
+- [x] T3  "Tạo sổ thu tiền" crash / orphan rows — `SoThuTienService`
 - [ ] T4  No MessageBox on the worker thread in "Tạo sổ thu tiền" — `FrmSoThuTien.GenerateSoThuTien.cs`
 - [ ] T5  Truy thu recalculation corrupts later months — `TruyThuService` **(gated: run the SQL check first)**
 - [ ] T6  SMS: app crash on serial-port error, wrong recipient for numbers with "-" — `USB3GSms`, `FrmTinNhanPhuHuynh`
