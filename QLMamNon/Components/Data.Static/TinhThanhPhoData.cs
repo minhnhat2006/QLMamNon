@@ -17,7 +17,7 @@ namespace QLMamNon.Components.Data.Static
 
         public object Retrieve()
         {
-            return entities.thanhphoes.ToList();
+            return entities.thanhphoes.AsNoTracking().ToList();
         }
 
         #endregion
