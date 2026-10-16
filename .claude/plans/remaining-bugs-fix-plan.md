@@ -36,7 +36,7 @@ Tick a box (and nothing else in this file) when a task is committed.
 - [x] T15 Undisposed DbContexts — `PhieuThuService`, `SoThuTienService`
 - [x] T16 Bảng kê thu học phí counts only tuition receipts — `SoThuTienService`
 - [x] T17 Password hashing: salted PBKDF2 + automatic upgrade of old MD5 hashes at login — `PasswordUtil`, `AuthenService`, `FrmLogin`, `UCEditFormUser` **(medium-hard)**
-- [ ] T18 Review follow-ups: password box typed-then-cleared, stale TruyThuService remarks — `UCEditFormUser`, `TruyThuService`
+- [x] T18 Review follow-ups: password box typed-then-cleared, stale TruyThuService remarks — `UCEditFormUser`, `TruyThuService`
 
 Order matters only for: **T1 and T2 first** (so every later failure is logged), **T3 before T4**
 (same feature, test them together). Everything else is independent.

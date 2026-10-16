@@ -23,16 +23,12 @@ namespace QLMamNon.Service.Data
         /// sinh <c>hocSinhId</c> và cập nhật phần chênh lệch qua stored procedure.
         /// </summary>
         /// <remarks>
-        /// Hàm không phụ thuộc vào việc người gọi truyền context nào: dòng viewbangthutien của
-        /// tháng sau phải được theo dõi (tracked) để đọc được OriginalValues/CurrentValues, nên nó
-        /// được đọc với MergeOption.OverwriteChanges - nếu context đã nạp sẵn dòng đó từ trước
-        /// (ví dụ context của lưới phiếu thu) thì giá trị gốc vẫn được lấy lại từ DB, thay vì
-        /// MergeOption.AppendOnly trả về đúng instance đã bị sửa và làm chênh lệch sai.
-        /// Dòng đó cũng được gỡ khỏi change tracker ở cuối hàm, vì viewbangthutien là entity set
-        /// chỉ đọc (DefiningQuery) - để nguyên trạng thái Modified sẽ làm SaveChanges() của
-        /// người gọi throw UpdateException.
-        /// Dù vậy, một context riêng và ngắn hạn vẫn là cách dùng được khuyến nghị
-        /// (xem FrmTaoPhieuThu.onSavePhieuThu).
+        /// Truy thu tháng M+1 được tính lại từ tháng M (tháng của <c>ngay</c>) bằng
+        /// BangThuTienUtil.CalculateTruyThu, so với SoTienTruyThu đang lưu, và phần chênh lệch được
+        /// cộng cho mọi bảng thu tiền từ tháng M+1 trở đi qua updateSoTienTruyThuByHocSinhAndNgayUpdated.
+        /// Mọi dòng viewbangthutien đều được đọc NoTracking nên hàm không để lại thay đổi nào trong
+        /// context của người gọi. Vẫn nên dùng một context riêng, ngắn hạn
+        /// (xem FrmTaoPhieuThu.onSavePhieuThu và FrmPhieuThu).
         /// </remarks>
         public void UpdateSoTienTruyThuForBangThuTienNextMonths(qlmamnonEntities entities, DateTime ngay, int hocSinhId)
         {
