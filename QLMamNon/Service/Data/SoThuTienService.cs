@@ -17,7 +17,14 @@ namespace QLMamNon.Service.Data
 
         public int GenerateSoThuTienByHocSinhRows(DateTime ngayTinh, List<hocsinh> hocSinhRows)
         {
-            qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities();
+            using (qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities())
+            {
+                return this.generateSoThuTienByHocSinhRows(entities, ngayTinh, hocSinhRows);
+            }
+        }
+
+        private int generateSoThuTienByHocSinhRows(qlmamnonEntities entities, DateTime ngayTinh, List<hocsinh> hocSinhRows)
+        {
             List<viewbangthutien> viewBangThuTienTable = entities.getViewBangThuTienByNgayTinhAndLop(ngayTinh, null).ToList();
 
             List<int> hocSinhIds = new List<int>();
@@ -166,12 +173,20 @@ namespace QLMamNon.Service.Data
         private static Dictionary<int, Dictionary<int, viewbangthutien>> getAndSortPrevMonthViewBangThuTienRows(qlmamnonEntities entities, DateTime ngayTinh, List<int> hocSinhIds,
             Dictionary<int, hocsinh_lop> hocSinhIdsToHocSinhLops, Dictionary<int, Dictionary<int, viewbangthutien>> lopToHocSinhToViewBangThuTienRowsMap)
         {
-            List<viewbangthutien> prevMonthViewBangThuTienTable = entities.getViewBangThuTienByNgayTinhAndLop(ngayTinh.AddMonths(-1), null).ToList();
+            // NoTracking: STT của các dòng này được đánh lại trong bộ nhớ ở dưới. viewbangthutien là
+            // entity set chỉ đọc, nếu để EF theo dõi thì SaveChanges() khi tạo sổ sẽ throw UpdateException.
+            List<viewbangthutien> prevMonthViewBangThuTienTable = entities.getViewBangThuTienByNgayTinhAndLop(ngayTinh.AddMonths(-1), null, MergeOption.NoTracking).ToList();
             Dictionary<int, Dictionary<int, viewbangthutien>> lopToHocSinhViewBangThuTienRows = new Dictionary<int, Dictionary<int, viewbangthutien>>();
 
             foreach (viewbangthutien viewBangThuTienRow in prevMonthViewBangThuTienTable)
             {
                 if (!hocSinhIds.Contains(viewBangThuTienRow.HocSinhId))
+                {
+                    continue;
+                }
+
+                // Học sinh không thuộc lớp nào vào ngayTinh thì không có lớp để xếp STT.
+                if (hocSinhIdsToHocSinhLops == null || !hocSinhIdsToHocSinhLops.ContainsKey(viewBangThuTienRow.HocSinhId))
                 {
                     continue;
                 }
@@ -231,6 +246,15 @@ namespace QLMamNon.Service.Data
             long soTienDieuHoa = 0;
             long soTienDoDung = 0;
             String ghiChu = "";
+
+            // Kiểm tra khối trước khi ghi: nếu throw sau SaveChanges() sẽ để lại một bangthutien không có khoản thu.
+            lop_khoi lopKhoi = entities.getLopKhoiByLopId(lopId).FirstOrDefault();
+
+            if (lopKhoi == null)
+            {
+                throw new Exception("Không tìm thấy khối cho lớp được chọn");
+            }
+
             bangthutien bangThuTienRow = new bangthutien()
             {
                 HocSinhId = hocSinhId,
@@ -256,17 +280,7 @@ namespace QLMamNon.Service.Data
             entities.bangthutiens.Add(bangThuTienRow);
             entities.SaveChanges();
             int bangThuTienId = bangThuTienRow.BangThuTienId;
-            lop_khoi lopKhoi = entities.getLopKhoiByLopId(lopId).FirstOrDefault();
-
-            if (lopKhoi != null)
-            {
-                int khoiId = lopKhoi.KhoiId;
-                generateBangThuTienKhoanThu(entities, bangThuTienId, khoiId, ngayTinh, preMonthViewBangThuTien);
-            }
-            else
-            {
-                throw new Exception("Không tìm thấy khối cho lớp được chọn");
-            }
+            generateBangThuTienKhoanThu(entities, bangThuTienId, lopKhoi.KhoiId, ngayTinh, preMonthViewBangThuTien);
         }
 
         private void generateBangThuTienKhoanThu(qlmamnonEntities entities, int bangThuTienId, int khoiId,
@@ -358,6 +372,12 @@ namespace QLMamNon.Service.Data
 
             foreach (phieuthu phieuThuRow in phieuThuDataTable)
             {
+                // Bảng kê thu học phí chỉ tính phiếu thu học phí (giống GetBangKeTongHopThuTienForTaoPhieuThu).
+                if (!phieuThuRow.PhanLoaiThuId.HasValue || phieuThuRow.PhanLoaiThuId != PhanLoaiThuConstant.PhanLoaiThuIdThuTienHocPhi)
+                {
+                    continue;
+                }
+
                 viewbangthutien viewBangThuTienRow = hocSinhIdsToViewBangThuTienRows[phieuThuRow.HocSinhId.Value];
                 BangKeThuTienItem bangKeThuTienItem = new BangKeThuTienItem()
                 {
@@ -614,9 +634,11 @@ namespace QLMamNon.Service.Data
 
         public List<HocSinhChuaNopHocPhiItem> GetDanhSachTreChuaNopHocPhiByMonth(int year, int month)
         {
-            qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities();
-            List<HocSinhChuaNopHocPhiItem> table = entities.Database.SqlQuery<HocSinhChuaNopHocPhiItem>($"CALL `getDanhSachTreChuaNopHocPhiByMonth`({year}, {month})", new object[] { }).ToList();
-            return table;
+            using (qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities())
+            {
+                List<HocSinhChuaNopHocPhiItem> table = entities.Database.SqlQuery<HocSinhChuaNopHocPhiItem>($"CALL `getDanhSachTreChuaNopHocPhiByMonth`({year}, {month})", new object[] { }).ToList();
+                return table;
+            }
         }
     }
 }

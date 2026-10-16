@@ -277,7 +277,7 @@ namespace QLMamNon.Forms.TinNhan
             foreach (var item in sentStatuses)
             {
                 string phoneNumberKey = item.Key;
-                string phoneNumber = phoneNumberKey.Substring(0, phoneNumberKey.IndexOf("-"));
+                string phoneNumber = USB3GSms.GetPhoneNumberFromKey(phoneNumberKey);
                 File.AppendAllText(pathToLogFile, $"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToLongTimeString()}    {phoneNumber}    {phoneNumberToSmsContentDic[item.Key]}    {item.Value} \r\n");
             }
         }

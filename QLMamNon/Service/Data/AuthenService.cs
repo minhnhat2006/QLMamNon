@@ -65,6 +65,43 @@ namespace QLMamNon.Service.Data
             return table;
         }
 
+        /// <summary>
+        /// Tìm người dùng theo tên đăng nhập và kiểm tra mật khẩu (kiểu mới PBKDF2 hoặc kiểu cũ MD5).
+        /// Mật khẩu kiểu cũ được băm lại theo kiểu mới ngay khi đăng nhập đúng. Trả về null nếu sai.
+        /// </summary>
+        public user Login(qlmamnonEntities entities, string userName, string password)
+        {
+            // So sánh UserName chạy trong MySQL với collation utf8_unicode_ci của cột, giống thủ tục getUser cũ.
+            List<user> candidates = entities.users.Where(u => u.UserName == userName).ToList();
+
+            foreach (user candidate in candidates)
+            {
+                if (!PasswordUtil.VerifyPassword(password, candidate.Password))
+                {
+                    continue;
+                }
+
+                if (PasswordUtil.IsLegacyMd5Hash(candidate.Password))
+                {
+                    try
+                    {
+                        candidate.Password = PasswordUtil.HashPassword(password);
+                        entities.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Không chuyển được sang kiểu mới thì vẫn cho đăng nhập; lần sau sẽ thử lại.
+                        LoggerFacade.Error(ex, AppForms.FormLogin);
+                        entities.Entry(candidate).Reload();
+                    }
+                }
+
+                return candidate;
+            }
+
+            return null;
+        }
+
         public List<user> LoadUsers(qlmamnonEntities entities, int? tinhTPId, int? quanHuyenId, int? phuongXaId, DateTime? ngaySinh)
         {
             List<user> table = entities.users.ToList();

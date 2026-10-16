@@ -35,3 +35,6 @@
 # Claude Code: personal overrides and session worktrees stay local
 /.claude/settings.local.json
 /.claude/worktrees/
+
+# Database dumps contain real student and parent data: keep them local only
+/DB/*.sql

@@ -15,7 +15,8 @@ namespace ACG.Core.WinForm.Logging
 
         public void Error(Exception ex)
         {
-            WriteEntry(string.Format("{0}\n{1}", ex.Message, ex.StackTrace), "error");
+            // ToString() gồm cả InnerException và stack trace của từng lớp lỗi.
+            WriteEntry(ex.ToString(), "error");
         }
 
         public void Warning(string message)

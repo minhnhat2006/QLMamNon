@@ -35,18 +35,17 @@ namespace QLMamNon.Forms.Authenticate
                 return;
             }
 
-            string password = PasswordUtil.GetMd5Hash(txtPassword.Text);
-            List<user> userDataTable = authenService.GetUsersForLogin(entities, username, password);
+            user loginUser = authenService.Login(entities, username, txtPassword.Text);
 
-            if (userDataTable.Count == 0)
+            if (loginUser == null)
             {
                 MessageBox.Show("Tên đăng nhập hoặc Mật khẩu không đúng. Xin vui lòng thử lại.", "Lỗi đăng nhập",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                List<user_privilege> upTable = authenService.LoadUserPrivileges(entities, userDataTable[0].UserId);
-                authenService.SetAuthenticatedUser(userDataTable[0], upTable);
+                List<user_privilege> upTable = authenService.LoadUserPrivileges(entities, loginUser.UserId);
+                authenService.SetAuthenticatedUser(loginUser, upTable);
                 this.Close();
 
                 showCurrentForm();

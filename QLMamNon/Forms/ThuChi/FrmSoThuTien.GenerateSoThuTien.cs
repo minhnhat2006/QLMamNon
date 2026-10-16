@@ -1,5 +1,6 @@
 ﻿using ACG.Core.WinForm.Util;
 using DevExpress.XtraEditors;
+using QLMamNon.Constant;
 using QLMamNon.Dao;
 using QLMamNon.Facade;
 using QLMamNon.Properties;
@@ -64,7 +65,8 @@ namespace QLMamNon.Forms.ThuChi
             {
                 if (!DateTimeUtil.IsSameMonthYear(ngayTinh, Settings.Default.AppLannchDate))
                 {
-                    DateTime preMonthDate = DateTimeUtil.DateStartOfMonth(ngayTinh.AddMonths(-1));
+                    // NgayTinh luôn là ngày cuối tháng (GetNgayTinh) và thủ tục so sánh ngày chính xác.
+                    DateTime preMonthDate = DateTimeUtil.DateEndOfMonth(ngayTinh.AddMonths(-1)).Date;
                     long prevMonthGenHistoryCount = Entities.countBangThuTienGenHistoryByLopAndNgayTinh(lop, preMonthDate).First().Value;
 
                     if (prevMonthGenHistoryCount == 0 && showMessageBox)
@@ -124,38 +126,41 @@ namespace QLMamNon.Forms.ThuChi
 
         private void generateSoThuTiens(object sender, DoWorkEventArgs e)
         {
-            try
-            {
-                this.persistNgayTinhAndLop();
-                List<hocsinh> hocSinhRows = e.Argument as List<hocsinh>;
-                SoThuTienService soThuTienService = new SoThuTienService();
-                int generatedRowsCount = soThuTienService.GenerateSoThuTienByHocSinhRows(ngayTinh, hocSinhRows);
+            // Chạy trên worker thread: không được hiện MessageBox ở đây. Lỗi ném ra sẽ được
+            // BackgroundWorker chuyển sang generatedSoThuTiens qua e.Error (chạy trên UI thread).
+            this.persistNgayTinhAndLop();
+            List<hocsinh> hocSinhRows = e.Argument as List<hocsinh>;
+            SoThuTienService soThuTienService = new SoThuTienService();
+            int generatedRowsCount = soThuTienService.GenerateSoThuTienByHocSinhRows(ngayTinh, hocSinhRows);
 
-                bangthutiengenhistory bangThuTienGenHistory = new bangthutiengenhistory()
-                {
-                    NgayTinh = ngayTinh,
-                    LopId = lop,
-                    DateCreated = DateTime.Now,
-                    SoTienAnSang = Settings.Default.TienAnSang,
-                    SoTienAnToi = Settings.Default.TienAnToi,
-                    SoTienAnChinh = Settings.Default.TienAnChinh
-                };
-
-                using (qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities())
-                {
-                    entities.bangthutiengenhistories.Add(bangThuTienGenHistory);
-                    entities.SaveChanges();
-                }
-            }
-            catch (Exception ex)
+            bangthutiengenhistory bangThuTienGenHistory = new bangthutiengenhistory()
             {
-                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
+                NgayTinh = ngayTinh,
+                LopId = lop,
+                DateCreated = DateTime.Now,
+                SoTienAnSang = Settings.Default.TienAnSang,
+                SoTienAnToi = Settings.Default.TienAnToi,
+                SoTienAnChinh = Settings.Default.TienAnChinh
+            };
+
+            using (qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities())
+            {
+                entities.bangthutiengenhistories.Add(bangThuTienGenHistory);
+                entities.SaveChanges();
             }
         }
 
         private void generatedSoThuTiens(object sender, RunWorkerCompletedEventArgs e)
         {
             this.HideGridLoadingPanel();
+
+            if (e.Error != null)
+            {
+                LoggerFacade.Error(e.Error, AppForms.FormSoThuTien);
+                XtraMessageBox.Show(String.Format("Tạo sổ thu tiền không thành công.\n\n{0}", e.Error.Message),
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             this.loadViewBangThuTiens(this.ngayTinh, this.lop);
         }
     }

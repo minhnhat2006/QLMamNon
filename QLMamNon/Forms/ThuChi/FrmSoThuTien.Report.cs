@@ -16,8 +16,13 @@ namespace QLMamNon.Forms.ThuChi
             List<viewbangthutien> rows = new List<viewbangthutien>();
             for (int i = 0; i < this.GridViewMain.DataRowCount; i++)
             {
-                viewbangthutien viewBangThuTienRow = (viewbangthutien)this.GridViewMain.GetRow(this.GridViewMain.GetVisibleRowHandle(i));
-                rows.Add(viewBangThuTienRow);
+                viewbangthutien viewBangThuTienRow = this.GridViewMain.GetRow(this.GridViewMain.GetVisibleRowHandle(i)) as viewbangthutien;
+
+                // Dòng nhóm/dòng mới không phải dòng dữ liệu.
+                if (viewBangThuTienRow != null)
+                {
+                    rows.Add(viewBangThuTienRow);
+                }
             }
 
             return rows;
@@ -83,13 +88,13 @@ namespace QLMamNon.Forms.ThuChi
                     SoTienDieuHoa = viewBangThuTienRow.SoTienDieuHoa == null ? 0 : viewBangThuTienRow.SoTienDieuHoa.Value,
                     SoTienNangKhieu = viewBangThuTienRow.SoTienNangKhieu == null ? 0 : viewBangThuTienRow.SoTienNangKhieu.Value,
                     SoTienDoDung = viewBangThuTienRow.SoTienDoDung == null ? 0 : viewBangThuTienRow.SoTienDoDung.Value,
-                    SoTienNoThangTruoc = viewBangThuTienRow.SoTienTruyThu.Value,
-                    SoTienAnSangThuaThangTruoc = viewBangThuTienRow.SoTienAnSangThangTruoc.Value,
-                    SoTienAnToiThuaThangTruoc = viewBangThuTienRow.SoTienAnToiThangTruoc.Value,
-                    SoTienAnTruaThuaThangTruoc = viewBangThuTienRow.SoTienSXThangTruoc.Value,
-                    SoXuatAnSangThuaThangTruoc = viewBangThuTienRow.AnSangThangTruoc.Value,
+                    SoTienNoThangTruoc = viewBangThuTienRow.SoTienTruyThu == null ? 0 : viewBangThuTienRow.SoTienTruyThu.Value,
+                    SoTienAnSangThuaThangTruoc = viewBangThuTienRow.SoTienAnSangThangTruoc == null ? 0 : viewBangThuTienRow.SoTienAnSangThangTruoc.Value,
+                    SoTienAnToiThuaThangTruoc = viewBangThuTienRow.SoTienAnToiThangTruoc == null ? 0 : viewBangThuTienRow.SoTienAnToiThangTruoc.Value,
+                    SoTienAnTruaThuaThangTruoc = viewBangThuTienRow.SoTienSXThangTruoc == null ? 0 : viewBangThuTienRow.SoTienSXThangTruoc.Value,
+                    SoXuatAnSangThuaThangTruoc = viewBangThuTienRow.AnSangThangTruoc == null ? 0 : viewBangThuTienRow.AnSangThangTruoc.Value,
                     SoXuatAnToiThuaThangTruoc = viewBangThuTienRow.AnToiThangTruoc,
-                    SoXuatAnTruaThuaThangTruoc = viewBangThuTienRow.SXThangTruoc.Value
+                    SoXuatAnTruaThuaThangTruoc = viewBangThuTienRow.SXThangTruoc == null ? 0 : viewBangThuTienRow.SXThangTruoc.Value
                 };
 
                 giayBaoNopTiens.Add(giayBaoNopTien);

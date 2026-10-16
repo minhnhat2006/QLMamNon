@@ -51,7 +51,7 @@ namespace QLMamNon.Workflow.Handler
 
                                     if (!EDIT_FORM_BUTTON_CAPTION_TO_IMAGE_MAP.ContainsKey(simpleButton.Text))
                                     {
-                                        return;
+                                        continue;
                                     }
 
                                     simpleButton.Image = ((System.Drawing.Image)(resources.GetObject(EDIT_FORM_BUTTON_CAPTION_TO_IMAGE_MAP[simpleButton.Text])));
@@ -66,8 +66,13 @@ namespace QLMamNon.Workflow.Handler
 
             // Perform cancelling on EditForm closed
             GridView gridView = sender as GridView;
-            UCCRUDBase uc = gridView.OptionsEditForm.CustomEditFormLayout as UCCRUDBase;
-            uc.GridView = gridView;
+            UCCRUDBase uc = gridView == null ? null : gridView.OptionsEditForm.CustomEditFormLayout as UCCRUDBase;
+
+            if (uc != null)
+            {
+                uc.GridView = gridView;
+            }
+
             e.EditForm.FormClosed += new FormClosedEventHandler(EditForm_FormClosed);
         }
 
@@ -81,7 +86,7 @@ namespace QLMamNon.Workflow.Handler
                 {
                     UCCRUDBase uc = (control as EditFormContainer).ActiveControl as UCCRUDBase;
 
-                    if (uc != null)
+                    if (uc != null && uc.GridView != null)
                     {
                         uc.GridView.CancelUpdateCurrentRow();
                     }

@@ -6,7 +6,7 @@ namespace ACG.Core.WinForm.Util
     {
         public static DateTime DateStartOfMonth(DateTime date)
         {
-            return new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, 0);
+            return new DateTime(date.Year, date.Month, 1, 0, 0, 0, 0);
         }
 
         public static DateTime DateEndOfMonth(DateTime date)

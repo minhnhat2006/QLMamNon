@@ -26,8 +26,11 @@ or test it** — use MSBuild from a Visual Studio install. There is no `src/` di
 - Debug builds `AnyCPU`; Release builds **x86**.
 - **Run**: `QLMamNon\bin\Debug\QLMamNon.exe` — needs a reachable MySQL server; connection strings live in
   `QLMamNon\app.config` (`qlmamnonEntities`, EF metadata + `MySql.Data.MySqlClient`).
-- **Tests**: none exist. Verification is manual against a restored copy of `DB\qlmamnon.sql` — never
-  against live data. State plainly when a change was not verified by running the app.
+- **Tests**: none exist. Verification is manual against a restored copy of
+  `DB\qlmn_backup_202610121440249028.sql` (MySqlBackup dump of 12/10/2026, MySQL 5.7) — never against
+  live data. Restore it into a separate database (e.g. `CREATE DATABASE qlmamnon_test CHARACTER SET utf8;`
+  then `mysql -u root -p qlmamnon_test < DB\qlmn_backup_202610121440249028.sql`) and point both
+  connection strings at it while testing. State plainly when a change was not verified by running the app.
 
 ## Architecture
 
@@ -240,8 +243,13 @@ assign to the report's `BindingSource.DataSource` → `FormMainFacade.ShowReport
   it (`.claude/settings.json` denies reading it). The MySQL password and the SMS provider keys are
   likewise committed in `QLMamNon/app.config`: don't copy them into new files, logs, commit messages or
   anything published, and if they are ever rotated they should move out of source control.
-- `DB/*.sql` are full schema+data dumps; `Documents/` holds reference screenshots of the paper forms the
-  reports must match.
+- `DB/qlmn_backup_202610121440249028.sql` is the current full schema+data dump and the reference for
+  schema, views and stored procedures. It contains **real student and parent data**: restore it only
+  locally, and never paste its rows into chat, logs, commits or anything published. `/DB/*.sql` is in
+  `.gitignore` for that reason — never force-add a dump to git.
+  `QLMamNon/DB/Dump20190701.sql` and `QLMamNon/DB/qlmamnon.sql` are **outdated** (e.g. their
+  `viewbangthutien` still has placeholder `ThanhTien`/`HoTen` columns) — don't use them as a reference.
+  `Documents/` holds reference screenshots of the paper forms the reports must match.
 - **Many files under `Reports/` are UTF-16LE encoded** (which is why git shows them as `Bin`). Preserve
   the encoding when editing, and expect text tools to need `iconv -f UTF-16LE`. Most other sources are
   UTF-8 with BOM.

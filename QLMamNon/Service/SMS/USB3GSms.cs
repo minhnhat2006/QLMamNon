@@ -25,28 +25,50 @@ namespace QLMamNon.Service.SMS
 
         private void SerialPort_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
-            throw new Exception($"Error occurs on SerialPort {serialPort.PortName}");
+            // Sự kiện này chạy trên thread riêng của SerialPort: throw ở đây sẽ làm sập cả ứng dụng.
+            // Chỉ ghi log; việc gửi thất bại vẫn được phát hiện qua isStatusOk trong sendSmsMessage.
+            LoggerFacade.Error(string.Format("Lỗi trên cổng {0}: {1}", serialPort.PortName, e.EventType), AppForms.FormTinNhanPhuHuynh);
         }
 
         public Dictionary<string, bool> SendSMS(Dictionary<string, string> phoneNumberToSmsContentDic)
         {
             Dictionary<string, bool> sendingStatusDic = new Dictionary<string, bool>();
 
-            foreach (var phoneNumberToSmsContent in phoneNumberToSmsContentDic)
+            try
             {
-                string phoneNumberKey = phoneNumberToSmsContent.Key;
-
-                if (!string.IsNullOrWhiteSpace(phoneNumberKey))
+                foreach (var phoneNumberToSmsContent in phoneNumberToSmsContentDic)
                 {
-                    string phoneNumber = phoneNumberKey.Substring(0, phoneNumberKey.IndexOf("-"));
-                    bool sendingSuccess = sendSmsMessage(phoneNumber, phoneNumberToSmsContent.Value);
-                    sendingStatusDic.Add(phoneNumberToSmsContent.Key, sendingSuccess);
+                    string phoneNumberKey = phoneNumberToSmsContent.Key;
 
-                    Thread.Sleep(timeInsecondsToSleepBetweenSms * 1000);
+                    if (!string.IsNullOrWhiteSpace(phoneNumberKey))
+                    {
+                        string phoneNumber = GetPhoneNumberFromKey(phoneNumberKey);
+                        bool sendingSuccess = sendSmsMessage(phoneNumber, phoneNumberToSmsContent.Value);
+                        sendingStatusDic.Add(phoneNumberToSmsContent.Key, sendingSuccess);
+
+                        Thread.Sleep(timeInsecondsToSleepBetweenSms * 1000);
+                    }
                 }
+            }
+            finally
+            {
+                // Mỗi lần gửi tạo một USB3GSms mới trên cùng serialPort1 của form: phải gỡ handler,
+                // nếu không các handler sẽ chồng lên nhau sau mỗi lần gửi.
+                serialPort.ErrorReceived -= SerialPort_ErrorReceived;
             }
 
             return sendingStatusDic;
+        }
+
+        /// <summary>
+        /// Khóa có dạng "{soDienThoai}-{rowHandle}". Số điện thoại có thể chứa dấu "-" (ví dụ
+        /// "0905-123-456") nên phải cắt ở dấu "-" cuối cùng, sau đó bỏ mọi ký tự không phải chữ số.
+        /// </summary>
+        public static string GetPhoneNumberFromKey(string phoneNumberKey)
+        {
+            int separatorIndex = phoneNumberKey.LastIndexOf("-");
+            string phoneNumber = separatorIndex < 0 ? phoneNumberKey : phoneNumberKey.Substring(0, separatorIndex);
+            return new string(phoneNumber.Where(c => char.IsDigit(c) || c == '+').ToArray());
         }
 
         /// <summary>
@@ -185,7 +207,7 @@ namespace QLMamNon.Service.SMS
                 return true;
             }
 
-            if (statusMsg.IndexOf("OK", StringComparison.CurrentCultureIgnoreCase) > 0)
+            if (statusMsg.IndexOf("OK", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 return true;
             }

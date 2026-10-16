@@ -1,6 +1,7 @@
 ﻿using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
+using Google.Apis.Upload;
 using Google.Apis.Util.Store;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,9 @@ namespace QLMamNon.Facade
         public static string UploadFile(string targetPath, string fileToUpload)
         {
             UserCredential credential;
-            using (var stream = new FileStream("client_secret.json", FileMode.Open, FileAccess.Read))
+            // Đường dẫn tuyệt đối theo thư mục cài đặt, không phụ thuộc thư mục làm việc của shortcut.
+            string clientSecretPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "client_secret.json");
+            using (var stream = new FileStream(clientSecretPath, FileMode.Open, FileAccess.Read))
             {
                 string credPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
                 credPath = Path.Combine(credPath, ".credentials/gdrive-qlmn.json");
@@ -57,11 +60,16 @@ namespace QLMamNon.Facade
 
             };
             FilesResource.CreateMediaUpload request;
-            using (var stream = new FileStream(fileToUpload, FileMode.Open))
+            using (var stream = new FileStream(fileToUpload, FileMode.Open, FileAccess.Read))
             {
                 request = service.Files.Create(fileMetadata, stream, "text/plain");
                 request.Fields = "id";
-                var uploadResult = request.Upload();
+                IUploadProgress uploadResult = request.Upload();
+
+                if (uploadResult.Status != UploadStatus.Completed)
+                {
+                    throw new IOException("Tải file sao lưu lên Google Drive không thành công.", uploadResult.Exception);
+                }
             }
 
             var file = request.ResponseBody;

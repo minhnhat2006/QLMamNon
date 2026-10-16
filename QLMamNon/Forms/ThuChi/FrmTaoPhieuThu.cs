@@ -259,10 +259,20 @@ namespace QLMamNon.Forms.ThuChi
             {
                 // Context riêng cho lần tính truy thu này: context của form đang giữ các dòng
                 // viewbangthutien của tháng hiện tại đã bị sửa trong bộ nhớ.
-                using (qlmamnonEntities truyThuEntities = StaticDataFacade.GetQLMNEntities())
+                try
                 {
-                    TruyThuService truyThuService = new TruyThuService();
-                    truyThuService.UpdateSoTienTruyThuForBangThuTienNextMonths(truyThuEntities, this.dateNgay.DateTime, hocSinhId.Value);
+                    using (qlmamnonEntities truyThuEntities = StaticDataFacade.GetQLMNEntities())
+                    {
+                        TruyThuService truyThuService = new TruyThuService();
+                        truyThuService.UpdateSoTienTruyThuForBangThuTienNextMonths(truyThuEntities, this.dateNgay.DateTime, hocSinhId.Value);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Phiếu thu đã được lưu ở trên: chỉ báo lỗi, không để người dùng lưu lại lần nữa.
+                    LoggerFacade.Error(ex, this.FormKey);
+                    MessageBox.Show(String.Format("Đã lưu phiếu thu nhưng không thể cập nhật lại số tiền truy thu của tháng sau.\n\n{0}", ex.Message),
+                        "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
