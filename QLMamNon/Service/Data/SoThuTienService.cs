@@ -372,6 +372,12 @@ namespace QLMamNon.Service.Data
 
             foreach (phieuthu phieuThuRow in phieuThuDataTable)
             {
+                // Bảng kê thu học phí chỉ tính phiếu thu học phí (giống GetBangKeTongHopThuTienForTaoPhieuThu).
+                if (!phieuThuRow.PhanLoaiThuId.HasValue || phieuThuRow.PhanLoaiThuId != PhanLoaiThuConstant.PhanLoaiThuIdThuTienHocPhi)
+                {
+                    continue;
+                }
+
                 viewbangthutien viewBangThuTienRow = hocSinhIdsToViewBangThuTienRows[phieuThuRow.HocSinhId.Value];
                 BangKeThuTienItem bangKeThuTienItem = new BangKeThuTienItem()
                 {
