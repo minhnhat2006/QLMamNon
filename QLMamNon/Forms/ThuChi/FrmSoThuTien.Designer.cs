@@ -116,7 +116,6 @@
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.cmbThang = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbNam = new DevExpress.XtraEditors.LookUpEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -129,12 +128,7 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnLast = new DevExpress.XtraEditors.SimpleButton();
-            this.btnNext = new DevExpress.XtraEditors.SimpleButton();
-            this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
-            this.btnFirst = new DevExpress.XtraEditors.SimpleButton();
             this.btnTaoSoThuTien = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuyBo = new DevExpress.XtraEditors.SimpleButton();
@@ -163,7 +157,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
@@ -186,7 +179,6 @@
             this.lcMain.Controls.Add(this.btnTimKiem);
             this.lcMain.Controls.Add(this.cmbThang);
             this.lcMain.Controls.Add(this.cmbNam);
-            this.lcMain.Controls.Add(this.simpleButton1);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(46, 159, 380, 350);
             this.lcMain.OptionsFocus.EnableAutoTabOrder = false;
@@ -1088,13 +1080,6 @@
             this.cmbNam.Properties.ValueMember = "FromYear";
             this.cmbNam.StyleController = this.lcMain;
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            resources.ApplyResources(this.simpleButton1, "simpleButton1");
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.StyleController = this.lcMain;
-            // 
             // Root
             // 
             this.Root.AppearanceItemCaption.Font = ((System.Drawing.Font)(resources.GetObject("Root.AppearanceItemCaption.Font")));
@@ -1104,8 +1089,7 @@
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem11,
-            this.layoutControlGroup1,
-            this.layoutControlItem5});
+            this.layoutControlGroup1});
             this.Root.Location = new System.Drawing.Point(0, 0);
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(968, 607);
@@ -1116,7 +1100,7 @@
             this.layoutControlItem11.Control = this.gcMain;
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 78);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(968, 502);
+            this.layoutControlItem11.Size = new System.Drawing.Size(968, 529);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
@@ -1221,54 +1205,13 @@
             this.layoutControlItem8.TextVisible = false;
             this.layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.simpleButton1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 580);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(968, 27);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.btnLast);
-            this.panelControl1.Controls.Add(this.btnNext);
-            this.panelControl1.Controls.Add(this.btnPrev);
-            this.panelControl1.Controls.Add(this.btnFirst);
             this.panelControl1.Controls.Add(this.btnTaoSoThuTien);
             this.panelControl1.Controls.Add(this.btnLuu);
             this.panelControl1.Controls.Add(this.btnHuyBo);
             resources.ApplyResources(this.panelControl1, "panelControl1");
             this.panelControl1.Name = "panelControl1";
-            // 
-            // btnLast
-            // 
-            resources.ApplyResources(this.btnLast, "btnLast");
-            this.btnLast.Image = ((System.Drawing.Image)(resources.GetObject("btnLast.Image")));
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
-            // 
-            // btnNext
-            // 
-            resources.ApplyResources(this.btnNext, "btnNext");
-            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnPrev
-            // 
-            resources.ApplyResources(this.btnPrev, "btnPrev");
-            this.btnPrev.Image = ((System.Drawing.Image)(resources.GetObject("btnPrev.Image")));
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // btnFirst
-            // 
-            resources.ApplyResources(this.btnFirst, "btnFirst");
-            this.btnFirst.Image = ((System.Drawing.Image)(resources.GetObject("btnFirst.Image")));
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // btnTaoSoThuTien
             // 
@@ -1334,7 +1277,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
@@ -1399,10 +1341,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colAnToiThangTruoc;
         private DevExpress.XtraEditors.SimpleButton btnTaoSoThuTien;
-        private DevExpress.XtraEditors.SimpleButton btnFirst;
-        private DevExpress.XtraEditors.SimpleButton btnLast;
-        private DevExpress.XtraEditors.SimpleButton btnNext;
-        private DevExpress.XtraEditors.SimpleButton btnPrev;
         private DevExpress.XtraEditors.SimpleButton btnPrintGiayBaoNopTien;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraEditors.LookUpEdit cmbLop;
@@ -1411,8 +1349,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colTienSua;
         private DevExpress.Utils.ImageCollection imageCollection1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colTen;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colSoDienThoai;

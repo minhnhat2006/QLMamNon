@@ -587,9 +587,6 @@
     <Compile Include="Forms\ThuChi\FrmSoThuTien.GenerateSoThuTien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ThuChi\FrmSoThuTien.MoveRow.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\ThuChi\FrmSoThuTien.Report.cs">
       <SubType>Form</SubType>
     </Compile>
