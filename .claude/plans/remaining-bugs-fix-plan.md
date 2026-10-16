@@ -36,6 +36,7 @@ Tick a box (and nothing else in this file) when a task is committed.
 - [x] T15 Undisposed DbContexts — `PhieuThuService`, `SoThuTienService`
 - [x] T16 Bảng kê thu học phí counts only tuition receipts — `SoThuTienService`
 - [x] T17 Password hashing: salted PBKDF2 + automatic upgrade of old MD5 hashes at login — `PasswordUtil`, `AuthenService`, `FrmLogin`, `UCEditFormUser` **(medium-hard)**
+- [ ] T18 Review follow-ups: password box typed-then-cleared, stale TruyThuService remarks — `UCEditFormUser`, `TruyThuService`
 
 Order matters only for: **T1 and T2 first** (so every later failure is logged), **T3 before T4**
 (same feature, test them together). Everything else is independent.
@@ -1663,6 +1664,99 @@ build, an older build of the app can no longer log that user in. Recovery from M
 accepts it and upgrades it on the next login.
 
 **Commit:** `Hash passwords with salted PBKDF2 and upgrade legacy MD5 hashes at login`
+
+---
+
+## T18 — Review follow-ups (found while reviewing T5 and T17)
+
+**Difficulty:** easy. **Files:** `QLMamNon/UserControls/UCEditFormUser.cs`,
+`QLMamNon/Service/Data/TruyThuService.cs`
+
+**Problems.**
+- **Medium (T17 follow-up).** `txtPassword_EditValueChanged` writes a hash on every keystroke. If the
+  admin types something and then clears the box, the hash of the last partial text stays in the row
+  and is saved as the new password. Also the edit popup reuses one `UCEditFormUser`, so text typed for
+  the previous user is still in the password box when the next user is opened. Fix: remember the stored
+  password when the popup opens, clear the box, and restore the stored value whenever the box becomes
+  empty (a new user goes back to NULL, so saving without a password still fails as before).
+- **Low (T5 follow-up).** The `<remarks>` of `UpdateSoTienTruyThuForBangThuTienNextMonths` still
+  describe the removed OverwriteChanges/OriginalValues/Detached logic.
+
+**Step 1.** In `UCEditFormUser.cs` find:
+```csharp
+        private bool _selectGvMainRowQuietMode = true;
+```
+Replace with:
+```csharp
+        private bool _selectGvMainRowQuietMode = true;
+
+        // Mật khẩu (đã băm) đang lưu của người dùng đang sửa, để khôi phục khi ô mật khẩu bị xóa trắng.
+        private object originalPassword;
+```
+
+**Step 2.** Same file, find:
+```csharp
+            this.gvMain.ClearSelection();
+```
+Replace with:
+```csharp
+            this.gvMain.ClearSelection();
+
+            // Ghi nhớ mật khẩu đang lưu rồi xóa ô mật khẩu còn sót lại từ lần mở popup trước.
+            this.originalPassword = this.GridView.GetFocusedRowCellValue("Password");
+            this.txtPassword.Text = string.Empty;
+```
+
+**Step 3.** Same file, find:
+```csharp
+            // Ô mật khẩu trống nghĩa là giữ nguyên mật khẩu đang lưu.
+            if (StringUtil.IsEmpty(txtPassword.Text))
+            {
+                return;
+            }
+```
+Replace with:
+```csharp
+            // Ô mật khẩu trống nghĩa là giữ nguyên mật khẩu đang lưu (kể cả khi đã gõ rồi xóa hết).
+            if (StringUtil.IsEmpty(txtPassword.Text))
+            {
+                this.GridView.SetFocusedRowCellValue("Password", this.originalPassword);
+                return;
+            }
+```
+
+**Step 4.** In `TruyThuService.cs` find:
+```csharp
+        /// <remarks>
+        /// Hàm không phụ thuộc vào việc người gọi truyền context nào: dòng viewbangthutien của
+        /// tháng sau phải được theo dõi (tracked) để đọc được OriginalValues/CurrentValues, nên nó
+        /// được đọc với MergeOption.OverwriteChanges - nếu context đã nạp sẵn dòng đó từ trước
+        /// (ví dụ context của lưới phiếu thu) thì giá trị gốc vẫn được lấy lại từ DB, thay vì
+        /// MergeOption.AppendOnly trả về đúng instance đã bị sửa và làm chênh lệch sai.
+        /// Dòng đó cũng được gỡ khỏi change tracker ở cuối hàm, vì viewbangthutien là entity set
+        /// chỉ đọc (DefiningQuery) - để nguyên trạng thái Modified sẽ làm SaveChanges() của
+        /// người gọi throw UpdateException.
+        /// Dù vậy, một context riêng và ngắn hạn vẫn là cách dùng được khuyến nghị
+        /// (xem FrmTaoPhieuThu.onSavePhieuThu).
+        /// </remarks>
+```
+Replace with:
+```csharp
+        /// <remarks>
+        /// Truy thu tháng M+1 được tính lại từ tháng M (tháng của <c>ngay</c>) bằng
+        /// BangThuTienUtil.CalculateTruyThu, so với SoTienTruyThu đang lưu, và phần chênh lệch được
+        /// cộng cho mọi bảng thu tiền từ tháng M+1 trở đi qua updateSoTienTruyThuByHocSinhAndNgayUpdated.
+        /// Mọi dòng viewbangthutien đều được đọc NoTracking nên hàm không để lại thay đổi nào trong
+        /// context của người gọi. Vẫn nên dùng một context riêng, ngắn hạn
+        /// (xem FrmTaoPhieuThu.onSavePhieuThu và FrmPhieuThu).
+        /// </remarks>
+```
+
+**Check.** Build. Người dùng screen: open user A, type a password, delete it all, Lưu → A's stored
+password is unchanged and A can still log in with the old one. Open A, type `abc`, close with Hủy,
+open B → B's password box is empty. Set a new password for B, Lưu → B logs in with it.
+
+**Commit:** `Keep stored password when the box is cleared; update truy thu remarks`
 
 ---
 
