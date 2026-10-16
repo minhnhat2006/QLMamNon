@@ -65,7 +65,8 @@ namespace QLMamNon.Forms.ThuChi
             {
                 if (!DateTimeUtil.IsSameMonthYear(ngayTinh, Settings.Default.AppLannchDate))
                 {
-                    DateTime preMonthDate = DateTimeUtil.DateStartOfMonth(ngayTinh.AddMonths(-1));
+                    // NgayTinh luôn là ngày cuối tháng (GetNgayTinh) và thủ tục so sánh ngày chính xác.
+                    DateTime preMonthDate = DateTimeUtil.DateEndOfMonth(ngayTinh.AddMonths(-1)).Date;
                     long prevMonthGenHistoryCount = Entities.countBangThuTienGenHistoryByLopAndNgayTinh(lop, preMonthDate).First().Value;
 
                     if (prevMonthGenHistoryCount == 0 && showMessageBox)
