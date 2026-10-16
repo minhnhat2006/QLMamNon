@@ -32,7 +32,7 @@ Tick a box (and nothing else in this file) when a task is committed.
 - [x] T11 "In giấy báo nộp tiền" crashes on NULL cells — `FrmSoThuTien.Report.cs`
 - [x] T12 NullReference / KeyNotFound traps in the lookup helpers — `StaticDataMap`, `StaticDataUtil`
 - [x] T13 Google Drive backup: clearer failure, path independent of working dir — `GDriveFacade`
-- [ ] T14 Latent crash traps in popup/activity/mediator code — 4 small files
+- [x] T14 Latent crash traps in popup/activity/mediator code — 4 small files
 - [ ] T15 Undisposed DbContexts — `PhieuThuService`, `SoThuTienService`
 - [ ] T16 Bảng kê thu học phí counts only tuition receipts — `SoThuTienService`
 - [ ] T17 Password hashing: salted PBKDF2 + automatic upgrade of old MD5 hashes at login — `PasswordUtil`, `AuthenService`, `FrmLogin`, `UCEditFormUser` **(medium-hard)**

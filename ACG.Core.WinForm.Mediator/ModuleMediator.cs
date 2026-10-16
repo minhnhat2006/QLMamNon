@@ -30,6 +30,11 @@ namespace ACG.Core.WinForm.Mediator
 
         public void Send(object from, string channel, object message)
         {
+            if (!participants.ContainsKey(channel))
+            {
+                return;
+            }
+
             foreach (Action participant in participants[channel])
             {
                 participant.Receive(from, message);

@@ -19,7 +19,7 @@ namespace QLMamNon.Components.ActivityTracker
 
         public void fire(string objectId, ActivityType activityType)
         {
-            throw new NotImplementedException();
+            // Observer này chỉ ghi log khi đổi nội dung; các sự kiện khác được bỏ qua (không throw).
         }
     }
 }
