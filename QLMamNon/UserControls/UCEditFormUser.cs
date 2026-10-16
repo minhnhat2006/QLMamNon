@@ -23,7 +23,13 @@ namespace QLMamNon.UserControls
 
         private void txtPassword_EditValueChanged(object sender, EventArgs e)
         {
-            this.GridView.SetFocusedRowCellValue("Password", PasswordUtil.GetMd5Hash(txtPassword.Text));
+            // Ô mật khẩu trống nghĩa là giữ nguyên mật khẩu đang lưu.
+            if (StringUtil.IsEmpty(txtPassword.Text))
+            {
+                return;
+            }
+
+            this.GridView.SetFocusedRowCellValue("Password", PasswordUtil.HashPassword(txtPassword.Text));
         }
 
         private void UCEditFormUser_Load(object sender, EventArgs e)
