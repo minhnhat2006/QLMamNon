@@ -101,7 +101,7 @@ namespace QLMamNon
             {
                 List<truong> truongTable = (List<truong>)StaticDataFacade.Get(StaticDataKeys.TruongHoc);
                 truong truongRow = truongTable.Find(t => t.TruongId == truongId);
-                return truongRow.Name;
+                return truongRow == null ? CommonConstant.EMPTY : truongRow.Name;
             }
 
             return CommonConstant.EMPTY;
@@ -115,7 +115,7 @@ namespace QLMamNon
             {
                 List<truong> truongTable = (List<truong>)StaticDataFacade.Get(StaticDataKeys.TruongHoc);
                 truong truongRow = truongTable.Find(t => t.TruongId == truongId.Value);
-                return truongRow.Name;
+                return truongRow == null ? CommonConstant.EMPTY : truongRow.Name;
             }
 
             return CommonConstant.EMPTY;
@@ -151,7 +151,7 @@ namespace QLMamNon
             if (khoiTable != null && khoiTable.Count > 0)
             {
                 khoi khoiRow = khoiTable.Find(k => k.KhoiId == khoiId);
-                return khoiRow.Name;
+                return khoiRow == null ? CommonConstant.EMPTY : khoiRow.Name;
             }
 
             return CommonConstant.EMPTY;
@@ -169,7 +169,7 @@ namespace QLMamNon
             if (lopTable != null && lopTable.Count > 0)
             {
                 lop lopRow = lopTable.Find(l => l.LopId == lopId);
-                return lopRow.Name;
+                return lopRow == null ? CommonConstant.EMPTY : lopRow.Name;
             }
 
             return CommonConstant.EMPTY;
@@ -269,7 +269,8 @@ namespace QLMamNon
         {
             if (ListUtil.IsEmpty(hocSinhIds))
             {
-                return null;
+                // Trả về dictionary rỗng thay vì null: mọi nơi gọi đều dùng ContainsKey/indexer ngay.
+                return new Dictionary<int, hocsinh_lop>();
             }
 
             Dictionary<int, hocsinh_lop> hocSinhIdsToHocSinhLops = new Dictionary<int, hocsinh_lop>();

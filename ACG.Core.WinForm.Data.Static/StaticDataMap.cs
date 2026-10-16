@@ -81,11 +81,12 @@ namespace ACG.Core.WinForm.Data.Static
                 {
                     IStaticData staticData = keyFunctionMap[key];
                     object data = staticData.Retrieve();
-                    this.keyDataMap.Add(key, data);
+                    this.keyDataMap[key] = data;
                 }
             }
 
-            return this.keyDataMap[key];
+            object value;
+            return this.keyDataMap.TryGetValue(key, out value) ? value : null;
         }
 
         public bool Contains(string key)
