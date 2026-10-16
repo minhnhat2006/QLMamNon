@@ -20,6 +20,11 @@ namespace QLMamNon.Forms.SystemSetting
         {
             this.FormKey = AppForms.FormPreference;
             InitializeComponent();
+
+            // Hai giá trị này là applicationSettings: Settings.Default.Save() không lưu được chúng,
+            // nên chỉ hiển thị, không cho sửa (sửa trong app.config rồi khởi động lại ứng dụng).
+            this.txtConnectionString.Properties.ReadOnly = true;
+            this.dateAppLaunchDate.Properties.ReadOnly = true;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -29,8 +34,6 @@ namespace QLMamNon.Forms.SystemSetting
 
         private void btnXemBaoCao_Click(object sender, EventArgs e)
         {
-            Settings.Default["qlmamnonConnectionString1"] = txtConnectionString.Text;
-            Settings.Default["AppLannchDate"] = dateAppLaunchDate.DateTime;
             Settings.Default["TienAnSang"] = (long)txtSoTienAnSang.Value;
             Settings.Default["TienAnToi"] = (long)txtSoTienAnToi.Value;
             Settings.Default["TienAnChinh"] = (long)txtSoTienAnChinh.Value;
