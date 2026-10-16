@@ -628,9 +628,11 @@ namespace QLMamNon.Service.Data
 
         public List<HocSinhChuaNopHocPhiItem> GetDanhSachTreChuaNopHocPhiByMonth(int year, int month)
         {
-            qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities();
-            List<HocSinhChuaNopHocPhiItem> table = entities.Database.SqlQuery<HocSinhChuaNopHocPhiItem>($"CALL `getDanhSachTreChuaNopHocPhiByMonth`({year}, {month})", new object[] { }).ToList();
-            return table;
+            using (qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities())
+            {
+                List<HocSinhChuaNopHocPhiItem> table = entities.Database.SqlQuery<HocSinhChuaNopHocPhiItem>($"CALL `getDanhSachTreChuaNopHocPhiByMonth`({year}, {month})", new object[] { }).ToList();
+                return table;
+            }
         }
     }
 }
