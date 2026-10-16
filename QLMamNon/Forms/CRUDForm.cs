@@ -43,7 +43,20 @@ namespace QLMamNon.Forms
     {
         #region Properties
 
-        protected BindingList<T> DataTable { get; set; }
+        private BindingList<T> dataTable;
+
+        // Rows the grid added through its binding list. Only these may be promoted from Detached to Added on save.
+        private readonly HashSet<T> addedRows = new HashSet<T>();
+
+        protected BindingList<T> DataTable
+        {
+            get { return this.dataTable; }
+            set
+            {
+                this.addedRows.Clear();
+                this.dataTable = value;
+            }
+        }
 
         #endregion
 
@@ -122,6 +135,12 @@ namespace QLMamNon.Forms
         protected void Form_FormClosed(object sender, FormClosedEventArgs e)
         {
             FormMainFacade.CloseForm(FormKey);
+
+            if (this.Entities != null)
+            {
+                this.Entities.Dispose();
+                this.Entities = null;
+            }
         }
 
         protected void Form_Activated(object sender, EventArgs e)
@@ -147,7 +166,7 @@ namespace QLMamNon.Forms
 
         protected void GridViewMain_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
-            if (e == null)
+            if (e == null || e.Column == null)
             {
                 return;
             }
@@ -212,8 +231,16 @@ namespace QLMamNon.Forms
         protected virtual void onAdding()
         {
             BindingSource bindingSource = this.GridViewMain.GridControl.DataSource as BindingSource;
-            bindingSource.AddNew();
-            this.GridViewMain.GridControl.DataSource = GridControl.NewItemRowHandle;
+            if (bindingSource == null)
+            {
+                return;
+            }
+
+            object newRow = bindingSource.AddNew();
+            if (newRow is T)
+            {
+                this.addedRows.Add((T)newRow);
+            }
             this.GridViewMain.ShowEditForm();
 
             FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.AddedCaption);
@@ -233,25 +260,30 @@ namespace QLMamNon.Forms
                 {
                     foreach (T row in this.DataTable)
                     {
-                        if (Entities.Entry<T>(row).State == EntityState.Detached)
+                        if (this.addedRows.Contains(row) && Entities.Entry<T>(row).State == EntityState.Detached)
                         {
                             Entities.Entry<T>(row).State = EntityState.Added;
                         }
                     }
 
                     this.Entities.SaveChanges();
+                    this.addedRows.Clear();
                 }
+
+                FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.SavedCaption);
             }
             catch (Exception ex)
             {
                 this.onSavingError(ex);
             }
-
-            FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.SavedCaption);
         }
 
         protected virtual void onSavingError(Exception ex)
         {
+            LoggerFacade.Error(ex, this.FormKey);
+            MessageBox.Show(String.Format("Không thể lưu {0}. Vui lòng thử lại.\n\n{1}", this.DanhMuc, GetInnermostMessage(ex)), "Lỗi",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             if (ex is DBConcurrencyException)
             {
                 this.reloadDataTable();
@@ -259,6 +291,15 @@ namespace QLMamNon.Forms
         }
 
         protected virtual void reloadDataTable() { }
+
+        private static string GetInnermostMessage(Exception ex)
+        {
+            while (ex.InnerException != null)
+            {
+                ex = ex.InnerException;
+            }
+            return ex.Message;
+        }
 
         protected virtual void onDeleting()
         {
@@ -272,12 +313,40 @@ namespace QLMamNon.Forms
 
             if (confirmResult == DialogResult.Yes)
             {
-                T row = GridViewMain.GetRow(GridViewMain.FocusedRowHandle) as T;
+                List<T> rowsToDelete = new List<T>();
+                foreach (int handle in this.GridViewMain.GetSelectedRows())
+                {
+                    T selectedRow = this.GridViewMain.GetRow(handle) as T;
+                    if (selectedRow != null)
+                    {
+                        rowsToDelete.Add(selectedRow);
+                    }
+                }
+
                 this.GridViewMain.DeleteSelectedRows();
 
-                if (Entities.Entry<T>(row).State != EntityState.Deleted)
+                try
                 {
-                    Entities.Entry<T>(row).State = EntityState.Deleted;
+                    foreach (T row in rowsToDelete)
+                    {
+                        EntityState rowState = Entities.Entry<T>(row).State;
+                        if (rowState == EntityState.Detached || rowState == EntityState.Added)
+                        {
+                            Entities.Entry<T>(row).State = EntityState.Detached;
+                        }
+                        else if (rowState != EntityState.Deleted)
+                        {
+                            Entities.Entry<T>(row).State = EntityState.Deleted;
+                        }
+                        this.addedRows.Remove(row);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LoggerFacade.Error(ex, this.FormKey);
+                    MessageBox.Show(String.Format("Không thể xóa {0}. Vui lòng thử lại.\n\n{1}", this.DanhMuc, GetInnermostMessage(ex)), "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
                 FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.DeletedCaption);
@@ -287,6 +356,11 @@ namespace QLMamNon.Forms
         protected virtual void onCanceling()
         {
             BindingSource bindingSource = this.GridViewMain.GridControl.DataSource as BindingSource;
+            if (bindingSource == null)
+            {
+                return;
+            }
+
             List<T> rowsToRemove = new List<T>();
             List<T> rowsToAdd = new List<T>();
 
@@ -322,6 +396,7 @@ namespace QLMamNon.Forms
                 }
 
                 bindingSource.ResetBindings(false);
+                this.addedRows.Clear();
             }
 
             fillRelativeMainDataTable();

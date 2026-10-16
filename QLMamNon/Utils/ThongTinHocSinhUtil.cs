@@ -28,7 +28,7 @@ namespace QLMamNon
                 if (hocSinhIdsToHocSinhLops.ContainsKey(row.HocSinhId))
                 {
                     hocsinh_lop hocSinhLop = hocSinhIdsToHocSinhLops[row.HocSinhId];
-                    row.NgayVaoLop = hocSinhLop.DateJoin;
+                    row.NgayVaoLopDisplay = hocSinhLop.DateJoin;
                 }
             }
         }

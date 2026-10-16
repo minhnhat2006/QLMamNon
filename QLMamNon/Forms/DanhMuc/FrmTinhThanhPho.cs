@@ -13,7 +13,7 @@ namespace QLMamNon.Forms.DanhMuc
 
             this.TablePrimaryKey = "ThanhPhoId";
             this.DanhMuc = DanhMucConstant.TinhThanhPho;
-            this.FormKey = AppForms.FormDanhMucTruongHoc;
+            this.FormKey = AppForms.FormDanhMucTinhThanhPho;
             Entities.thanhphoes.Load();
             this.thanhPhoRowBindingSource.DataSource = Entities.thanhphoes.Local.ToBindingList();
             this.gvMain.OptionsEditForm.CustomEditFormLayout = new UCEditFormTinhThanhPho();

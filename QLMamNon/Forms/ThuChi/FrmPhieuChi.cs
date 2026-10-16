@@ -15,6 +15,9 @@ namespace QLMamNon.Forms.ThuChi
     {
         #region Properties
 
+        // Context chỉ dùng để nạp lưới; được thay mới mỗi lần nạp và giải phóng khi đóng form.
+        private qlmamnonEntities loadEntities;
+
         #endregion
 
         public FrmPhieuChi()
@@ -25,6 +28,7 @@ namespace QLMamNon.Forms.ThuChi
             this.DanhMuc = DanhMucConstant.PhieuChi;
             this.FormKey = AppForms.FormPhieuChi;
 
+            this.FormClosed += (sender, e) => this.disposeLoadEntities();
             this.loadPhieuChi();
             this.InitForm(this.btnThem, this.btnChinhSua, this.btnXoa, null, null, this.gvMain, this.phieuChiRowBindingSource.DataSource);
         }
@@ -36,8 +40,19 @@ namespace QLMamNon.Forms.ThuChi
             // EF, câu query vẫn chạy nhưng giá trị từ DB bị bỏ qua và trả lại đúng các
             // entity cũ -> bảng không cập nhật sau khi FrmTaoPhieuChi lưu bằng context
             // khác.
+            this.disposeLoadEntities();
+            this.loadEntities = StaticDataFacade.GetQLMNEntities();
             PhieuChiService phieuChiService = new PhieuChiService();
-            this.phieuChiRowBindingSource.DataSource = phieuChiService.LoadPhieuChi(StaticDataFacade.GetQLMNEntities());
+            this.phieuChiRowBindingSource.DataSource = phieuChiService.LoadPhieuChi(this.loadEntities);
+        }
+
+        private void disposeLoadEntities()
+        {
+            if (this.loadEntities != null)
+            {
+                this.loadEntities.Dispose();
+                this.loadEntities = null;
+            }
         }
 
         protected override void onAdding()
@@ -169,18 +184,36 @@ namespace QLMamNon.Forms.ThuChi
 
             if (confirmResult == DialogResult.Yes)
             {
-                int phieuChiId = (int)this.GridViewMain.GetFocusedRowCellValue("PhieuChiId");
-                string maPhieu = (string)this.GridViewMain.GetFocusedRowCellValue("MaPhieu");
-                int phanLoaiChiId = (int)this.GridViewMain.GetFocusedRowCellValue("PhanLoaiChiId");
-                DateTime ngay = (DateTime)this.GridViewMain.GetFocusedRowCellValue("Ngay");
-                long soTien = (long)this.GridViewMain.GetFocusedRowCellValue("SoTien");
-                double soLuong = (double)this.GridViewMain.GetFocusedRowCellValue("SoLuong");
-                double donGia = (double)this.GridViewMain.GetFocusedRowCellValue("DonGia");
-                DateTime createdDate = (DateTime)this.GridViewMain.GetFocusedRowCellValue("CreatedDate");
+                object phieuChiIdValue = this.GridViewMain.GetFocusedRowCellValue(this.TablePrimaryKey);
 
+                if (phieuChiIdValue == null || phieuChiIdValue == DBNull.Value)
+                {
+                    return;
+                }
+
+                int phieuChiId = Convert.ToInt32(phieuChiIdValue);
                 phieuchi phieuChi = new phieuchi() { PhieuChiId = phieuChiId };
-                Entities.Entry(phieuChi).State = EntityState.Deleted;
-                Entities.SaveChanges();
+
+                try
+                {
+                    Entities.Entry(phieuChi).State = EntityState.Deleted;
+                    Entities.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    // Bỏ entity vừa đánh dấu xóa để lần lưu sau không bị kẹt vì nó.
+                    try
+                    {
+                        Entities.Entry(phieuChi).State = EntityState.Detached;
+                    }
+                    catch (Exception)
+                    {
+                    }
+
+                    this.onSavingError(ex);
+                    return;
+                }
+
                 this.loadPhieuChi();
                 FormMainFacade.SetStatusCaption(this.FormKey, StatusCaptions.DeletedCaption);
             }

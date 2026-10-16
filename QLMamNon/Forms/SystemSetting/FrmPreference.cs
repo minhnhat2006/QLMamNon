@@ -18,7 +18,7 @@ namespace QLMamNon.Forms.SystemSetting
 
         public FrmPreference()
         {
-            this.FormKey = AppForms.FormBangKeThuHocPhi;
+            this.FormKey = AppForms.FormPreference;
             InitializeComponent();
         }
 

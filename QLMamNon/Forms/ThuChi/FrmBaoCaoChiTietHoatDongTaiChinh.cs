@@ -31,6 +31,17 @@ namespace QLMamNon.Forms.ThuChi
             entities = StaticDataFacade.GetQLMNEntities();
 
             InitializeComponent();
+
+            this.FormClosed += new FormClosedEventHandler(FrmBaoCaoChiTietHoatDongTaiChinh_FormClosed);
+        }
+
+        private void FrmBaoCaoChiTietHoatDongTaiChinh_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.entities != null)
+            {
+                this.entities.Dispose();
+                this.entities = StaticDataFacade.GetQLMNEntities();
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -40,9 +51,15 @@ namespace QLMamNon.Forms.ThuChi
 
         private void btnXemBaoCao_Click(object sender, EventArgs e)
         {
-            if (this.dateTuNgay.DateTime == null || this.dateDenNgay.DateTime == null)
+            if (this.dateTuNgay.DateTime == DateTime.MinValue || this.dateDenNgay.DateTime == DateTime.MinValue)
             {
                 MessageBox.Show("Xin vui lòng chọn ngày", "Chọn ngày", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (this.dateTuNgay.DateTime > this.dateDenNgay.DateTime)
+            {
+                MessageBox.Show("Ngày bắt đầu không được lớn hơn ngày kết thúc", "Chọn ngày", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 

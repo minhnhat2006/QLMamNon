@@ -25,10 +25,21 @@ namespace QLMamNon.Forms.ThuChi
 
         public FrmBangKeThuTheoLop()
         {
-            FormKey = AppForms.FormBangKeThuHocPhi;
+            FormKey = AppForms.FormBangKeThuTheoLop;
             entities = StaticDataFacade.GetQLMNEntities();
 
             InitializeComponent();
+
+            this.FormClosed += new FormClosedEventHandler(FrmBangKeThuTheoLop_FormClosed);
+        }
+
+        private void FrmBangKeThuTheoLop_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.entities != null)
+            {
+                this.entities.Dispose();
+                this.entities = StaticDataFacade.GetQLMNEntities();
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -38,9 +49,15 @@ namespace QLMamNon.Forms.ThuChi
 
         private void btnXemBaoCao_Click(object sender, EventArgs e)
         {
-            if (this.dateTuNgay.DateTime == null || this.dateDenNgay.DateTime == null)
+            if (this.dateTuNgay.DateTime == DateTime.MinValue || this.dateDenNgay.DateTime == DateTime.MinValue)
             {
                 MessageBox.Show("Xin vui lòng chọn ngày", "Chọn ngày", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (this.dateTuNgay.DateTime > this.dateDenNgay.DateTime)
+            {
+                MessageBox.Show("Ngày bắt đầu không được lớn hơn ngày kết thúc", "Chọn ngày", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -71,12 +88,32 @@ namespace QLMamNon.Forms.ThuChi
                 (pt.Ngay.Year < toDate.Year || (pt.Ngay.Year == toDate.Year && pt.Ngay.Month < toDate.Month) || (pt.Ngay.Year == toDate.Year && pt.Ngay.Month == toDate.Month && pt.Ngay.Day <= toDate.Day)) &&
                 pt.HocSinhId.HasValue).ToList();
 
+            // Single-pass group by date, then one GetLopsByHocSinhIds call per distinct date (6.2)
+            Dictionary<DateTime, List<int>> receiptsByDate = new Dictionary<DateTime, List<int>>();
+            foreach (phieuthu receipt in phieuThuDataTable)
+            {
+                DateTime key = receipt.Ngay.Date;
+                if (!receiptsByDate.ContainsKey(key))
+                {
+                    receiptsByDate.Add(key, new List<int>());
+                }
+                if (receipt.HocSinhId != null)
+                {
+                    receiptsByDate[key].Add(receipt.HocSinhId.Value);
+                }
+            }
+            Dictionary<DateTime, Dictionary<int, lop>> lopsByDate = new Dictionary<DateTime, Dictionary<int, lop>>();
+            foreach (KeyValuePair<DateTime, List<int>> kvp in receiptsByDate)
+            {
+                lopsByDate.Add(kvp.Key, StaticDataUtil.GetLopsByHocSinhIds(entities, kvp.Value, kvp.Key));
+            }
+
             Dictionary<string, Dictionary<string, BangKeThuTheoLopItem>> bangKeThuTheoLopItemsByLop = new Dictionary<string, Dictionary<string, BangKeThuTheoLopItem>>();
             List<BangKeThuTheoLopItem> bangKeThuTheoLopItems = new List<BangKeThuTheoLopItem>();
             foreach (phieuthu item in phieuThuDataTable)
             {
-                var lops = StaticDataUtil.GetLopsByHocSinhIds(entities, new List<int>() { item.HocSinhId.Value }, item.Ngay);
-                var lop = lops.Count > 0 ? lops.First().Value : null;
+                Dictionary<int, lop> lopsForDate = lopsByDate.ContainsKey(item.Ngay.Date) ? lopsByDate[item.Ngay.Date] : new Dictionary<int, lop>();
+                lop lop = (item.HocSinhId.HasValue && lopsForDate.ContainsKey(item.HocSinhId.Value)) ? lopsForDate[item.HocSinhId.Value] : null;
 
                 if (lop == null || !lopIds.Contains(lop.LopId))
                 {

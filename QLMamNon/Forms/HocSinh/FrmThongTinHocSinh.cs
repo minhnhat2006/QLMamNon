@@ -20,8 +20,6 @@ namespace QLMamNon.Forms.HocSinh
     {
         #region Properties
 
-        private static readonly int[] HidePhuPhiColumns = new int[] { 3 };
-
         #endregion
 
         #region Events
@@ -34,6 +32,11 @@ namespace QLMamNon.Forms.HocSinh
             this.TablePrimaryKey = "HocSinhId";
             this.DanhMuc = DanhMucConstant.ThongTinHocSinh;
             this.FormKey = AppForms.FormThongTinHocSinh;
+
+            // Cột "Ngày vào lớp" chỉ để hiển thị: bind vào thuộc tính NotMapped để hocsinh không bị Modified.
+            this.colNgayVaoLop.FieldName = "NgayVaoLopDisplay";
+            this.colNgayVaoLop.OptionsColumn.AllowEdit = false;
+            this.colNgayVaoLop.OptionsColumn.ReadOnly = true;
 
             this.gvMain.OptionsEditForm.CustomEditFormLayout = new UCEditFormThongTinHocSinh();
             this.InitForm(this.btnThem, this.btnChinhSua, this.btnXoa, this.btnLuu, this.btnHuyBo, this.gvMain, this.hocSinhRowBindingSource.DataSource);
@@ -53,7 +56,7 @@ namespace QLMamNon.Forms.HocSinh
         {
             List<int> namSinhs = new List<int>();
 
-            for (int i = Settings.Default.NamSinhStart; i < DateTime.Now.Year; i++)
+            for (int i = Settings.Default.NamSinhStart; i <= DateTime.Now.Year; i++)
             {
                 namSinhs.Add(i);
             }
@@ -65,29 +68,42 @@ namespace QLMamNon.Forms.HocSinh
         {
             if (!Settings.Default.IsMNHongMinh)
             {
-                foreach (int columnIndex in HidePhuPhiColumns)
+                // Cột phụ phí (trước đây là gvMain.Columns[3])
+                this.colNgaySinhNgay.Visible = false;
+
+                if (this.colNgaySinhNgay.OwnerBand != null)
                 {
-                    gvMain.Columns[columnIndex].Visible = false;
+                    this.colNgaySinhNgay.OwnerBand.Visible = false;
 
-                    if (gvMain.Columns[columnIndex].OwnerBand != null)
+                    if (this.colNgaySinhNgay.OwnerBand.ParentBand != null)
                     {
-                        gvMain.Columns[columnIndex].OwnerBand.Visible = false;
-
-                        if (gvMain.Columns[columnIndex].OwnerBand.ParentBand != null)
-                        {
-                            gvMain.Columns[columnIndex].OwnerBand.ParentBand.Visible = false;
-                        }
+                        this.colNgaySinhNgay.OwnerBand.ParentBand.Visible = false;
                     }
                 }
 
                 // Họ Tên Cha
-                gvMain.Columns["HoTenCha"].OwnerBand.Visible = false;
+                if (this.colHoTenCha.OwnerBand != null)
+                {
+                    this.colHoTenCha.OwnerBand.Visible = false;
+                }
+
                 // Điện Thoại Cha
-                gvMain.Columns["DienThoai"].OwnerBand.Caption = "Điện thoại cha";
+                if (this.colDienThoai.OwnerBand != null)
+                {
+                    this.colDienThoai.OwnerBand.Caption = "Điện thoại cha";
+                }
+
                 // Họ Tên Mẹ
-                gvMain.Columns["HoTenMe"].OwnerBand.Visible = false;
+                if (this.colHoTenMe.OwnerBand != null)
+                {
+                    this.colHoTenMe.OwnerBand.Visible = false;
+                }
+
                 // Điện Thoại Mẹ
-                gvMain.Columns["DienThoaiMe"].OwnerBand.Caption = "Điện thoại mẹ";
+                if (this.colDienThoaiMe.OwnerBand != null)
+                {
+                    this.colDienThoaiMe.OwnerBand.Caption = "Điện thoại mẹ";
+                }
             }
         }
 
@@ -105,6 +121,20 @@ namespace QLMamNon.Forms.HocSinh
                         case 0: e.DisplayText = "Nữ"; break;
                         case 1: e.DisplayText = "Nam"; break;
                     }
+                }
+            }
+            else if (e.Column == this.colNgayVaoLop && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+            {
+                // Display-first; học sinh chưa có hocsinh_lop hiện tại vẫn hiện hocsinh.NgayVaoLop đã lưu.
+                object ngayVaoLop = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "NgayVaoLopDisplay");
+                if (!(ngayVaoLop is DateTime))
+                {
+                    ngayVaoLop = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "NgayVaoLop");
+                }
+
+                if (ngayVaoLop is DateTime)
+                {
+                    e.DisplayText = ((DateTime)ngayVaoLop).ToString("d");
                 }
             }
             else if (e.Column.FieldName == "ThoiHoc" && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
@@ -168,7 +198,9 @@ namespace QLMamNon.Forms.HocSinh
         private void cmbQuanHuyen_EditValueChanged(object sender, EventArgs e)
         {
             List<phuongxa> table = (List<phuongxa>)StaticDataFacade.Get(StaticDataKeys.PhuongXa);
-            if (cmbQuanHuyen.EditValue != null && cmbQuanHuyen.EditValue != null)
+            this.cmbPhuongXa.EditValue = null;
+
+            if (cmbQuanHuyen.EditValue != null)
             {
                 this.phuongXaRowBindingSource.DataSource = table.FindAll(p => p.QuanHuyenId == (int)cmbQuanHuyen.EditValue);
             }
@@ -193,6 +225,8 @@ namespace QLMamNon.Forms.HocSinh
             this.cmbNamSinh.EditValue = null;
             this.cmbThoiHoc.EditValue = null;
             this.cmbNgaySinh.EditValue = null;
+
+            this.loadThongTinHocSinh(Entities, null, null, null, null, null, null, false);
         }
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
@@ -234,13 +268,20 @@ namespace QLMamNon.Forms.HocSinh
         {
             List<object> rows = new List<object>(this.GridViewMain.RowCount);
 
+            int stt = 0;
+
+            // Data row handle 0..DataRowCount-1 theo thứ tự sort/filter, không tính dòng nhóm
+            // (kể cả nhóm đang thu gọn).
             for (int i = 0; i < this.GridViewMain.DataRowCount; i++)
             {
-                object dataRow = this.GridViewMain.GetRow(this.GridViewMain.GetVisibleRowHandle(i));
-                rows.Add(dataRow);
+                hocsinh hocSinhRow = this.GridViewMain.GetRow(i) as hocsinh;
+                if (hocSinhRow == null)
+                {
+                    continue;
+                }
 
-                hocsinh hocSinhRow = dataRow as hocsinh;
-                hocSinhRow.STT = i + 1;
+                rows.Add(hocSinhRow);
+                hocSinhRow.STT = ++stt;
 
                 if (hocSinhRow.PhuongXaId != null)
                 {

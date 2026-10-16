@@ -12,6 +12,7 @@ using QLMamNon.Entity.Form;
 using QLMamNon.Facade;
 using QLMamNon.Reports;
 using QLMamNon.Service.Data;
+using static QLMamNon.Constant.PhanLoaiThuConstant;
 
 namespace QLMamNon.Forms.ThuChi
 {
@@ -33,6 +34,17 @@ namespace QLMamNon.Forms.ThuChi
             entities = StaticDataFacade.GetQLMNEntities();
 
             InitializeComponent();
+
+            this.FormClosed += new FormClosedEventHandler(FrmSoQuyTienMat_FormClosed);
+        }
+
+        private void FrmSoQuyTienMat_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.entities != null)
+            {
+                this.entities.Dispose();
+                this.entities = StaticDataFacade.GetQLMNEntities();
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -42,9 +54,15 @@ namespace QLMamNon.Forms.ThuChi
 
         private void btnXemBaoCao_Click(object sender, EventArgs e)
         {
-            if (this.dateTuNgay.DateTime == null || this.dateDenNgay.DateTime == null)
+            if (this.dateTuNgay.DateTime == DateTime.MinValue || this.dateDenNgay.DateTime == DateTime.MinValue)
             {
                 MessageBox.Show("Xin vui lòng chọn ngày", "Chọn ngày", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (this.dateTuNgay.DateTime > this.dateDenNgay.DateTime)
+            {
+                MessageBox.Show("Ngày bắt đầu không được lớn hơn ngày kết thúc", "Chọn ngày", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -87,7 +105,7 @@ namespace QLMamNon.Forms.ThuChi
             DateTime fromDate = DateTimeUtil.StartOfDate(this.dateTuNgay.DateTime);
             DateTime toDate = DateTimeUtil.EndOfDate(this.dateDenNgay.DateTime);
 
-            decimal soTienTonDauKy = findSoTienTonDauKy(toDate);
+            decimal soTienTonDauKy = findSoTienTonDauKy(fromDate);
 
             SortedList soQuyTienMatMap = new SortedList();
             SoQuyTienMatItem soQuyTienMatDauKy = new SoQuyTienMatItem()
@@ -108,14 +126,14 @@ namespace QLMamNon.Forms.ThuChi
             FormMainFacade.ShowReport(rpt);
         }
 
-        private decimal findSoTienTonDauKy(DateTime toDate)
+        private decimal findSoTienTonDauKy(DateTime fromDate)
         {
             decimal soTienTonDauKy = txtTon.Value;
 
             if (!chkTon.Checked)
             {
                 SoThuTienService soThuTienService = new SoThuTienService();
-                soTienTonDauKy = soThuTienService.GetSoTienTonDauKy(entities, toDate);
+                soTienTonDauKy = soThuTienService.GetSoTienTonDauKy(entities, fromDate);
             }
             return soTienTonDauKy;
         }
@@ -146,6 +164,10 @@ namespace QLMamNon.Forms.ThuChi
             List<phieuchi> phieuChiDataTable = phieuChiService.LoadPhieuChiByDateRange(entities, fromDate, toDate, phanLoaiChiIds);
             foreach (phieuchi phieuChiRow in phieuChiDataTable)
             {
+                if (phieuChiRow.PaymentTypeEnum == PaymentType.TRANSFER)
+                {
+                    continue;
+                }
                 SoQuyTienMatItem soQuyTienMatItemChi = new SoQuyTienMatItem()
                 {
                     MucChi = phieuChiRow.PhanLoaiChi,
@@ -166,6 +188,10 @@ namespace QLMamNon.Forms.ThuChi
 
             foreach (phieuthu phieuThuRow in phieuThuDataTable)
             {
+                if (phieuThuRow.PaymentTypeEnum == PaymentType.TRANSFER)
+                {
+                    continue;
+                }
                 phieuThuRow.PhanLoaiThu = phieuThuRow.PhanLoaiThuId == null ? "Thu tiền học phí" : StaticDataUtil.GetPhanLoaiThuById(phieuThuRow.PhanLoaiThuId.Value);
 
                 int groupDate = getGroupDate(fromDate, phieuThuRow);
@@ -176,7 +202,8 @@ namespace QLMamNon.Forms.ThuChi
                     dateOfGroup = toDate;
                 }
 
-                string key = StringUtil.Join(new int[] { groupDate, phieuThuRow.PhanLoaiThuId.Value }, "~");
+                int phanLoaiThuIdKey = phieuThuRow.PhanLoaiThuId == null ? 0 : phieuThuRow.PhanLoaiThuId.Value;
+                string key = StringUtil.Join(new int[] { groupDate, phanLoaiThuIdKey }, "~");
 
                 if (!groupDateToSoQuyTienMatItemsMap.ContainsKey(key))
                 {
@@ -191,16 +218,20 @@ namespace QLMamNon.Forms.ThuChi
 
             foreach (phieuthu phieuThuRow in phieuThuDataTable)
             {
+                if (phieuThuRow.PaymentTypeEnum == PaymentType.TRANSFER)
+                {
+                    continue;
+                }
                 int groupDate = getGroupDate(fromDate, phieuThuRow);
-                string key = StringUtil.Join(new int[] { groupDate, phieuThuRow.PhanLoaiThuId.Value }, "~");
+                int phanLoaiThuIdKey = phieuThuRow.PhanLoaiThuId == null ? 0 : phieuThuRow.PhanLoaiThuId.Value;
+                string key = StringUtil.Join(new int[] { groupDate, phanLoaiThuIdKey }, "~");
                 SoQuyTienMatItem soQuyTienMatItemThu = groupDateToSoQuyTienMatItemsMap[key];
                 soQuyTienMatItemThu.SoTienThu += phieuThuRow.SoTien;
             }
 
-            int addedCount = 0;
             foreach (SoQuyTienMatItem soQuyTienMatItemThu in groupDateToSoQuyTienMatItemsMap.Values)
             {
-                soQuyTienMatMap.Add(soQuyTienMatItemThu.NgayChungTu.AddMilliseconds(addedCount++), soQuyTienMatItemThu);
+                soQuyTienMatMap.Add(soQuyTienMatItemThu.NgayChungTu.AddMilliseconds(soQuyTienMatMap.Count), soQuyTienMatItemThu);
             }
         }
 

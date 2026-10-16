@@ -23,10 +23,21 @@ namespace QLMamNon.Forms.ThuChi
 
         public FrmBaoCaoSoLuongHocSinhTheoLop()
         {
-            FormKey = AppForms.FormBangKeThuHocPhi;
+            FormKey = AppForms.FormBaoCaoSoLuongHocSinhTheoLop;
             entities = StaticDataFacade.GetQLMNEntities();
 
             InitializeComponent();
+
+            this.FormClosed += new FormClosedEventHandler(FrmBaoCaoSoLuongHocSinhTheoLop_FormClosed);
+        }
+
+        private void FrmBaoCaoSoLuongHocSinhTheoLop_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.entities != null)
+            {
+                this.entities.Dispose();
+                this.entities = StaticDataFacade.GetQLMNEntities();
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -36,7 +47,7 @@ namespace QLMamNon.Forms.ThuChi
 
         private void btnXemBaoCao_Click(object sender, EventArgs e)
         {
-            if (this.dateFromMonth.DateTime == null || this.dateToMonth.DateTime == null)
+            if (this.dateFromMonth.DateTime == DateTime.MinValue || this.dateToMonth.DateTime == DateTime.MinValue)
             {
                 MessageBox.Show("Xin vui lòng chọn ngày", "Chọn ngày", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -65,16 +76,25 @@ namespace QLMamNon.Forms.ThuChi
             DateTime toDate = DateTimeUtil.DateEndOfMonth(dateToMonth.DateTime);
 
             List<BaoCaoSoLuongHocSinhTheoLopItem> baoCaoSoLuongHocSinhTheoLopItems = new List<BaoCaoSoLuongHocSinhTheoLopItem>();
-            for (DateTime date = fromDate; date < toDate; date = date.AddMonths(1))
+            // Use <= so a single-month selection (fromDate == toDate) still runs
+            for (DateTime date = fromDate; date <= toDate; date = date.AddMonths(1))
             {
                 Dictionary<int, BaoCaoSoLuongHocSinhTheoLopItem> baoCaoSoLuongHocSinhTheoLopItemsMap = new Dictionary<int, BaoCaoSoLuongHocSinhTheoLopItem>();
                 List<hocsinh> hocsinhList = entities.getHocSinhByLopAndNgay(null, date).ToList();
+
+                // Batch all hocsinh IDs for this date — avoids one DB round-trip per student (6.2)
+                List<int> batchIds = new List<int>();
+                foreach (var hs in hocsinhList)
+                {
+                    batchIds.Add(hs.HocSinhId);
+                }
+                Dictionary<int, lop> allLopMap = StaticDataUtil.GetLopsByHocSinhIds(entities, batchIds, date);
+
                 foreach (var hocsinhItem in hocsinhList)
                 {
-                    Dictionary<int, lop> lopMap = StaticDataUtil.GetLopsByHocSinhIds(entities, new List<int>() { hocsinhItem.HocSinhId }, date);
-                    if (lopMap.Count == 0) continue;
+                    if (!allLopMap.ContainsKey(hocsinhItem.HocSinhId)) continue;
 
-                    lop lop = lopMap.First().Value;
+                    lop lop = allLopMap[hocsinhItem.HocSinhId];
                     BaoCaoSoLuongHocSinhTheoLopItem baoCaoSoLuongHocSinhTheoLopItem = null;
                     if (baoCaoSoLuongHocSinhTheoLopItemsMap.ContainsKey(lop.LopId))
                     {

@@ -24,10 +24,21 @@ namespace QLMamNon.Forms.ThuChi
 
         public FrmBaoCaoSiSoHocSinhTheoLop()
         {
-            FormKey = AppForms.FormBangKeThuHocPhi;
+            FormKey = AppForms.FormBaoCaoSiSoHocSinhTheoLop;
             entities = StaticDataFacade.GetQLMNEntities();
 
             InitializeComponent();
+
+            this.FormClosed += new FormClosedEventHandler(FrmBaoCaoSiSoHocSinhTheoLop_FormClosed);
+        }
+
+        private void FrmBaoCaoSiSoHocSinhTheoLop_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.entities != null)
+            {
+                this.entities.Dispose();
+                this.entities = StaticDataFacade.GetQLMNEntities();
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -37,7 +48,7 @@ namespace QLMamNon.Forms.ThuChi
 
         private void btnXemBaoCao_Click(object sender, EventArgs e)
         {
-            if (this.dateEditThang.DateTime == null)
+            if (this.dateEditThang.DateTime == DateTime.MinValue)
             {
                 MessageBox.Show("Xin vui lòng chọn Tháng", "Chọn ngày", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;

@@ -313,6 +313,7 @@
     <Compile Include="Constant\FormPrivilegeConstant.cs" />
     <Compile Include="Dao\Constant\ViewBangThuTienFieldName.cs" />
     <Compile Include="Dao\hocsinh.Partial.cs" />
+    <Compile Include="Dao\viewhoctap.Partial.cs" />
     <Compile Include="Dao\viewtaisan.Partial.cs" />
     <Compile Include="Dao\viewbangiaotaisan.Partial.cs" />
     <Compile Include="Dao\phieuchi.Partial.cs" />
@@ -603,10 +604,6 @@
     </Compile>
     <Compile Include="Forms\ThuChi\FrmTaoPhieuThu.Designer.cs">
       <DependentUpon>FrmTaoPhieuThu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ThuChi\FrmTaoPhieuThu.Service.cs">
-      <DependentUpon>FrmTaoPhieuThu.cs</DependentUpon>
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CRUDForm.cs">
       <SubType>Form</SubType>
@@ -916,6 +913,7 @@
     <Compile Include="Service\Data\GiaoVienService.cs" />
     <Compile Include="Service\Data\PhieuChiService.cs" />
     <Compile Include="Service\Data\PhieuThuService.cs" />
+    <Compile Include="Service\Data\TruyThuService.cs" />
     <Compile Include="Service\SMS\SpeedSMS.cs" />
     <Compile Include="Service\SMS\ESms.cs" />
     <Compile Include="Service\SMS\ISMS.cs" />

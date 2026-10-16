@@ -13,23 +13,25 @@ namespace QLMamNon.Service.Data
     {
         public List<phieuthu> LoadPhieuThu(BindingList<hocsinh> hocSinhTable)
         {
-            qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities();
-            List<phieuthu> table = entities.phieuthus.ToList();
-
-            foreach (phieuthu row in table)
+            using (qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities())
             {
-                if (row.HocSinhId != null)
+                List<phieuthu> table = entities.phieuthus.ToList();
+
+                foreach (phieuthu row in table)
                 {
-                    row.HocSinh = StaticDataUtil.GetHocSinhFullNameByHocSinhId(hocSinhTable.ToList(), row.HocSinhId.Value);
+                    if (row.HocSinhId != null)
+                    {
+                        row.HocSinh = StaticDataUtil.GetHocSinhFullNameByHocSinhId(hocSinhTable.ToList(), row.HocSinhId.Value);
+                    }
+
+                    if (row.PhanLoaiThuId != null)
+                    {
+                        row.PhanLoaiThu = StaticDataUtil.GetPhanLoaiThuById(row.PhanLoaiThuId.Value);
+                    }
                 }
 
-                if (row.PhanLoaiThuId != null)
-                {
-                    row.PhanLoaiThu = StaticDataUtil.GetPhanLoaiThuById(row.PhanLoaiThuId.Value);
-                }
+                return table;
             }
-
-            return table;
         }
 
         public void InsertPhieuThu(DateTime ngay, long soTien, long soTienChuyenKhoan, string maPhieu, string ghiChu, int? hocSinhId, int? phanLoaiThuId)
@@ -54,6 +56,13 @@ namespace QLMamNon.Service.Data
         {
             qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities();
             phieuthu phieuThu = entities.phieuthus.FirstOrDefault(p => p.PhieuThuId == phieuThuRow.PhieuThuId);
+
+            if (phieuThu == null)
+            {
+                // Phiếu thu đã bị xóa ở nơi khác.
+                throw new InvalidOperationException("Phiếu thu này không còn tồn tại. Vui lòng tải lại danh sách.");
+            }
+
             phieuThu.SoTien = soTienChuyenKhoan > 0 ? soTienChuyenKhoan : soTien;
             phieuThu.PaymentType = (soTienChuyenKhoan > 0 ? PaymentType.TRANSFER : PaymentType.CASH).ToString();
             phieuThu.MaPhieu = maPhieu;
@@ -66,15 +75,20 @@ namespace QLMamNon.Service.Data
 
         public List<phieuthu> LoadPhieuThuByDateRangeWithGroupPhanLoaiThu(DateTime? fromDate, DateTime? toDate, List<int> phanLoaiThuIds)
         {
-            qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities();
-            List<phieuthu> table = entities.getPhieuThuByDateRangeWithGroupPhanLoaiThu(fromDate, toDate, StringUtil.JoinWithCommas(phanLoaiThuIds)).ToList();
-
-            foreach (phieuthu phieuThuRow in table)
+            using (qlmamnonEntities entities = StaticDataFacade.GetQLMNEntities())
             {
-                phieuThuRow.PhanLoaiThu = StaticDataUtil.GetPhanLoaiThuById(phieuThuRow.PhanLoaiThuId.Value);
-            }
+                List<phieuthu> table = entities.getPhieuThuByDateRangeWithGroupPhanLoaiThu(fromDate, toDate, StringUtil.JoinWithCommas(phanLoaiThuIds)).ToList();
 
-            return table;
+                foreach (phieuthu phieuThuRow in table)
+                {
+                    if (phieuThuRow.PhanLoaiThuId != null)
+                    {
+                        phieuThuRow.PhanLoaiThu = StaticDataUtil.GetPhanLoaiThuById(phieuThuRow.PhanLoaiThuId.Value);
+                    }
+                }
+
+                return table;
+            }
         }
     }
 }
