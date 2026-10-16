@@ -18,7 +18,7 @@ namespace QLMamNon.Facade
 
         public static void Error(Exception ex, string module)
         {
-            logger.Error(ex);
+            logger.Error(string.Format("{0}-{1}", module, ex));
         }
 
         public static void Warning(string message, string module)
